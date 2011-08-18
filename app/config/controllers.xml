@@ -3,7 +3,7 @@
  
   <controller-definitions>
 
-    <controller code="*" class="*Controller"/>
+    <controller code="*" class="Controller_*"/>
   
   </controller-definitions>
  
