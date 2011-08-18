@@ -18,9 +18,15 @@
     <class name="*" file="*.class.php"/>
     <interface name="*" file="*.interface.php"/>
   </cluster>
-  
+
+  <!-- Filter classes -->
+  <cluster name="Filters" path="/libs/filters/...">
+    <class name="*" file="*.class.php"/>
+    <interface name="*" file="*.interface.php"/>
+  </cluster>
+
   <!-- Model classes -->
-  <cluster name="Model" path="/libs/model/...">
+  <cluster name="Models" path="/libs/models/...">
     <class name="*" file="*.class.php"/>
     <interface name="*" file="*.interface.php"/>
   </cluster>
