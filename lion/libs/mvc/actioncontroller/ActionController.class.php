@@ -201,21 +201,21 @@ abstract class __ActionController extends __SystemResource implements __IActionC
      */
     public function postExecute() {}
 
-    public function execute($action_code = null) {
-        if($action_code == null) {
-            if(method_exists($this, $this->getCode() . 'Action')) {
-                $action_code = $this->getCode();
-            }
-            else {
-                $action_code = __CurrentContext::getInstance()->getPropertyContent('DEFAULT_ACTION_CODE');
-            }
-        }
-        if(!method_exists($this, $action_code . 'Action')) {
-            throw __ExceptionFactory::getInstance()->createException('ERR_ACTION_NOT_SUPPORTED_BY_CONTROLLER', array(get_class($this), $action_code));
-        }
-        $model_and_view = call_user_func_array (array($this, $action_code . 'Action'), array());
-        return $model_and_view;
-    }
+	public function execute($action_code = null) {
+	    if($action_code == null) {
+	        if(method_exists($this, 'action_' . $this->getCode())) {
+	            $action_code = $this->getCode();
+	        }
+	        else {
+	            $action_code = __CurrentContext::getInstance()->getPropertyContent('DEFAULT_ACTION_CODE');
+	        }
+	    }
+	    if(!method_exists($this, 'action_' . $action_code)) {
+	        throw __ExceptionFactory::getInstance()->createException('ERR_ACTION_NOT_SUPPORTED_BY_CONTROLLER', array(get_class($this), $action_code));
+	    }
+	    $model_and_view = call_user_func_array (array($this, 'action_' . $action_code), array());
+	    return $model_and_view;
+	}
 
     /**
      * {@inheritdoc}
