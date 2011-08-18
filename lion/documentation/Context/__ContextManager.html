@@ -1,0 +1,632 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ContextManager</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+															<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This class is in charge of <a href="../Context/__Context.html">__Context</a> management.<br /><br />
+		
+		<pre></pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../Context/__ContextManager.html#var$_application_context_id">$_application_context_id</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#var$_contexts">$_contexts</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#var$_current_context_id">$_current_context_id</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Context/__ContextManager.html#methodcreateApplicationContext">createApplicationContext</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodcreateContext">createContext</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodgetApplicationContext">getApplicationContext</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodgetContext">getContext</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodgetCurrentContext">getCurrentContext</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodgetCurrentContextId">getCurrentContextId</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodgetInstance">getInstance</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodhasContext">hasContext</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodisApplicationContextCreated">isApplicationContextCreated</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#methodswitchContext">switchContext</a></li>
+		  		  <li><a href="../Context/__ContextManager.html#method_addContext">_addContext</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+															<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_application_context_id" title="details" class="var-name-summary">$_application_context_id</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_contexts" title="details" class="var-name-summary">$_contexts</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_current_context_id" title="details" class="var-name-summary">$_current_context_id</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#createApplicationContext" title="details" class="method-name">createApplicationContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#createContext" title="details" class="method-name">&amp;createContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Context/__Context.html">__Context</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getApplicationContext" title="details" class="method-name">&amp;getApplicationContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the application <a href="../Context/__Context.html">__Context</a> instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Context/__Context.html">__Context</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getContext" title="details" class="method-name">&amp;getContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the <a href="../Context/__Context.html">__Context</a> for specified id, or null if not exist</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Context/__Context.html">__Context</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getCurrentContext" title="details" class="method-name">&amp;getCurrentContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the active <a href="../Context/__Context.html">__Context</a> instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getCurrentContextId" title="details" class="method-name">getCurrentContextId</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the id of the active <a href="../Context/__Context.html">__Context</a> instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Context/__ContextManager.html">__ContextManager</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getInstance" title="details" class="method-name">&amp;getInstance</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the singleton instance of __ContextManager class</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#hasContext" title="details" class="method-name">hasContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isApplicationContextCreated" title="details" class="method-name">isApplicationContextCreated</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#switchContext" title="details" class="method-name">switchContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#_addContext" title="details" class="method-name">_addContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_application_context_id" id="$_application_context_id"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_application_context_id</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_contexts" id="$_contexts"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_contexts</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_current_context_id" id="$_current_context_id"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_current_context_id</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodcreateApplicationContext" id="createApplicationContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">createApplicationContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void createApplicationContext(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodcreateContext" id="createContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">createContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void &amp;createContext(
+
+$context_id, 
+$context_base_dir, [
+$configuration_file = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $context_id</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $context_base_dir</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $configuration_file</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetApplicationContext" id="getApplicationContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getApplicationContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Context/__Context.html">__Context</a> &amp;getApplicationContext(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the application <a href="../Context/__Context.html">__Context</a> instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The application context</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetContext" id="getContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Context/__Context.html">__Context</a> &amp;getContext(
+string
+$context_id&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the <a href="../Context/__Context.html">__Context</a> for specified id, or null if not exist<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $context_id</td>
+                <td class="defaultTd">
+                The id of the context to retrieve            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The context for specified id</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetCurrentContext" id="getCurrentContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getCurrentContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Context/__Context.html">__Context</a> &amp;getCurrentContext(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the active <a href="../Context/__Context.html">__Context</a> instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The active context</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetCurrentContextId" id="getCurrentContextId"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getCurrentContextId</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getCurrentContextId(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the id of the active <a href="../Context/__Context.html">__Context</a> instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The id of the active context</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getInstance</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Context/__ContextManager.html">__ContextManager</a> &amp;getInstance(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the singleton instance of __ContextManager class<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The singleton instance of __ContextManager class</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodhasContext" id="hasContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">hasContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void hasContext(
+
+$context_id&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $context_id</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisApplicationContextCreated" id="isApplicationContextCreated"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isApplicationContextCreated</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void isApplicationContextCreated(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodswitchContext" id="switchContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">switchContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void switchContext(
+
+$context_id&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $context_id</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method_addContext" id="_addContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">_addContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void _addContext(
+<a href="../Context/__Context.html">__Context</a>
+&$context&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Context/__Context.html">__Context</a></td>
+                <td class="defaultTd">
+                &$context</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

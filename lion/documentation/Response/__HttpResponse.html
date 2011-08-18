@@ -1,0 +1,757 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __HttpResponse</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../Base/__ContentContainer.html">__ContentContainer</a>
+   |
+   --<a href="../Response/__Response.html">__Response</a>
+      |
+      --__HttpResponse</pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../Response/__HttpResponse.html#var$_buffer_control">$_buffer_control</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#var$_headers">$_headers</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Response/__HttpResponse.html#method__construct">__construct</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#methodaddCookie">addCookie</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#methodaddCookies">addCookies</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#methodaddHeader">addHeader</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#methodclearHeaders">clearHeaders</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#methoddoFlush">doFlush</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#methodflush">flush</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#methodflushAll">flushAll</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#methodsetBufferControl">setBufferControl</a></li>
+		  		  <li><a href="../Response/__HttpResponse.html#method__toString">__toString</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-descendents"></a>
+		<h2>Direct descendents</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<span class="disabled">Descendants</span>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Response/__XmlHttpResponse.html">__XmlHttpResponse</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../Response/__Response.html">__Response</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../Response/__Response.html#var$_cacheable">__Response::$_cacheable</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#var$_processed_content">__Response::$_processed_content</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#var$_view_codes">__Response::$_view_codes</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../Base/__ContentContainer.html">__ContentContainer</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_bottom_content">__ContentContainer::$_bottom_content</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_content">__ContentContainer::$_content</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_current_content_position">__ContentContainer::$_current_content_position</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_filters">__ContentContainer::$_filters</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_top_content">__ContentContainer::$_top_content</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../Response/__Response.html">__Response</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../Response/__Response.html#methodaddViewCode">__Response::addViewCode()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodgetCacheableViews">__Response::getCacheableViews()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodgetContent">__Response::getContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodgetViewCodes">__Response::getViewCodes()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodisCacheable">__Response::isCacheable()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodprepareToSleep">__Response::prepareToSleep()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodsetCacheable">__Response::setCacheable()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#method_doGetContent">__Response::_doGetContent()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../Base/__ContentContainer.html">__ContentContainer</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodaddContent">__ContentContainer::addContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodaddPostFilter">__ContentContainer::addPostFilter()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodappendContent">__ContentContainer::appendContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodclear">__ContentContainer::clear()</a><br>
+											Alias of clearContent
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodclearContent">__ContentContainer::clearContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methoddockContentAtBottom">__ContentContainer::dockContentAtBottom()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methoddockContentOnTop">__ContentContainer::dockContentOnTop()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodgetContent">__ContentContainer::getContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodprependContent">__ContentContainer::prependContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#method_getStringRepresentation">__ContentContainer::_getStringRepresentation()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_buffer_control" title="details" class="var-name-summary">$_buffer_control</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_headers" title="details" class="var-name-summary">$_headers</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__HttpResponse</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addCookie" title="details" class="method-name">addCookie</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addCookies" title="details" class="method-name">addCookies</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addHeader" title="details" class="method-name">addHeader</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#clearHeaders" title="details" class="method-name">clearHeaders</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#doFlush" title="details" class="method-name">doFlush</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#flush" title="details" class="method-name">flush</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#flushAll" title="details" class="method-name">flushAll</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setBufferControl" title="details" class="method-name">setBufferControl</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__toString" title="details" class="method-name">__toString</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a> 
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_buffer_control" id="$_buffer_control"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_buffer_control</span>
+             = <span class="var-default"> false</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_headers" id="$_headers"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_headers</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../Response/__XmlHttpResponse.html#var$_headers">__XmlHttpResponse::$_headers</a>
+                            </li>
+                </ul>
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__HttpResponse __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../Response/__XmlHttpResponse.html#method__construct">__XmlHttpResponse::__construct()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodaddCookie" id="addCookie"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addCookie</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void addCookie(
+
+$cookie&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $cookie</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodaddCookies" id="addCookies"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addCookies</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void addCookies(
+
+$cookies&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $cookies</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodaddHeader" id="addHeader"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addHeader</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void addHeader(
+
+$header&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $header</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodclearHeaders" id="clearHeaders"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">clearHeaders</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void clearHeaders(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methoddoFlush" id="doFlush"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">doFlush</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void doFlush(
+[
+$buffer = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $buffer</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodflush" id="flush"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">flush</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void flush(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../Response/__XmlHttpResponse.html#methodflush">__XmlHttpResponse::flush()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodflushAll" id="flushAll"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">flushAll</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void flushAll(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetBufferControl" id="setBufferControl"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setBufferControl</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setBufferControl(
+
+$buffer_control&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $buffer_control</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method__toString" id="__toString"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">__toString</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void __toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

@@ -1,0 +1,683 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Interface: __IActionController</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Interface Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Interface Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|													<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../Security/__ISystemResource.html">__ISystemResource</a>
+   |
+   --__IActionController</pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ActionController/__IActionController.html#methodexecute">execute</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodgetCode">getCode</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodgetRequireSsl">getRequireSsl</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodgetValidRequestMethod">getValidRequestMethod</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodisHistoriable">isHistoriable</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodisRequestable">isRequestable</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodpostExecute">postExecute</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodpreExecute">preExecute</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodsetCode">setCode</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodsetHistoriable">setHistoriable</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodsetRequestable">setRequestable</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodsetRequireSsl">setRequireSsl</a></li>
+		  		  <li><a href="../ActionController/__IActionController.html#methodsetValidRequestMethod">setValidRequestMethod</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Interface Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|													<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../Security/__ISystemResource.html">__ISystemResource</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../Security/__ISystemResource.html#methodgetRequiredPermission">__ISystemResource::getRequiredPermission()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Security/__ISystemResource.html#methodonAccessError">__ISystemResource::onAccessError()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Security/__ISystemResource.html#methodsetRequiredPermission">__ISystemResource::setRequiredPermission()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Interface Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Model/__ModelAndView.html">__ModelAndView</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#execute" title="details" class="method-name">execute</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Enter description here...</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getCode" title="details" class="method-name">getCode</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the code associated to the current action controller.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getRequireSsl" title="details" class="method-name">getRequireSsl</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Getter for _require_ssl member  Get if current action controller requires SSL protocol to be executed.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getValidRequestMethod" title="details" class="method-name">getValidRequestMethod</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the allowed request methods to execute current action controller.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isHistoriable" title="details" class="method-name">isHistoriable</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get if current action can be logged in the history registry or not.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isRequestable" title="details" class="method-name">isRequestable</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get if current action controller can be requested directly by the user or not.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#postExecute" title="details" class="method-name">postExecute</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#preExecute" title="details" class="method-name">preExecute</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setCode" title="details" class="method-name">setCode</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets an unike code for current action controller.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setHistoriable" title="details" class="method-name">setHistoriable</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set if current action can be logged in the history registry or not.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setRequestable" title="details" class="method-name">setRequestable</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set if an action controller can be selected and executed by the <a href="../FrontController/__FrontController.html">__FrontController</a> in response to dispatching the user request.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setRequireSsl" title="details" class="method-name">setRequireSsl</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set if current action controller requires SSL protocol to be executed.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setValidRequestMethod" title="details" class="method-name">setValidRequestMethod</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the allowed request methods to execute current action controller</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Interface Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodexecute" id="execute"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">execute</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Model/__ModelAndView.html">__ModelAndView</a> execute(
+[
+$action_code = null], string
+$&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Enter description here...<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $action_code</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $</td>
+                <td class="defaultTd">
+                The action code to execute. If not specified, the default one should be used            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>A __ModelAndView instance as a result of executing the requested action</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetCode" id="getCode"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getCode</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getCode(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the code associated to the current action controller.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The code assigned to current action controller</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetRequireSsl" id="getRequireSsl"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getRequireSsl</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>boolean getRequireSsl(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Getter for _require_ssl member  Get if current action controller requires SSL protocol to be executed.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>If current action controller requires SSL protocol to be executed</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetValidRequestMethod" id="getValidRequestMethod"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getValidRequestMethod</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer getValidRequestMethod(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the allowed request methods to execute current action controller.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>A code that identify all valid request methods to execute current action controller</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisHistoriable" id="isHistoriable"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isHistoriable</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>boolean isHistoriable(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get if current action can be logged in the history registry or not.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>If current action can be logged in the history registry</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisRequestable" id="isRequestable"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isRequestable</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>boolean isRequestable(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get if current action controller can be requested directly by the user or not.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>If current action controller can be requested directly by the user</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodpostExecute" id="postExecute"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">postExecute</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void postExecute(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodpreExecute" id="preExecute"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">preExecute</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void preExecute(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetCode" id="setCode"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setCode</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setCode(
+
+$code, string
+$action_code&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets an unike code for current action controller.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $code</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $action_code</td>
+                <td class="defaultTd">
+                An unike code for current action controller            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetHistoriable" id="setHistoriable"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setHistoriable</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setHistoriable(
+boolean
+$is_historiable&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set if current action can be logged in the history registry or not.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                boolean</td>
+                <td class="defaultTd">
+                $is_historiable</td>
+                <td class="defaultTd">
+                If current action can be logged in the history registry            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetRequestable" id="setRequestable"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setRequestable</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setRequestable(
+boolean
+$is_requestable&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set if an action controller can be selected and executed by the <a href="../FrontController/__FrontController.html">__FrontController</a> in response to dispatching the user request.<br /><br /><p>In other words: if an action controller is requestable directly by the user or not.</p><p>&lt;p&gt;i.e.: imagine that the request to the url http://yourdomain/showcars.action is resolved by the <a href="../FrontController/__FrontController.html">__FrontController</a> by executing the &quot;showcars&quot; action controller,  in that case, that action should be requestable. Otherwise it will raise an exception.</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                boolean</td>
+                <td class="defaultTd">
+                $is_requestable</td>
+                <td class="defaultTd">
+                If current action controller can be requested directly by the user            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetRequireSsl" id="setRequireSsl"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setRequireSsl</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setRequireSsl(
+boolean
+$require_ssl&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set if current action controller requires SSL protocol to be executed.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                boolean</td>
+                <td class="defaultTd">
+                $require_ssl</td>
+                <td class="defaultTd">
+                If current action controller requires SSL protocol to be executed            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetValidRequestMethod" id="setValidRequestMethod"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setValidRequestMethod</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setValidRequestMethod(
+integer
+$valid_request_method&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the allowed request methods to execute current action controller<br /><br /><p>Possible values:<br /> <ul><li><strong>REQMETHOD_NONE</strong>: No requests methods are allowed<br /></li><li><strong>REQMETHOD_GET</strong>: Only GET request method is allowed<br /></li><li><strong>REQMETHOD_POST</strong>: Only POST request method is allowed<br /></li><li><strong>REQMETHOD_COMMAND_LINE</strong>: Only from command line (ussing php client) is allowed<br /></li><li><strong>REQMETHOD_ALL</strong>: All possible request methods are allowed<br /></li></ul></p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $valid_request_method</td>
+                <td class="defaultTd">
+                A code that identify all valid request methods to execute current action controller            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

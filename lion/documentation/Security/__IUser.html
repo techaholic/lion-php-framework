@@ -1,0 +1,416 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Interface: __IUser</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Interface Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Interface Overview</span> |
+																	<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre></pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Security/__IUser.html#methodactivateRoles">activateRoles</a></li>
+		  		  <li><a href="../Security/__IUser.html#methodgetCredentials">getCredentials</a></li>
+		  		  <li><a href="../Security/__IUser.html#methodgetIdentity">getIdentity</a></li>
+		  		  <li><a href="../Security/__IUser.html#methodgetRoles">getRoles</a></li>
+		  		  <li><a href="../Security/__IUser.html#methodhasAccess">hasAccess</a></li>
+		  		  <li><a href="../Security/__IUser.html#methodhasPermission">hasPermission</a></li>
+		  		  <li><a href="../Security/__IUser.html#methodisEnabled">isEnabled</a></li>
+		  		  <li><a href="../Security/__IUser.html#methodonLogout">onLogout</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Interface Overview</a> |
+		    		    		    		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#activateRoles" title="details" class="method-name">activateRoles</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Activate/deactivate roles in __UserSession instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Security/__ICredentials.html">__ICredentials</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getCredentials" title="details" class="method-name">&amp;getCredentials</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the user credentials</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Security/__IUserIdentity.html">__IUserIdentity</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getIdentity" title="details" class="method-name">&amp;getIdentity</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the user identity</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getRoles" title="details" class="method-name">&amp;getRoles</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns an array of role ids for an user instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">bool</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#hasAccess" title="details" class="method-name">hasAccess</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Checks if current user has access to a given system resource</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">bool</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#hasPermission" title="details" class="method-name">hasPermission</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Checks if current user has a given permission</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isEnabled" title="details" class="method-name">isEnabled</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns if an user instance is enabled or not</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#onLogout" title="details" class="method-name">onLogout</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Interface Overview</a> |
+		    		    		    		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodactivateRoles" id="activateRoles"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">activateRoles</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void activateRoles(
+<a href="../Security/__UserSession.html">__UserSession</a>
+&$user_session&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Activate/deactivate roles in __UserSession instance<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Security/__UserSession.html">__UserSession</a></td>
+                <td class="defaultTd">
+                &$user_session</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetCredentials" id="getCredentials"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getCredentials</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Security/__ICredentials.html">__ICredentials</a> &amp;getCredentials(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the user credentials<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The user credentials</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetIdentity" id="getIdentity"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getIdentity</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Security/__IUserIdentity.html">__IUserIdentity</a> &amp;getIdentity(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the user identity<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The user identity</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetRoles" id="getRoles"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getRoles</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array &amp;getRoles(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns an array of role ids for an user instance<br /><br /><p>Note that an __IUser implementation does not need to store __Role instances, just the ids for those roles.</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>An array of role ids for an user instance</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodhasAccess" id="hasAccess"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">hasAccess</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>bool hasAccess(
+<a href="../Security/__SystemResource.html">__SystemResource</a>
+&$system_resource, <a href="../Security/__SystemResource.html">__SystemResource</a>
+$system_resource&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Checks if current user has access to a given system resource<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Security/__SystemResource.html">__SystemResource</a></td>
+                <td class="defaultTd">
+                &$system_resource</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../Security/__SystemResource.html">__SystemResource</a></td>
+                <td class="defaultTd">
+                $system_resource</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodhasPermission" id="hasPermission"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">hasPermission</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>bool hasPermission(
+<a href="../Security/__Permission.html">__Permission</a>
+&$permission, <a href="../Security/__Permission.html">__Permission</a>
+$permission&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Checks if current user has a given permission<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Security/__Permission.html">__Permission</a></td>
+                <td class="defaultTd">
+                &$permission</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../Security/__Permission.html">__Permission</a></td>
+                <td class="defaultTd">
+                $permission</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisEnabled" id="isEnabled"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isEnabled</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>boolean isEnabled(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns if an user instance is enabled or not<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>true if an user instance is enabled, otherwise false</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodonLogout" id="onLogout"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">onLogout</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void onLogout(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

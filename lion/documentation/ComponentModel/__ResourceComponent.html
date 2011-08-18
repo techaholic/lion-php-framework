@@ -1,0 +1,545 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ResourceComponent</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		A resource is basically a I18n string. This component allow us to print whatever resource within a page content.<br /><br /><p><br />  Resources associated to a given controller are automatically set to the template used by the controller's view. <br />  <br />  i.e., a resource with a key &quot;my_resource&quot; associated to a controller will be shown in a placeholder with the same name within the correspondent view template:<br />  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-id">Here&nbsp;is&nbsp;my&nbsp;resource&nbsp;content</span>:&nbsp;<span class="src-sym">{</span><span class="src-var">$my_resource</span><span class="src-sym">}</span></div></li>
+</ol></pre></div>  <br />  Other resources, even if they are persisted during the session but not directly associated to the executed controller, are not set to the template automatically.<br />  To render them, we have the <strong>resource</strong> component.<br />  <br />  Resource tag is <strong>resource</strong><br />  <br />  i.e.  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-id">Here&nbsp;is&nbsp;our&nbsp;session&nbsp;content</span>:&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">resource&nbsp;</span><a href="http://www.php.net/key">key</a>=<span class="src-str">&quot;my_session_resource&quot;</span>/&gt;</div></li>
+</ol></pre></div>  <br />  We just specify the <strong>key</strong> the resource has in order to render it within the template content<br />  <br />  Another interesting usage of this component is to render parameterized resources.<br />  i.e.  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;<span class="src-id">my_parameterized_resource&nbsp;</span>=&nbsp;<span class="src-str">&quot;Dear&nbsp;{0},&nbsp;this&nbsp;is&nbsp;a&nbsp;parameterized&nbsp;I18n&nbsp;resource&quot;</span></div></li>
+</ol></pre></div></p><p>As we can see, the resource above has a parameter just after the &quot;Dear&quot; word. So we need to specify the value that will be replaced instead of the placeholder.<br />  To do that, the resource component has the attribute <strong>parameters</strong>, which allow us to specify a comma-separate list of values to be replaced by.<br />  i.e.  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">resource&nbsp;</span><a href="http://www.php.net/key">key</a>=<span class="src-str">&quot;my_parameterized_resource&quot;&nbsp;</span><span class="src-id">parameters</span>=<span class="src-str">&quot;0=Antuan&quot;</span>/&gt;</div></li>
+</ol></pre></div>  Which will produce the following result:  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-id">Dear&nbsp;Antuan</span><span class="src-sym">,&nbsp;</span><span class="src-id">this&nbsp;is&nbsp;a&nbsp;parameterized&nbsp;I18n&nbsp;resource</span></div></li>
+</ol></pre></div></p><p>Take into account that you must apply a comma-separated list of pair key,value as parameters.<br />  <br />  With template tags we are not able to specify parameters to resources, so this is another usage of this component even if resources belong to the current in execution controller.</p><br />
+		
+		<pre><a href="../ComponentModel/__UIComponent.html">__UIComponent</a>
+   |
+   --__ResourceComponent</pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ResourceComponent.html#methodgetKey">getKey</a></li>
+		  		  <li><a href="../ComponentModel/__ResourceComponent.html#methodgetParameters">getParameters</a></li>
+		  		  <li><a href="../ComponentModel/__ResourceComponent.html#methodsetKey">setKey</a></li>
+		  		  <li><a href="../ComponentModel/__ResourceComponent.html#methodsetParameters">setParameters</a></li>
+		  		  <li><a href="../ComponentModel/__ResourceComponent.html#method__toString">__toString</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_alias">__UIComponent::$_alias</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_binding_codes">__UIComponent::$_binding_codes</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_container">__UIComponent::$_container</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_disabled">__UIComponent::$_disabled</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_id">__UIComponent::$_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_index">__UIComponent::$_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_name">__UIComponent::$_name</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_persist">__UIComponent::$_persist</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_progress">__UIComponent::$_progress</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_properties">__UIComponent::$_properties</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_validator_ids">__UIComponent::$_validator_ids</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_view_code">__UIComponent::$_view_code</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_visible">__UIComponent::$_visible</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddBindingCode">__UIComponent::addBindingCode()</a><br>
+											Adds a binding code for a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddProperty">__UIComponent::addProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetAlias">__UIComponent::getAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetBindingCodes">__UIComponent::getBindingCodes()</a><br>
+											Gets all the binding codes associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetContainer">__UIComponent::getContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetDisabled">__UIComponent::getDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetEnabled">__UIComponent::getEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetHandledEvents">__UIComponent::getHandledEvents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetId">__UIComponent::getId()</a><br>
+											Read only property that returns an unique identifier for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetIndex">__UIComponent::getIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetName">__UIComponent::getName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetParentContainerByClass">__UIComponent::getParentContainerByClass()</a><br>
+											Gets the first parent container of the given class
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetPersist">__UIComponent::getPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProgress">__UIComponent::getProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperties">__UIComponent::getProperties()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperty">__UIComponent::getProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetViewCode">__UIComponent::getViewCode()</a><br>
+											Gets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetVisible">__UIComponent::getVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleCallback">__UIComponent::handleCallback()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleEvent">__UIComponent::handleEvent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasContainer">__UIComponent::hasContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasProperty">__UIComponent::hasProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodisEventHandled">__UIComponent::isEventHandled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodregisterValidator">__UIComponent::registerValidator()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodresetValidation">__UIComponent::resetValidation()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetAlias">__UIComponent::setAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetContainer">__UIComponent::setContainer()</a><br>
+											Sets a container for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetDisabled">__UIComponent::setDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetEnabled">__UIComponent::setEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetId">__UIComponent::setId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetIndex">__UIComponent::setIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetName">__UIComponent::setName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetPersist">__UIComponent::setPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProgress">__UIComponent::setProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProperty">__UIComponent::setProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetViewCode">__UIComponent::setViewCode()</a><br>
+											Sets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetVisible">__UIComponent::setVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodupdateClient">__UIComponent::updateClient()</a><br>
+											Forces an update for all client end-points associated with current component.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodvalidate">__UIComponent::validate()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toArray">__UIComponent::_toArray()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toBool">__UIComponent::_toBool()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__call">__UIComponent::__call()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__get">__UIComponent::__get()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__set">__UIComponent::__set()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__toString">__UIComponent::__toString()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getKey" title="details" class="method-name">getKey</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the key of the resource to render to</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getParameters" title="details" class="method-name">getParameters</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the array of parameters to use with the current resource</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setKey" title="details" class="method-name">setKey</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the key of the resource to render to</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setParameters" title="details" class="method-name">setParameters</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set either a comma-separated list of parameters or an array of them</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__toString" title="details" class="method-name">__toString</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Magic method representing the result of rendering the current resource</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<span class="disabled">Properties</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodgetKey" id="getKey"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getKey</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getKey(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the key of the resource to render to<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetParameters" id="getParameters"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getParameters</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array getParameters(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the array of parameters to use with the current resource<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetKey" id="setKey"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setKey</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setKey(
+string
+$key&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the key of the resource to render to<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $key</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetParameters" id="setParameters"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setParameters</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setParameters(
+mixed
+$parameters&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set either a comma-separated list of parameters or an array of them<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                mixed</td>
+                <td class="defaultTd">
+                $parameters</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method__toString" id="__toString"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">__toString</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string __toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Magic method representing the result of rendering the current resource<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__UIComponent.html#method__toString">__UIComponent::__toString()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

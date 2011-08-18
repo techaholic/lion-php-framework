@@ -1,0 +1,1047 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ComponentSpec</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+															<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This class contains the information to create and render a component.<br /><br />
+		
+		<pre></pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#var$_class">$_class</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#var$_default_values">$_default_values</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#var$_id">$_id</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#var$_index">$_index</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#var$_is_array">$_is_array</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#var$_tag">$_tag</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#var$_ui_component_interface">$_ui_component_interface</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#var$_writer">$_writer</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#method__construct">__construct</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodaddDefaultValue">addDefaultValue</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetClass">getClass</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetComponentInterfaceSpec">getComponentInterfaceSpec</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetDefaultValue">getDefaultValue</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetDefaultValues">getDefaultValues</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetId">getId</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetIndex">getIndex</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetName">getName</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetTag">getTag</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodgetWriter">getWriter</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodisArray">isArray</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodsetComponentInterfaceSpec">setComponentInterfaceSpec</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodsetDefaultValues">setDefaultValues</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodsetIndex">setIndex</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#methodsetWriter">setWriter</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#method__get">__get</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentSpec.html#method__set">__set</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+															<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_class" title="details" class="var-name-summary">$_class</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">The component class</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_default_values" title="details" class="var-name-summary">$_default_values</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">Component default values</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_id" title="details" class="var-name-summary">$_id</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">An unique id</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_index" title="details" class="var-name-summary">$_index</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_is_array" title="details" class="var-name-summary">$_is_array</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_tag" title="details" class="var-name-summary">$_tag</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">The UI tag used to build the current instance</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_ui_component_interface" title="details" class="var-name-summary">$_ui_component_interface</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_writer" title="details" class="var-name-summary">$_writer</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">The component writer class</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__ComponentSpec</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Constructor.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addDefaultValue" title="details" class="method-name">addDefaultValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set a default value associated to the component represented by current instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getClass" title="details" class="method-name">getClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the component class associated to current instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getComponentInterfaceSpec" title="details" class="method-name">getComponentInterfaceSpec</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getDefaultValue" title="details" class="method-name">getDefaultValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the default value associated to the component represented by current instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getDefaultValues" title="details" class="method-name">getDefaultValues</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getId" title="details" class="method-name">getId</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets an unique id for current instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getIndex" title="details" class="method-name">getIndex</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getName" title="details" class="method-name">getName</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the name property associated to the component, or  the component spec id if no names was set.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getTag" title="details" class="method-name">getTag</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the tag used to build the current instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getWriter" title="details" class="method-name">&amp;getWriter</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isArray" title="details" class="method-name">isArray</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setComponentInterfaceSpec" title="details" class="method-name">setComponentInterfaceSpec</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setDefaultValues" title="details" class="method-name">setDefaultValues</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set all the default values associated to the component represented by current instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setIndex" title="details" class="method-name">setIndex</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setWriter" title="details" class="method-name">setWriter</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the component writer associated to the current instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__get" title="details" class="method-name">__get</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__set" title="details" class="method-name">__set</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_class" id="$_class"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_class</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+    The component class<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_default_values" id="$_default_values"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">array</span>&nbsp;&nbsp;
+            <span class="var-name">$_default_values</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+    Component default values<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_id" id="$_id"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_id</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+    An unique id<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_index" id="$_index"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_index</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_is_array" id="$_is_array"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_is_array</span>
+             = <span class="var-default"> false</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_tag" id="$_tag"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_tag</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+    The UI tag used to build the current instance<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_ui_component_interface" id="$_ui_component_interface"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_ui_component_interface</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_writer" id="$_writer"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_writer</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+    The component writer class<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__ComponentSpec __construct(
+string
+$tag_name, string
+$component_class&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Constructor.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $tag_name</td>
+                <td class="defaultTd">
+                The UI tag            </td></tr>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $component_class</td>
+                <td class="defaultTd">
+                The component class            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodaddDefaultValue" id="addDefaultValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addDefaultValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void addDefaultValue(
+string
+$property_name, mixed
+$property_value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set a default value associated to the component represented by current instance<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $property_name</td>
+                <td class="defaultTd">
+                Property name            </td></tr>
+                    <tr><td class="defaultTd">
+                mixed</td>
+                <td class="defaultTd">
+                $property_value</td>
+                <td class="defaultTd">
+                Property value            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetClass" id="getClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getClass(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the component class associated to current instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetComponentInterfaceSpec" id="getComponentInterfaceSpec"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getComponentInterfaceSpec</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getComponentInterfaceSpec(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetDefaultValue" id="getDefaultValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getDefaultValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed getDefaultValue(
+string
+$property_name&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the default value associated to the component represented by current instance<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $property_name</td>
+                <td class="defaultTd">
+                Property name            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The value</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetDefaultValues" id="getDefaultValues"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getDefaultValues</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getDefaultValues(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetId" id="getId"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getId</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getId(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets an unique id for current instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetIndex" id="getIndex"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getIndex</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getIndex(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetName" id="getName"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getName</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getName(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the name property associated to the component, or  the component spec id if no names was set.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetTag" id="getTag"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getTag</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getTag(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the tag used to build the current instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetWriter" id="getWriter"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getWriter</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void &amp;getWriter(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisArray" id="isArray"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isArray</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void isArray(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetComponentInterfaceSpec" id="setComponentInterfaceSpec"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setComponentInterfaceSpec</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setComponentInterfaceSpec(
+<a href="../ComponentModel/__UICompositeComponentInterfaceSpec.html">__UICompositeComponentInterfaceSpec</a>
+$ui_component_interface&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__UICompositeComponentInterfaceSpec.html">__UICompositeComponentInterfaceSpec</a></td>
+                <td class="defaultTd">
+                $ui_component_interface</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetDefaultValues" id="setDefaultValues"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setDefaultValues</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setDefaultValues(
+
+$default_values&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set all the default values associated to the component represented by current instance<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $default_values</td>
+                <td class="defaultTd">
+                An array of property pairs [name, value]            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetIndex" id="setIndex"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setIndex</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setIndex(
+
+$index&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $index</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetWriter" id="setWriter"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setWriter</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setWriter(
+<a href="../ComponentModel/__IComponentWriter.html">__IComponentWriter</a>
+&$component_writer&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the component writer associated to the current instance<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponentWriter.html">__IComponentWriter</a></td>
+                <td class="defaultTd">
+                &$component_writer</td>
+                <td class="defaultTd">
+                The component writer class            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method__get" id="__get"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">__get</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void __get(
+
+$key&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $key</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method__set" id="__set"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">__set</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void __set(
+
+$key, 
+$value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $key</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $value</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

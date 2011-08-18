@@ -1,0 +1,431 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ClientNotificator</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+															<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This is the class in charge of send to client all the async message to keep component status synchronization<br /><br />
+		
+		<pre></pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#var$_instance">$_instance</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#method__construct">__construct</a></li>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#methodclearDirty">clearDirty</a></li>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#methodgetDirtyComponents">getDirtyComponents</a></li>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#methodgetInstance">getInstance</a></li>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#methodgetStartupNotification">getStartupNotification</a></li>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#methodnotify">notify</a></li>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#methodnotifyProgress">notifyProgress</a></li>
+		  		  <li><a href="../ComponentModel/__ClientNotificator.html#methodsetDirty">setDirty</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+															<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_instance" title="details" class="var-name-summary">$_instance</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__ClientNotificator</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#clearDirty" title="details" class="method-name">clearDirty</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets as undirty all the components (internally, reset the array of references to dirty components)</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getDirtyComponents" title="details" class="method-name">&amp;getDirtyComponents</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets an array of components that have been changed since last request</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__ClientNotificator.html">__ClientNotificator</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getInstance" title="details" class="method-name">&amp;getInstance</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets a singleton instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__AsyncMessage.html">__AsyncMessage</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getStartupNotification" title="details" class="method-name">getStartupNotification</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the startup notification, which contains initial component states</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#notify" title="details" class="method-name">notify</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sends to client an async message containing all pending status change notifications</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#notifyProgress" title="details" class="method-name">notifyProgress</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setDirty" title="details" class="method-name">setDirty</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets as dirty a given component, which will be checked for client notifications</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_instance" id="$_instance"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_instance</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__ClientNotificator __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodclearDirty" id="clearDirty"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">clearDirty</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void clearDirty(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets as undirty all the components (internally, reset the array of references to dirty components)<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetDirtyComponents" id="getDirtyComponents"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getDirtyComponents</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array &amp;getDirtyComponents(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets an array of components that have been changed since last request<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getInstance</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__ClientNotificator.html">__ClientNotificator</a> &amp;getInstance(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets a singleton instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetStartupNotification" id="getStartupNotification"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getStartupNotification</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__AsyncMessage.html">__AsyncMessage</a> getStartupNotification(
+string
+$view_code&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the startup notification, which contains initial component states<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $view_code</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodnotify" id="notify"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">notify</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void notify(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sends to client an async message containing all pending status change notifications<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodnotifyProgress" id="notifyProgress"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">notifyProgress</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void notifyProgress(
+<a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetDirty" id="setDirty"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setDirty</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setDirty(
+<a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component, <a href="../ComponentModel/__IComponent.html">__IComponent</a>
+$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets as dirty a given component, which will be checked for client notifications<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                $component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

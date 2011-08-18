@@ -1,0 +1,405 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __Page</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+															<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		Represents a page rendered into the client browser.<br /><br /><p>It has accessors to all the shown components within the page, even if they belong to different views.</p><br />
+		
+		<pre></pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__Page.html#var$_component_handlers">$_component_handlers</a></li>
+		  		  <li><a href="../ComponentModel/__Page.html#var$_id">$_id</a></li>
+		  		  <li><a href="../ComponentModel/__Page.html#var$_instance">$_instance</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__Page.html#method__construct">__construct</a></li>
+		  		  <li><a href="../ComponentModel/__Page.html#methodaddView">addView</a></li>
+		  		  <li><a href="../ComponentModel/__Page.html#methodgetId">getId</a></li>
+		  		  <li><a href="../ComponentModel/__Page.html#methodgetInstance">getInstance</a></li>
+		  		  <li><a href="../ComponentModel/__Page.html#methodhasView">hasView</a></li>
+		  		  <li><a href="../ComponentModel/__Page.html#methodsetId">setId</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+															<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_component_handlers" title="details" class="var-name-summary">$_component_handlers</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_id" title="details" class="var-name-summary">$_id</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_instance" title="details" class="var-name-summary">$_instance</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__Page</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addView" title="details" class="method-name">addView</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getId" title="details" class="method-name">getId</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the identifier associated to the current page</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__Page.html">__Page</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getInstance" title="details" class="method-name">&amp;getInstance</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get a singleton instance representing the current page</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#hasView" title="details" class="method-name">hasView</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setId" title="details" class="method-name">setId</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set an identifier for current page.</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_component_handlers" id="$_component_handlers"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_component_handlers</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_id" id="$_id"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_id</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_instance" id="$_instance"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_instance</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__Page __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodaddView" id="addView"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addView</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void addView(
+
+$view_code&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $view_code</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetId" id="getId"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getId</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getId(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the identifier associated to the current page<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getInstance</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__Page.html">__Page</a> &amp;getInstance(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get a singleton instance representing the current page<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodhasView" id="hasView"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">hasView</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void hasView(
+
+$view_code&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $view_code</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetId" id="setId"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setId</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setId(
+unknown_type
+$id&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set an identifier for current page.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                unknown_type</td>
+                <td class="defaultTd">
+                $id</td>
+                <td class="defaultTd">
+                An unique identifier            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

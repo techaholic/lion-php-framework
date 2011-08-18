@@ -1,0 +1,31 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Context Container</h1>
+  <div class="ref-purpose"></div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Context/tutorial_Context.pkg.html#intro">Introduction</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Introduction</h2><p>Lion framework is organized by contexts, where each context represents a concrete application. At the very high level, a context is just a space where instances collaborate together without interfering with other contexts. i.e., a context manages his own session and cache, avoiding conflicts with other contexts running at the same time.</p>
+  <p>A context is linked to a physical directory where application's classes and configuration files are contained in, being able to handle his own configuration and classes.</p>
+  <p>The first context that lion loads is the one representing the main application (also known as the <strong>application context</strong>).<br />
+  Getting the application context is really simple: there is a singleton instance representing it. The context also exposes some accessor to retrieve context contained instances such the session or the configuration.<br />
+  i.e.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//get&nbsp;the&nbsp;application&nbsp;context:</span></div></li>
+<li><div class="src-line"><span class="src-var">$application_context&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//get&nbsp;the&nbsp;context&nbsp;configuration:</span></div></li>
+<li><div class="src-line"><span class="src-var">$configuration&nbsp;</span>=&nbsp;<span class="src-var">$application_context</span><span class="src-sym">-&gt;</span><span class="src-id">getConfiguration</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//get&nbsp;the&nbsp;context&nbsp;session:</span></div></li>
+<li><div class="src-line"><span class="src-var">$session&nbsp;</span>=&nbsp;<span class="src-var">$application_context</span><span class="src-sym">-&gt;</span><span class="src-id">getSession</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//get&nbsp;the&nbsp;context&nbsp;cache:</span></div></li>
+<li><div class="src-line"><span class="src-var">$cache&nbsp;</span>=&nbsp;<span class="src-var">$application_context</span><span class="src-sym">-&gt;</span><span class="src-id">getCache</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p></span></div>
+      </td></tr></table>

@@ -1,0 +1,46 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>What Lion stores in session</h1>
+  <div class="ref-purpose"></div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Session/tutorial_SessionLifecycle.pkg.html#intro">How Lion uses the session</a><br />
+
+<a href="../Session/tutorial_SessionLifecycle.pkg.html#context_instances">Context instances</a><br />
+
+<a href="../Session/tutorial_SessionLifecycle.pkg.html#configuration">Configuration and the session</a><br />
+
+<a href="../Session/tutorial_SessionLifecycle.pkg.html#security">Security and the session</a><br />
+
+<a href="../Session/tutorial_SessionLifecycle.pkg.html#I18n">I18n and the session</a><br />
+
+<a href="../Session/tutorial_SessionLifecycle.pkg.html#ui_components">UI Components in session</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>How Lion uses the session</h2><p>Lion uses the session to store some information in order to keep them unaltered between requests as well as to improve the performance accessing to them.<br />
+  We could highlight the following items:</p>
+  <ul><li><strong>Context instances</strong>: Context instances (see <a href="../Context/tutorial_Context.DependencyInjection.pkg.html">Dependency Injection</a>) defined as singleton, which is the default mode to define them.</li>
+    <li><strong>Configuration</strong>: The configuration (generally retrieved from the cache) is stored in session the first time the session is created in order to accelerate the access to it</li>
+    <li><strong>Security</strong>: The security framework implements a session based RBAC, which means that the user has an space in session where roles/permissions are stored in</li>
+    <li><strong>I18n literals</strong>: We can setup I18n to store some literals in session in order to be consumed by whatever controller/view.</li>
+    <li><strong>UI Components</strong>: The component pool (<a href="../ComponentModel/__ComponentPool.html">__ComponentPool</a>) stores some of the components in session to be recovered whenever they are needed. In that sense UI component status are keeping between requests.</li></ul></span>
+ <span><a name="context_instances"></a><h2>Context instances</h2><p>Context instances, when they are singleton, are stored within the session and recovered from it between request and request.</p>
+  <p>Context instances that are defined in lazy initialization are stored in the session once they are requested, but never before that.</p>
+  <p>See the <a href="../Context/tutorial_Context.DependencyInjection.pkg.html">Dependency Injection</a> for more information regarding context instances</p></span>
+ <span><a name="configuration"></a><h2>Configuration and the session</h2><p>As part of the first request, Lion recovers the configuration (generally from the cache) and stores it in session.<br />
+  Next requests get the configuration from the session directly in order to ensure that the configuration has not been changed between requests.</p>
+  <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td>It's important to note that if we change anything within the configuration, we must remove the cache as well as invalidate our session (generally is enough to remove the session cookie from our browser).<br />
+  Otherwise, the configuration in session will be stored again in the cache, resulting in the old configuration version.</td></tr></table></div></center></span>
+ <span><a name="security"></a><h2>Security and the session</h2><p>Security framework implements what is known as a session based RBAC.<br />
+  This is a security pattern that resolves the permissions that a user has and stores them in what's known as the user session. The user session is represented in Lion by the <a href="../Security/__UserSession.html">__UserSession</a> class, which is the one that contains the active roles: a set of roles the user has, which are translated in terms of permissions on demand</p>
+  <p>So, the <a href="../Security/__UserSession.html">__UserSession</a> is stored and retrived to and from the session. This is the session usage that security framework does</p></span>
+ <span><a name="I18n"></a><h2>I18n and the session</h2><p>There are 2 kind of I18n literals from the persistence level point of view:<br />
+  <ul><li>I18n literals at <strong>session persistence level</strong>: Literals that are loaded once and persisted within session.</li>
+    <li>I18n literals at <strong>request persistence level</strong>: Literals that are loaded each time a controller requires them.</li></ul></p>
+  <p>So, first group at session persistence level are usually very common used literals that, for performance reasons, are stored in session to accelerate the recover process (vs. read again and again from the literals source)</p></span>
+ <span><a name="ui_components"></a><h2>UI Components in session</h2><p>UI Components are persisted in the <a href="../ComponentModel/__ComponentPool.html">__ComponentPool</a>, which uses the session to persist them.<br />
+  Those components implement the <a href="../ComponentModel/__IPoolable.html">__IPoolable</a> interface, which let the framework know that they must be stored as well as managed by the component pool</p>
+  <p>So, components such a textbox or a radiobutton are persisted since they are created and reside in the session. However, we can remove them from the session whenever we need. The UI Component API offer several methods to do that</p></span></div>
+      </td></tr></table>

@@ -1,0 +1,97 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Configuration</h1>
+  <div class="ref-purpose">Configurating your application</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="Configuration/tutorial_Configuration.pkg.html#intro">Introduction</a><br />
+
+<a href="Configuration/tutorial_Configuration.pkg.html#configuration">The main configuration file</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="Configuration/tutorial_Configuration.pkg.html#configuration.configuration_directives">Configuration directives</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="Configuration/tutorial_Configuration.pkg.html#configuration.include_tags">Include sections</a><br />
+
+<a href="Configuration/tutorial_Configuration.pkg.html#included_files">Default configuration sections</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Introduction</h2><p>The premise for the Lion configuration system is simple: to provide developers with a consistent manner for storing and reading configuration information.</p>
+  <p>The Lion configuration system features an extensible infrastructure opened for extension, providing the following benefits:</p>
+  <p><ul><li>Configuration information is allowed to be stored in several formats (XML, .ini files, ...) as well as in multiple configuration files. In that sense, Lion offers a flexible way to organize the configuration within an application.</li>
+      <li>Configuration information is cached once it has been parsed and transformed. So there are not performance penalties in that sense.</li>
+      <li>Lion configuration system is extensible. You can define new configuration parameters and write configuration section handlers to process them.</li>
+      <li>Lion protects configuration files from outside access to prevent direct browser access to configuration files.</li></ul></p></span>
+ <span><a name="configuration"></a><h2>The main configuration file</h2><p>The first configuration file that Lion reads is one located at <strong>/app/config.xml</strong>.</p>
+  <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="images/note_icon.png" width="48" height="48" border="0" /></td><td><p>The application context directory is the <strong>/app</strong> directory. However, lion support multiple contexts within the same application.</p>
+    <p>See the Context/Context.pkg section for more information about contexts in lion.</p></td></tr></table></div></center>
+  <p>However, Lion has a mechanism to organize the configuration in multiple files. This capability eases the configuration maintainment.</p>
+  <p>Let see it with an example:</p>
+  <p><div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/settings.ini&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/controllers.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/errors.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/i18n.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/context.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/model_services.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/routes.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/security.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/views.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config/ui_components.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;libs/components/.../config.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;libs/plugins/.../config.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+  <p>In this file we can see a bundle of <strong>include</strong> directives. Those directives let Lion know which other files belong to the configuration.</p>
+ <a name="configuration.configuration_directives"></a><h3>Configuration directives</h3><p>The configuration-directives section contains the directives that the <a href="Configuration/__ConfigurationLoader.html">__ConfigurationLoader</a> will follow to parsing the configuration settings.</p>
+  <p>In this section we can define:</p>
+  <p><ul><li><strong>configuration-basedir</strong> directive, which is the directory where the configuration files will be located by default. In fact, this is the first directory that lion search when a configuration file is specified by ussing the <strong>config</strong> protocol, i.e. <i>config://controllers.xml</i>.</li>
+    <li><strong>section-handler</strong> directives, which allow us to extend the configuration system by adding custom section handlers.<br />
+    See the <a href="Configuration/tutorial_Configuration.SectionHandler.pkg.html">Section Handlers</a> section for more information.</li></ul></p><br />
+ <a name="configuration.include_tags"></a><h3>Include sections</h3><p>The use of include allows us to define which other files are part of the configuration settings.</p>
+  <p>Internally, lion will get the content of each included file (once it has been transformed as a tree) and will put in the tree location where the include section resides.</p>
+  <p>i.e., if we have this <i>config.xml</i> file:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;configuration-directives&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;configuration-basedir&gt;config&lt;/configuration-basedir&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/configuration-directives&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;include&gt;config://i18n.xml&lt;/include&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+  and this <i>i18n.xml</i> file located in the config directory:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;supported-languages&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;language&gt;en&lt;/language&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/supported-languages&gt;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+  it has the same effect than to have just the following <i>config.xml</i> file:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;configuration-directives&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;configuration-basedir&gt;config&lt;/configuration-basedir&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/configuration-directives&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;supported-languages&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;language&gt;en&lt;/language&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/supported-languages&gt;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+  <p>Note that because the supported-languages section is a child section of the configuration section, it is included within this section in the main configuration file.</p>
+  <p>One of the most important aspects to have into account is the fact that Lion does not compose a single configuration file when reading the include sections. It just build multiple trees by ussing the configuration classes designed for that purpose.<br />
+  This feature allow us to have files in different formats, structures and natures within the same context.</p><br /></span>
+ <span><a name="included_files"></a><h2>Default configuration sections</h2><p></p></span></div>
+      </td></tr></table>

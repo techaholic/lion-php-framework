@@ -1,0 +1,29 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Directory structure</h1>
+  <div class="ref-purpose">Going inside the Framework</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../Lion/BasicConcepts/tutorial_Lion.DirectoryStructure.pkg.html#lion_structure">Lion directory structure</a><br />
+
+<a href="../../Lion/BasicConcepts/tutorial_Lion.DirectoryStructure.pkg.html#lion_classes">Lion Framework classes</a><br />
+
+<a href="../../Lion/BasicConcepts/tutorial_Lion.DirectoryStructure.pkg.html#application_classes">Application classes</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="lion_structure"></a><h2>Lion directory structure</h2><p>After uncompressing lion, we're going to see the following directories:</p>
+  <p><img src = "../../images/Lion/simple_directory_structure.png"/></p>
+  <p>The <strong>/app</strong> directory is where we're going to develop our application.</p>
+  <p>The <strong>/lion</strong> directory contains the framework code. We don't need to alter any content within this directory.</p>
+  <img src = "../../images/Lion/directory_structure.png"/>
+  <p>The <strong>index.php</strong> file is always executed for each single request (see <a href="../../Request/tutorial_Request.pkg.html">Request Dispatcher</a> section to learn why).<br />
+  This file just includes the lion.php, a file containing the main core class: <strong>__Lion</strong>, the lion engine, a class in charge of load and execute the rest of the framework.</p>
+  <img src = "../../images/Lion/include_lion_php.png"/></span>
+ <span><a name="lion_classes"></a><h2>Lion Framework classes</h2><p>All the lion framework classes are contained within the <strong>/lion</strong> directory. Almost all of them are located under the <strong>/lion/libs</strong> directory.<br />
+  We do not need (ideally) to alter whatever content under that directory.</p>
+  <p>Lion classes have an typical naming convention to avoid conflicts with whatever other third-party library or even with our own application code: The name of all classes and interfaces start with a double underscore, (i.e. __Lion, <a href="../../FrontController/__FrontController.html">__FrontController</a>, <a href="../../Security/__AuthenticationManager.html">__AuthenticationManager</a>, ...).</p></span>
+ <span><a name="application_classes"></a><h2>Application classes</h2><p>Our application classes should be placed under <strong>/app</strong> directory. In fact, almost all of them should be placed under <strong>/app/libs</strong>.<br />
+  This directory contains some subdirectories out of the box to place our classes and files grouped by the kind of task they are designed to. i.e. Controller classes should be placed in the <strong>/app/libs/controllers</strong>, templates should be placed within the <strong>/app/templates</strong>, and so on.</p></span></div>
+      </td></tr></table>

@@ -1,0 +1,54 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Error Table</h1>
+  <div class="ref-purpose">Classifying Exceptions</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Exception/tutorial_Exception.ErrorTable.pkg.html#error_table">The Error Table</a><br />
+
+<a href="../Exception/tutorial_Exception.ErrorTable.pkg.html#exception_factory">The Exception Factory</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="error_table"></a><h2>The Error Table</h2><p>Exceptions can be declared and classified in the errors.xml file (app/config/errors.xml).<br />
+  i.e.</p>
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;errors&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;Common&nbsp;errors&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;error-group&nbsp;id=&quot;ERR_MODEL_ERRORS&quot;&nbsp;exception-class=&quot;MyModelExceptionClass&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;error&nbsp;code=&quot;75001&quot;&nbsp;id=&quot;ERR_INVOICE_CANNOT_BE_EMPTY&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;error&nbsp;code=&quot;75002&quot;&nbsp;id=&quot;ERR_INVOICE_WRONG_DATE&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;error&nbsp;code=&quot;75003&quot;&nbsp;id=&quot;ERR_INVOICE_NOT_FOUND&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;error&nbsp;code=&quot;75004&quot;&nbsp;id=&quot;ERR_CUSTOMER_NOT_FOUND&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/error-group&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;error-group&nbsp;id=&quot;ERR_SECURITY_ERRORS&quot;&nbsp;exception-class=&quot;MySecurityExceptionClass&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;error&nbsp;code=&quot;76002&quot;&nbsp;id=&quot;ERR_WRONG_USERNAME_OR_PASSWORD&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;error&nbsp;code=&quot;76008&quot;&nbsp;id=&quot;ERR_ACCESS_LOGIN_REQUIRED&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+</ol></pre></div>
+  <p>What we're doing in the errors.xml is to group exceptions according to their nature. 
+  Each group has an specific Exception class that will be used in case an exception within the group is raised to. In the example above, look the <i>exception-class</i> attribute declare for each group.</p>
+  <p>To use an error table has 3 main advantages:</p>
+  <ol><li>It decouples the usage of an exception class or the other one depending on a given error, making it transparent to our application.</li>
+    <li>It eases the internationalization of our exception messages. See pkg.</li>
+    <li>It eases the maintenance of all our exceptions within a single place as well as the assignment of error codes</li></ol></span>
+ <span><a name="exception_factory"></a><h2>The Exception Factory</h2><p>The <a href="../Exception/__ExceptionFactory.html">__ExceptionFactory</a> is a class in charge of create exceptions according to the error table.</p>
+  <p>It basically receives a given error code in order to create the most appropriate exception according to how it has been declared in the error table</p>
+  <p>i.e.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-key">if</span><span class="src-sym">(</span><span class="src-var">$error_authentication</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;<span class="src-id"><a href="../Exception/__ExceptionFactory.html">__ExceptionFactory</a></span><span class="src-sym">::</span><a href="../Exception/__ExceptionFactory.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">createException</span><span class="src-sym">(</span><span class="src-str">'ERR_WRONG_USERNAME_OR_PASSWORD'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div></p>
+  <p>In this example, the <a href="../Exception/__ExceptionFactory.html">__ExceptionFactory</a> takes as argument an exception code (ERR_WRONG_USERNAME_OR_PASSWORD), so it will create a MySecurityExceptionClass exception supposing we are using the error table above.</p>
+  <p>It's also important to note that, in our example, the MySecurityExceptionClass will have the error code 76002 as we have declared in our error table</p></span></div>
+      </td></tr></table>

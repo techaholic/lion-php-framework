@@ -1,0 +1,34 @@
+<?xml version = "1.0" standalone="yes"?>
+<classes>
+ 
+  <!-- Components -->
+  <cluster name="Components" path="/libs/components/...">
+    <class name="*" file="*.class.php"/>
+    <interface name="*" file="*.interface.php"/>
+  </cluster>
+
+  <!-- Event Handlers -->
+  <cluster name="Event Handlers" path="/libs/eventhandlers/...">
+    <class name="*" file="*.class.php"/>
+    <interface name="*" file="*.interface.php"/>
+  </cluster>
+
+  <!-- Controllers -->
+  <cluster name="Controllers" path="/libs/controllers/...">
+    <class name="*" file="*.class.php"/>
+    <interface name="*" file="*.interface.php"/>
+  </cluster>
+  
+  <!-- Model classes -->
+  <cluster name="Model" path="/libs/model/...">
+    <class name="*" file="*.class.php"/>
+    <interface name="*" file="*.interface.php"/>
+  </cluster>
+
+  <!-- Plugin classes -->
+  <cluster name="Plugins" path="/libs/plugins/...">
+    <class name="*" file="*.class.php"/>
+    <interface name="*" file="*.interface.php"/>
+  </cluster>
+  
+</classes>

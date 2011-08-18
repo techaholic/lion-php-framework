@@ -1,0 +1,24 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+
+  <resource-providers>
+
+    <resource-provider class="__IniFileResourceProvider" description="Menu items" persistence-level="session">
+      <resources-type class="__MessageResource"/>
+      <!-- resource's storage connection parameters: -->    
+      <properties>
+        <property name="languageDir" value="libs/language" />
+        <property name="filename" value="menu.ini"/>
+      </properties>
+    </resource-provider>    
+    <resource-provider class="__IniFileResourceProvider" description="Action's strings" persistence-level="action">
+      <resources-type class="__MessageResource"/>
+      <!-- resource's storage connection parameters: -->    
+      <properties>
+        <property name="languageDir" value="libs/language"/>
+      </properties>
+    </resource-provider>
+  </resource-providers>
+    
+</configuration>
+

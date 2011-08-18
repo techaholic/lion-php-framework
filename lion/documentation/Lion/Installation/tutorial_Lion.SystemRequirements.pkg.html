@@ -1,0 +1,36 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>System requirements</h1>
+  <div class="ref-purpose">Configuring your server to execute Lion</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../Lion/Installation/tutorial_Lion.SystemRequirements.pkg.html#system_requirements">System Requirements</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../Lion/Installation/tutorial_Lion.SystemRequirements.pkg.html#system_requirements.php">PHP Version</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../Lion/Installation/tutorial_Lion.SystemRequirements.pkg.html#system_requirements.php_configuration">PHP Configuration</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../Lion/Installation/tutorial_Lion.SystemRequirements.pkg.html#system_requirements.php_modules">PHP Recommended Extensions</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../Lion/Installation/tutorial_Lion.SystemRequirements.pkg.html#system_requirements.mod_rewrite">Apache mod_rewrite (or equivalent)</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="system_requirements"></a><h2>System Requirements</h2><p>Since Lion is a web application framework built on top of PHP, you will need a web server (i.e. Apache) and PHP installed.</p>
+  <a name="system_requirements.php"></a><h3>PHP Version</h3><p>We recommend using <strong>PHP 5.2.1</strong> or greater in order to optimize the framework performance since this distribution includes some native modules which accelerate the execution.</p>
+    <p>However, if needed, Lion is capable of working with <strong>PHP 5.1.6</strong> distribution or greater.</p><br />
+  <a name="system_requirements.php_configuration"></a><h3>PHP Configuration</h3><p>In order to make Lion's reverse AJAX work correctly, you may want to disable <strong>zlib.output_compression</strong>. However, you can use Apache mod_deflate or its equivalent to compress output other than AJAX responses.</p>
+    <p>We also recommend changing <strong>output_buffering</strong> to off in your php.ini file in order to make reverse AJAX to work propertly. For example, reverse AJAX is used by the asynchonous file uploader in order to refresh the upload progress bar.<br />
+    However, it's important to note that this is not a requirement to make the framework function normally.</p>
+    <p>If you are using the php_domxml extension, we recommend you disabling it in order to make the framework work properly since Lion uses some PHP-native XML classes which come into conflict with some classes of this module.</p><br />
+  <a name="system_requirements.php_modules"></a><h3>PHP Recommended Extensions</h3><p>If you use <strong>APC (Alternative PHP Cache)</strong>, we recommend enabling the <i>apc.rfc1867</i> directive in order to make the asynchonous file uploader component function normally. This component uses the APC module to update a progress bar while uploading files.<br />
+    Note: APC is not a requirement to make the Lion framework work and it may be part of future PHP distributions (i.e. PHP6).</p>
+   <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../../images/note_icon.png" width="48" height="48" border="0" /></td><td><strong>IMPORTANT:</strong> You may need to enable the <strong>apc.stat_ctime</strong> setting in your php.ini (apc.stat_ctime=1) if you have APC enabled. Otherwise, you may experience unexpected behaviors in the output like blank screens or the wrong template rendered instead of the expected one.</td></tr></table></div></center><br />
+  <a name="system_requirements.mod_rewrite"></a><h3>Apache mod_rewrite (or equivalent)</h3><p>Lion needs the Apache mod_rewrite (or equivalent) enabled in order to route all the requests to the framework properly.</p>
+    <p>To configure mod_rewrite in Apache properly, make sure that:
+    <ul><li>You have installed and enabled the Apache <strong>mod_rewrite</strong> module in your server.</li>
+      <li>You have enabled the <strong>AllowOverride</strong> directive in your apache configuration (httpd.conf).</li>
+      <li>You have modified the correct Apache configuration file located in the directory where Apache is reading the configuration from.<br />
+      Take into account that some configurations allow either one configuration file per user or per domain.</li></ul></p><br /></span></div>
+      </td></tr></table>

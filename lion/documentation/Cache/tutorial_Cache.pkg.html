@@ -1,0 +1,85 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Cache facade</h1>
+  <div class="ref-purpose">Improving the performance by caching</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Cache/tutorial_Cache.pkg.html#intro">Introduction</a><br />
+
+<a href="../Cache/tutorial_Cache.pkg.html#configuring_cache_facade">Configuring the Cache facade</a><br />
+
+<a href="../Cache/tutorial_Cache.pkg.html#cache_facade_api">Cache facade API</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Cache/tutorial_Cache.pkg.html#cache_facade_api.cache_ttl">Cache TTL</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Introduction</h2><p>The Cache facade provided by the Lion Framework eases you to manage the cache usage within your application as well as define declarativelly or programatically your own caching policies.<br />
+  However, it's important to note that Lion hasn't his own cache implementation since there are really excelents solutions out there. Instead of it, Lion brings a facade as an integrated way to manage cache.</p>
+  <p>By default, Lion framework has a facade to <a href="http://pear.php.net/package/Cache_Lite">Cache Lite</a> as well as <a href="http://pecl.php.net/package/memcache">MemCache</a>, 2 of the most mature and completed PHP caching solutions.</p>
+  <p>However, we are working in order to provide facades to others great caching frameworks such APC.<br />
+  In general, cache facade has been designed to work against whatever cache framework, so we are not binding our application to a concrete implementation at all.</p>
+  <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td><p>Cache is enabled by default, meaning that every time you perform changes within the configuration, you may delete the cache to reflect your changes.</p>
+    <p>Take into account that configuration is pre-processed and stored in cache to accelerate the performance.</p></td></tr></table></div></center></span>
+ <span><a name="configuring_cache_facade"></a><h2>Configuring the Cache facade</h2><p>The <strong>app/lion.ini</strong> file has the following cache configuration by default:
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-sym">;</span>-------------------------------------</div></li>
+<li><div class="src-line"><span class="src-sym">;&nbsp;</span><span class="src-id">CACHE&nbsp;DIRECTIVES</span>:</div></li>
+<li><div class="src-line"><span class="src-sym">;</span>-------------------------------------</div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-key">GLOBAL&nbsp;</span><span class="src-id">CACHE&nbsp;DIRECTIVES</span>:</div></li>
+<li><div class="src-line"><span class="src-id">CACHE_ENABLED&nbsp;</span>=&nbsp;<span class="src-id">yes</span></div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">Cache&nbsp;handler&nbsp;</span><span class="src-key">class&nbsp;</span><span class="src-id">to&nbsp;</span>use:</div></li>
+<li><div class="src-line"><span class="src-id">CACHE_HANDLER_CLASS&nbsp;</span>=&nbsp;<span class="src-str">&quot;__CacheLite&quot;</span></div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">Where&nbsp;cache&nbsp;files&nbsp;will&nbsp;be&nbsp;placed&nbsp;</span><span class="src-sym">(</span><span class="src-id">in&nbsp;</span><span class="src-key">case&nbsp;</span><span class="src-id">a&nbsp;file&nbsp;based&nbsp;cache</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><span class="src-id">CACHE_FILE_DIR&nbsp;</span>=&nbsp;<span class="src-str">&quot;var/code_c&quot;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">MEMCACHE&nbsp;SPECIFIC&nbsp;DIRECTIVES</span>:</div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">Memcache&nbsp;server&nbsp;</span><span class="src-sym">(</span><span class="src-key">default</span>:&nbsp;<span class="src-id">localhost</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">MEMCACHE_SERVER&nbsp;</span>=&nbsp;<span class="src-str">&quot;localhost&quot;</span></div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">Memcache&nbsp;port&nbsp;</span><span class="src-sym">(</span><span class="src-key">default&nbsp;</span><span class="src-id">port</span>:&nbsp;<span class="src-num">11211</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">MEMCACHE_PORT&nbsp;&nbsp;&nbsp;</span>=&nbsp;<span class="src-num">11211</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">...</div></li>
+</ol></pre></div></p>
+  <p>Note that default facade points to <a href="../Cache/__CacheLite.html">__CacheLite</a>. However, we can change it in order to use the MemCache facade by changing the CACHE_HANDLER_CLASS directive to use the <a href="../Cache/__MemCache.html">__MemCache</a> facade</p></span>
+ <span><a name="cache_facade_api"></a><h2>Cache facade API</h2><p>Cache facade works against specific cache handler implementations, so it exposes a defined interface working against whatever implementation like MemCache, APC, etc...</p>
+  <p>To retrieve the cache handler associated to our application context, we just need to call the __ContextContainer::getCache() method:
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;cache&nbsp;handler:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$cache&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getCache</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p>
+  <p>The cache handler exposes a really short and easy API allowing to store, retrieve and clear information from and to the cache.<br />
+  To highlight:
+  <ul><li>getData (see <a href="../Cache/__Cache.html#methodgetData">__Cache::getData()</a>): Get data from the cache</li>
+    <li>setData (see <a href="../Cache/__Cache.html#methodsetData">__Cache::setData()</a>): Set data to the cache</li>
+    <li>removeData (see <a href="../Cache/__Cache.html#methodremoveData">__Cache::removeData()</a>): Remove data from the cache</li>
+    <li>clear (see <a href="../Cache/__Cache.html#methodclear">__Cache::clear()</a>): Clear the cache</li></ul></p>   
+  <p>i.e.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;cache&nbsp;handler:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$cache&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getCache</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;data&nbsp;from&nbsp;the&nbsp;cache:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-var">$cache</span><span class="src-sym">-&gt;</span><span class="src-id">load</span><span class="src-sym">(</span><span class="src-str">'data'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//if&nbsp;no&nbsp;data:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if</span><span class="src-sym">(</span><span class="src-var">$data&nbsp;</span>===&nbsp;<span class="src-id">null</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//retrieve&nbsp;data&nbsp;from&nbsp;database:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-id">eg_retrieve_data_from_database</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//store&nbsp;data&nbsp;to&nbsp;cache,&nbsp;so&nbsp;next&nbsp;time&nbsp;won't&nbsp;be&nbsp;needed&nbsp;to</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;it&nbsp;from&nbsp;the&nbsp;database&nbsp;but&nbsp;from&nbsp;the&nbsp;cache:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$cache</span><span class="src-sym">-&gt;</span><span class="src-id">setData</span><span class="src-sym">(</span><span class="src-str">'data'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$data</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+</ol></pre></div></p>
+ <a name="cache_facade_api.cache_ttl"></a><h3>Cache TTL</h3><p>TTL is the expiration time of an item within the cache.<br />
+  If it's equal to zero, the item will never expire. You can use a number of seconds starting from current time, but in any case the number of seconds may not exceed 2592000 (30 days).</p>
+  <p>We can set the TTL as the third parameter of <a href="../Cache/__ICacheHandler.html#methodsave">__ICacheHandler::save()</a> method. i.e.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;cache&nbsp;handler:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$cache&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getCache</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//save&nbsp;a&nbsp;data&nbsp;to&nbsp;the&nbsp;cache&nbsp;in&nbsp;order&nbsp;to&nbsp;expire&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//after&nbsp;5&nbsp;minutes:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$cache</span><span class="src-sym">-&gt;</span><span class="src-id">setData</span><span class="src-sym">(</span><span class="src-str">'data'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$data</span><span class="src-sym">,&nbsp;</span><span class="src-num">300</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p><br /></span></div>
+      </td></tr></table>

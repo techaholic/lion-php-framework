@@ -1,0 +1,44 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Caching the model</h1>
+  <div class="ref-purpose">Improving the model performance</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Cache/tutorial_CachingTheModel.pkg.html#caching_capabilities">Caching the model</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="caching_capabilities"></a><h2>Caching the model</h2><p>Model layer allows to declare caching properties associated to model services (within the <strong>/app/config/model_services.xml</strong>) by using the <i>cache</i> and <i>cache-ttl</i> attributes at service level.<br />
+  i.e.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;model-services&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;Invoice&nbsp;services&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;InvoiceDao&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service&nbsp;name&nbsp;=&nbsp;&quot;getAllInvoices&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class-method&nbsp;=&nbsp;&quot;loadAll&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache&nbsp;=&nbsp;&quot;true&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache-ttl&nbsp;=&nbsp;&quot;300&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service&nbsp;name&nbsp;=&nbsp;&quot;getInvoice&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class-method&nbsp;=&nbsp;&quot;load&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache&nbsp;=&nbsp;&quot;true&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache-ttl&nbsp;=&nbsp;&quot;60&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service&nbsp;name&nbsp;=&nbsp;&quot;saveInvoice&quot;&nbsp;class-method&nbsp;=&nbsp;&quot;save&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/class&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/model-services&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+  In this example, we are caching the <i>getAllInvoices</i> service to expire after 300 seconds (ttl), as well as the <i>getInvoices</i> with a ttl of 1 minute</p>
+  <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td>Use cache capabilities in model services designed just to return results without altering the model.<br />
+        Take into account that a cached service won't be executed itself.</td></tr></table></div></center>
+  <p>The <i>cache-ttl</i>is optional, being 0 by default, forcing the cache to never expire
+  For more information regarding the model, please see the <a href="../Model/tutorial_Model.pkg.html">The Model</a> section.</p></span></div>
+      </td></tr></table>

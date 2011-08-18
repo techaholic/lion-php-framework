@@ -1,0 +1,121 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Component Tag Language</h1>
+  <div class="ref-purpose">Declaring user interface controls</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../View/Components/tutorial_View.ComponentTagLanguage.pkg.html#component_tag_language">Component Tag Language</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../View/Components/tutorial_View.ComponentTagLanguage.pkg.html#component_tag_language.defining_components">Declaring Components</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../View/Components/tutorial_View.ComponentTagLanguage.pkg.html#component_tag_language.defining_containers">Defining Containers</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../View/Components/tutorial_View.ComponentTagLanguage.pkg.html#component_tag_language.defining_properties">Defining Properties</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="component_tag_language"></a><h2>Component Tag Language</h2><p>The component tag language eases the definition of user interface components within our templates.<br />
+  Component tag language offers an extendible XML-based syntax that is interpreted by the framework and replaced by client-side specific code in run-time (i.e. XHTML + javascript code).</p>
+  <p>Note that components can be declared by using the tag language just in template based views. Out of the box Lion uses a view based on Smarty templates to render the user interface.</p>
+ <a name="component_tag_language.defining_components"></a><h3>Declaring Components</h3><p>The component tag has the following syntax:</p>
+  <div class="messagebox floatnote metadata plainlinks"><div class="floatnoteicon"><img alt="" src="../../images/note_icon.png" width="48" height="48" border="0" /></div><br><p>Do not assign template placeholders to component properties.<br />
+    To initialize a component with a value taken from the model, use the __EventHandler::init() method.</p>
+    <p>See the <a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html">Event Handlers</a> section for more information.</p></div>
+  <p><font face="Courier New">&lt;comp:<i>tag</i> <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;[name=&quot;<i>component-name</i>&quot;]<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;[<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>property = value</i><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;]*<br />
+  /&gt;<br /></font></p>
+  <p>where<br />
+  <ul><li><strong>tag</strong> is a name identifying the component that the tag represents to (i.e. commandbutton, inputbox, ...).</li>
+    <li><strong>component-name</strong> is a name to identify a concrete component instance. This parameter is optional. If no names are supplied, a default one will be assigned to the component.</li>
+    <li>The list of pair <strong>property-value</strong> is a set of initial values to setup a component.</li></ul></p>
+  <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">commandbutton&nbsp;name</span>=<span class="src-str">&quot;myButton&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Click&nbsp;on&nbsp;me!&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;myInputBox&quot;&nbsp;</span><span class="src-id">value</span>=<span class="src-str">&quot;&quot;</span>/&gt;</div></li>
+</ol></pre></div>
+  In this example, we have defined 2 components, a command button and an input box.<br />
+  An yes, components are defined within the template content as part of.</p><br />
+ <a name="component_tag_language.defining_containers"></a><h3>Defining Containers</h3><p>A component can be also defined by ussing a pair begin-end tags. It allows to close a piece of template content:</p>
+  <p><font face="Courier New">&lt;comp:<i>tag</i> <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;[name=&quot;<i>component-name</i>&quot;]<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;[<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>property = value</i><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;]*<br />
+  &gt;<br />
+  <br />
+  ...<br />
+  <br />
+  &lt;/comp:<i>tag</i>&gt;<br /></font></p>
+  <p>In that case, the content closed by the component can also contain other component tags. In that case, the component acts as container.</p>
+  <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">html</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">title</span>&gt;<span class="src-id">Component&nbsp;rendering&nbsp;engine&nbsp;sample</span>&lt;/<span class="src-id">title</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">form&nbsp;name</span>=<span class="src-str">&quot;myTabPane&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Login</span>:&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;login&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Password</span>:&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;password&quot;&nbsp;</span><span class="src-id">type</span>=<span class="src-str">&quot;password&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">commandbutton&nbsp;name</span>=<span class="src-str">&quot;submit&quot;&nbsp;</span><span class="src-id">type</span>=<span class="src-str">&quot;submit&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Login!&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">comp</span>:<span class="src-id">form</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">html</span>&gt;</div></li>
+</ol></pre></div></p><br />
+ <a name="component_tag_language.defining_properties"></a><h3>Defining Properties</h3><p>Finally, a component can define properties within the enclosed area by ussing the <strong>comp-property</strong> tag.<br />
+  This is really usefull to assign components as property for other components.</p>
+  <p>The syntax for ussing the comp-property is the following one:</p>
+  <p><font face="Courier New">&lt;comp-property name=&quot;<i>property-name</i>&quot;&gt;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;(property value goes here)<br />
+  &lt;/comp-property&gt;<br /></font></p>
+  <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">html</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">title</span>&gt;<span class="src-id">Component&nbsp;rendering&nbsp;engine&nbsp;sample</span>&lt;/<span class="src-id">title</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">commandlink&nbsp;name</span>=<span class="src-str">&quot;about_us&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>-<span class="src-id">property&nbsp;name</span>=<span class="src-str">&quot;caption&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">resource&nbsp;</span><a href="http://www.php.net/key">key</a>=<span class="src-str">&quot;about_us_i18n_literal&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/<span class="src-id">comp</span>-<span class="src-id">property</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">comp</span>:<span class="src-id">commandlink</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">html</span>&gt;</div></li>
+</ol></pre></div>
+    In this example we are using the comp-property tag to assign a component to the caption property.</p>
+  <p>It's really important to note that we can not use template placeholders as attribute values within component tags, because the template is processed before the component render engine parses it.</p>
+  <p>However, Lion offers a workarround by ussing the tag comp-property as we have seen. i.e.:
+    <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">html</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">title</span>&gt;<span class="src-id">Component&nbsp;rendering&nbsp;engine&nbsp;sample</span>&lt;/<span class="src-id">title</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-sym">!</span>--&nbsp;<span class="src-id">Assign&nbsp;a&nbsp;placeholder&nbsp;to&nbsp;a&nbsp;property&nbsp;within&nbsp;the&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">comp&nbsp;tag&nbsp;DOES&nbsp;NOT&nbsp;WORK</span>:&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">commandlink&nbsp;name</span>=<span class="src-str">&quot;about_us&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;</span>{<span class="src-var">$about_us_literal<span class="src-str"></span><span class="src-sym">}</span></span><span class="src-str">&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-sym">!</span>--&nbsp;<span class="src-id">Assign&nbsp;a&nbsp;placeholder&nbsp;to&nbsp;a&nbsp;property&nbsp;by&nbsp;ussing&nbsp;the</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">comp</span>-<span class="src-id">property&nbsp;tag&nbsp;WORKS</span>:&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">commandlink&nbsp;name</span>=<span class="src-str">&quot;about_us&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>-<span class="src-id">property&nbsp;name</span>=<span class="src-str">&quot;caption&quot;</span>&gt;<span class="src-sym">{</span><span class="src-var">$about_us_literal</span><span class="src-sym">}</span>&lt;/<span class="src-id">comp</span>-<span class="src-id">property</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/<span class="src-id">comp</span>:<span class="src-id">commandlink</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">comp</span>:<span class="src-id">tabpane</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">html</span>&gt;</div></li>
+</ol></pre></div>
+    In this example, we can not assign directly the placeholder <i>about_us_literal</i> as an attribute value, but we have the workarround of ussing the comp-property tag for the same purpose.</p><br />
+ <p>The <a href="../../Lion/Tutorials/tutorial_Lion.tutorial3.pkg.html">The Hello World Deluxe</a> is a simple but practical tutorial regarding components and event handlers.</p></span></div>
+      </td></tr></table>

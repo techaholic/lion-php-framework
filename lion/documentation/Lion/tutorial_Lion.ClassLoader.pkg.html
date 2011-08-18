@@ -1,0 +1,147 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Class Loader</h1>
+  <div class="ref-purpose">Class file lookup</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Lion/tutorial_Lion.ClassLoader.pkg.html#classloader">Lion class loader</a><br />
+
+<a href="../Lion/tutorial_Lion.ClassLoader.pkg.html#initial_classes_xml">includepath.xml files</a><br />
+
+<a href="../Lion/tutorial_Lion.ClassLoader.pkg.html#third_party_autoloaders">Declaring third-party autoloaders</a><br />
+
+<a href="../Lion/tutorial_Lion.ClassLoader.pkg.html#benefits">Benefits of using the class loader</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="classloader"></a><h2>Lion class loader</h2><p>Lion has a class loader, a class in charge of locate and include class files on demand, it is, as soon as they are needed by the code).<br />
+   The main advantage of the class loader is the fact that it saves the effort of maintain and organize include directives, because it allow us to declare where our files are located in.</p>
+   <p>The class loader allow to map classes with their files by declaring rules in the includepath file (<strong>/app/config/includepath.xml</strong>).</p>
+   <p>We can group classes containing in the same directory by ussing the <strong>cluster</strong> tag. A cluster has an attribute to let the framework know where files are located in (all paths in a cluster are relative to the application):
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;My&nbsp;classes&quot;&nbsp;path=&quot;/libs/classes&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div></p>
+   <p>Inside a cluster we can declare in which files are located our classes as well as our interfaces by ussing the <strong>class</strong> and <strong>interface</strong> tag respectively:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;My&nbsp;cluster&quot;&nbsp;path=&quot;/libs/classes&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;MyClass&quot;&nbsp;file=&quot;MyClass.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;MyIFaz&quot;&nbsp;file=&quot;MyIfaz.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div></p>
+   <p>We can also use wildcards in order to establish naming conventions.<br />
+   i.e. We can declare that whatever file with the suffix <i>.class.php</i> in a cluster corresponds to a class with the same name of the file (i.e. the file <i>MySuperCoolController.class.php</i> contains the definition of the <i>MySuperCoolController</i> class)
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;My&nbsp;classes&quot;&nbsp;path=&quot;/libs/classes&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div></p>
+   <p>Finally, we can map a cluster to a directory and all the sub-directories recursively by ending the path with 3 dots (...)<br />
+   i.e.
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;My&nbsp;classes&quot;&nbsp;path=&quot;/libs/classes/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div></p>
+   <p>So, in this example we are applying the same naming convention, affecting not just to files containing in /libs/classes but all the files in all the sub-directories recursively.</p></span>
+ <span><a name="initial_classes_xml"></a><h2>includepath.xml files</h2><p>Whatever file names as <strong>includepath.xml</strong> and located wherever you prefer is read by the class loader in order to get mapping rules.<br />
+   Initially we have the <strong>app/config/includepath.xml</strong> file with the following content:</p>
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Components&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Components&quot;&nbsp;path=&quot;/libs/components/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Event&nbsp;Handlers&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Event&nbsp;Handlers&quot;&nbsp;path=&quot;/libs/eventhandlers/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Controllers&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Controllers&quot;&nbsp;path=&quot;/libs/controllers/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Model&nbsp;classes&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Model&quot;&nbsp;path=&quot;/libs/model/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Plugin&nbsp;classes&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Plugins&quot;&nbsp;path=&quot;/libs/plugins/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div>
+   <p>Here we have defined some clusters, so Lion will search recursivelly for files matching the defined patterns in order to establish the mapping between classes/interfaces and their respectively files.</p>
+   <p>However, all of them have the same naming convention: Classes are contained in files with the same name plus the suffix <i>.class.php</i> while interfaces use the suffix <i>.interface.php</i></p></span>
+ <span><a name="third_party_autoloaders"></a><h2>Declaring third-party autoloaders</h2><p>Some frameworks like Doctrine may have their own class autoloaders.<br />
+   In order to integrate propertly those autoloaders within the Lion class loader, the includepath file allow to declare third-party autoloaders via the <strong>autoload</strong> tag:</p>
+   <p>i.e.
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Components&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Components&quot;&nbsp;path=&quot;/libs/components/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Event&nbsp;Handlers&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Event&nbsp;Handlers&quot;&nbsp;path=&quot;/libs/eventhandlers/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Controllers&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Controllers&quot;&nbsp;path=&quot;/libs/controllers/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Model&nbsp;classes&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Model&quot;&nbsp;path=&quot;/libs/model/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;!--&nbsp;Plugin&nbsp;classes&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Plugins&quot;&nbsp;path=&quot;/libs/plugins/...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;interface&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.interface.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div></p>
+   <p>In the example above we are declaring the <i>Doctrine::autoload</i> method as an autoloader. So, we just need to define where the Doctrine class is located in, since the doctrine autoloader will be the class in charge of locate the rest of files.</p></span>
+ <span><a name="benefits"></a><h2>Benefits of using the class loader</h2><p>There are 3 main benefits on using the class loader:</p>
+   <ul><li>To avoid the use of include directives within php files. On small project this doesn't matter, but on relative big projects it becomes a great advantage.</li>
+     <li>As consequence of the previous point, refactoring the code by moving files from one to other folder is a really easy task because just implies to adapt the specific includepath files without altering the code at all.</li>
+     <li>To plug new libraries ready to use on lion by just adding new includepath files. Again, code does not need to know where libraries are located on.</li></ul></span></div>
+      </td></tr></table>

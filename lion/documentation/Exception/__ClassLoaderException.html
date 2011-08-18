@@ -1,0 +1,179 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ClassLoaderException</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-methods">Methods</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre>Exception
+   |
+   --<a href="../Exception/__LionException.html">__LionException</a>
+      |
+      --__ClassLoaderException</pre>
+
+				</td>
+
+		
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-methods">Methods</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../Exception/__LionException.html">__LionException</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../Exception/__LionException.html#var$_error_message_parameters">__LionException::$_error_message_parameters</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#var$_exception_title">__LionException::$_exception_title</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#var$_exception_type">__LionException::$_exception_type</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#var$_extra_info">__LionException::$_extra_info</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#var$_resource_id">__LionException::$_resource_id</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../Exception/__LionException.html">__LionException</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../Exception/__LionException.html#method__construct">__LionException::__construct()</a><br>
+											The __LionException constructor.
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodexecuteCustomAction">__LionException::executeCustomAction()</a><br>
+											This method will be called for all __LionException deriveds instances in order to execute custom actions depending the exception type
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodgetErrorMessageParameters">__LionException::getErrorMessageParameters()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodgetErrorMessageResourceId">__LionException::getErrorMessageResourceId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodgetErrorTitle">__LionException::getErrorTitle()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodgetExceptionType">__LionException::getExceptionType()</a><br>
+											All custom exception will have the getExceptionType method in order to clasify all exceptions  By default, the error will be an ERR_CRITICAL
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodgetExtendedTrace">__LionException::getExtendedTrace()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodgetExtraInfo">__LionException::getExtraInfo()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodgetLocalizedMessage">__LionException::getLocalizedMessage()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodgetLogLevel">__LionException::getLogLevel()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodsetErrorMessageParameters">__LionException::setErrorMessageParameters()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodsetErrorMessageResourceId">__LionException::setErrorMessageResourceId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodsetErrorTitle">__LionException::setErrorTitle()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Exception/__LionException.html#methodsetExtraInfo">__LionException::setExtraInfo()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<span class="disabled">Properties</span>
+						|		    		    							<a href="#sec-methods">Methods</a>
+								    		    		</div>
+			
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<span class="disabled">Methods</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+
+
+      </td></tr></table>

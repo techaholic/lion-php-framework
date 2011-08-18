@@ -1,0 +1,111 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>I18n</h1>
+  <div class="ref-purpose">Adding internationalization capabilities</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../I18n/tutorial_I18n.pkg.html#intro">What's I18n</a><br />
+
+<a href="../I18n/tutorial_I18n.pkg.html#define_i18n_literals">Define I18n literals</a><br />
+
+<a href="../I18n/tutorial_I18n.pkg.html#the_resource_manager">The Resource Manager</a><br />
+
+<a href="../I18n/tutorial_I18n.pkg.html#locale_negociator">The Locale Negociator</a><br />
+
+<a href="../I18n/tutorial_I18n.pkg.html#literals_in_templates">I18n and templates</a><br />
+
+<a href="../I18n/tutorial_I18n.pkg.html#parametrized_literals">Parametrized literals</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>What's I18n</h2><p>I18n means internationalization. There are 18 characters between the first letter of the word and the last one, so there is an <i>i</i> followed by 18 characters and a <i>n</i>.</p>
+  <p>The concept is really simple: To provide an application a way to show the same content in different languages.<br />
+  Lion offers a set of libraries perfectly integrated within the rest of the framework to bring our applications with I18n capabilities easily, so we just need to define our I18n language-specific literals within separate files by following some naming-conventions and let the framework do the rest.</p></span>
+ <span><a name="define_i18n_literals"></a><h2>Define I18n literals</h2><p>We can define literals for a concrete language by just following a simple naming convention:
+  <ul><li>Literals for each language must be contained in a separate folder contained within the <strong>libs/language</strong> directory. i.e. english language literals must be defined inside the <strong>libs/language/en</strong> directory.</li>
+    <li>Literals must be set in different files. Those files must have the name of the controller code followed by the <i>.ini</i> extenssion. i.e. literals to be used within the <i>myControllerCode</i> controller must be defined in the <strong>libs/language/en/myControllerCode.ini</strong> file.</li></ul></p>
+  <p>Of course, Lion is opened to set whatever way to retrieve language literals (from database, from other file naming convention, from memcache, ...), however this naming convention is the result of the configuration that Lions offers by default.</p>
+  <p>i.e., we can define literals to each languages by just creating different directories (one per each language with the 2 letter iso code of each language) and setting-up .ini files in each one:<br />
+  English literals (to be defined in <strong>libs/language/en/myControllerCode.ini</strong>)
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-id">welcome&nbsp;</span>=&nbsp;<span class="src-str">&quot;Welcome&quot;</span></div></li>
+</ol></pre></div></p>
+  <p>Spanish literals (to be defined in <strong>libs/language/es/myControllerCode.ini</strong>)
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-id">welcome&nbsp;</span>=&nbsp;<span class="src-str">&quot;Bienvenido&quot;</span></div></li>
+</ol></pre></div></p></span> 
+ <span><a name="the_resource_manager"></a><h2>The Resource Manager</h2><p>Language literals are also known as string resources. The <a href="../I18n/__ResourceManager.html">__ResourceManager</a> is the class in charge of serve I18n literals.</p>
+  <p>The resource manager has a really useful method to do that: <a href="../I18n/__ResourceManager.html#methodgetResource">__ResourceManager::getResource()</a><br />
+  i.e.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;resource&nbsp;manager&nbsp;associated&nbsp;to&nbsp;our&nbsp;application:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$resource_manager&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">getResourceManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;english&nbsp;welcome&nbsp;literal:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$welcome_literal&nbsp;</span>=&nbsp;<span class="src-var">$resource_manager</span><span class="src-sym">-&gt;</span><span class="src-id">getResource</span><span class="src-sym">(</span><span class="src-str">'welcome'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'en'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">getValue</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p></span> 
+ <span><a name="locale_negociator"></a><h2>The Locale Negociator</h2><p>Lion negociates at the very beginning of the request the browser configured locale.<br />
+  This locale is taken into account if the language is already supported by the application. i.e., if we support both english and spanish, and a browser has the locale es_ES, the application will take into account it.</p>
+  <p>However, if the client locale is not supported by the application, it will use the default one (configured as part of the <strong>I18n.xml</strong> file).</p>
+  <p>In this case, if we do not specify a language to retrieve literals from the Resource Manager, the negociated one will be used instead of:
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;resource&nbsp;manager&nbsp;associated&nbsp;to&nbsp;our&nbsp;application:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$resource_manager&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">getResourceManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;negociated&nbsp;language&nbsp;welcome&nbsp;literal&nbsp;by&nbsp;just&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//ommiting&nbsp;the&nbsp;language&nbsp;parameter&nbsp;to&nbsp;get&nbsp;the&nbsp;literal&nbsp;from:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$welcome_literal&nbsp;</span>=&nbsp;<span class="src-var">$resource_manager</span><span class="src-sym">-&gt;</span><span class="src-id">getResource</span><span class="src-sym">(</span><span class="src-str">'welcome'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">getValue</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p></span> 
+ <span><a name="literals_in_templates"></a><h2>I18n and templates</h2><p>I18n is also perfectly integrated within template views<br />
+  We are able to just define placeholders with the same name of the literal key. The template based view will recognize them and set the I18n literals.</p>
+  <p>i.e. <strong>myControllerCode.tpl</strong> template:
+  <div class="listing"><pre><ol><li><div class="src-line">...</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-sym">!</span>--&nbsp;<span class="src-id">show&nbsp;the&nbsp;welcome&nbsp;message</span>:&nbsp;--&gt;</div></li>
+<li><div class="src-line"><span class="src-sym">{</span><span class="src-var">$welcome</span><span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">...</div></li>
+</ol></pre></div></p>
+  <p>Language literals will be set according to the current negociated language</p>
+  <p>However, another way to set literals into templates is by ussing the <strong>resource</strong> component:<br />
+  i.e.
+  <div class="listing"><pre><ol><li><div class="src-line">...</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-sym">!</span>--&nbsp;<span class="src-id">show&nbsp;the&nbsp;welcome&nbsp;message</span>:&nbsp;--&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">resource&nbsp;</span><a href="http://www.php.net/key">key</a>=<span class="src-str">&quot;welcome&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">...</div></li>
+</ol></pre></div></p>
+  <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td>To learn more about the resource component, please take a look at <a href="../ComponentModel/__ResourceComponent.html">__ResourceComponent</a>.</td></tr></table></div></center></span> 
+ <span><a name="parametrized_literals"></a><h2>Parametrized literals</h2><p>Sometime, we need to set valueholders inside I18n literals.<br />
+  Imagine the following message: <i>Welcome Antonio to our web application</i>. This message could be in spanish like <i>Bienvenido a nuestra aplicacion web, Antonio</i>.</p>
+  <p>So, we may need to define placeholders inside the I18n literals to be replaced by dynamic values in runtime<br />
+  To do that, we are able to define placeholders enclosed by curly brakets (i.e. {0}, {1}, {2}, ...)</p>
+  <p>English literals (to be defined in <strong>libs/language/en/myControllerCode.ini</strong>)
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-id">welcome&nbsp;</span>=&nbsp;<span class="src-str">&quot;Welcome&nbsp;{0}&nbsp;to&nbsp;our&nbsp;web&nbsp;application&quot;</span></div></li>
+</ol></pre></div></p>
+  <p>Spanish literals (to be defined in <strong>libs/language/es/myControllerCode.ini</strong>)
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-id">welcome&nbsp;</span>=&nbsp;<span class="src-str">&quot;Bienvenido&nbsp;a&nbsp;nuestra&nbsp;aplicacion&nbsp;web,&nbsp;{0}&quot;</span></div></li>
+</ol></pre></div></p>
+  <p>So, we just need to set the paremeters in the resource by following the same order they are defined as placeholders in the I18n literals:  i.e.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;resource&nbsp;manager&nbsp;associated&nbsp;to&nbsp;our&nbsp;application:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$resource_manager&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">getResourceManager</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;welcome&nbsp;literal&nbsp;and&nbsp;set&nbsp;Antonio&nbsp;to&nbsp;the&nbsp;{0}&nbsp;placeholder:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$welcome_literal&nbsp;</span>=&nbsp;<span class="src-var">$resource_manager</span><span class="src-sym">-&gt;</span><span class="src-id">getResource</span><span class="src-sym">(</span><span class="src-str">'welcome'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">setParameters</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'Antonio'</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">getValue</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p></span></div>
+      </td></tr></table>

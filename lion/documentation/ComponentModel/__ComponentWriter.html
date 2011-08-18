@@ -1,0 +1,787 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ComponentWriter</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+							<a href="#sec-descendents">Descendants</a>
+			|															<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre></pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ComponentWriter.html#methodbindComponentToClient">bindComponentToClient</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentWriter.html#methodcanRenderChildrenComponents">canRenderChildrenComponents</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentWriter.html#methodendRender">endRender</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentWriter.html#methodrenderContent">renderContent</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentWriter.html#methodstartRender">startRender</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-descendents"></a>
+		<h2>Direct descendents</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<span class="disabled">Descendants</span>
+			|															<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__CompositeWriter.html">__CompositeWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__FormHtmlWriter.html">__FormHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__FileBoxHtmlWriter.html">__FileBoxHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__CaptchaHtmlWriter.html">__CaptchaHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ToggleButtonHtmlWriter.html">__ToggleButtonHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__CommandButtonHtmlWriter.html">__CommandButtonHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__UriHtmlWriter.html">__UriHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__WindowHtmlWriter.html">__WindowHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ResourceHtmlWriter.html">__ResourceHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ProtectedSectionHtmlWriter.html">__ProtectedSectionHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ComboBoxHtmlWriter.html">__ComboBoxHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__CommandLinkHtmlWriter.html">__CommandLinkHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__AreaHtmlWriter.html">__AreaHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ClientDataCollectorHtmlWriter.html">__ClientDataCollectorHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__InputBoxHtmlWriter.html">__InputBoxHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__PaneHtmlWriter.html">__PaneHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__MenuHtmlWriter.html">__MenuHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ItemHtmlWriter.html">__ItemHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__CheckBoxHtmlWriter.html">__CheckBoxHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__LabelHtmlWriter.html">__LabelHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__RemoteServiceHtmlWriter.html">__RemoteServiceHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ActionBoxHtmlWriter.html">__ActionBoxHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__SliderHtmlWriter.html">__SliderHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__FormParameterHtmlWriter.html">__FormParameterHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__JavascriptHtmlWriter.html">__JavascriptHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__OptionBoxHtmlWriter.html">__OptionBoxHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__DateBoxHtmlWriter.html">__DateBoxHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ValidationRuleHtmlWriter.html">__ValidationRuleHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__TextAreaHtmlWriter.html">__TextAreaHtmlWriter</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#bindComponentToClient" title="details" class="method-name">bindComponentToClient</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#canRenderChildrenComponents" title="details" class="method-name">canRenderChildrenComponents</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#endRender" title="details" class="method-name">endRender</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#renderContent" title="details" class="method-name">renderContent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#startRender" title="details" class="method-name">startRender</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodbindComponentToClient" id="bindComponentToClient"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">bindComponentToClient</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void bindComponentToClient(
+<a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__CompositeWriter.html#methodbindComponentToClient">__CompositeWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ToggleButtonHtmlWriter.html#methodbindComponentToClient">__ToggleButtonHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CommandButtonHtmlWriter.html#methodbindComponentToClient">__CommandButtonHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__WindowHtmlWriter.html#methodbindComponentToClient">__WindowHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ComboBoxHtmlWriter.html#methodbindComponentToClient">__ComboBoxHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CommandLinkHtmlWriter.html#methodbindComponentToClient">__CommandLinkHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ClientDataCollectorHtmlWriter.html#methodbindComponentToClient">__ClientDataCollectorHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__InputBoxHtmlWriter.html#methodbindComponentToClient">__InputBoxHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CheckBoxHtmlWriter.html#methodbindComponentToClient">__CheckBoxHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__LabelHtmlWriter.html#methodbindComponentToClient">__LabelHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__RemoteServiceHtmlWriter.html#methodbindComponentToClient">__RemoteServiceHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ActionBoxHtmlWriter.html#methodbindComponentToClient">__ActionBoxHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__SliderHtmlWriter.html#methodbindComponentToClient">__SliderHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__OptionBoxHtmlWriter.html#methodbindComponentToClient">__OptionBoxHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__DateBoxHtmlWriter.html#methodbindComponentToClient">__DateBoxHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ValidationRuleHtmlWriter.html#methodbindComponentToClient">__ValidationRuleHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__TextAreaHtmlWriter.html#methodbindComponentToClient">__TextAreaHtmlWriter::bindComponentToClient()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodcanRenderChildrenComponents" id="canRenderChildrenComponents"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">canRenderChildrenComponents</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void canRenderChildrenComponents(
+<a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__ProtectedSectionHtmlWriter.html#methodcanRenderChildrenComponents">__ProtectedSectionHtmlWriter::canRenderChildrenComponents()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodendRender" id="endRender"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">endRender</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void endRender(
+<a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__FormHtmlWriter.html#methodendRender">__FormHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__FileBoxHtmlWriter.html#methodendRender">__FileBoxHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CaptchaHtmlWriter.html#methodendRender">__CaptchaHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ToggleButtonHtmlWriter.html#methodendRender">__ToggleButtonHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CommandButtonHtmlWriter.html#methodendRender">__CommandButtonHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ComboBoxHtmlWriter.html#methodendRender">__ComboBoxHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CommandLinkHtmlWriter.html#methodendRender">__CommandLinkHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__AreaHtmlWriter.html#methodendRender">__AreaHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__InputBoxHtmlWriter.html#methodendRender">__InputBoxHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__PaneHtmlWriter.html#methodendRender">__PaneHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CheckBoxHtmlWriter.html#methodendRender">__CheckBoxHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__LabelHtmlWriter.html#methodendRender">__LabelHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ActionBoxHtmlWriter.html#methodendRender">__ActionBoxHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__JavascriptHtmlWriter.html#methodendRender">__JavascriptHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__OptionBoxHtmlWriter.html#methodendRender">__OptionBoxHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__DateBoxHtmlWriter.html#methodendRender">__DateBoxHtmlWriter::endRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__TextAreaHtmlWriter.html#methodendRender">__TextAreaHtmlWriter::endRender()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodrenderContent" id="renderContent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">renderContent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void renderContent(
+
+$enclosed_content, <a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $enclosed_content</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__CompositeWriter.html#methodrenderContent">__CompositeWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__FileBoxHtmlWriter.html#methodrenderContent">__FileBoxHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CaptchaHtmlWriter.html#methodrenderContent">__CaptchaHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ToggleButtonHtmlWriter.html#methodrenderContent">__ToggleButtonHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CommandButtonHtmlWriter.html#methodrenderContent">__CommandButtonHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__UriHtmlWriter.html#methodrenderContent">__UriHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__WindowHtmlWriter.html#methodrenderContent">__WindowHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ResourceHtmlWriter.html#methodrenderContent">__ResourceHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ComboBoxHtmlWriter.html#methodrenderContent">__ComboBoxHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CommandLinkHtmlWriter.html#methodrenderContent">__CommandLinkHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__AreaHtmlWriter.html#methodrenderContent">__AreaHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__InputBoxHtmlWriter.html#methodrenderContent">__InputBoxHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__PaneHtmlWriter.html#methodrenderContent">__PaneHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CheckBoxHtmlWriter.html#methodrenderContent">__CheckBoxHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__LabelHtmlWriter.html#methodrenderContent">__LabelHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ActionBoxHtmlWriter.html#methodrenderContent">__ActionBoxHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__SliderHtmlWriter.html#methodrenderContent">__SliderHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__JavascriptHtmlWriter.html#methodrenderContent">__JavascriptHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__OptionBoxHtmlWriter.html#methodrenderContent">__OptionBoxHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__DateBoxHtmlWriter.html#methodrenderContent">__DateBoxHtmlWriter::renderContent()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__TextAreaHtmlWriter.html#methodrenderContent">__TextAreaHtmlWriter::renderContent()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodstartRender" id="startRender"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">startRender</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void startRender(
+<a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__CompositeWriter.html#methodstartRender">__CompositeWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__FormHtmlWriter.html#methodstartRender">__FormHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__FileBoxHtmlWriter.html#methodstartRender">__FileBoxHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CaptchaHtmlWriter.html#methodstartRender">__CaptchaHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ToggleButtonHtmlWriter.html#methodstartRender">__ToggleButtonHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CommandButtonHtmlWriter.html#methodstartRender">__CommandButtonHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__WindowHtmlWriter.html#methodstartRender">__WindowHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ComboBoxHtmlWriter.html#methodstartRender">__ComboBoxHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ListBoxHtmlWriter.html#methodstartRender">__ListBoxHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CommandLinkHtmlWriter.html#methodstartRender">__CommandLinkHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__AreaHtmlWriter.html#methodstartRender">__AreaHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ClientDataCollectorHtmlWriter.html#methodstartRender">__ClientDataCollectorHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__InputBoxHtmlWriter.html#methodstartRender">__InputBoxHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__PaneHtmlWriter.html#methodstartRender">__PaneHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__MenuHtmlWriter.html#methodstartRender">__MenuHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CheckBoxHtmlWriter.html#methodstartRender">__CheckBoxHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__LabelHtmlWriter.html#methodstartRender">__LabelHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__RemoteServiceHtmlWriter.html#methodstartRender">__RemoteServiceHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ActionBoxHtmlWriter.html#methodstartRender">__ActionBoxHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__SliderHtmlWriter.html#methodstartRender">__SliderHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__FormParameterHtmlWriter.html#methodstartRender">__FormParameterHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__JavascriptHtmlWriter.html#methodstartRender">__JavascriptHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__OptionBoxHtmlWriter.html#methodstartRender">__OptionBoxHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__DateBoxHtmlWriter.html#methodstartRender">__DateBoxHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ValidationRuleHtmlWriter.html#methodstartRender">__ValidationRuleHtmlWriter::startRender()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__TextAreaHtmlWriter.html#methodstartRender">__TextAreaHtmlWriter::startRender()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

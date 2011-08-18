@@ -1,0 +1,656 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __Iterator</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+															<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre></pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../Base/__Iterator.html#var$_collection">$_collection</a></li>
+		  		  <li><a href="../Base/__Iterator.html#var$_internal_point">$_internal_point</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Base/__Iterator.html#method__construct">__construct</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodcurrent">current</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodcurrentItem">currentItem</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodcurrentKey">currentKey</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodfirst">first</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodgetCurrent">getCurrent</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodgetCurrentItem">getCurrentItem</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodisDone">isDone</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodkey">key</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodlast">last</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodnext">next</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodprevious">previous</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodrewind">rewind</a></li>
+		  		  <li><a href="../Base/__Iterator.html#methodvalid">valid</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+															<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_collection" title="details" class="var-name-summary">$_collection</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">This is the internal array that the iterator will iterate throught</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_internal_point" title="details" class="var-name-summary">$_internal_point</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__Iterator</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This is the constructor method. It will initializate the internal array with a  reference to a specified array.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#current" title="details" class="method-name">&amp;current</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Alias of currentItem</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#currentItem" title="details" class="method-name">&amp;currentItem</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method returns the element in the current position of the internal pointer.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#currentKey" title="details" class="method-name">&amp;currentKey</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method returns the key of the element in the current position of the internal pointer.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#first" title="details" class="method-name">&amp;first</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method will back the internal pointer of the iterator to the first element of the array.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getCurrent" title="details" class="method-name">&amp;getCurrent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Alias of currentItem</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getCurrentItem" title="details" class="method-name">&amp;getCurrentItem</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Alias of currentItem</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isDone" title="details" class="method-name">isDone</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method returns true or false depending on if the internal pointer is beyond the end of the array.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#key" title="details" class="method-name">&amp;key</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Alias of currentKey</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#last" title="details" class="method-name">&amp;last</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method advanced the internal pointer to the last position of the array</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#next" title="details" class="method-name">&amp;next</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method advanced one position the internal pointer.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#previous" title="details" class="method-name">&amp;previous</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method will back one position left the internal pointer of the iterator.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#rewind" title="details" class="method-name">&amp;rewind</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method has the same behaviour as the first method (in fact, is an alias of first)</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#valid" title="details" class="method-name">valid</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Alias of isDone</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_collection" id="$_collection"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">array</span>&nbsp;&nbsp;
+            <span class="var-name">$_collection</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+    This is the internal array that the iterator will iterate throught<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_internal_point" id="$_internal_point"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_internal_point</span>
+             = <span class="var-default"> 0</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__Iterator __construct(
+array
+&$collection&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This is the constructor method. It will initializate the internal array with a  reference to a specified array.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                array</td>
+                <td class="defaultTd">
+                &$collection</td>
+                <td class="defaultTd">
+                The array to inicializate the internal array to iterate to            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodcurrent" id="current"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">current</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;current(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Alias of currentItem<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodcurrentItem" id="currentItem"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">currentItem</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;currentItem(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method returns the element in the current position of the internal pointer.<br /><br /><p>It does not move the pointer in any way. If the internal pointer points beyond the  end of the elements list, currentItem returns FALSE.</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The current pointed element, or FALSE if the internal pointer points beyond the end of the elements list.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodcurrentKey" id="currentKey"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">currentKey</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;currentKey(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method returns the key of the element in the current position of the internal pointer.<br /><br /><p>It does not move the pointer in any way. If the internal pointer points beyond the  end of the elements list, currentItem returns FALSE.</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The current pointed element key, or FALSE if the internal pointer points beyond the end of the elements list.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodfirst" id="first"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">first</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;first(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method will back the internal pointer of the iterator to the first element of the array.<br /><br /><p>It also returns the first element or FALSE if the array is empty</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The first element of the array or FALSE if the internal array is empty</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetCurrent" id="getCurrent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getCurrent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;getCurrent(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Alias of currentItem<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetCurrentItem" id="getCurrentItem"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getCurrentItem</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;getCurrentItem(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Alias of currentItem<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisDone" id="isDone"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isDone</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>boolean isDone(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method returns true or false depending on if the internal pointer is beyond the end of the array.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>true if the internal pointer is beyond the end of the array.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodkey" id="key"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">key</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;key(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Alias of currentKey<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The current pointed element key, or FALSE if the internal pointer points beyond the end of the elements list.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodlast" id="last"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">last</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;last(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method advanced the internal pointer to the last position of the array<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Return the last element of the array, or FALSE if the array is empty.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodnext" id="next"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">next</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;next(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method advanced one position the internal pointer.<br /><br /><p>It also returns the next place that's pointed to by the internal array pointer, or FALSE  if there are no more elements.</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Return the array value in the next place that's pointed to by the interal array pointer, or FALSE  if there are no more elements.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodprevious" id="previous"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">previous</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;previous(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method will back one position left the internal pointer of the iterator.<br /><br /><p>It will also return the previous place that's pointed to by the internal array pointer, or FALSE if there are no more elements.</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Returns the array value in the previous place that's pointed to by the internal array pointer, or FALSE if there are no more elements.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodrewind" id="rewind"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">rewind</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed &amp;rewind(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method has the same behaviour as the first method (in fact, is an alias of first)<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The first element of the array or FALSE if the internal array is empty</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodvalid" id="valid"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">valid</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>boolean valid(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Alias of isDone<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

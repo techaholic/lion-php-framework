@@ -1,0 +1,19 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+
+  <supported-languages>
+    <language>en</language>
+  </supported-languages>  
+  
+  <resource-providers>
+
+    <resource-provider class="__IniFileResourceProvider" description="Action's strings" persistence-level="action">
+      <resources-type class="__MessageResource"/>   
+      <properties>
+        <property name="languageDir" value="libs/language"/>
+      </properties>
+    </resource-provider>
+    
+  </resource-providers>  
+  
+</configuration>

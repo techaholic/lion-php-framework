@@ -1,0 +1,27 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Deployment environments</h1>
+  <div class="ref-purpose">Differences between development and production environments</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../Lion/BasicConcepts/tutorial_Lion.Environments.pkg.html#development_environment">Development environment</a><br />
+
+<a href="../../Lion/BasicConcepts/tutorial_Lion.Environments.pkg.html#production_environment">Production environment</a><br />
+
+<a href="../../Lion/BasicConcepts/tutorial_Lion.Environments.pkg.html#configuring_the_environment">Configuring the DEBUG MODE value</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="development_environment"></a><h2>Development environment</h2><p>By default Lion is configured to work in <strong>DEBUG MODE</strong> which reduces development efforts because:</p>
+  <ul><li>Configuration files can be changed without needing to delete the cache nor the session cookies. Lion detects when a configuration file has been changed, added or even removed. When it happens, Lion resets both the session and the cache, reloads the new configuration and caches it again.</li>
+    <li>Error messages are shown with the full trace</li>
+    <li>Classes and interface files are detected as soon as they are added, removed or altered. Since the class loader scans recursivelly for new classes and interface files, it caches the resultant tree to improve the performance. However, the class loader does not cache in DEBUG MODE.</li>
+    <li>Plugins and components can be added or removed in hot. The cache is updated automatically when a change is detected in that way.</li></ul>
+  <p>However, there are 2 mayor issues with DEBUG MODE: Security and performance. So, DEBUG MODE is not recommended for production environment at all</p></span>
+ <span><a name="production_environment"></a><h2>Production environment</h2><p>Turning <strong>DEBUG MODE</strong> off is recommended for production environment.</p>
+  <p>When Lion works without DEBUG MODE, everything is cached the very first time and Lion does not check for content changes in order to refresh the cache nor to reset the session.</p></span> 
+ <span><a name="configuring_the_environment"></a><h2>Configuring the DEBUG MODE value</h2><p>DEBUG_MODE is configurable via the <strong>app/lion.ini</strong> file:</p>
+  <pre class="example">;Set as no for production environment
+DEBUG_MODE = yes</pre></span></div>
+      </td></tr></table>

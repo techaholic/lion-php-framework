@@ -1,0 +1,972 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __TemplateEngineView</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../View/__View.html">__View</a>
+   |
+   --__TemplateEngineView</pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../View/__TemplateEngineView.html#var$filterStack">$filterStack</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#var$_template_file">$_template_file</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#var$_template_locator_class">$_template_locator_class</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodaddFilter">addFilter</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodexecute">execute</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodexecuteOutputFilters">executeOutputFilters</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodexecutePostFilters">executePostFilters</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodexecutePreFilters">executePreFilters</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodgetComponentParserClass">getComponentParserClass</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodgetTemplate">getTemplate</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodgetTemplateLocatorClass">getTemplateLocatorClass</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodlocateTemplateFile">locateTemplateFile</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodsetCompileDir">setCompileDir</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodsetTemplate">setTemplate</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodsetTemplateLocatorClass">setTemplateLocatorClass</a></li>
+		  		  <li><a href="../View/__TemplateEngineView.html#methodtemplatize">templatize</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-descendents"></a>
+		<h2>Direct descendents</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<span class="disabled">Descendants</span>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../View/__SmartyView.html">__SmartyView</a></td>
+					<td>
+											This file is part of lion framework.
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../View/__View.html">__View</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../View/__View.html#var$_code">__View::$_code</a><br>
+											
+										</li>
+																			<li>
+											<a href="../View/__View.html#var$_event_handler_class">__View::$_event_handler_class</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../View/__View.html">__View</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../View/__View.html#methodassignModel">__View::assignModel()</a><br>
+											Assign a given portion of the model to current view.
+										</li>
+																			<li>
+											<a href="../View/__View.html#methodassignResources">__View::assignResources()</a><br>
+											Assign resources to current view
+										</li>
+																			<li>
+											<a href="../View/__View.html#methodgetCode">__View::getCode()</a><br>
+											This method gets the code associated to the current view. If it's not setted, it will taked from the name of the class instead of
+										</li>
+																			<li>
+											<a href="../View/__View.html#methodgetEventHandlerClass">__View::getEventHandlerClass()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../View/__View.html#methodsetCacheDir">__View::setCacheDir()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../View/__View.html#methodsetCaching">__View::setCaching()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../View/__View.html#methodsetCode">__View::setCode()</a><br>
+											This method sets a code for current view
+										</li>
+																			<li>
+											<a href="../View/__View.html#methodsetEventHandlerClass">__View::setEventHandlerClass()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../View/__View.html#method_startupRendererEngine">__View::_startupRendererEngine()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-const-summary"></a>
+		<h2>Constant Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<span class="disabled">Constants Summary</span> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+			<div class="const-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr>
+					<td valign="top" class="var-title"><a href="#constOUTPUT_FILTER" title="details" class="const-name-summary">OUTPUT_FILTER</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="const-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr>
+					<td valign="top" class="var-title"><a href="#constPOST_FILTER" title="details" class="const-name-summary">POST_FILTER</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="const-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr>
+					<td valign="top" class="var-title"><a href="#constPRE_FILTER" title="details" class="const-name-summary">PRE_FILTER</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="const-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$filterStack" title="details" class="var-name-summary">$filterStack</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">This is the array that will contain all filters for current __View instance.</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_template_file" title="details" class="var-name-summary">$_template_file</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">This variable will contain the path and template file to use in the render operation</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_template_locator_class" title="details" class="var-name-summary">$_template_locator_class</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addFilter" title="details" class="method-name">addFilter</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Add an filter to the filter stack</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#execute" title="details" class="method-name">execute</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#executeOutputFilters" title="details" class="method-name">executeOutputFilters</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#executePostFilters" title="details" class="method-name">executePostFilters</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#executePreFilters" title="details" class="method-name">executePreFilters</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getComponentParserClass" title="details" class="method-name">getComponentParserClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getTemplate" title="details" class="method-name">getTemplate</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getTemplateLocatorClass" title="details" class="method-name">getTemplateLocatorClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#locateTemplateFile" title="details" class="method-name">locateTemplateFile</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Given a template file, we will attempt to resolve the path of the template filename</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setCompileDir" title="details" class="method-name">setCompileDir</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setTemplate" title="details" class="method-name">setTemplate</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Specify the template file to use without the path</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setTemplateLocatorClass" title="details" class="method-name">setTemplateLocatorClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#templatize" title="details" class="method-name">templatize</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a> 
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<a name="var$filterStack" id="$filterStack"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">array</span>&nbsp;&nbsp;
+            <span class="var-name">$filterStack</span>
+             = <span class="var-default">array( self::PRE_FILTER    =&gt; array(),self::POST_FILTER=&gt;array(),self::OUTPUT_FILTER=&gt;array())</span>        </span>
+    </div>
+
+    This is the array that will contain all filters for current __View instance.<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_template_file" id="$_template_file"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_template_file</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+    This variable will contain the path and template file to use in the render operation<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_template_locator_class" id="$_template_locator_class"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_template_locator_class</span>
+             = <span class="var-default"> '__TemplateLocator'</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<a name='method_detail'></a>
+<a name="methodaddFilter" id="addFilter"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addFilter</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void addFilter(
+<a href="../View/__TemplateFilter.html">__TemplateFilter</a>
+&$filter, [integer
+$type = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Add an filter to the filter stack<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../View/__TemplateFilter.html">__TemplateFilter</a></td>
+                <td class="defaultTd">
+                &$filter</td>
+                <td class="defaultTd">
+                The filter to add to the filter stack.            </td></tr>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $type</td>
+                <td class="defaultTd">
+                The type of filter. It can be self::POST_FILTER, self::PRE_FILTER, self::OUTPUT_FILTER            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodexecute" id="execute"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">execute</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void execute(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodexecuteOutputFilters" id="executeOutputFilters"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">executeOutputFilters</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void executeOutputFilters(
+
+$compiled&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $compiled</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodexecutePostFilters" id="executePostFilters"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">executePostFilters</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void executePostFilters(
+
+$compiled&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $compiled</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodexecutePreFilters" id="executePreFilters"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">executePreFilters</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void executePreFilters(
+
+$compiled&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $compiled</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetComponentParserClass" id="getComponentParserClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getComponentParserClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getComponentParserClass(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../View/__SmartyView.html#methodgetComponentParserClass">__SmartyView::getComponentParserClass()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetTemplate" id="getTemplate"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getTemplate</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getTemplate(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetTemplateLocatorClass" id="getTemplateLocatorClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getTemplateLocatorClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getTemplateLocatorClass(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodlocateTemplateFile" id="locateTemplateFile"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">locateTemplateFile</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string locateTemplateFile(
+$templateFile
+$template_filename&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Given a template file, we will attempt to resolve the path of the template filename<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                $templateFile</td>
+                <td class="defaultTd">
+                $template_filename</td>
+                <td class="defaultTd">
+                the simple template file name that we want to locate using our Template Locator            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>of the full template file name</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetCompileDir" id="setCompileDir"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setCompileDir</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setCompileDir(
+
+$compile_dir&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $compile_dir</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../View/__SmartyView.html#methodsetCompileDir">__SmartyView::setCompileDir()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetTemplate" id="setTemplate"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setTemplate</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setTemplate(
+string
+$template_file&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Specify the template file to use without the path<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $template_file</td>
+                <td class="defaultTd">
+                The template filename            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetTemplateLocatorClass" id="setTemplateLocatorClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setTemplateLocatorClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setTemplateLocatorClass(
+
+$template_locator_class&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $template_locator_class</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodtemplatize" id="templatize"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">templatize</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void templatize(
+
+$template_file&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $template_file</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../View/__SmartyView.html#methodtemplatize">__SmartyView::templatize()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+
+	<a name="sec-consts"></a>
+		<h2>Constants</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <span class="disabled">Constants Detail</span>
+					    		</div>
+
+
+
+
+				<a name="constOUTPUT_FILTER"></a>
+	<p></p>
+	<h4>OUTPUT_FILTER = <span class="value">&nbsp;3</span></h4>
+  
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="constPOST_FILTER"></a>
+	<p></p>
+	<h4>POST_FILTER = <span class="value">&nbsp;2</span></h4>
+  
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="constPRE_FILTER"></a>
+	<p></p>
+	<h4>PRE_FILTER = <span class="value">&nbsp;1</span></h4>
+  
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+      </td></tr></table>

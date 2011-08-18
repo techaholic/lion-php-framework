@@ -1,0 +1,65 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Lion Events</h1>
+  <div class="ref-purpose">Event types in lion framework</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../View/Components/tutorial_View.Events.pkg.html#events">Events in Lion</a><br />
+
+<a href="../../View/Components/tutorial_View.Events.pkg.html#domlevel2_events">DOM Level 2 Events</a><br />
+
+<a href="../../View/Components/tutorial_View.Events.pkg.html#custom_events">Lion Custom Events</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="events"></a><h2>Events in Lion</h2><p>Lion has been designed in order to be able to support not just HTML but whatever kind of user interface.<br />
+  In that sense, event types depend on the interface nature that we are working with.</p>
+  <p>We can talk about 2 different event types:
+    <ul><li>DOM Level 2 Events: Raised by HTML based components since they are rendered as HTML elements</li>
+      <li>Lion custom events: Custom events raised by some components (i.e. the validate event raised by a validator component)</li></ul></p></span>  
+ <span><a name="domlevel2_events"></a><h2>DOM Level 2 Events</h2><p>DOM Level 2 events are raised by HTML based components. i.e., since a button component it's represented by a HTML button, it raises the click event defined on DOM Level 2 specification when clicked, not a custom event</p>
+  <p>The following list shows DOM Level 2 events:</p>
+  <p><table class="defaultTable"><colgroup span = "3"/><thead class="defaultThead" align = "center"><tr><td class="defaultTd"><strong>Name</strong></td>
+      <td class="defaultTd"><strong>Definition</strong></td></tr></thead class="defaultThead">
+    <tbody><tr><td class="defaultTd">click</td>
+      <td class="defaultTd">The click event occurs when the pointing device button is clicked over an element. A click is defined as a mousedown and mouseup over the same screen location. The sequence of these events is: mousedown, mouseup, click.</td></tr>
+     <tr><td class="defaultTd">mousedown</td>
+      <td class="defaultTd">The mousedown event occurs when the pointing device button is pressed over an element. This event is valid for most elements.</td></tr>
+     <tr><td class="defaultTd">mouseup</td>
+      <td class="defaultTd">The mousedown event occurs when the pointing device button is pressed over an element. This event is valid for most elements.</td></tr>
+     <tr><td class="defaultTd">mouseover</td>
+      <td class="defaultTd">The mouseover event occurs when the pointing device is moved onto an element. This event is valid for most elements.</td></tr>
+     <tr><td class="defaultTd">mousemove</td>
+      <td class="defaultTd">The mousemove event occurs when the pointing device is moved while it is over an element. This event is valid for most elements.</td></tr>
+     <tr><td class="defaultTd">mouseout</td>
+      <td class="defaultTd">The mouseout event occurs when the pointing device is moved away from an element. This event is valid for most elements.</td></tr>
+     <tr><td class="defaultTd">load</td>
+      <td class="defaultTd">The load event occurs when the DOM implementation finishes loading all content within a document, all frames within a FRAMESET, or an OBJECT element.</td></tr>
+     <tr><td class="defaultTd">unload</td>
+      <td class="defaultTd">The unload event occurs when the DOM implementation removes a document from a window or frame. This event is valid for BODY and FRAMESET elements.</td></tr>
+     <tr><td class="defaultTd">abort</td>
+      <td class="defaultTd">The abort event occurs when page loading is stopped before an image has been allowed to completely load. This event applies to OBJECT elements.</td></tr>
+     <tr><td class="defaultTd">error</td>
+      <td class="defaultTd">The error event occurs when an image does not load properly or when an error occurs during script execution. This event is valid for OBJECT elements, BODY elements, and FRAMESET element.</td></tr>
+     <tr><td class="defaultTd">select</td>
+      <td class="defaultTd">The select event occurs when a user selects some text in a text field. This event is valid for INPUT and TEXTAREA elements.</td></tr>
+     <tr><td class="defaultTd">change</td>
+      <td class="defaultTd">The change event occurs when a control loses the input focus and its value has been modified since gaining focus. This event is valid for INPUT, SELECT, and TEXTAREA. element.</td></tr>
+     <tr><td class="defaultTd">submit</td>
+      <td class="defaultTd">The submit event occurs when a form is submitted. This event only applies to the FORM element.</td></tr>
+     <tr><td class="defaultTd">reset</td>
+      <td class="defaultTd">The reset event occurs when a form is reset. This event only applies to the FORM element.</td></tr>
+     <tr><td class="defaultTd">focus</td>
+      <td class="defaultTd">The focus event occurs when an element receives focus either via a pointing device or by tabbing navigation. This event is valid for the following elements: LABEL, INPUT, SELECT, TEXTAREA, and BUTTON.</td></tr>
+     <tr><td class="defaultTd">blur</td>
+      <td class="defaultTd">The blur event occurs when an element loses focus either via the pointing device or by tabbing navigation. This event is valid for the following elements: LABEL, INPUT, SELECT, TEXTAREA, and BUTTON.</td></tr>
+     <tr><td class="defaultTd">resize</td>
+      <td class="defaultTd">The resize event occurs when a document view is resized.</td></tr>
+     <tr><td class="defaultTd">scroll</td>
+      <td class="defaultTd">The scroll event occurs when a document view is scrolled.</td></tr></tbody></table></p>
+  <p>Not all the components are able to raise all the events. So, is a developer task to ensure that a concrete component is able to raise a concrete event.</p></span>
+ <span><a name="custom_events"></a><h2>Lion Custom Events</h2><p>Lion also support the execution of custom events, raised from the client by components and handled by the server.<br />
+  Those events depend on the component but not on how components are rendered as HTML elements.</p>
+  <p>i.e., a validator component raises a <i>validate</i> event in case a validation method has been defined in an event handler. However, this event is a custom event designed just for that purpose.</p></span></div>
+      </td></tr></table>

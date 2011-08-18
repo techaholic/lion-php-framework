@@ -1,0 +1,63 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Exception management system</h1>
+  <div class="ref-purpose">Handling exception</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Exception/tutorial_Exception.pkg.html#intro">Introduction</a><br />
+
+<a href="../Exception/tutorial_Exception.pkg.html#configure_exceptions">Runtime settings</a><br />
+
+<a href="../Exception/tutorial_Exception.pkg.html#lion_exception_class">The __LionException class</a><br />
+
+<a href="../Exception/tutorial_Exception.pkg.html#exception_management_system">Lion error handling system</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Introduction</h2><p>All exceptions that are not catched by your code are handled by the <a href="../Core/__ErrorHandler.html">__ErrorHandler</a> class.</p>
+  <p>Once the <a href="../Core/__ErrorHandler.html">__ErrorHandler</a> receives an exception, it perform the following operations:
+  <ul><li>Logs the exception (if applicable by settings in the lion.ini file)</li>
+    <li>Executes a logic associated to the type of exception (just for exceptions subclassing the <a href="../Exception/__LionException.html">__LionException</a>)</li>
+    <li>Shows a page with information regarding the exception</li></ul></p>
+  <p>Exception model in lion is already integrated with the I18n framework, allowing to define internationalized message</p>
+  <p>Exception can be declared in xml configuration files and grouped by their semantic (i.e. security exception, configuration exceptions, rendering exceptions and so on).</p>
+  <p>Last but not the least, the class in charge of rendering the page showing the exception can be customized.</p></span>
+ <span><a name="configure_exceptions"></a><h2>Runtime settings</h2><p>Lion has some runtime settings regarding how to handle exceptions (defined in /app/lion.ini):</p>
+  <div class="listing"><pre><ol><li><div class="src-line">...</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">Set&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-id">no&nbsp;</span><span class="src-key">for&nbsp;</span><span class="src-id">production&nbsp;environment</span></div></li>
+<li><div class="src-line"><span class="src-id">DEBUG_MODE&nbsp;</span>=&nbsp;<span class="src-id">yes</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">;</span><span class="src-id">Recommended&nbsp;to&nbsp;set&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-id">no&nbsp;</span><span class="src-key">for&nbsp;</span><span class="src-id">production&nbsp;environment</span></div></li>
+<li><div class="src-line"><span class="src-id">DISPLAY_EXCEPTIONS&nbsp;</span>=&nbsp;<span class="src-id">yes</span></div></li>
+<li><div class="src-line"><span class="src-id">DISPLAY_DEBUG_INFO&nbsp;</span>=&nbsp;<span class="src-id">yes</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">...</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">;</span>-------------------------------------</div></li>
+<li><div class="src-line"><span class="src-sym">;&nbsp;</span><span class="src-id">LOGGING&nbsp;DIRECTIVES</span>:</div></li>
+<li><div class="src-line"><span class="src-sym">;</span>-------------------------------------</div></li>
+<li><div class="src-line"><span class="src-id">LOG_ENABLED&nbsp;</span>=&nbsp;<span class="src-id">yes</span></div></li>
+<li><div class="src-line"><span class="src-sym">;</span><a href="http://www.php.net/log">log</a>&nbsp;<span class="src-id">uncatched&nbsp;exceptions</span>:</div></li>
+<li><div class="src-line"><span class="src-id">LOG_EXCEPTIONS&nbsp;</span>=&nbsp;<span class="src-id">yes</span></div></li>
+<li><div class="src-line"><span class="src-sym">;</span><a href="http://www.php.net/log">log</a>&nbsp;<span class="src-id">additional&nbsp;debug&nbsp;information&nbsp;when&nbsp;exceptions&nbsp;are&nbsp;uncatched</span>:</div></li>
+<li><div class="src-line"><span class="src-id">LOG_DEBUG_INFO&nbsp;</span>=&nbsp;<span class="src-id">yes</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">...</div></li>
+</ol></pre></div>
+  <p>Being:</p>
+  <ul><li><strong>DEBUG_MODE</strong>: If debug mode is set to false, the trace of the exception won't be shown in the screen.</li>
+    <li><strong>DISPLAY_EXCEPTIONS</strong>: This setting allow to show the concrete exception message. Otherwise a general message will be shown for every exception.</li>
+    <li><strong>DISPLAY_DEBUG_INFO</strong>: This setting allow to show the trace when an exception comes. Note that this setting works just in debug mode. Otherwise it's ignored by Lion.</li>
+    <li><strong>LOG_ENABLED</strong>: This setting enable the logging. We may turn on this setting in order to also log exceptions.</li>
+    <li><strong>LOG_EXCEPTIONS</strong>: This setting forces to log every exception. Note that this setting works just if logging is enabled.</li>
+    <li><strong>LOG_DEBUG_INFO</strong>: This setting log the trace and complementary debug information when an exception is raised. Note that this setting works just if logging is enabled.</li></ul></span>
+ <span><a name="lion_exception_class"></a><h2>The __LionException class</h2><p>Lion has his own exception hierarchy subclassing the abstract exception class <a href="../Exception/__LionException.html">__LionException</a>.<br />
+  However, Lion does not require to subclass the <a href="../Exception/__LionException.html">__LionException</a> by our own exceptions.</p></span>
+ <span><a name="exception_management_system"></a><h2>Lion error handling system</h2><p>The error handler brings some advantages:</p>
+  <ol><li>It decouples the usage of a concrete exception class or the other one from our logic, making it transparent to our application. See <a href="../Exception/tutorial_Exception.ErrorTable.pkg.html">The Error Table</a>.</li>
+    <li>It eases the internationalization of our exception messages. See <a href="../Exception/tutorial_Exception.I18n.pkg.html">Exceptions and I18n</a>.</li>
+    <li>It eases the maintenance of all our exceptions within a single place as well as the assignment of error codes</li>
+    <li>It eases how exceptions are shown to the user in an error page. See <a href="../Exception/tutorial_Exception.ErrorPage.pkg.html">The Error Page</a>.</li></ol></span></div>
+      </td></tr></table>

@@ -1,0 +1,340 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __CacheSectionHandler</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+							<a href="#sec-descendents">Descendants</a>
+			|															<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This is a base class for section handlers that want to cache their processed results<br /><br /><table border="0" cellspacing="0" cellpadding="0">
+</table>
+
+		
+		<pre></pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Configuration/__CacheSectionHandler.html#method__construct">__construct</a></li>
+		  		  <li><a href="../Configuration/__CacheSectionHandler.html#methoddoProcess">doProcess</a></li>
+		  		  <li><a href="../Configuration/__CacheSectionHandler.html#methodprocess">process</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-descendents"></a>
+		<h2>Direct descendents</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<span class="disabled">Descendants</span>
+			|															<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__RoleDefinitionsSectionHandler.html">__RoleDefinitionsSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;role-definitions&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__UIComponentTagsSectionHandler.html">__UIComponentTagsSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;ui-component-tags&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__RoutesSectionHandler.html">__RoutesSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;routes-section&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__WebFlowSectionHandler.html">__WebFlowSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;webflow&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__ModelServicesSectionHandler.html">__ModelServicesSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;model-services&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__StreamWrappersSectionHandler.html">__StreamWrappersSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;stream-wrappers&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__ResourceProvidersSectionHandler.html">__ResourceProvidersSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;resource-providers&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__FiltersSectionHandler.html">__FiltersSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;filters&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__InstancesSectionHandler.html">__InstancesSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;context-instances&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__SupportedLanguagesSectionHandler.html">__SupportedLanguagesSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;supported-languages&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__ErrorCodesSectionHandler.html">__ErrorCodesSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;error-codes&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__PermissionDefinitionsSectionHandler.html">__PermissionDefinitionsSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;permission-definitions&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__ViewDefinitionsSectionHandler.html">__ViewDefinitionsSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;view-definitions&amp;gt; configuration sections
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__ControllerDefinitionsSectionHandler.html">__ControllerDefinitionsSectionHandler</a></td>
+					<td>
+											This is the section handler in charge of processing &amp;lt;controller-definitions&amp;gt; configuration sections
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__CacheSectionHandler</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#doProcess" title="details" class="method-name">&amp;doProcess</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#process" title="details" class="method-name">&amp;process</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__CacheSectionHandler __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methoddoProcess" id="doProcess"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">doProcess</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void &amp;doProcess(
+<a href="../Configuration/__ConfigurationSection.html">__ConfigurationSection</a>
+&$section&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Configuration/__ConfigurationSection.html">__ConfigurationSection</a></td>
+                <td class="defaultTd">
+                &$section</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../Configuration/__RoleDefinitionsSectionHandler.html#methoddoProcess">__RoleDefinitionsSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__UIComponentTagsSectionHandler.html#methoddoProcess">__UIComponentTagsSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__RoutesSectionHandler.html#methoddoProcess">__RoutesSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__WebFlowSectionHandler.html#methoddoProcess">__WebFlowSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__ModelServicesSectionHandler.html#methoddoProcess">__ModelServicesSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__StreamWrappersSectionHandler.html#methoddoProcess">__StreamWrappersSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__ResourceProvidersSectionHandler.html#methoddoProcess">__ResourceProvidersSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__FiltersSectionHandler.html#methoddoProcess">__FiltersSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__InstancesSectionHandler.html#methoddoProcess">__InstancesSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__SupportedLanguagesSectionHandler.html#methoddoProcess">__SupportedLanguagesSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__ErrorCodesSectionHandler.html#methoddoProcess">__ErrorCodesSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__PermissionDefinitionsSectionHandler.html#methoddoProcess">__PermissionDefinitionsSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__ViewDefinitionsSectionHandler.html#methoddoProcess">__ViewDefinitionsSectionHandler::doProcess()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__ControllerDefinitionsSectionHandler.html#methoddoProcess">__ControllerDefinitionsSectionHandler::doProcess()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodprocess" id="process"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">process</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void &amp;process(
+<a href="../Configuration/__ConfigurationSection.html">__ConfigurationSection</a>
+&$section&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Configuration/__ConfigurationSection.html">__ConfigurationSection</a></td>
+                <td class="defaultTd">
+                &$section</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

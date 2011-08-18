@@ -1,0 +1,73 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Hello World Deluxe</h1>
+  <div class="ref-purpose">Declaring UI components</div>
+ <div class="ref-synopsis"><p><center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../../images/note_icon.png" width="48" height="48" border="0" /></td><td><p>Note that all the source code used in this tutorial is available to <strong>download</strong> and to <strong>see in action</strong>:
+    <ul><li><a href="http://bamboo.lionframework.org/download/LION-STABLE/artifacts/build-29/Deliverables/tutorial3-1.4.29-stable.tgz">Download the source code</a></li>
+      <li><a href="http://www.lionframework.org/tutorials/1.4.29-stable/tutorial3">See the application in action</a></li></ul></p></td></tr></table></div></center></p></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial3.pkg.html#intro">Goal</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial3.pkg.html#placing_components">Placing components within the template</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial3.pkg.html#creating_event_handler">Creating the event handler</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial3.pkg.html#placing_the_event_handler">Placing the event handler</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial3.pkg.html#executing_the_hello_world">Executing the Hello World</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Goal</h2><p>The goal of this tutorial is to learn how to use <strong>user interface components</strong> within your application.<br />
+  The application that we are going to develop is an improvement of <a href="../../Lion/Tutorials/tutorial_Lion.tutorial1.pkg.html">The Hello World</a>: This application will show the 'Hello world' string but just by clicking on a button.</p>
+  <p>What we are going to do in this tutorial is:
+  <ul><li>To modify the helloWorld template by adding 2 components: a button and a label (templates/helloWorld.tpl)</li>
+    <li>To define an event handler and associate to the helloWorld view (libs/eventhandlers/HelloWorldEventHandler.class.php)</li></ul></p>
+  <img src="../../images/Tutorials/tutorial3/directory_structure.png" border="0"></span>
+ <span><a name="placing_components"></a><h2>Placing components within the template</h2><p>First thing to do will be to modify the template helloWorld.tpl by adding 2 components:</p>
+  <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">html</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">title</span>&gt;<span class="src-id">The&nbsp;hello&nbsp;world&nbsp;in&nbsp;Lion</span>&lt;/<span class="src-id">title</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">commandbutton&nbsp;name</span>=<span class="src-str">&quot;helloWorldButton&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Click&nbsp;on&nbsp;me!&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">h1</span>&gt;&lt;<span class="src-id">comp</span>:<span class="src-id">label&nbsp;name</span>=<span class="src-str">&quot;helloWorldLabel&quot;</span>/&gt;&lt;/<span class="src-id">h1</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">html</span>&gt;</div></li>
+</ol></pre></div>
+  <p>As we can see, we have declared 2 components: a commandbutton (helloWorldButton) and a label (helloWorldLabel).<br />
+  What we expect is to see the 'Hello World!' message just when click on the button.</p></span>
+ <span><a name="creating_event_handler"></a><h2>Creating the event handler</h2><p>The following task to do is to create an event handler to execute a piece of code when we click on the button.</p>
+  <p>To do that, we have to define a class extending the <a href="../../ComponentModel/__EventHandler.html">__EventHandler</a>. Because the view we are executing is helloWorld, by following the event handlers naming convention (see the <a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html">Event Handlers</a> section for more information about this naming convention), we'll define it as <strong>HelloWorldEventHandler</strong></p>
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">class&nbsp;</span><span class="src-id">HelloWorldEventHandler&nbsp;</span><span class="src-key">extends&nbsp;</span><a href="../../ComponentModel/__EventHandler.html">__EventHandler</a>&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;If&nbsp;the&nbsp;onClick&nbsp;event&nbsp;is&nbsp;raised&nbsp;by&nbsp;the&nbsp;helloWorldButton,</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;show&nbsp;the&nbsp;'Hello&nbsp;World!'&nbsp;string&nbsp;within&nbsp;the</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;helloWorldLabel</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">helloWorldButton_click</span><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$label_component&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">getComponent</span><span class="src-sym">(</span><span class="src-str">'helloWorldLabel'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$label_component</span><span class="src-sym">-&gt;</span><span class="src-id">setText</span><span class="src-sym">(</span><span class="src-str">'Hello&nbsp;World!'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div>
+  <p>As we can see in the listing above, we have defined the HelloWorldEventHandler with a single method: <strong>helloWorldButton_onClick</strong>.<br />
+  Note that the name for this method is not casual, but again: it follows the naming convention that the <a href="../../ComponentModel/__EventHandler.html">__EventHandler</a> establish for methods: <strong>component_name</strong> plus <strong>'_'</strong> plus <strong>event_name</strong>.<br />
+  In our event handler, because the button name is 'helloWorldButton' and the event to control is the 'click' event, the method is 'helloWorldButton_click'</p>
+  <p>One of the most interesting things within this code is how the label component reference is retrieved by ussing the <a href="../../ComponentModel/__EventHandler.html#methodgetComponent">__EventHandler::getComponent()</a>. This method allows us to retrieve any component within the same view, being able to get or set any property within the component.</p></span>  
+ <span><a name="placing_the_event_handler"></a><h2>Placing the event handler</h2><p>By default, the <strong>libs/eventhandlers</strong> directory is reserved to place event handler classes.</p>
+  <p>There is a mapping rule to let Lion know that any file in that directory with the suffix '.class.php' corresponds to a class with the same name without the suffix.<br />
+  This mapping rule resides in the <strong>app/config/includepath.xml</strong> file.</p>
+  <p>Continuing with our example, as our class is HelloWorldEventHandler, let's name the file as <strong>HelloWorldEventHandler.class.php</strong> and place it into the libs/eventhandlers directory.</p></span>  
+ <span><a name="executing_the_hello_world"></a><h2>Executing the Hello World</h2><p>Now it's time to execute our application. Just type the following url: <u>http://yourdomain/pathtoyourapplication/helloWorld.html</u></p>
+  <p>The aspect of our application should be like the following figure:</p>
+  <img src="../../images/Tutorials/tutorial3/execution_in_browser.png" border="0">
+  <p>And by clicking on the button, we'll see the 'Hello World!' down the button wihtout refreshing the page:</p>
+  <img src="../../images/Tutorials/tutorial3/execution_in_browser2.png" border="0"></span></div>
+      </td></tr></table>

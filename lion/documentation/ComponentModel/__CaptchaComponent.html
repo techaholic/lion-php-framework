@@ -1,0 +1,548 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __CaptchaComponent</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../ComponentModel/__UIComponent.html">__UIComponent</a>
+   |
+   --__CaptchaComponent</pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__CaptchaComponent.html#methodcheck">check</a></li>
+		  		  <li><a href="../ComponentModel/__CaptchaComponent.html#methodgetHandledEvents">getHandledEvents</a></li>
+		  		  <li><a href="../ComponentModel/__CaptchaComponent.html#methodhandleEvent">handleEvent</a></li>
+		  		  <li><a href="../ComponentModel/__CaptchaComponent.html#methodisEventHandled">isEventHandled</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_alias">__UIComponent::$_alias</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_binding_codes">__UIComponent::$_binding_codes</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_container">__UIComponent::$_container</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_disabled">__UIComponent::$_disabled</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_id">__UIComponent::$_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_index">__UIComponent::$_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_name">__UIComponent::$_name</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_persist">__UIComponent::$_persist</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_progress">__UIComponent::$_progress</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_properties">__UIComponent::$_properties</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_validator_ids">__UIComponent::$_validator_ids</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_view_code">__UIComponent::$_view_code</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_visible">__UIComponent::$_visible</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddBindingCode">__UIComponent::addBindingCode()</a><br>
+											Adds a binding code for a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddProperty">__UIComponent::addProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetAlias">__UIComponent::getAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetBindingCodes">__UIComponent::getBindingCodes()</a><br>
+											Gets all the binding codes associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetContainer">__UIComponent::getContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetDisabled">__UIComponent::getDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetEnabled">__UIComponent::getEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetHandledEvents">__UIComponent::getHandledEvents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetId">__UIComponent::getId()</a><br>
+											Read only property that returns an unique identifier for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetIndex">__UIComponent::getIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetName">__UIComponent::getName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetParentContainerByClass">__UIComponent::getParentContainerByClass()</a><br>
+											Gets the first parent container of the given class
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetPersist">__UIComponent::getPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProgress">__UIComponent::getProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperties">__UIComponent::getProperties()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperty">__UIComponent::getProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetViewCode">__UIComponent::getViewCode()</a><br>
+											Gets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetVisible">__UIComponent::getVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleCallback">__UIComponent::handleCallback()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleEvent">__UIComponent::handleEvent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasContainer">__UIComponent::hasContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasProperty">__UIComponent::hasProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodisEventHandled">__UIComponent::isEventHandled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodregisterValidator">__UIComponent::registerValidator()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodresetValidation">__UIComponent::resetValidation()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetAlias">__UIComponent::setAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetContainer">__UIComponent::setContainer()</a><br>
+											Sets a container for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetDisabled">__UIComponent::setDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetEnabled">__UIComponent::setEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetId">__UIComponent::setId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetIndex">__UIComponent::setIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetName">__UIComponent::setName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetPersist">__UIComponent::setPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProgress">__UIComponent::setProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProperty">__UIComponent::setProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetViewCode">__UIComponent::setViewCode()</a><br>
+											Sets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetVisible">__UIComponent::setVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodupdateClient">__UIComponent::updateClient()</a><br>
+											Forces an update for all client end-points associated with current component.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodvalidate">__UIComponent::validate()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toArray">__UIComponent::_toArray()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toBool">__UIComponent::_toBool()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__call">__UIComponent::__call()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__get">__UIComponent::__get()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__set">__UIComponent::__set()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__toString">__UIComponent::__toString()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#check" title="details" class="method-name">check</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getHandledEvents" title="details" class="method-name">getHandledEvents</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#handleEvent" title="details" class="method-name">handleEvent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isEventHandled" title="details" class="method-name">isEventHandled</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<span class="disabled">Properties</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodcheck" id="check"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">check</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void check(
+
+$value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $value</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetHandledEvents" id="getHandledEvents"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getHandledEvents</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getHandledEvents(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__UIComponent.html#methodgetHandledEvents">__UIComponent::getHandledEvents()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodhandleEvent" id="handleEvent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">handleEvent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void handleEvent(
+<a href="../ComponentModel/__UIEvent.html">__UIEvent</a>
+&$event&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__UIEvent.html">__UIEvent</a></td>
+                <td class="defaultTd">
+                &$event</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__UIComponent.html#methodhandleEvent">__UIComponent::handleEvent()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisEventHandled" id="isEventHandled"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isEventHandled</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void isEventHandled(
+
+$event_name&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $event_name</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__UIComponent.html#methodisEventHandled">__UIComponent::isEventHandled()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

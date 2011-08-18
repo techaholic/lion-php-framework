@@ -1,0 +1,1143 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __InputComponent</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		Abstract class to define input type components (inputbox, textarea, ...)<br /><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../ComponentModel/__UIComponent.html">__UIComponent</a>
+   |
+   --<a href="../ComponentModel/__UIContainer.html">__UIContainer</a>
+      |
+      --__InputComponent</pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#var$_context_help">$_context_help</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#var$_example">$_example</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#var$_mask">$_mask</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#var$_prevent_xss">$_prevent_xss</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#var$_value">$_value</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodgetContextHelp">getContextHelp</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodgetExample">getExample</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodgetMask">getMask</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodgetPreventXss">getPreventXss</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodgetValue">getValue</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodreset">reset</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodsetContextHelp">setContextHelp</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodsetExample">setExample</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodsetMask">setMask</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodsetPreventXss">setPreventXss</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#methodsetValue">setValue</a></li>
+		  		  <li><a href="../ComponentModel/__InputComponent.html#method_purifyValue">_purifyValue</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-descendents"></a>
+		<h2>Direct descendents</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<span class="disabled">Descendants</span>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__SliderComponent.html">__SliderComponent</a></td>
+					<td>
+											The slider is a component equipped with a small bar, also called a thumb, that slides along a visible line.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__InputBoxComponent.html">__InputBoxComponent</a></td>
+					<td>
+											Represents the typical text box as a one single line rectangle to write text inside it.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ItemListComponent.html">__ItemListComponent</a></td>
+					<td>
+											Base class for list based components, as the combobox, the listbox, ...
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__DateBoxComponent.html">__DateBoxComponent</a></td>
+					<td>
+											Datebox is an inputbox with a calendar image at right, showing a calendar to pick a date when click on it.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__TextAreaComponent.html">__TextAreaComponent</a></td>
+					<td>
+											Represents the typical text area (more like an inputbox allowing to edit in multiple lines) as a rectangle to write text inside it.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__FileBoxComponent.html">__FileBoxComponent</a></td>
+					<td>
+											This class represents a file uploader component.
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIContainer.html">__UIContainer</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#var$_components">__UIContainer::$_components</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_alias">__UIComponent::$_alias</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_binding_codes">__UIComponent::$_binding_codes</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_container">__UIComponent::$_container</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_disabled">__UIComponent::$_disabled</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_id">__UIComponent::$_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_index">__UIComponent::$_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_name">__UIComponent::$_name</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_persist">__UIComponent::$_persist</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_progress">__UIComponent::$_progress</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_properties">__UIComponent::$_properties</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_validator_ids">__UIComponent::$_validator_ids</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_view_code">__UIComponent::$_view_code</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_visible">__UIComponent::$_visible</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIContainer.html">__UIContainer</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodaddComponent">__UIContainer::addComponent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetChildComponents">__UIContainer::getChildComponents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetComponentsByClass">__UIContainer::getComponentsByClass()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetValueHolderComponents">__UIContainer::getValueHolderComponents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodremoveComponent">__UIContainer::removeComponent()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddBindingCode">__UIComponent::addBindingCode()</a><br>
+											Adds a binding code for a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddProperty">__UIComponent::addProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetAlias">__UIComponent::getAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetBindingCodes">__UIComponent::getBindingCodes()</a><br>
+											Gets all the binding codes associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetContainer">__UIComponent::getContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetDisabled">__UIComponent::getDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetEnabled">__UIComponent::getEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetHandledEvents">__UIComponent::getHandledEvents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetId">__UIComponent::getId()</a><br>
+											Read only property that returns an unique identifier for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetIndex">__UIComponent::getIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetName">__UIComponent::getName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetParentContainerByClass">__UIComponent::getParentContainerByClass()</a><br>
+											Gets the first parent container of the given class
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetPersist">__UIComponent::getPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProgress">__UIComponent::getProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperties">__UIComponent::getProperties()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperty">__UIComponent::getProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetViewCode">__UIComponent::getViewCode()</a><br>
+											Gets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetVisible">__UIComponent::getVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleCallback">__UIComponent::handleCallback()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleEvent">__UIComponent::handleEvent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasContainer">__UIComponent::hasContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasProperty">__UIComponent::hasProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodisEventHandled">__UIComponent::isEventHandled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodregisterValidator">__UIComponent::registerValidator()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodresetValidation">__UIComponent::resetValidation()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetAlias">__UIComponent::setAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetContainer">__UIComponent::setContainer()</a><br>
+											Sets a container for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetDisabled">__UIComponent::setDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetEnabled">__UIComponent::setEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetId">__UIComponent::setId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetIndex">__UIComponent::setIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetName">__UIComponent::setName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetPersist">__UIComponent::setPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProgress">__UIComponent::setProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProperty">__UIComponent::setProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetViewCode">__UIComponent::setViewCode()</a><br>
+											Sets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetVisible">__UIComponent::setVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodupdateClient">__UIComponent::updateClient()</a><br>
+											Forces an update for all client end-points associated with current component.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodvalidate">__UIComponent::validate()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toArray">__UIComponent::_toArray()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toBool">__UIComponent::_toBool()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__call">__UIComponent::__call()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__get">__UIComponent::__get()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__set">__UIComponent::__set()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__toString">__UIComponent::__toString()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_context_help" title="details" class="var-name-summary">$_context_help</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_example" title="details" class="var-name-summary">$_example</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_mask" title="details" class="var-name-summary">$_mask</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_prevent_xss" title="details" class="var-name-summary">$_prevent_xss</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_value" title="details" class="var-name-summary">$_value</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getContextHelp" title="details" class="method-name">getContextHelp</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getExample" title="details" class="method-name">getExample</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getMask" title="details" class="method-name">getMask</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getPreventXss" title="details" class="method-name">getPreventXss</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getValue" title="details" class="method-name">getValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#reset" title="details" class="method-name">reset</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setContextHelp" title="details" class="method-name">setContextHelp</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setExample" title="details" class="method-name">setExample</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setMask" title="details" class="method-name">setMask</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setPreventXss" title="details" class="method-name">setPreventXss</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setValue" title="details" class="method-name">setValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#_purifyValue" title="details" class="method-name">_purifyValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a> 
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_context_help" id="$_context_help"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_context_help</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_example" id="$_example"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_example</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_mask" id="$_mask"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_mask</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_prevent_xss" id="$_prevent_xss"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_prevent_xss</span>
+             = <span class="var-default"> true</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_value" id="$_value"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_value</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__SliderComponent.html#var$_value">__SliderComponent::$_value</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__InputBoxComponent.html#var$_value">__InputBoxComponent::$_value</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ToggleButtonComponent.html#var$_value">__ToggleButtonComponent::$_value</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__OptionBoxComponent.html#var$_value">__OptionBoxComponent::$_value</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CheckBoxComponent.html#var$_value">__CheckBoxComponent::$_value</a>
+                            </li>
+                </ul>
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodgetContextHelp" id="getContextHelp"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getContextHelp</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getContextHelp(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetExample" id="getExample"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getExample</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getExample(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetMask" id="getMask"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getMask</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getMask(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetPreventXss" id="getPreventXss"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getPreventXss</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getPreventXss(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetValue" id="getValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getValue(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__ToggleButtonComponent.html#methodgetValue">__ToggleButtonComponent::getValue()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__OptionBoxComponent.html#methodgetValue">__OptionBoxComponent::getValue()</a>
+                                : Get the value for current optionbox. True if checked, otherwise false.
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CheckBoxComponent.html#methodgetValue">__CheckBoxComponent::getValue()</a>
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ItemListComponent.html#methodgetValue">__ItemListComponent::getValue()</a>
+                                : Gets the value of the first selected item
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodreset" id="reset"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">reset</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void reset(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__ItemListComponent.html#methodreset">__ItemListComponent::reset()</a>
+                                : Overwrite the __InputComponent reset method to avoid
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__FileBoxComponent.html#methodreset">__FileBoxComponent::reset()</a>
+                                : Reset the filebox value
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetContextHelp" id="setContextHelp"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setContextHelp</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setContextHelp(
+
+$context_help&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $context_help</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetExample" id="setExample"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setExample</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setExample(
+
+$example&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $example</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetMask" id="setMask"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setMask</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setMask(
+
+$mask&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $mask</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetPreventXss" id="setPreventXss"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setPreventXss</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setPreventXss(
+
+$prevent_xss&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $prevent_xss</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetValue" id="setValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setValue(
+
+$value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $value</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../ComponentModel/__SliderComponent.html#methodsetValue">__SliderComponent::setValue()</a>
+                                : Set the value of the slider
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ToggleButtonComponent.html#methodsetValue">__ToggleButtonComponent::setValue()</a>
+                                : Set the value associated to the current toggle button (true as pressed, false as unpressed)
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__OptionBoxComponent.html#methodsetValue">__OptionBoxComponent::setValue()</a>
+                                : Set a value for current optionbox. Value is boolean, representing checked optionbox as true.
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__CheckBoxComponent.html#methodsetValue">__CheckBoxComponent::setValue()</a>
+                                : Set the value associated to the current checkbox (true as checked, false as unchecked)
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__ItemListComponent.html#methodsetValue">__ItemListComponent::setValue()</a>
+                                : Sets the value of the first selected item
+                            </li>
+                    <li>
+                <a href="../ComponentModel/__FileBoxComponent.html#methodsetValue">__FileBoxComponent::setValue()</a>
+                                : Alias of setFilename
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="method_purifyValue" id="_purifyValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">_purifyValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void _purifyValue(
+
+$val&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $val</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

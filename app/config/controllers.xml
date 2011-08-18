@@ -1,0 +1,10 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+ 
+  <controller-definitions>
+
+    <controller code="*" class="*Controller"/>
+  
+  </controller-definitions>
+ 
+</configuration>

@@ -1,0 +1,18 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Web Flows</h1>
+  <div class="ref-purpose">Declaring the navigation</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="WebFlow/tutorial_WebFlow.pkg.html#intro">Introduction to Web Flows</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Introduction to Web Flows</h2><p>Traditionally, defining the user interface (UI) flow in a web application has been a less than intuitive process. MVC based frameworks force you to cut the UI flow into individual controllers and views. Although this is a really functional system, it has a major disadvantage: the overall UI flow of the web application is not at all clear from looking at the action definitions in whatever used configuration. Flexibility also suffers since actions cannot easily be reused.</p>
+  <p>This is where Lion Web Flow comes in, allowing you to represent the UI flow in (part of) a web application in a clear and simple way. As we will see, this has several advantages:</p>
+  <ul><li>The UI flow in a web application is clearly visible by looking at the corresponding web flow definition (typically <strong>/app/config/webflow.xml</strong>).</li>
+    <li>Web Flows can be designed to be self contained. This allows you to see a part of your application as a module and reuse it in multiple situations.</li>
+    <li>Web Flows can define any reasonable UI flow in a web application, always using the same consistent technique. You're not forced into using specialized controllers for very particular situations.</li></ul>
+  <p>For now it suffices to say that a Web Flow is composed of a set of states. A state is a point in the flow where something happens: for instance showing a view or executing an action. Each state has one or more transitions that are used to move to another state. A transition is triggered by an event. To give you an impression of what a Web Flow might look like, the following piece of XML defines a Web Flow roughly equivalent to the work flow implemented by the SimpleFormController. A more detailed explanation of Web Flow principles will follow later.</p></span></div>
+      </td></tr></table>

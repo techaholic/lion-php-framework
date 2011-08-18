@@ -1,0 +1,408 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ConfigurationLoader</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+															<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This is the class in charge of loading configurations.<br /><br /><p>The context container has associated a configuration loader in order to load the configuration before start dispatching each request.</p><br />
+		
+		<pre></pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../Configuration/__ConfigurationLoader.html#var$_configuration_files_mtimes">$_configuration_files_mtimes</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationLoader.html#var$_configuration_locators">$_configuration_locators</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationLoader.html#var$_context_id">$_context_id</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Configuration/__ConfigurationLoader.html#method__construct">__construct</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationLoader.html#methodcreateConfiguration">createConfiguration</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationLoader.html#methodloadConfiguration">loadConfiguration</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationLoader.html#methodloadConfigurationContent">loadConfigurationContent</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationLoader.html#methodloadConfigurationFile">loadConfigurationFile</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+															<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_configuration_files_mtimes" title="details" class="var-name-summary">$_configuration_files_mtimes</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">stores pair [configuration filename, last-modif timestamp]</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_configuration_locators" title="details" class="var-name-summary">$_configuration_locators</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">stores all the locator expressions used by the current configuration loader</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_context_id" title="details" class="var-name-summary">$_context_id</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">The identifier of the associated context</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__ConfigurationLoader</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Configuration/__Configuration.html">__Configuration</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#createConfiguration" title="details" class="method-name">&amp;createConfiguration</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Create an empty <a href="../Configuration/__Configuration.html">__Configuration</a> instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Configuration/__Configuration.html">__Configuration</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#loadConfiguration" title="details" class="method-name">&amp;loadConfiguration</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Loads the associated context's configuration</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Configuration/__Configuration.html">__Configuration</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#loadConfigurationContent" title="details" class="method-name">&amp;loadConfigurationContent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Loads a given configuration content, returning a <a href="../Configuration/__Configuration.html">__Configuration</a> instance representing it.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Configuration/__Configuration.html">__Configuration</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#loadConfigurationFile" title="details" class="method-name">&amp;loadConfigurationFile</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Load an given configuration file, returning a <a href="../Configuration/__Configuration.html">__Configuration</a> instance representing it.</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_configuration_files_mtimes" id="$_configuration_files_mtimes"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">array</span>&nbsp;&nbsp;
+            <span class="var-name">$_configuration_files_mtimes</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+    stores pair [configuration filename, last-modif timestamp]<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_configuration_locators" id="$_configuration_locators"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">array</span>&nbsp;&nbsp;
+            <span class="var-name">$_configuration_locators</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+    stores all the locator expressions used by the current configuration loader<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_context_id" id="$_context_id"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_context_id</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+    The identifier of the associated context<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__ConfigurationLoader __construct(
+[
+$context_id = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $context_id</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodcreateConfiguration" id="createConfiguration"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">createConfiguration</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Configuration/__Configuration.html">__Configuration</a> &amp;createConfiguration(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Create an empty <a href="../Configuration/__Configuration.html">__Configuration</a> instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodloadConfiguration" id="loadConfiguration"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">loadConfiguration</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Configuration/__Configuration.html">__Configuration</a> &amp;loadConfiguration(
+[
+$context_configuration_file = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Loads the associated context's configuration<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $context_configuration_file</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The <a href="../Configuration/__Configuration.html">__Configuration</a> instance as a result of reading the context configuration file</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodloadConfigurationContent" id="loadConfigurationContent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">loadConfigurationContent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Configuration/__Configuration.html">__Configuration</a> &amp;loadConfigurationContent(
+string
+$configuration_content, string
+$configuration_file_type&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Loads a given configuration content, returning a <a href="../Configuration/__Configuration.html">__Configuration</a> instance representing it.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $configuration_content</td>
+                <td class="defaultTd">
+                The content to load to            </td></tr>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $configuration_file_type</td>
+                <td class="defaultTd">
+                @configuration_file_type The configuration type to parse to (i.e. &quot;XML&quot;, &quot;INI&quot;, ...)            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The loaded <a href="../Configuration/__Configuration.html">__Configuration</a> instance</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodloadConfigurationFile" id="loadConfigurationFile"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">loadConfigurationFile</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Configuration/__Configuration.html">__Configuration</a> &amp;loadConfigurationFile(
+string
+$configuration_file&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Load an given configuration file, returning a <a href="../Configuration/__Configuration.html">__Configuration</a> instance representing it.<br /><br /><p>The configuration file can be set as a relative path or absolute path.<br />  i.e.<br /> <ul><li>config/controllers.xml (relative to the context root directory)<br /></li><li>/var/www/myapp/config.xml (absolute path)<br /></li></ul></p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $configuration_file</td>
+                <td class="defaultTd">
+                The configurl or physical configuration file            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The loaded <a href="../Configuration/__Configuration.html">__Configuration</a> instance</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

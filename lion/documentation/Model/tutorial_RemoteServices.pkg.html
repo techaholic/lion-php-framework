@@ -1,0 +1,89 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Remote Services</h1>
+  <div class="ref-purpose">Exposing your services out there</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Model/tutorial_RemoteServices.pkg.html#declaring_remote_services">Declaring remote services</a><br />
+
+<a href="../Model/tutorial_RemoteServices.pkg.html#calling_remote_services">Calling remote services</a><br />
+
+<a href="../Model/tutorial_RemoteServices.pkg.html#remote_services_and_parameters">Remote services and parameters</a><br />
+
+<a href="../Model/tutorial_RemoteServices.pkg.html#json_services">JSON Services</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="declaring_remote_services"></a><h2>Declaring remote services</h2><p>As soon as you can declare your model services to be consumed via <a href="../Model/__ModelProxy.html">__ModelProxy</a> instance (see <a href="../Model/tutorial_Model.pkg.html">The Model</a>), you can also expose them to be consumed remotelly.</p>
+  <p>To declare a service as remote, you just need to set the <strong>remote</strong> attribute as true:</p>
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;model-services&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;Invoice&nbsp;services&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;InvoiceDao&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service&nbsp;name&nbsp;=&nbsp;&quot;getInvoices&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class-method&nbsp;=&nbsp;&quot;loadInvoices&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remote&nbsp;=&nbsp;&quot;true&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/class&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/model-services&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+  <p>Note that the service is also callable locally, as if the remote attribute was not set.<br />
+  Apart from that you will be also able to call the service remotelly.</p></span>
+ <span><a name="calling_remote_services"></a><h2>Calling remote services</h2><p>Your remote services are callable via REST. The url <font face="Courier New">http://example.com/<strong>&gt;your_service_name&lt;</strong>.rest</font> will be listening for that purpose.<br />
+  i.e. the url for our previous example could be <font face="Courier New">http://example.com/getInvoices.rest</font></p></span> 
+ <span><a name="remote_services_and_parameters"></a><h2>Remote services and parameters</h2><p>We also need to specify which REST parameters corresponds to each one in the service.<br />
+  i.e. image that we have a service, say <font face="Courier New">getInvoice($dateFrom, $dateTo)</font>, that retrieve invoices for a given date interval.<br />
+  So we should need to specify how to map each parameter within an http request with each one within the service. To do that, we can use the <strong>service-arg</strong> tag:</p>
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;model-services&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;Invoice&nbsp;services&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;InvoiceDao&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service&nbsp;name&nbsp;=&nbsp;&quot;getInvoices&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class-method&nbsp;=&nbsp;&quot;loadInvoices&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remote&nbsp;=&nbsp;&quot;true&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service-arg&nbsp;name=&quot;dateFrom&quot;&nbsp;index=&quot;0&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service-arg&nbsp;name=&quot;dateTo&quot;&nbsp;&nbsp;&nbsp;index=&quot;1&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/service&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/class&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/model-services&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+  <p>So, to call the service (i.e. to retrieve january invoices) we could call <font face="Courier New">http://example.com/getInvoices.rest?dateFrom=2009-01-01&amp;dateTo=2009-01-31</font>.</p></span>
+ <span><a name="json_services"></a><h2>JSON Services</h2><p>By default, Lion remote services are JSON REST services. Service responses are transformed by Lion into JSON notation before being returned to client.</p>
+  <p>i.e.</p>
+  <p><font face="Courier New">[<br />
+   invoice_id: '2009-T1-1',<br />
+    client_id: '19823719',<br />
+    date: '2009-01-14',<br />
+    lines: [<br />
+        line_no: '1', desc: '', quantity: 1, unit_price: 10.50,<br />
+        line_no: '2', desc: '', quantity: 1, unit_price: 15.00,<br />
+        line_no: '3', desc: '', quantity: 5, unit_price:  6.00,<br />
+        line_no: '4', desc: '', quantity: 1, unit_price: 12.75]<br />
+   ,
+   invoice_id: '2009-T1-2',<br />
+    client_id: '12822341',<br />
+    ...<br />
+]<br /></font></p>
+  <p>Note that, you must declare your classes attributes as public for classes that you pretend to return via remote service.<br />
+  Protected and private class members are not introspected, so they are not returned in the json string</p></span></div>
+      </td></tr></table>

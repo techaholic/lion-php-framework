@@ -1,0 +1,28 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+
+  <context-instances>
+      
+    <!-- __AuthorizationManager::getInstance() returns this instance: -->
+    <context-instance id="authorizationManager" class="__AuthorizationManager"/>
+    
+    <!-- __AuthenticationManager::getInstance() returns this instance: -->
+    <context-instance id="authenticationManager" class="__AuthenticationManager">
+      <property name="authenticators">
+        <list>
+          <ref id="authenticator"/>
+        </list>
+      </property>
+    </context-instance>
+
+    <context-instance id="authenticator" class="__Authenticator">
+      <property name="userLoader">
+        <ref id="userLoader"/>
+      </property>
+    </context-instance>    
+    
+    <context-instance id="userLoader" class="__UserLoader"/>
+    
+  </context-instances>
+  
+</configuration>

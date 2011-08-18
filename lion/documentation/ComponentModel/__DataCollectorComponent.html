@@ -1,0 +1,326 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __DataCollectorComponent</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-methods">Methods</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		Data collector is a component designed to collect data while rendering the UI.<br /><br /><p>It's usefull to set information rendered to the view in order to be retrieved from the event handler.<br />  <br />  i.e.  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">datacollector&nbsp;name</span>=<span class="src-str">&quot;invoice_info&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>-<span class="src-id">property&nbsp;name</span>=<span class="src-str">&quot;invoice_id&quot;</span>&gt;<span class="src-sym">{</span><span class="src-var">$invoice_id</span><span class="src-sym">}</span>&lt;/<span class="src-id">comp</span>-<span class="src-id">property</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>-<span class="src-id">property&nbsp;name</span>=<span class="src-str">&quot;client_id&quot;</span>&gt;<span class="src-sym">{</span><span class="src-var">$client_id</span><span class="src-sym">}</span>&lt;/<span class="src-id">comp</span>-<span class="src-id">property</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">comp</span>:<span class="src-id">datacollector</span>&gt;</div></li>
+</ol></pre></div></p><p>Once we have stored information from the view to the data collector, we can retrieve it from the event handler.<br />  <br />  i.e.  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">beforeRender</span><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$invoice_data_collector&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">getComponent</span><span class="src-sym">(</span><span class="src-str">'invoice_info'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;invoice&nbsp;id&nbsp;as&nbsp;well&nbsp;as&nbsp;the&nbsp;client&nbsp;id:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$invoice_id&nbsp;</span>=&nbsp;<span class="src-var">$invoice_data_collector</span><span class="src-sym">-&gt;</span><span class="src-id">invoice_id</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$client_id&nbsp;&nbsp;</span>=&nbsp;<span class="src-var">$invoice_data_collector</span><span class="src-sym">-&gt;</span><span class="src-id">client_id</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+</ol></pre></div></p><p>The data collector is not poolable, which means that can be retrieved only in create and beforeRender events.<br />  <br /></p><br />
+		
+		<pre><a href="../ComponentModel/__UIComponent.html">__UIComponent</a>
+   |
+   --__DataCollectorComponent</pre>
+
+				</td>
+
+		
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-methods">Methods</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_alias">__UIComponent::$_alias</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_binding_codes">__UIComponent::$_binding_codes</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_container">__UIComponent::$_container</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_disabled">__UIComponent::$_disabled</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_id">__UIComponent::$_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_index">__UIComponent::$_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_name">__UIComponent::$_name</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_persist">__UIComponent::$_persist</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_progress">__UIComponent::$_progress</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_properties">__UIComponent::$_properties</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_validator_ids">__UIComponent::$_validator_ids</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_view_code">__UIComponent::$_view_code</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_visible">__UIComponent::$_visible</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddBindingCode">__UIComponent::addBindingCode()</a><br>
+											Adds a binding code for a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddProperty">__UIComponent::addProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetAlias">__UIComponent::getAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetBindingCodes">__UIComponent::getBindingCodes()</a><br>
+											Gets all the binding codes associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetContainer">__UIComponent::getContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetDisabled">__UIComponent::getDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetEnabled">__UIComponent::getEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetHandledEvents">__UIComponent::getHandledEvents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetId">__UIComponent::getId()</a><br>
+											Read only property that returns an unique identifier for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetIndex">__UIComponent::getIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetName">__UIComponent::getName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetParentContainerByClass">__UIComponent::getParentContainerByClass()</a><br>
+											Gets the first parent container of the given class
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetPersist">__UIComponent::getPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProgress">__UIComponent::getProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperties">__UIComponent::getProperties()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperty">__UIComponent::getProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetViewCode">__UIComponent::getViewCode()</a><br>
+											Gets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetVisible">__UIComponent::getVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleCallback">__UIComponent::handleCallback()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleEvent">__UIComponent::handleEvent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasContainer">__UIComponent::hasContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasProperty">__UIComponent::hasProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodisEventHandled">__UIComponent::isEventHandled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodregisterValidator">__UIComponent::registerValidator()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodresetValidation">__UIComponent::resetValidation()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetAlias">__UIComponent::setAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetContainer">__UIComponent::setContainer()</a><br>
+											Sets a container for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetDisabled">__UIComponent::setDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetEnabled">__UIComponent::setEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetId">__UIComponent::setId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetIndex">__UIComponent::setIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetName">__UIComponent::setName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetPersist">__UIComponent::setPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProgress">__UIComponent::setProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProperty">__UIComponent::setProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetViewCode">__UIComponent::setViewCode()</a><br>
+											Sets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetVisible">__UIComponent::setVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodupdateClient">__UIComponent::updateClient()</a><br>
+											Forces an update for all client end-points associated with current component.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodvalidate">__UIComponent::validate()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toArray">__UIComponent::_toArray()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toBool">__UIComponent::_toBool()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__call">__UIComponent::__call()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__get">__UIComponent::__get()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__set">__UIComponent::__set()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__toString">__UIComponent::__toString()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<span class="disabled">Properties</span>
+						|		    		    							<a href="#sec-methods">Methods</a>
+								    		    		</div>
+			
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<span class="disabled">Methods</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+
+
+      </td></tr></table>

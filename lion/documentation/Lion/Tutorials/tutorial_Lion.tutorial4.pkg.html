@@ -1,0 +1,90 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Hello World Pro</h1>
+  <div class="ref-purpose">Form components tutorial</div>
+ <div class="ref-synopsis"><p><center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../../images/note_icon.png" width="48" height="48" border="0" /></td><td><p>Note that all the source code used in this tutorial is available to <strong>download</strong> and to <strong>see in action</strong>:
+    <ul><li><a href="http://bamboo.lionframework.org/download/LION-STABLE/artifacts/build-29/Deliverables/tutorial4-1.4.29-stable.tgz">Download the source code</a></li>
+      <li><a href="http://www.lionframework.org/tutorials/1.4.29-stable/tutorial4">See the application in action</a></li></ul></p></td></tr></table></div></center></p></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial4.pkg.html#intro">Goal</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial4.pkg.html#placing_components">Placing input components within the template</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial4.pkg.html#creating_event_handler">Modifying the event handler</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial4.pkg.html#executing_the_hello_world">Executing the Hello World Pro</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Goal</h2><p>The goal of this tutorial is to learn how to use <strong>input components</strong> such the inputbox and the combobox.<br />
+  The application that we are going to develop is an improvement of <a href="../../Lion/Tutorials/tutorial_Lion.tutorial3.pkg.html">The Hello World Deluxe</a>: This application will ask the user to input some information in order to show a customized 'Hello world' message.</p>
+  <p>What we are going to do in this tutorial is:
+  <ul><li>To modify the helloWorld template by adding 4 components: an inputbox, a combobox, a button and a label (templates/helloWorld.tpl)</li>
+    <li>To modify the event handler associated to the helloWorld view (libs/eventhandlers/HelloWorldEventHandler.class.php)</li></ul></p>
+  <img src="../../images/Tutorials/tutorial3/directory_structure.png" border="0"></span>
+ <span><a name="placing_components"></a><h2>Placing input components within the template</h2><p>First thing to do will be to modify the template helloWorld.tpl by adding the following components:</p>
+  <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">html</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">title</span>&gt;<span class="src-id">The&nbsp;hello&nbsp;world&nbsp;deluxe&nbsp;in&nbsp;Lion</span>&lt;/<span class="src-id">title</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line"><span class="src-id">Please&nbsp;state&nbsp;your&nbsp;name</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;nameInputBox&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line"><span class="src-id">Please&nbsp;select&nbsp;a&nbsp;salutation</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">combobox&nbsp;name</span>=<span class="src-str">&quot;salutationComboBox&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">item&nbsp;value</span>=<span class="src-str">&quot;mr.&quot;&nbsp;&nbsp;</span><span class="src-id">text</span>=<span class="src-str">&quot;Mr&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">item&nbsp;value</span>=<span class="src-str">&quot;ms.&quot;&nbsp;&nbsp;</span><span class="src-id">text</span>=<span class="src-str">&quot;Ms&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">item&nbsp;value</span>=<span class="src-str">&quot;mrs.&quot;&nbsp;</span><span class="src-id">text</span>=<span class="src-str">&quot;Mrs&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">item&nbsp;value</span>=<span class="src-str">&quot;dr.&quot;&nbsp;&nbsp;</span><span class="src-id">text</span>=<span class="src-str">&quot;Dr&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">comp</span>:<span class="src-id">combobox</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line"><span class="src-key">And&nbsp;</span><span class="src-id">finally&nbsp;click&nbsp;on&nbsp;button</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">commandbutton&nbsp;name</span>=<span class="src-str">&quot;sayHelloButton&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Say&nbsp;hello!&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">h1</span>&gt;&lt;<span class="src-id">comp</span>:<span class="src-id">label&nbsp;name</span>=<span class="src-str">&quot;helloLabel&quot;</span>/&gt;&lt;/<span class="src-id">h1</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">html</span>&gt;</div></li>
+</ol></pre></div>
+  <p>As we can see, we have declared 4 components: an inputbox (nameInputBox), a combobox (saludationComboBox), a commandbutton (sayHelloButton) and a label (helloLabel).<br />
+  What we expect is to see a customized 'Hello World!' message like 'Hello mr. Antuan' when click on the button.</p></span>
+ <span><a name="creating_event_handler"></a><h2>Modifying the event handler</h2><p>The following task to do is to adapt the event handle to:</p>
+  <ul><li>Read user input from components</li>
+    <li>Build a customized 'Hello World!' message and show it</li></ul>
+  <p>To do that, we have to define a method to handle the button click event and perform those tasks:</p>
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">class&nbsp;</span><span class="src-id">HelloWorldEventHandler&nbsp;</span><span class="src-key">extends&nbsp;</span><a href="../../ComponentModel/__EventHandler.html">__EventHandler</a>&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Shows&nbsp;a&nbsp;customized&nbsp;hello&nbsp;message&nbsp;into&nbsp;the&nbsp;helloLabel</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;by&nbsp;reading&nbsp;from&nbsp;input&nbsp;components:</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">sayHelloButton_click</span><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;name&nbsp;from&nbsp;the&nbsp;input&nbsp;component:&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$name&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">getComponent</span><span class="src-sym">(</span><span class="src-str">'nameInputBox'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getValue</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;salutation&nbsp;from&nbsp;the&nbsp;combobox:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$salutation&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">getComponent</span><span class="src-sym">(</span><span class="src-str">'salutationComboBox'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getValue</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//compose&nbsp;the&nbsp;customized&nbsp;hello&nbsp;message:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$hello_message&nbsp;</span>=&nbsp;<span class="src-str">'Hello&nbsp;'&nbsp;</span>.&nbsp;<span class="src-var">$salutation&nbsp;</span>.&nbsp;<span class="src-str">'&nbsp;'&nbsp;</span>.&nbsp;<span class="src-var">$name</span><span class="src-sym">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//show&nbsp;the&nbsp;customized&nbsp;hello&nbsp;message&nbsp;within&nbsp;the&nbsp;label:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$label_component&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">getComponent</span><span class="src-sym">(</span><span class="src-str">'helloLabel'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">setText</span><span class="src-sym">(</span><span class="src-var">$hello_message</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div>
+  <p>As we can see in the listing above, we have just retrieve the value of the input components by calling the getValue method.<br />
+  All the input components inherit from the <a href="../../ComponentModel/__InputComponent.html">__InputComponent</a>, exposing the getValue method to retrieve the current value of each one</p>
+  <p>Analogous, all those kind of components exposes another method (setValue) to set a new value.</p></span>  
+ <span><a name="executing_the_hello_world"></a><h2>Executing the Hello World Pro</h2><p>Now it's time to execute our application. Just type the following url: <u>http://yourdomain/pathtoyourapplication/helloWorld.html</u></p>
+  <p>The aspect of our application should be like the following figure once we have click on the button:</p>
+  <img src="../../images/Tutorials/tutorial4/execution_in_browser.png" border="0">
+  <p>And again: No need to refresh the entire page to show the hello message. Ajax + Json instead of, which is handled automagically by the framework.</p></span></div>
+      </td></tr></table>

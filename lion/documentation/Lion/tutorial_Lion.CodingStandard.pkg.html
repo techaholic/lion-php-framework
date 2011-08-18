@@ -1,0 +1,62 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Conding Standards</h1>
+  <div class="ref-purpose">Lion Framework coding standards</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Lion/tutorial_Lion.CodingStandard.pkg.html#coding_standard">Coding Standards</a><br />
+
+<a href="../Lion/tutorial_Lion.CodingStandard.pkg.html#indenting_and_line_length">Indenting and Line Length</a><br />
+
+<a href="../Lion/tutorial_Lion.CodingStandard.pkg.html#control_structures">Control Structures</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="coding_standard"></a><h2>Coding Standards</h2><p>Lion Coding Standards is relative to code that is to become a part of Lion.<br />
+  Lion Coding Standards are based on the <a href="http://pear.php.net/manual/en/standards.php">PEAR</a> coding standards.</p></span>
+ <span><a name="indenting_and_line_length"></a><h2>Indenting and Line Length</h2><p>Use an indent of 4 spaces, with no tabs. This helps to avoid problems with diffs, patches, CVS history and annotations.</p>
+  <p>For Emacs you should set indent-tabs-mode to nil. Here is an example mode hook that will set up Emacs (ensure that it is called when you are editing PHP files):</p>
+  <font face="Courier New">(defun php-mode-hook ()<br />
+  (setq tab-width 4<br />
+        c-basic-offset 4<br />
+        c-hanging-comment-ender-p nil<br />
+        indent-tabs-mode<br />
+  (not<br />
+    (and (string-match &quot;/\\(PEAR\\|pear\\)/&quot; (buffer-file-name))<br />
+      (string-match &quot;\.php$&quot; (buffer-file-name))))))<br /></font>
+  <p>Here are Vim rules for the same thing:</p>
+  <font face="Courier New">set expandtab<br />
+set shiftwidth=4<br />
+set softtabstop=4<br />
+set tabstop=4<br /></font>
+  <p>It is recommended to keep lines at approximately 75-85 characters long for better code readability. Paul M. Jones has some thoughts about that limit.</p></span>
+ <span><a name="control_structures"></a><h2>Control Structures</h2><p>These include if, for, while, switch, etc. Here is an example if statement, since it is the most complicated of them: 
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><span class="src-key">if&nbsp;</span><span class="src-sym">((</span><span class="src-id">condition1</span><span class="src-sym">)&nbsp;</span>||&nbsp;<span class="src-sym">(</span><span class="src-id">condition2</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">action1</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-sym">}&nbsp;</span><span class="src-key">elseif&nbsp;</span><span class="src-sym">((</span><span class="src-id">condition3</span><span class="src-sym">)&nbsp;</span>&amp;&amp;&nbsp;<span class="src-sym">(</span><span class="src-id">condition4</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">action2</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-sym">}&nbsp;</span><span class="src-key">else&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">defaultaction</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div></p>
+   <p>Control statements should have one space between the control keyword and opening parenthesis, to distinguish them from function calls.</p>
+   <p>You are strongly encouraged to always use curly braces even in situations where they are technically optional. Having them increases readability and decreases the likelihood of logic errors being introduced when new lines are added.</p>
+   <p>For switch statements:</p>
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><span class="src-key">switch&nbsp;</span><span class="src-sym">(</span><span class="src-id">condition</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><span class="src-key">case&nbsp;</span><span class="src-num">1</span>:</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">action1</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">break</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">case&nbsp;</span><span class="src-num">2</span>:</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">action2</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">break</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">default</span>:</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">defaultaction</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">break</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div></span></div>
+      </td></tr></table>

@@ -1,0 +1,1445 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ConfigurationComponent</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+							<a href="#sec-descendents">Descendants</a>
+			|													<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This is the abstract class for all configuration components.<br /><br /><p>There are 2 kinds of configuration components:<br /> <ul><li>complex configuration components: Components that can contain more configuration components. i.e. <a href="../Configuration/__ConfigurationSection.html">__ConfigurationSection</a> instances.<br /></li><li>simple configuration components: Components that can not contain more configuration components. i.e. <a href="../Configuration/__ConfigurationProperty.html">__ConfigurationProperty</a> instances.<br /></li></ul></p><br /><table border="0" cellspacing="0" cellpadding="0">
+</table>
+
+		
+		<pre></pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#var$_attributes">$_attributes</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#var$_attribute_id">$_attribute_id</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#var$_content">$_content</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#var$_id">$_id</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#var$_name">$_name</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#var$_parent">$_parent</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#method__construct">__construct</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodaddAttribute">addAttribute</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodgetAttribute">getAttribute</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodgetAttributes">getAttributes</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodgetContent">getContent</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodgetContext">getContext</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodgetId">getId</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodgetName">getName</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodgetParent">getParent</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodgetRootConfigurationComponent">getRootConfigurationComponent</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodhasAttribute">hasAttribute</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodisEqual">isEqual</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodisRoot">isRoot</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodsetAttributeId">setAttributeId</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodsetAttributes">setAttributes</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodsetContent">setContent</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodsetId">setId</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodsetName">setName</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodsetParent">setParent</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodtoArray">toArray</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodtoString">toString</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodupdateAttribute">updateAttribute</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#methodupdateAttributes">updateAttributes</a></li>
+		  		  <li><a href="../Configuration/__ConfigurationComponent.html#method_parseValue">_parseValue</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-descendents"></a>
+		<h2>Direct descendents</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<span class="disabled">Descendants</span>
+			|													<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__SimpleConfigurationComponent.html">__SimpleConfigurationComponent</a></td>
+					<td>
+											This class represents a configuration leaft item, it is, a non-compounded item within the configuration.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a></td>
+					<td>
+											This class is based on PEAR::Config by Bertrand Mansion under the PHP License, version 2.02 (http://www.php.net/license/2_02.txt)  A copy of the license terms can be found in /thrdparty-licenses/CONFIG
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|													<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_attributes" title="details" class="var-name-summary">$_attributes</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">Array of attributes for current configuration component</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_attribute_id" title="details" class="var-name-summary">$_attribute_id</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">This is the name of the attribute that will act as identifier for current node</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_content" title="details" class="var-name-summary">$_content</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">The content of current configuration component</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_id" title="details" class="var-name-summary">$_id</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">If we assign to each node an attribute as an identifier, _id will contain the value of this identifier.</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_name" title="details" class="var-name-summary">$_name</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">The name of current configuration component</td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary"><a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a></span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_parent" title="details" class="var-name-summary">$_parent</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description">Reference to current configuration component's parent</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__ConfigurationComponent</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Constructor method</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addAttribute" title="details" class="method-name">addAttribute</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getAttribute" title="details" class="method-name">getAttribute</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get one attribute value of this component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getAttributes" title="details" class="method-name">getAttributes</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the current configuration component's attributes.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getContent" title="details" class="method-name">getContent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the current configuration component's content.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Context/__Context.html">__Context</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getContext" title="details" class="method-name">&amp;getContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the __Context instance associated to the current configuration component.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getId" title="details" class="method-name">getId</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getName" title="details" class="method-name">getName</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get this current configuration component's name.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getParent" title="details" class="method-name">&amp;getParent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the current configuration component's parent</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Configuration/__ConfigurationComponent.html">__ConfigurationComponent</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getRootConfigurationComponent" title="details" class="method-name">&amp;getRootConfigurationComponent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns the root configuration component in the configuration hierarchy that current component is from.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#hasAttribute" title="details" class="method-name">hasAttribute</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isEqual" title="details" class="method-name">isEqual</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method returns true if the parameter passed has the same type</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">bool</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#isRoot" title="details" class="method-name">isRoot</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns if this component is a root component or not</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setAttributeId" title="details" class="method-name">setAttributeId</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setAttributes" title="details" class="method-name">setAttributes</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the current configuration component's attributes.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setContent" title="details" class="method-name">setContent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the current configuration component's content.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setId" title="details" class="method-name">setId</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setName" title="details" class="method-name">setName</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set this current configuration component's name.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setParent" title="details" class="method-name">setParent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the current configuration component's parent</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#toArray" title="details" class="method-name">toArray</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns a key/value pair array of the container and its children.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#toString" title="details" class="method-name">toString</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Return an string in the specified format for current configuration component.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#updateAttribute" title="details" class="method-name">updateAttribute</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#updateAttributes" title="details" class="method-name">updateAttributes</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Update the current configuration component's attributes.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#_parseValue" title="details" class="method-name">_parseValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a> 
+			|		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<a name="var$_attributes" id="$_attributes"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">array</span>&nbsp;&nbsp;
+            <span class="var-name">$_attributes</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+    Array of attributes for current configuration component<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_attribute_id" id="$_attribute_id"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_attribute_id</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+    This is the name of the attribute that will act as identifier for current node<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_content" id="$_content"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_content</span>
+             = <span class="var-default"> ''</span>        </span>
+    </div>
+
+    The content of current configuration component<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_id" id="$_id"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_id</span>
+             = <span class="var-default"> ''</span>        </span>
+    </div>
+
+    If we assign to each node an attribute as an identifier, _id will contain the value of this identifier.<br /><br /><p>Merge operations will take it into account.</p><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_name" id="$_name"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">string</span>&nbsp;&nbsp;
+            <span class="var-name">$_name</span>
+             = <span class="var-default"> ''</span>        </span>
+    </div>
+
+    The name of current configuration component<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_parent" id="$_parent"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type"><a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a></span>&nbsp;&nbsp;
+            <span class="var-name">$_parent</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+    Reference to current configuration component's parent<br /><br />    <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__ConfigurationComponent __construct(
+[string
+$name = ''], [string
+$content = ''], [
+$attributes = array()]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Constructor method<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $name</td>
+                <td class="defaultTd">
+                Name of current configuration component            </td></tr>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $content</td>
+                <td class="defaultTd">
+                Content for current configuration component            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attributes</td>
+                <td class="defaultTd">
+                Array of attributes for current configuration component            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../Configuration/__Configuration.html#method__construct">__Configuration::__construct()</a>
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodaddAttribute" id="addAttribute"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addAttribute</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void addAttribute(
+
+$attribute_name, 
+$attribute_value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attribute_name</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attribute_value</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetAttribute" id="getAttribute"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getAttribute</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed getAttribute(
+
+$attribute_name, string
+$attribute&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get one attribute value of this component<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attribute_name</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $attribute</td>
+                <td class="defaultTd">
+                Attribute key            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>component's attribute value</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetAttributes" id="getAttributes"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getAttributes</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array getAttributes(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the current configuration component's attributes.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>An array of attributes</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetContent" id="getContent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getContent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getContent(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the current configuration component's content.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The current configuration component's content</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetContext" id="getContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Context/__Context.html">__Context</a> &amp;getContext(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the __Context instance associated to the current configuration component.<br /><br /><p>If __Context doesn't exists for current configuration component, this method returns null.</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The requested __Context if exists, else null.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../Configuration/__Configuration.html#methodgetContext">__Configuration::getContext()</a>
+                                : This method returns the __Context instance that contains the current __Configuration.
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetId" id="getId"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getId</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getId(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetName" id="getName"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getName</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getName(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get this current configuration component's name.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The current configuration component's name</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetParent" id="getParent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getParent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a> &amp;getParent(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the current configuration component's parent<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>A reference to parent instance or null if the current configuration component is root</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetRootConfigurationComponent" id="getRootConfigurationComponent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getRootConfigurationComponent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Configuration/__ConfigurationComponent.html">__ConfigurationComponent</a> &amp;getRootConfigurationComponent(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns the root configuration component in the configuration hierarchy that current component is from.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodhasAttribute" id="hasAttribute"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">hasAttribute</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void hasAttribute(
+
+$attribute_name&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attribute_name</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisEqual" id="isEqual"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isEqual</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void isEqual(
+
+$configuration_component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method returns true if the parameter passed has the same type<br /><br /><p>name and attributes that the current component</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $configuration_component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodisRoot" id="isRoot"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">isRoot</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>bool isRoot(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns if this component is a root component or not<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>true if component is root</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetAttributeId" id="setAttributeId"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setAttributeId</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setAttributeId(
+
+$attribute_name&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attribute_name</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetAttributes" id="setAttributes"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setAttributes</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setAttributes(
+
+$attributes&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the current configuration component's attributes.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attributes</td>
+                <td class="defaultTd">
+                An array of attributes to set            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetContent" id="setContent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setContent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setContent(
+string
+$content&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the current configuration component's content.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $content</td>
+                <td class="defaultTd">
+                The content for current configuration component            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetId" id="setId"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setId</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setId(
+
+$id_value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $id_value</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetName" id="setName"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setName</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setName(
+string
+$name&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set this current configuration component's name.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $name</td>
+                <td class="defaultTd">
+                The name for current configuration component            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetParent" id="setParent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setParent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setParent(
+<a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a>
+&$parent, <a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a>
+$parent&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the current configuration component's parent<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a></td>
+                <td class="defaultTd">
+                &$parent</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a></td>
+                <td class="defaultTd">
+                $parent</td>
+                <td class="defaultTd">
+                The current configuration component's parent            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodtoArray" id="toArray"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">toArray</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array toArray(
+[
+$use_attributes = true], bool
+$useAttr&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns a key/value pair array of the container and its children.<br /><br /><p>Format : section[property][index] = value  If the container has attributes, it will use '@' and '#'  index is here because multiple propertys can have the same name.</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $use_attributes</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                bool</td>
+                <td class="defaultTd">
+                $useAttr</td>
+                <td class="defaultTd">
+                Whether to return the attributes too            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            <hr class="separator" />
+        <div class="notes">Redefined in descendants as:</div>
+        <ul class="redefinitions">
+                    <li>
+                <a href="../Configuration/__ConfigurationProperty.html#methodtoArray">__ConfigurationProperty::toArray()</a>
+                            </li>
+                    <li>
+                <a href="../Configuration/__ComplexConfigurationComponent.html#methodtoArray">__ComplexConfigurationComponent::toArray()</a>
+                                : Returns a key/value pair array of the container and its children.
+                            </li>
+                    <li>
+                <a href="../Configuration/__Configuration.html#methodtoArray">__Configuration::toArray()</a>
+                                : Returns a key/value pair array of the container and its children.
+                            </li>
+                </ul>
+            </div>
+    <br />
+    <br>
+
+<a name="methodtoString" id="toString"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">toString</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string toString(
+string
+$configuration_type, [
+$options = array()]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Return an string in the specified format for current configuration component.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $configuration_type</td>
+                <td class="defaultTd">
+                Type of configuration format to generate the string            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $options</td>
+                <td class="defaultTd">
+                Specify special options for output            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The requested string</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodupdateAttribute" id="updateAttribute"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">updateAttribute</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void updateAttribute(
+
+$attribute_name, 
+$attribute_value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attribute_name</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attribute_value</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodupdateAttributes" id="updateAttributes"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">updateAttributes</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void updateAttributes(
+
+$attributes&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Update the current configuration component's attributes.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attributes</td>
+                <td class="defaultTd">
+                An array of attributes to update            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method_parseValue" id="_parseValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">_parseValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void _parseValue(
+
+$value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $value</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

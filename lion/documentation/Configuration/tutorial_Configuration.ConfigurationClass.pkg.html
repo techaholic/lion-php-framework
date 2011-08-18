@@ -1,0 +1,63 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Accessing the configuration</h1>
+  <div class="ref-purpose">Getting configuration values</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Configuration/tutorial_Configuration.ConfigurationClass.pkg.html#intro">Accessing the configuration</a><br />
+
+<a href="../Configuration/tutorial_Configuration.ConfigurationClass.pkg.html#getting_sections">Getting a configuration section</a><br />
+
+<a href="../Configuration/tutorial_Configuration.ConfigurationClass.pkg.html#getting_properties">Getting a property value</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Accessing the configuration</h2><p>In Lion, each context has his own configuration. The way to access to the configuration within a context is by ussing the <a href="../Context/__Context.html#methodgetConfiguration">__Context::getConfiguration()</a> method, which returns a reference to the associated context <a href="../Configuration/__Configuration.html">__Configuration</a> instance.</p>
+  <p>The <a href="../Configuration/__Configuration.html">__Configuration</a> class represents a configuration file applicable to a particular application and provides accessors to get any configuration value.</p>
+  <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//get&nbsp;a&nbsp;reference&nbsp;to&nbsp;the&nbsp;application&nbsp;configuration:</span></div></li>
+<li><div class="src-line"><span class="src-var">$app_config&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getConfiguration</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p></span>
+ <span><a name="getting_sections"></a><h2>Getting a configuration section</h2><p>A section within the configuration can be retrieved by ussing the <strong>getSection</strong> method.</p>
+  <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td><p>Note that in order to get a section within the Lion configuration we need to access first to the <i>configuration</i> section because all the Lion sections are enclosed by that section.</p></td></tr></table></div></center>
+  <p>i.e., imagine the following configuration content:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;foobars&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;foo&nbsp;bar=&quot;lion&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;foo&nbsp;bar=&quot;rocks&quot;/&gt;</div></li>
+<li><div class="src-line">&lt;/foobars&gt;</div></li>
+</ol></pre></div></p>
+  <p>To access to the foobars section, we should need a code like the following one:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//get&nbsp;an&nbsp;array&nbsp;of&nbsp;Foo&nbsp;instances&nbsp;according</span></div></li>
+<li><div class="src-line"><span class="src-comm">//to&nbsp;the&nbsp;configuration:</span></div></li>
+<li><div class="src-line"><span class="src-var">$foos&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getConfiguration</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getSection</span><span class="src-sym">(</span><span class="src-str">'foobars'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p></span>
+ <span><a name="getting_properties"></a><h2>Getting a property value</h2><p>Some configuration files are structured to just define property values (property files).</p>
+  <p>i.e.,
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-sym">;</span>----------------------------------</div></li>
+<li><div class="src-line"><span class="src-sym">;&nbsp;</span><span class="src-id">DATABASE&nbsp;CONNECTION&nbsp;PARAMETERS</span>:</div></li>
+<li><div class="src-line"><span class="src-sym">;</span>----------------------------------</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-id">DATABASE_HOST&nbsp;</span>=&nbsp;<span class="src-str">&quot;127.0.0.1&quot;</span></div></li>
+<li><div class="src-line"><span class="src-id">DATABASE_NAME&nbsp;</span>=&nbsp;<span class="src-str">&quot;foobar&quot;</span></div></li>
+<li><div class="src-line"><span class="src-id">DATABASE_USERNAME&nbsp;</span>=&nbsp;<span class="src-str">&quot;root&quot;</span></div></li>
+<li><div class="src-line"><span class="src-id">DATABASE_PASSWORD&nbsp;</span>=&nbsp;<span class="src-str">&quot;secret&quot;</span></div></li>
+</ol></pre></div></p>
+  <p>For those files, the <a href="../Configuration/__Configuration.html">__Configuration</a> class define a really usefull method to access to the property values: __Configuration::getPropertyContent().</p>
+  <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$db_name&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getConfiguration</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getPropertyContent</span><span class="src-sym">(</span><span class="src-str">'DATABASE_NAME'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p></span></div>
+      </td></tr></table>

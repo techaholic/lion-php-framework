@@ -1,0 +1,34 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Internationalizating the Hello World</h1>
+  <div class="ref-purpose">Practical tutorial</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../I18n/tutorial_I18n.tutorial1.pkg.html#intro">Objetive</a><br />
+
+<a href="../I18n/tutorial_I18n.tutorial1.pkg.html#modifying_the_controller">Modifying the controller to add I18n capabilities</a><br />
+
+<a href="../I18n/tutorial_I18n.tutorial1.pkg.html#executing_the_hello_world">Executing the Hello World</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Objetive</h2><p>The objetive of this tutorial is to learn how to apply I18n capabilities to a Yawar application.<br />
+  The application that we are going to develop just shows a 'Hello world' message.</p>
+  <p>What we are going to do in this tutorial is:
+  <ul><li>To modify the controller created in the Yawar.MVC.tutorial1 tutorial (libs/controllers/HelloWorldController.class.php)</li>
+    <li>To create 2 files with strings in english and spanish</li></ul></p>
+  <img src="../images/tutorial2/directory_structure.png" border="0"></span>
+ <span><a name="modifying_the_controller"></a><h2>Modifying the controller to add I18n capabilities</h2><p>First thing to do will be to modify how the string 'Hello world' is assigned to the <a href="../Model/__ModelAndView.html">__ModelAndView</a> instance.</p></span>
+ <span><a name="executing_the_hello_world"></a><h2>Executing the Hello World</h2><p>Now it's time to execute our application, and for that purpose, we need to know how to build the appropriate URL to execute the action we want.</p>
+  <div class="messagebox floatnote metadata plainlinks"><div class="floatnoteicon"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></div><br><p>The default mapping rule for URLs in Yawar is <strong>&lt;controller&gt;.&lt;action&gt;.html</strong></p>
+  <p>i.e. if we want to execute the action bar and the controller foo, just use the url <strong>foo.bar.html</strong>.</p></div>
+  <p>For that purpose, just use the following url: <strong>http://yourdomain/pathtoyourapplication/helloWorld.html</strong></p>
+  <p>Yawar will deduce that the action controller that you are requesting is the one with code 'helloWorld'. Because we haven't define any action to execute, Yawar will try to execute one of the following action codes:
+  <ul><li>An action with the same code than the controller, in our example <strong>helloWorld</strong>.</li>
+    <li>If (and only if) that action doesn't exists, the action with the code 'default', it is, a method named 'defaultAction'</li></ul></p>
+  <p>Because we have already declared a method with the name <strong>helloWorldAction</strong>, this is the method that will be executed in response to the request</p>
+  <p>The aspect of our application should be like the following figure:</p>
+  <img src="../images/tutorial1/execution_in_browser.png" border="0">
+  <p>And yes: we know that it's not a Picasso, but for the goal of this tutorial is enough :)</p></span></div>
+      </td></tr></table>

@@ -1,0 +1,29 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+
+  <controller-definitions>
+
+    <!-- generic rule -->
+    <controller code="cache" class="__CacheController">
+      <permission id="ACCESS_TO_ADMIN_AREA"/>
+    </controller>
+    <controller code="index" class="__IndexController">
+      <permission id="ACCESS_TO_ADMIN_AREA"/>
+    </controller>
+    <controller code="settings" class="__SettingsController">
+      <permission id="ACCESS_TO_ADMIN_AREA"/>
+    </controller>
+    
+    <!-- Non-protected actions (no roles required to access to them) -->
+    <controller code="decorator" class="__DecoratorController">
+      <property name="requestable" value="false"/>
+    </controller>
+    
+    <controller code="bootstrap"   class="__BootstrapController"/>
+    <controller code="documentation"   class="__DocumentationController"/>
+    <controller code="notifier"    class="__NotifierController"/>
+    <controller code="commandline" class="__CommandLineController"/>
+    
+  </controller-definitions>
+  
+</configuration>

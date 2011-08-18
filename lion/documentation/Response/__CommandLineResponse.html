@@ -1,0 +1,295 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __CommandLineResponse</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../Base/__ContentContainer.html">__ContentContainer</a>
+   |
+   --<a href="../Response/__Response.html">__Response</a>
+      |
+      --__CommandLineResponse</pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Response/__CommandLineResponse.html#methodflush">flush</a></li>
+		  		  <li><a href="../Response/__CommandLineResponse.html#method__toString">__toString</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../Response/__Response.html">__Response</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../Response/__Response.html#var$_cacheable">__Response::$_cacheable</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#var$_processed_content">__Response::$_processed_content</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#var$_view_codes">__Response::$_view_codes</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../Base/__ContentContainer.html">__ContentContainer</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_bottom_content">__ContentContainer::$_bottom_content</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_content">__ContentContainer::$_content</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_current_content_position">__ContentContainer::$_current_content_position</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_filters">__ContentContainer::$_filters</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#var$_top_content">__ContentContainer::$_top_content</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../Response/__Response.html">__Response</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../Response/__Response.html#methodaddViewCode">__Response::addViewCode()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodgetCacheableViews">__Response::getCacheableViews()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodgetContent">__Response::getContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodgetViewCodes">__Response::getViewCodes()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodisCacheable">__Response::isCacheable()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodprepareToSleep">__Response::prepareToSleep()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#methodsetCacheable">__Response::setCacheable()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Response/__Response.html#method_doGetContent">__Response::_doGetContent()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../Base/__ContentContainer.html">__ContentContainer</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodaddContent">__ContentContainer::addContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodaddPostFilter">__ContentContainer::addPostFilter()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodappendContent">__ContentContainer::appendContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodclear">__ContentContainer::clear()</a><br>
+											Alias of clearContent
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodclearContent">__ContentContainer::clearContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methoddockContentAtBottom">__ContentContainer::dockContentAtBottom()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methoddockContentOnTop">__ContentContainer::dockContentOnTop()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodgetContent">__ContentContainer::getContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#methodprependContent">__ContentContainer::prependContent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Base/__ContentContainer.html#method_getStringRepresentation">__ContentContainer::_getStringRepresentation()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#flush" title="details" class="method-name">flush</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__toString" title="details" class="method-name">__toString</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<span class="disabled">Properties</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodflush" id="flush"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">flush</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void flush(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method__toString" id="__toString"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">__toString</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void __toString(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

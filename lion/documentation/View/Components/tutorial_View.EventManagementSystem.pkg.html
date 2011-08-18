@@ -1,0 +1,123 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Event Handlers</h1>
+  <div class="ref-purpose">Handling component events</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html#event_management_system">The Event Management System</a><br />
+
+<a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html#lifecycle">Life-cycle of the event management system</a><br />
+
+<a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html#event_handler">The Event Handler</a><br />
+
+<a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html#naming_convention">Naming convention and location</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html#naming_convention.associating_event_handler_to_view">Associating an event handler to a view</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html#naming_convention.event_handler_location">Event handler file and location</a><br />
+
+<a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html#defining_event_handlers">Defining Event Hadlers</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="event_management_system"></a><h2>The Event Management System</h2><p>The event management system is one of the most important pieces within the component model since is the one in charge of performing the following tasks:</p>
+  <p><ul><li>To notify to the server all the events raised in the client (i.e. a click on a button or a text control change)</li>
+    <li>To synchronize the component status between the client and the server (i.e. update the component text property once it has been changed in the client)</li></ul></p>
+  <p>From the server point of view, it's transparent the fact that an event has been raised from the client side.</p></span>
+ <span><a name="lifecycle"></a><h2>Life-cycle of the event management system</h2><p>The following figure ilustrates the life-cycle of the event management system:</p>
+  <p><img src="../../images/View/Components/eventmanagementsystem.png" border="0"></p>
+  <p><ol><li>When an event is raised from a component in the client-side, it is sent to the server (usually via AJAX).</li>
+    <li>Once the request is received, the Front Controller delegates to the associated <strong>Event Handler</strong>, a subclass of <a href="../../ComponentModel/__EventHandler.html">__EventHandler</a> which executes some logic associated to the given event.</li>
+    <li>Finally, components are updated in the client-side according to the server status after the event has been handled.</li></ol></p>
+  <p>The communication process between client and server is performed usually via <strong>Ajax</strong> plus <strong>JSON</strong>.<br />
+  However, this communication is handled entirely by the framework, so we don't need to care about low-level details regarding how this process is being done.</p></span>
+ <span><a name="event_handler"></a><h2>The Event Handler</h2><p>The way that lion proposes to handle client events is by defining <strong>Event Handlers</strong> associated to views. An event handler is a class in charge of events management for concrete views.</p>
+  <p>We just need to define subclasses of <a href="../../ComponentModel/__EventHandler.html">__EventHandler</a> and follow a naming convention for methods.</p></span>
+ <span><a name="naming_convention"></a><h2>Naming convention and location</h2><p>Lion is enough flexible to allow whatever name and location for your event handlers. There are not restrictions in that sense.<br />
+  However there are some naming conventions and predefined locations that ease the definition and enablement of event handlers:</p>
+  <p><ul><li>Use the <strong>view code</strong> plus the suffix <strong>'EventHandler'</strong> to define an event handler associated to a concrete view.</li>
+    <li>Define each event handler in a single file with the same name of the event handler class followed by the suffix <strong>'.class.php'</strong></li>
+    <li>Place your event handlers in the <strong>/libs/eventhandlers</strong> directory</li></ul></p>
+  <p><img src="../../images/View/Components/EventHandler.directory_structure.png" border="0"></p>
+ <a name="naming_convention.associating_event_handler_to_view"></a><h3>Associating an event handler to a view</h3><p>First thing that we need to know in order to define event handlers is the fact that each event handle need to be associated to a view at least.</p>
+  <p>We can do it declarativelly in the <strong>view-definitions</strong> configuration section by defining the <strong>eventHandlerClass</strong> view property.</p>
+  <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;view-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;view&nbsp;code=&quot;fooBarView&quot;&nbsp;class=&quot;__SmartyView&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;template&quot;&nbsp;value=&quot;fooBar.tpl&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;eventHandlerClass&quot;&nbsp;value=&quot;FooBarEventHandler&quot;/&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/view&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/view-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+  In this example, we are associating the class FooBarEventHandler to the view identified by the code fooBar.</p>
+  <p>However, there is a rule in the views.xml by default that simplifies this task by just following a naming convention:<br />
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;view-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;view&nbsp;code=&quot;*&quot;&nbsp;class=&quot;__SmartyView&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;template&quot;&nbsp;value=&quot;*.tpl&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;eventHandlerClass&quot;&nbsp;value=&quot;*EventHandler&quot;/&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/view&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/view-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+  This rule associates an event handler to a view if we define the name of the event handler as the <i>view code</i> plus the suffix <i>EventHandler</i>.</p>
+  <p>i.e., for the view <i>fooBar</i> we'll define the event handler class as <i>FooBarEventHandler</i>. Note that the mapping between the view code and the class name is case insensitive.</p><br />
+ <a name="naming_convention.event_handler_location"></a><h3>Event handler file and location</h3><p>The file <strong>app/config/includepath.xml</strong> contains the following mapping rule:</p>
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Event&nbsp;Handlers&quot;&nbsp;path=&quot;/libs/eventhandlers&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;*&quot;&nbsp;file=&quot;*.class.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div>
+  <p>This mapping rule let Lion know that any file placed in <strong>libs/eventhandlers</strong> with the suffix '.class.php' corresponds to a class with the same name without the suffix.</p>
+  <p>So, by placing event handler files in that directory and following the naming convention, it's not needed to declare explicitly the location of your event handlers in the includepath.xml file.</p><br /></span>
+ <span><a name="defining_event_handlers"></a><h2>Defining Event Hadlers</h2><p>The way to define event handlers is by implementing the <a href="../../ComponentModel/__IEventHandler.html">__IEventHandler</a> class. However, Lion proposes a class that already implements this interface: The <a href="../../ComponentModel/__EventHandler.html">__EventHandler</a> class.</p>
+  <p>By subclassing the <a href="../../ComponentModel/__EventHandler.html">__EventHandler</a> class, we just need to define a method for each component event that we need to handle taking into account the following naming convention for the method name: <strong>'componentName' + '_' + 'eventName'</strong> (i.e. myButton_click, myTextBox_blur, ...).</p>
+  <p>And again: this naming convention belong to the <a href="../../ComponentModel/__EventHandler.html">__EventHandler</a>. If you implement the <a href="../../ComponentModel/__IEventHandler.html">__IEventHandler</a> then you should develop your own ways to handle events.</p>
+  <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">class&nbsp;</span><span class="src-id">FooBarEventHandler&nbsp;</span><span class="src-key">extends&nbsp;</span><a href="../../ComponentModel/__EventHandler.html">__EventHandler</a>&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Set&nbsp;the&nbsp;'FoO&nbsp;BaR!'&nbsp;string&nbsp;to&nbsp;the&nbsp;myLabel&nbsp;text</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;property&nbsp;when&nbsp;click&nbsp;the&nbsp;myButton&nbsp;component</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">myButton_click</span><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//retrieve&nbsp;the&nbsp;component&nbsp;myLabel</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$my_label&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">getComponent</span><span class="src-sym">(</span><span class="src-str">'myLabel'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//assign&nbsp;the&nbsp;'FoO&nbsp;BaR!'&nbsp;to&nbsp;the&nbsp;text&nbsp;property</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$my_label</span><span class="src-sym">-&gt;</span><span class="src-id">setText</span><span class="src-sym">(</span><span class="src-str">'FoO&nbsp;BaR!'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div>
+  In this example, we have define how to handle the <i>click</i> event for a button component.</p>
+  <p>As we can also see in this example, one of the most interesting things of <a href="../../ComponentModel/__EventHandler.html">__EventHandler</a> class is that allows to retrieve whatever component within the same view by calling to the <a href="../../ComponentModel/__EventHandler.html#methodgetComponent">__EventHandler::getComponent()</a> method.</p>
+  <p>Try <a href="../../Lion/Tutorials/tutorial_Lion.tutorial3.pkg.html">The Hello World Deluxe</a>. It contains a practical tutorial regarding components and event handlers.</p>
+  <p>To see information regarding events handled in lion, see the <a href="../../View/Components/tutorial_View.Events.pkg.html">Lion Events</a> section</p></span></div>
+      </td></tr></table>

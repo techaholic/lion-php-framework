@@ -1,0 +1,451 @@
+<?xml version = "1.0" standalone="yes"?>
+
+<configuration>
+  
+  <!-- ****************************************** -->
+  <!--                   FILTERS                  -->
+  <!-- ****************************************** -->
+  
+  <filters>
+
+    <!-- request parameter preprocessors: -->
+    <filter execute-before-cache="yes" name="submit_filter" class="__SubmitFilter" order="-10000">
+      <apply-to>
+        <all-routes/>
+      </apply-to>
+    </filter>
+  
+    <!-- CacheFilter should be the last filter to be executed with the execute-before-cache="yes" -->
+    <filter execute-before-cache="yes" name="cache_filter" class="__CacheFilter" order="10000">
+      <apply-to>
+        <all-routes if="cache" equals="true"/>
+      </apply-to>
+    </filter>
+  
+    <filter name="lion_admin_area_filter" class="__LionAdminFilter" order="-10000">
+      <apply-to>
+        <route id="lion"/>
+      </apply-to>
+    </filter>
+
+    <!-- ajax filter: -->
+    <filter name="ajax_filter" class="__AjaxFilter" order="-10000">
+      <apply-to>
+        <route id="ajax"/>
+      </apply-to>
+    </filter>   
+
+  </filters>
+
+  <!-- ****************************************** -->
+  <!--                CONTROLLERS                 -->
+  <!-- ****************************************** -->
+  
+  <controller-definitions>
+    <controller code="default"  class="__DefaultController"/>
+    <controller code="error"    class="__ErrorController"/>
+    <controller code="resource" class="__ResourceController"/>
+    <controller code="componentCallback" class="__ComponentCallbackController"/>
+    <controller code="indexDotPhp" class="__IndexDotPhpController"/>
+    <controller code="testResponse" class="__TestResponseController"/>
+    <controller code="flowController"  class="__FlowController"/>
+  </controller-definitions>  
+  
+  <!-- ****************************************** -->
+  <!--                   ERRORS                   -->
+  <!-- ****************************************** -->
+
+  <errors>
+  
+    <!-- Unknow errors -->
+    <error-group id="ERR_GROUP_UNKNOW" exception-class="__UnknowException" http-status-code="500">
+      <error code="55001" id="ERR_UNKNOW_ERROR" http-status-code="500"/>
+    </error-group>
+  
+    <!-- Render errors -->
+    <error-group id="ERR_GROUP_VIEW" exception-class="__ViewException">
+      <error code="55301" id="ERR_TEMPLATE_NOT_FOUND" />
+      <error code="55302" id="ERR_WRONG_TEMPLATE_LOCATOR_CLASS"/>
+    </error-group>
+  
+    <!-- Model errors -->
+    <error-group id="ERR_GROUP_MODEL" exception-class="__ModelException">
+      <error code="55501" id="ERR_METHOD_NOT_FOUND" />
+      <error code="55502" id="ERR_MODEL_SERVICE_NOT_EXISTS" />
+    </error-group>
+    
+    <!-- Validation errors -->
+    <error-group id="ERR_GROUP_VALIDATION" exception-class="__ValidationException">
+      <error code="55101" id="ERR_REQUIRED_FIELD"/>
+      <error code="55102" id="ERR_INVALID_VALUE"/>
+      <error code="55103" id="ERR_TOO_SHORT_VALUE"/>
+      <error code="55104" id="ERR_TOO_LONG_VALUE"/>
+      <error code="55105" id="ERR_FIELD_MUST_MATCH"/>
+      <error code="55106" id="ERR_VALIDATION_ERROR"/>
+      <error code="55107" id="ERR_INVALID_COMPONENT_FOR_VALIDATION_RULE"/>
+    </error-group>  
+    
+    <!-- Security errors -->
+    <error-group id="ERR_GROUP_SECURITY" exception-class="__SecurityException">
+      <error code="55201" id="ERR_ACCESS_PERMISSION_ERROR"/>
+      <error code="55202" id="ERR_ACTION_PERMISSION_ERROR"/>
+      <error code="55203" id="ERR_VIEW_PERMISSION_ERROR"/>
+      <error code="55204" id="ERR_UNABLE_TO_CHECK_PERMISSIONS"/>
+      <error code="55205" id="ERR_LOGON_ERROR"/>
+      <error code="55206" id="ERR_SWITCH_PROFILE_ERROR"/>
+      <error code="55207" id="ERR_ACTION_NON_REQUESTABLE"/>
+      <error code="55208" id="ERR_UNKNOW_PERMISSION_ID"/>
+      <error code="55209" id="ERR_UNKNOW_ROLE_ID"/>
+    </error-group>   
+  
+    <!-- Core errors -->
+    <error-group id="ERR_UI_COMPONENT" exception-class="__UIComponentException">
+      <error code="55801" id="ERR_WRONG_CONTAINER_COMPONENT_CLASS"/>
+      <error code="55802" id="ERR_UNKNOW_UI_COMPONENT_TAG"/>
+      <error code="55803" id="ERR_WRONG_COMPONENT_CLASS"/>
+      <error code="55804" id="ERR_UI_COMPONENT_IS_NOT_CONTAINER"/>
+      <error code="55805" id="ERR_UI_UNEXPECTED_CLOSE_TAG"/>
+      <error code="55806" id="ERR_WRONG_CONTAINER_FOR_COMPONENT"/>
+      <error code="55807" id="ERR_COMPONENT_REQUIRED_FOR_VALIDATION_RULE"/>
+      <error code="55808" id="ERR_INVALID_COMPONENT_FOR_VALIDATION_RULE"/>
+      <error code="55809" id="ERR_COMPONENT_INDEX_NOT_FOUND"/>
+      <error code="55810" id="ERR_COMPONENT_NOT_FOUND"/>
+    </error-group>
+  
+    <!-- Configuration errors -->
+    <error-group id="ERR_GROUP_CONFIGURATION" exception-class="__ConfigurationException">
+      <error code="55901" id="ERR_SETTER_METHOD_NOT_FOUND"/>
+      <error code="55902" id="ERR_DOUBLE_INSTANCE_DEFINITION"/>
+      <error code="55903" id="ERR_INSTANCE_CLASS_REQUIRED"/>
+      <error code="55904" id="ERR_REF_INSTANCE_NOT_FOUND"/>
+      <error code="55905" id="ERR_WRONG_PROPERTY_VALUE_DEFINITION"/>
+      <error code="55906" id="ERR_INSTANCE_ID_NOT_FOUND"/>
+      <error code="55907" id="ERR_CIRCULAR_DEPENDENCY_INJECTION"/>
+    </error-group>
+    
+    <!-- Core errors -->
+    <error-group id="ERR_GROUP_CORE" exception-class="__CoreException">
+      <error code="55702" id="ERR_VIEW_NOT_FOUND"/>
+      <error code="55703" id="ERR_WRONG_VIEW_CLASS"/>
+      <error code="55704" id="ERR_VIEW_NON_LOADABLE"/>
+      <error code="55705" id="ERR_ACTION_NOT_FOUND"/>
+      <error code="55706" id="ERR_WRONG_FRONT_CONTROLLER_CLASS"/>
+      <error code="55707" id="ERR_ACTION_NON_LOADABLE"/>
+      <error code="55708" id="ERR_CAN_NOT_RESOLVE_VIEW"/>
+      <error code="55709" id="ERR_CLASS_NOT_FOUND"/>
+      <error code="55710" id="ERR_ACTION_NOT_SUPPORTED_BY_CONTROLLER"/>
+      <error code="55711" id="ERR_CONTROLLER_NOT_SPECIFIED"/>
+      <error code="55712" id="ERR_CAN_NOT_RESOLVE_CONTROLLER"/>
+      <error code="55713" id="ERR_WRONG_CONTROLLER_CLASS"/>
+      <error code="55714" id="ERR_INVALID_REQUEST_METHOD"/>
+      <error code="55715" id="ERR_GETTER_NOT_FOUND_FOR_PROPERTY"/>
+      <error code="55715" id="ERR_SETTER_NOT_FOUND_FOR_PROPERTY"/>
+      <error code="55720" id="ERR_MEMBER_NOT_FOUND"/>
+      <error code="55725" id="ERR_UNEXPECTED_CLASS"/>
+      <error code="55726" id="ERR_PROPERTY_NOT_FOUND"/>
+    </error-group>
+  
+    <!-- Cache errors -->
+    <error-group id="ERR_GROUP_CACHE" exception-class="__CacheException">
+      <error code="55400" id="ERR_UNKNOW_CONTROLTYPE"/>
+      <error code="55401" id="ERR_CANT_REMOVE_CACHE"/>
+      <error code="55403" id="ERR_CANT_OPEN_CACHE_DIR"/>
+      <error code="55404" id="ERR_CACHE_NOT_READABLE"/>
+      <error code="55405" id="ERR_CACHE_NOT_WRITABLE"/>
+    </error-group>
+
+    <!-- Routing errors -->
+    <error-group id="ERR_GROUP_ROUTING" exception-class="__CoreException">
+      <error code="56000" id="ERR_UNKNOW_ROUTE_ID"/>
+      <error code="55601" id="ERR_UNKNOWN_URL_FORMAT" http-status-code="404"/>
+    </error-group>
+    
+  </errors>
+
+  <!-- ****************************************** -->
+  <!--            RESOURCE PROVIDERS              -->
+  <!-- ****************************************** -->
+  
+  <resource-providers>
+    <resource-provider class="__IniFileResourceProvider" description="System errors" persistence-level="session">
+      <resources_type class="__ErrorMessageResource"/>                
+      <!-- resource's storage connection parameters: -->    
+      <properties>
+        <property name="languageDir" value="const:FW_LANGUAGE_DIR"/>
+        <property name="filename" value="error.inc"/>
+      </properties>
+    </resource-provider>    
+  </resource-providers>
+
+  <!-- ****************************************** -->
+  <!--               UI COMPONENTS                -->
+  <!-- ****************************************** -->
+  
+  <ui-component-tags>
+  
+    <ui-component-tag tag-name="actionbox" component-class="__ActionBoxComponent">
+      <ui-component-writer client="default" class="__ActionBoxHtmlWriter">
+        <decorators>
+          <decorator class="__CommonHtmlDecorator" order="1"/>
+        </decorators>  
+      </ui-component-writer>
+    </ui-component-tag>
+    <ui-component-tag tag-name="datacollector" component-class="__DataCollectorComponent"/>
+    <ui-component-tag tag-name="clientdatacollector" component-class="__ClientDataCollectorComponent">
+      <ui-component-writer client="default" class="__ClientDataCollectorHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="menu" component-class="__MenuComponent">
+      <ui-component-writer client="default" class="__MenuHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="form" component-class="__FormComponent">
+      <ui-component-writer client="default" class="__FormHtmlWriter">
+        <decorators>
+          <decorator class="__CommonHtmlDecorator" order="1"/>
+        </decorators>
+      </ui-component-writer>
+    </ui-component-tag>
+    <ui-component-tag tag-name="formparameter" component-class="__FormParameterComponent">
+      <ui-component-writer client="default" class="__FormParameterHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="datebox" component-class="__DateBoxComponent">
+      <ui-component-writer client="default" class="__DateBoxHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+          <decorator class="__CommonInputHtmlDecorator" order="3"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="inputbox" component-class="__InputBoxComponent">
+      <ui-component-writer client="default" class="__InputBoxHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+          <decorator class="__CommonInputHtmlDecorator" order="3"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="filebox" component-class="__FileBoxComponent">
+      <ui-component-writer client="default" class="__FileBoxHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+          <decorator class="__CommonInputHtmlDecorator" order="3"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="item" component-class="__ItemComponent">
+      <ui-component-writer client="default" class="__ItemHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="textarea" component-class="__TextAreaComponent">
+      <ui-component-writer client="default" class="__TextAreaHtmlWriter">
+        <decorators>
+          <decorator class="__CommonHtmlDecorator" order="1"/>
+          <decorator class="__CommonInputHtmlDecorator" order="2"/>
+        </decorators>  
+      </ui-component-writer>
+    </ui-component-tag>
+    <ui-component-tag tag-name="area" component-class="__AreaComponent">
+      <ui-component-writer client="default" class="__AreaHtmlWriter">
+        <decorators>
+          <decorator class="__CommonHtmlDecorator" order="1"/>
+        </decorators>  
+      </ui-component-writer>
+    </ui-component-tag>
+    <ui-component-tag tag-name="pane" component-class="__PaneComponent">
+      <ui-component-writer client="default" class="__PaneHtmlWriter">
+        <decorators>
+          <decorator class="__CommonHtmlDecorator" order="1"/>
+        </decorators>  
+      </ui-component-writer>
+    </ui-component-tag>
+    <ui-component-tag tag-name="combobox" component-class="__ComboBoxComponent">
+      <ui-component-writer client="default" class="__ComboBoxHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+          <decorator class="__CommonInputHtmlDecorator" order="3"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="listbox" component-class="__ListBoxComponent">
+      <ui-component-writer client="default" class="__ListBoxHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+          <decorator class="__CommonInputHtmlDecorator" order="3"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="javascript" component-class="__JavascriptComponent">
+      <ui-component-writer client="default" class="__JavascriptHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="checkbox" component-class="__CheckBoxComponent">
+      <ui-component-writer client="default" class="__CheckBoxHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+          <decorator class="__CommonInputHtmlDecorator" order="3"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="optionbox" component-class="__OptionBoxComponent">
+      <ui-component-writer client="default" class="__OptionBoxHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+          <decorator class="__CommonInputHtmlDecorator" order="3"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="togglebutton" component-class="__ToggleButtonComponent">
+      <ui-component-writer client="default" class="__ToggleButtonHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+          <decorator class="__CommonInputHtmlDecorator" order="3"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="commandbutton" component-class="__CommandButtonComponent">
+      <ui-component-writer client="default" class="__CommandButtonHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="commandlink" component-class="__CommandLinkComponent">
+      <ui-component-writer client="default" class="__CommandLinkHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+          <decorator class="__CommonHtmlDecorator" order="2"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>
+    <ui-component-tag tag-name="label" component-class="__LabelComponent">
+      <ui-component-writer client="default" class="__LabelHtmlWriter">
+        <decorators>
+          <decorator class="__CommonHtmlDecorator" order="1"/>
+        </decorators>
+      </ui-component-writer>      
+    </ui-component-tag>    
+    <ui-component-tag tag-name="uri" component-class="__UriComponent">
+      <ui-component-writer client="default" class="__UriHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="resource" component-class="__ResourceComponent">
+      <ui-component-writer client="default" class="__ResourceHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="protectedsection" component-class="__ProtectedSectionComponent">
+      <ui-component-writer client="default" class="__ProtectedSectionHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="validationrule" component-class="__ValidationRuleComponent">
+      <ui-component-writer client="default" class="__ValidationRuleHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="captchavalidator" component-class="__CaptchaValidatorComponent">
+      <ui-component-writer client="default" class="__ValidationRuleHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="window" component-class="__WindowComponent">
+      <ui-component-writer client="default" class="__WindowHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="remoteservice" component-class="__RemoteServiceComponent">
+      <ui-component-writer client="default" class="__RemoteServiceHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="captcha" component-class="__CaptchaComponent">
+      <ui-component-writer client="default" class="__CaptchaHtmlWriter"/>
+    </ui-component-tag>
+    <ui-component-tag tag-name="slider" component-class="__SliderComponent">
+      <ui-component-writer client="default" class="__SliderHtmlWriter">
+        <decorators>
+          <decorator class="__SpinnerDecorator" order="1"/>
+        </decorators>      
+      </ui-component-writer>
+    </ui-component-tag>
+        
+  </ui-component-tags>
+
+  <!-- ****************************************** -->
+  <!--                    VIEWS                   -->
+  <!-- ****************************************** -->
+  
+  <view-definitions>
+    <view code="resource" class="__ResourceView"/>
+  </view-definitions>   
+  
+  <!-- ****************************************** -->
+  <!--                   ROUTES                   -->
+  <!-- ****************************************** -->  
+  
+  <!-- NOTE: All routes can be overwritten by application configuration -->
+  <routes>
+ 
+    <!-- Default route -->
+    <route id="default" uri-pattern="\/$controller(\.$action)?\.html$">
+      <front-controller class="__HttpFrontController"/>
+      <action controller="$controller" code="$action"/>
+      <variable name="$controller" var-pattern="^[_A-Za-z][_A-Za-z0-9]*$"/>
+      <variable name="$action" var-pattern="^[_A-Za-z][_A-Za-z0-9]*$"/>
+    </route>
+  
+    <!-- Lion administration area -->
+    <route id="lion" uri-pattern="\/$controller(\.$action)?\.lion$">
+      <front-controller class="__HttpFrontController"/>
+      <action controller="$controller" code="$action"/>
+      <parameter name="${REQUEST_LION_ADMIN_AREA}" value="1"/>
+      <variable name="$controller" var-pattern="^[_A-Za-z][_A-Za-z0-9]*$"/>
+      <variable name="$action" var-pattern="^[_A-Za-z][_A-Za-z0-9]*$"/>
+    </route>
+
+    <!-- Route to handle ajax requests -->
+    <route id="ajax" uri-pattern="\/index\.ajax$">
+      <front-controller class="__AjaxFrontController"/>
+    </route>
+    
+    <!-- Route to handle ajax requests -->
+    <route id="remoteService" uri-pattern="\/($service_name)\.rest$">
+      <front-controller class="__RemoteServiceFrontController"/>
+      <parameter name="service_name" value="$service_name"/>
+      <variable name="$service_name" var-pattern="^[_A-Za-z][_A-Za-z0-9]*$"/>
+    </route>
+    
+    <route id="upload" uri-pattern="\/upload.async$">
+      <front-controller class="__AsyncUploadFrontController"/>
+    </route>
+    
+    <!-- Component Callback Page -->
+    <route id="component_callback_page" uri-pattern="\/$component_id\.ccp">
+      <front-controller class="__HttpFrontController"/>
+      <action controller="componentCallback"/>
+      <parameter name="component_id" value="$component_id"/>
+      <variable name="$component_id" var-pattern="^[A-Za-z0-9]+$"/>
+    </route>
+    
+    <!-- Route to get a media resource like an image from harddisk -->
+    <route id="resource" uri-pattern="\/resources\/$resource$">
+      <front-controller class="__ResourceFrontController"/>
+      <action controller="resource" code="resource"/>
+      <parameter name="${REQUEST_RESOURCE}" value="$resource"/>
+      <variable name="$resource" var-pattern="(.(?!\/resources\/))+"/>
+    </route>
+  
+    <!-- Route to alert the user to use the index.action instead of index.php -->
+    <route id="index_dot_php" uri-pattern="\/index\.php$">
+      <action controller="indexDotPhp"/>
+    </route>
+        
+    <!-- Route used to test the mod rewrite server capability -->
+    <route id="testResponse" uri-pattern="\/test\.response$">
+      <action controller="testResponse"/>
+    </route>        
+        
+    <!-- Route to use when the request was not able to be routed -->
+    <route id="unknown_url_format" uri-pattern=".+$">
+      <front-controller class="__HttpFrontController"/>
+      <action controller="error"/>
+      <parameter name="${REQUEST_ERROR_CODE}" value="55601"/>
+    </route>
+    
+  </routes>
+  
+  
+</configuration>

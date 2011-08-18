@@ -1,0 +1,185 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Authorization in Lion</h1>
+  <div class="ref-purpose">A Role Based Access Control</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Security/tutorial_Authorization.pkg.html#authorization_definition">What's Authorization?</a><br />
+
+<a href="../Security/tutorial_Authorization.pkg.html#rbac_definition">What's a Role Based Access Control?</a><br />
+
+<a href="../Security/tutorial_Authorization.pkg.html#roles">Roles</a><br />
+
+<a href="../Security/tutorial_Authorization.pkg.html#permissions">Permissions</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Security/tutorial_Authorization.pkg.html#permissions.permission_all">The PERMISSION_ALL permission</a><br />
+
+<a href="../Security/tutorial_Authorization.pkg.html#systemresources">System Resources</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Security/tutorial_Authorization.pkg.html#systemresources.systemresources_controllers">Protecting Action Controllers</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Security/tutorial_Authorization.pkg.html#systemresources.systemresources_modelservices">Protecting Model Services</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Security/tutorial_Authorization.pkg.html#systemresources.systemresources_protectedsection">Protecting page zones</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="authorization_definition"></a><h2>What's Authorization?</h2><p>Authorization is finding out if the person, once identified, is permitted to access to a system resource (to view a page, to call a model service, ...).<br />
+  This is usually determined by finding out if that person is a part of a particular group, if that person has paid admission, or has a particular level of security clearance. Authorization is equivalent to checking the guest list at an exclusive party, or checking for your ticket when you go to the opera.</p>
+  <p>As well as other software pieces, there are several patterns to implement the authorization.<br />
+  One of the most commonly used is the known as <strong>Role Based Access Control</strong> (<strong>RBAC</strong>).</p></span>
+ <span><a name="rbac_definition"></a><h2>What's a Role Based Access Control?</h2><p>Role Based Access Control (or just RBAC) is a method to control access to resources on an information system. It's a model for controlling access to resources where permitted actions on resources are identified with roles rather than with individual subject identities.</p>
+  <p>It was developed in Lion to overcome the complexities of managing individual user permissions and their assignments. The RBAC effort is motivated by concurrent efforts to:</p>
+  <p><ul><li>Simplify authorization management</li>
+      <li>Reduce administrative costs</li>
+      <li>Improve security</li>
+      <li>Provide low-level authorization granularity</li></ul></p>
+  <p>The operational benefits of RBAC have long been recognized since it simplifies the complexity of managing user permissions, thus providing reduced administrative cost and time.</p>
+  <p>RBAC allow us to define roles to users as well as permissions to system resources:</p>
+  <p><ul><li><strong>User</strong>: An user represents the client (commonly the end-user) of your web application. In Lion, the user is an instance of a class implementing the <a href="../Security/__IUser.html">__IUser</a>, but usually a class extending the <a href="../Security/__User.html">__User</a>.</li>
+    <li><strong>Role</strong>: A role is a collection of permissions. As such, a role serves no purpose unless permissions are assigned to it. An example role might be a 'Message Board Topic Administrator.' The role might be assigned permissions to View, Update, and Delete Message Board Topic resources that have company scope. Ultimately, a user assigned the 'Message Board Topic Administrator' role would be able to view, update, and delete any topic for any message board in the company. Roles are assigned to users. Roles can also be compounded by other roles (junior roles), inheriting all their permissions.</li>
+    <li><strong>Permission</strong>: The ability or right to perform some action on some resource, possibly only under certain specified conditions.</li>
+    <li><strong>System Resource</strong>: A system resource is a generic term for any object represented in the web application. In Lion, a system resource is a class implementing the <a href="../Security/__ISystemResource.html">__ISystemResource</a> (usually a class extending the <a href="../Security/__SystemResource.html">__SystemResource</a>).</li></ul></p></span>
+ <span><a name="roles"></a><h2>Roles</h2><p>Roles are associated to users. Basically, a role is a very flexible way to assign permissions to users.</p>
+  <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td><p>The file <strong>app/config/security.xml</strong> is reserved to define roles and permissions. In fact, this file contains an empty <strong>role-definitions</strong> and <strong>permission-definitions</strong> sections.</p>
+  <p>However, Lion is enough flexible to allow to define those sections wherever.</p></td></tr></table></div></center>
+  <p>Roles can also be grouped in hierarchies to make easy the permission assignment:</p>
+  <ul><li>A <strong>junior role</strong> is when, in a role hierarchy, Role A is junior to Role B if Role B inherits all the permissions associated with Role A.</li>
+    <li>A <strong>senior role</strong> is when, in a role hierarchy, Role A is senior to Role B if Role A inherits all the permissions associated with Role B.</li></ul>
+  <p>All roles can be defined declaratively inside the <strong>role-definitions</strong> configuration section.</p>
+  <p>i.e. imagine a configuration for a Forum Application: users can read and write messages while administrator can delete and modify messages. Of course, administrator can also read and write messages.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;role-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;role&nbsp;id=&quot;FORUM_USER&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permissions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;READ_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;WRITE_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/permissions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/role&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;role&nbsp;id=&quot;FORUM_ADMIN&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permissions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;DELETE_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;MODIFY_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/permissions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;junior-roles&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ref&nbsp;id=&quot;FORUM_USER&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/junior-roles&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/role&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/role-definitions&gt;</div></li>
+</ol></pre></div></p>
+  <p>In this example, the FORUM_USER role is junior role to FORUM_ADMIN.<br />
+  Users with the FORUM_USER role will have the READ_POSTS and WRITE_POSTS permissions. It is, they will be able to read and write post in the forum.<br />
+  At the same time, users with the FORUM_ADMIN role will have DELETE_POSTS and MODIFY_POSTS permissions as well as READ_POSTS and WRITE_POSTS (inherited from FORUM_USER junior role). It is, they will be able to delete and modify post in the forum as well as read and write posts.</p>
+  <p>Junior roles capability is very usefull: By adding a new permission to a junior role, all the senior roles will inherit that permission, becoming the permissions management more maintenable.</p></span>
+ <span><a name="permissions"></a><h2>Permissions</h2><p>Permissions are associated to roles (as we have seen in the previous section) and to system resources (defining the required permission to grant the access to a system resource).</p>
+  <p>In Lion, also in general, a system resource can have just one permission associated.<br />
+  Instead of allowing the assignment of multiple permissions to system resources, we can define permissions hierarchies:</p>
+  <ul><li>A <strong>junior permission</strong> is when, in a permission hierarchy, Permission A is junior to Permission B if all the system resources requiring the Permission A are accessible by having the permission B.</li>
+    <li>A <strong>senior permission</strong> is when, in a permission hierarchy, Permission A is senior to Permission B if all the system resources requiring the Permission B are accessible by having the permission A.</li></ul>
+  <p>All permissions can be defined declaratively inside the <strong>permission-definitions</strong> configuration section.</p>
+  <p>i.e. continuing with our Forum, let's define permissions:
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&lt;permission-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;READ_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;WRITE_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;DELETE_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;MODIFY_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;ADMIN_POSTS&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;junior-permissions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ref&nbsp;id=&quot;DELETE_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ref&nbsp;id=&quot;MODIFY_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/junior-permissions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/permission&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/permission-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+  <p>In this example, DELETE_POSTS and MODIFY_POSTS permissions are junior permissions to ADMIN_POSTS.<br />
+  i.e., roles with the ADMIN_POSTS permission will be able to access to system resources that require the DELETE_POSTS or MODIFY_POSTS permissions, because ADMIN_POSTS is senior permission to DELETE_POSTS and MODIFY_POSTS.</p>  
+ <a name="permissions.permission_all"></a><h3>The PERMISSION_ALL permission</h3><p>There is an special permission in Lion: <strong>PERMISSION_ALL</strong>.<br />
+  This permission is a senior permission to every permission within your project. A role with this permission is able to access to all system resources. So, take care assigning this permission :)</p>
+  <p>Ah! do not define a permission with this name, is reserved for this special permission.</p><br /></span>
+ <span><a name="systemresources"></a><h2>System Resources</h2><p>As defined previously, A system resource is a generic term for any object represented in the web application.<br />
+  In terms of authorization, let's focus on a system resource as an object protected by the RBAC.<br /> 
+  In Lion, a system resource is just a class implementing the <a href="../Security/__ISystemResource.html">__ISystemResource</a>, but usually a class extending the <a href="../Security/__SystemResource.html">__SystemResource</a>.</p>
+  <p>The following classes extends the <a href="../Security/__SystemResource.html">__SystemResource</a>:
+    <ul><li><strong>Action Controllers</strong>: Action Controller can be protected declarativelly in the <strong>controller-definitions</strong> configuration section.<br />
+      Note that the <a href="../ActionController/__IActionController.html">__IActionController</a> extends the <a href="../Security/__ISystemResource.html">__ISystemResource</a>, so if you define action controllers by implementing the <a href="../ActionController/__IActionController.html">__IActionController</a> you should need to also implement the <a href="../Security/__ISystemResource.html">__ISystemResource</a> or extends the <a href="../Security/__SystemResource.html">__SystemResource</a>.<br />
+      If you extend the <a href="../ActionController/__ActionController.html">__ActionController</a> you don't have to care on that because this class already extends the <a href="../Security/__SystemResource.html">__SystemResource</a>.</li>
+      <li><strong>Model Services</strong>: You can protect any model service since the class used to call to the model, <a href="../Model/__ModelService.html">__ModelService</a> extends the <a href="../Security/__SystemResource.html">__SystemResource</a>. You can also protect model services declarativelly in the <strong>model-services</strong> configuration section.</li>
+      <li><strong>Protected sections</strong>: The UI component <a href="../ComponentModel/__ProtectedSectionComponent.html">__ProtectedSectionComponent</a> is used to protect zones on a page since it extends the <a href="../Security/__SystemResource.html">__SystemResource</a>.</li></ul></p>
+   <a name="systemresources.systemresources_controllers"></a><h3>Protecting Action Controllers</h3><p>We can assign a permission to each action controller declarativelly by ussing the permission tag within the controller definition.</p>
+     <p>i.e.
+     <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;controller-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;controller&nbsp;code=&quot;adminForum&quot;&nbsp;class=&quot;AdminForumController&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;ADMIN_POSTS&quot;/&gt;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/controller&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/controller-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+     In this example, we are protecting the AdminForumController with the ADMIN_POSTS permission. So, just users with that permission could execute actions within this controller.</p>
+     <p>Note that protecting action controllers is similar to protect pages, since the client request for actions, nor pages.</p><br />
+   <a name="systemresources.systemresources_modelservices"></a><h3>Protecting Model Services</h3><p>We can assign a permission to each model service declarativelly by ussing the permission tag within the model All <a href="../View/__View.html">__View</a> derived classes are protected by the RBAC because the <a href="../View/__View.html">__View</a> class is a child class of the <a href="../Security/__SystemResource.html">__SystemResource</a>.</p>
+     <p>i.e.
+     <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;model-services&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;ForumManager&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service&nbsp;name=&quot;getPosts&quot;&nbsp;class-method=&quot;getPosts&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;READ_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/service&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;service&nbsp;name=&quot;createPost&quot;&nbsp;class-method=&quot;createPost&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;permission&nbsp;id=&quot;WRITE_POSTS&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/service&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/class&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/model-services&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+     In this example, we are protecting the service getPosts with the READ_POSTS permission while we are protecting the service createPost with the WRITE_POSTS permission. So, a call to the model service createPost is allowed just if the user in session has the permission WRITE_POSTS, it is, if the user has a role that contains that permission.</p>
+     <p>Protecting model services becomes interesting when we have to expose some of them, i.e. by webservices.</p><br />
+   <a name="systemresources.systemresources_protectedsection"></a><h3>Protecting page zones</h3><p>We can protect zones within a page by ussing the <strong>protected section component</strong>.</p>
+     <p>This component is used as a tag (protectedsection component tag) in a template, protecting the area closed between the begin and the end tag.</p>
+     <p>i.e.
+     <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">html</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-id">This&nbsp;content&nbsp;is&nbsp;not&nbsp;</span><span class="src-key">protected</span>.&nbsp;<span class="src-id">Everybody&nbsp;can&nbsp;see&nbsp;it</span>.</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">protectedsection&nbsp;permission</span>=<span class="src-str">&quot;READ_PROTECTED_CONTENT&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-id">The&nbsp;content&nbsp;closed&nbsp;here&nbsp;by&nbsp;the&nbsp;protectedsection&nbsp;tags&nbsp;is&nbsp;just&nbsp;</span></div></li>
+<li><div class="src-line"><span class="src-id">shown&nbsp;to&nbsp;users&nbsp;with&nbsp;the&nbsp;READ_PROTECTED_CONTENT&nbsp;permission</span>.</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">comp</span>:<span class="src-id">protectedsection</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">html</span>&gt;</div></li>
+</ol></pre></div>
+     In this example, we have put a protectedsection component that requires the READ_PROTECTED_CONTENT permission.<br />
+     It means that users without this permission couldn't see the content protected.</p><br /></span></div>
+      </td></tr></table>

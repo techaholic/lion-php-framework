@@ -1,0 +1,44 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Session</h1>
+  <div class="ref-purpose">Handling user sessions</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Session/tutorial_Session.pkg.html#intro">Introduction</a><br />
+
+<a href="../Session/tutorial_Session.pkg.html#getting_the_session">Accessing the session</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Introduction</h2><p>PHP brings a completed API to manage the session. However, Lion has his own session facade against the native PHP session by default.</p>
+  <p>One of the main advantages of ussing the Lion session facade is to isolate session instances between application contexts. The other one is to have a session space to store context instances without interfering with other containers.</p></span>
+ <span><a name="getting_the_session"></a><h2>Accessing the session</h2><p>The session can be accessed by calling the <a href="../Context/__Context.html#methodgetSession">__Context::getSession()</a> method. i.e.:
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$session&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getSession</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p>
+  <p>The session exposes mainly the following methods:
+  <ul><li>hasData (see <a href="../Session/__Session.html#methodhasData">__Session::hasData()</a>): Check if some data is already stored in session</li>
+    <li>getData (see <a href="../Session/__Session.html#methodgetData">__Session::getData()</a>): Get data from the session</li>
+    <li>setData (see <a href="../Session/__Session.html#methodsetData">__Session::setData()</a>): Set data to the session</li>
+    <li>removeData (see <a href="../Session/__Session.html#methodremoveData">__Session::removeData()</a>): Remove data from the session</li></ul></p>
+  <p>i.e.
+  <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;the&nbsp;session:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$session&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getSession</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//if&nbsp;a&nbsp;data&nbsp;already&nbsp;exists&nbsp;in&nbsp;session</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if</span><span class="src-sym">(</span><span class="src-var">$session</span><span class="src-sym">-&gt;</span><span class="src-id">hasData</span><span class="src-sym">(</span><span class="src-str">'data'</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;data&nbsp;from&nbsp;session</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-var">$session</span><span class="src-sym">-&gt;</span><span class="src-id">getData</span><span class="src-sym">(</span><span class="src-str">'data'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">else&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//retrieve&nbsp;data&nbsp;from&nbsp;database:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-id">eg_retrieve_data_from_database</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//store&nbsp;data&nbsp;to&nbsp;session&nbsp;once,&nbsp;so&nbsp;next&nbsp;time&nbsp;won't&nbsp;be&nbsp;needed&nbsp;to</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//get&nbsp;it&nbsp;from&nbsp;the&nbsp;database&nbsp;but&nbsp;from&nbsp;the&nbsp;session:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$session</span><span class="src-sym">-&gt;</span><span class="src-id">setData</span><span class="src-sym">(</span><span class="src-str">'data'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$data</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+</ol></pre></div></p></span></div>
+      </td></tr></table>

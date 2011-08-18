@@ -1,0 +1,28 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+
+  <context-instances>
+      
+    <context-instance id="authorizationManager" class="__AuthorizationManager"/>
+    
+    <context-instance id="authenticationManager" class="__AuthenticationManager">
+      <property name="authenticators">
+        <list>
+          <ref id="authenticator"/>
+        </list>
+      </property>
+    </context-instance>
+
+    <!-- authenticators: -->
+    <context-instance id="authenticator" class="__Authenticator">
+      <property name="userLoader">
+        <ref id="lionUserLoader"/>
+      </property>
+    </context-instance>
+    
+    <!-- The user loader that will we use will be a __LionUserLoader instance: -->
+    <context-instance id="lionUserLoader" class="__LionUserLoader"/>
+    
+  </context-instances>
+  
+</configuration>

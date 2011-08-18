@@ -1,0 +1,2066 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __SliderComponent</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		The slider is a component equipped with a small bar, also called a thumb, that slides along a visible line.<br /><br /><p>To use the slider control, the user can drag the thumb in one of two directions.</p><p>A slider is configured with a set of values from a minimum to a maximum. Therefore, the user can make a selection included in that range.</p><p>Slider tag is <strong>slider</strong>  i.e.  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">slider&nbsp;lowerLimit&nbsp;</span>=&nbsp;<span class="src-str">&quot;1&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">upperLimit&nbsp;</span>=&nbsp;<span class="src-str">&quot;50&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">value&nbsp;</span>=&nbsp;<span class="src-str">&quot;25&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">name</span>=<span class="src-str">&quot;my_slider&quot;</span>/&gt;</div></li>
+</ol></pre></div></p><p><strong>lowerLimit</strong> and <strong>upperLimit</strong> attributes define the numeric range of the slider. <strong>value</strong> defines the initial value.<br />  In this example, we have configured a simple slider defining a range between 1 and 50, with a default value of 25.<br />  <br />  We can also link a label to an slider control, in order to show the slider value. To do that, we just need to set the <strong>inputReceiver</strong> attribute:<br />  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">slider&nbsp;lowerLimit&nbsp;</span>=&nbsp;<span class="src-str">&quot;1&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">upperLimit&nbsp;</span>=&nbsp;<span class="src-str">&quot;50&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">value&nbsp;</span>=&nbsp;<span class="src-str">&quot;25&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">inputReceiver&nbsp;</span>=&nbsp;<span class="src-str">&quot;slider_label_2&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">name&nbsp;</span>=&nbsp;<span class="src-str">&quot;example2&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">Slider&nbsp;value</span>:&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">label&nbsp;name</span>=<span class="src-str">&quot;slider_label_2&quot;&nbsp;</span><span class="src-id">text</span>=<span class="src-str">&quot;25&quot;</span>/&gt;</div></li>
+</ol></pre></div></p><p>By default, an slider show the numeric value without decimals. To allow decimals, we can set the <strong>decimals</strong> attribute to the number of decimals to show to<br />  <br />  In the other hand, an slider is rendered in an horizontal axis by default.<br />  However we can alter it by setting the <strong>axis</strong> attribute:<br />  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">slider&nbsp;lowerLimit&nbsp;</span>=&nbsp;<span class="src-str">&quot;1&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">upperLimit&nbsp;</span>=&nbsp;<span class="src-str">&quot;50&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">value&nbsp;</span>=&nbsp;<span class="src-str">&quot;25&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">axis&nbsp;</span>=&nbsp;<span class="src-str">&quot;vertical&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">name&nbsp;</span>=&nbsp;<span class="src-str">&quot;example2&quot;</span>/&gt;</div></li>
+</ol></pre></div>  The axis attribute allowes <em>horizontal</em> (by default) and <em>vertical</em>.<br />  <br />  Finally, we can customize the slider look &amp; feel by setting the <strong>trackCssClass</strong> and <strong>handleImg</strong> attributes:<br /> <ul><li>trackCssClass is the css class that corresponds with the slider tracking line.<br /></li><li>handleImg is the image that will be render as the handle (the piece that we move along the tracking line)<br /></li></ul>  An example of track css class could be like the following example:<br />  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;.<span class="src-id">track&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">background</span>:&nbsp;<span class="src-id">transparent</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">url</span><span class="src-sym">(</span><span class="src-id">track_background_image</span>.<span class="src-id">png</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">repeat</span>-<span class="src-id">x</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">top&nbsp;left</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+</ol></pre></div></p><p>Of course, we can change the dimensions of the slider by setting the <strong>width</strong> and <strong>height</strong> attribute, as well as the handle dimensions by setting the <strong>handleWidth</strong> and <strong>handleHeight</strong> attributes.<br />  <br />  <br />  <br />  See the slider component in action here: <a href="http://www.lionframework.org/components/slider.html">http://www.lionframework.org/components/slider.html</a></p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../ComponentModel/__UIComponent.html">__UIComponent</a>
+   |
+   --<a href="../ComponentModel/__UIContainer.html">__UIContainer</a>
+      |
+      --<a href="../ComponentModel/__InputComponent.html">__InputComponent</a>
+         |
+         --__SliderComponent</pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_axis">$_axis</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_decimals">$_decimals</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_handle_height">$_handle_height</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_handle_img">$_handle_img</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_handle_width">$_handle_width</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_height">$_height</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_input_receiver">$_input_receiver</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_left_track_cssclass">$_left_track_cssclass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_lower_limit">$_lower_limit</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_right_track_cssclass">$_right_track_cssclass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_track_cssclass">$_track_cssclass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_upper_limit">$_upper_limit</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_value">$_value</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#var$_width">$_width</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetAxis">getAxis</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetDecimals">getDecimals</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetHandleHeight">getHandleHeight</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetHandleImg">getHandleImg</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetHandleWidth">getHandleWidth</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetHeight">getHeight</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetInputReceiver">getInputReceiver</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetLeftTrackCssClass">getLeftTrackCssClass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetLowerLimit">getLowerLimit</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetRightTrackCssClass">getRightTrackCssClass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetTrackCssClass">getTrackCssClass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetUpperLimit">getUpperLimit</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodgetWidth">getWidth</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetAxis">setAxis</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetDecimals">setDecimals</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetHandleHeight">setHandleHeight</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetHandleImg">setHandleImg</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetHandleWidth">setHandleWidth</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetHeight">setHeight</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetInputReceiver">setInputReceiver</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetLeftTrackCssClass">setLeftTrackCssClass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetLowerLimit">setLowerLimit</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetRightTrackCssClass">setRightTrackCssClass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetTrackCssClass">setTrackCssClass</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetUpperLimit">setUpperLimit</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetValue">setValue</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#methodsetWidth">setWidth</a></li>
+		  		  <li><a href="../ComponentModel/__SliderComponent.html#method_updateInputReceiver">_updateInputReceiver</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__InputComponent.html">__InputComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_context_help">__InputComponent::$_context_help</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_example">__InputComponent::$_example</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_mask">__InputComponent::$_mask</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_prevent_xss">__InputComponent::$_prevent_xss</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIContainer.html">__UIContainer</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#var$_components">__UIContainer::$_components</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_alias">__UIComponent::$_alias</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_binding_codes">__UIComponent::$_binding_codes</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_container">__UIComponent::$_container</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_disabled">__UIComponent::$_disabled</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_id">__UIComponent::$_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_index">__UIComponent::$_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_name">__UIComponent::$_name</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_persist">__UIComponent::$_persist</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_progress">__UIComponent::$_progress</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_properties">__UIComponent::$_properties</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_validator_ids">__UIComponent::$_validator_ids</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_view_code">__UIComponent::$_view_code</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_visible">__UIComponent::$_visible</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__InputComponent.html">__InputComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetContextHelp">__InputComponent::getContextHelp()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetExample">__InputComponent::getExample()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetMask">__InputComponent::getMask()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetPreventXss">__InputComponent::getPreventXss()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetValue">__InputComponent::getValue()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodreset">__InputComponent::reset()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetContextHelp">__InputComponent::setContextHelp()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetExample">__InputComponent::setExample()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetMask">__InputComponent::setMask()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetPreventXss">__InputComponent::setPreventXss()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetValue">__InputComponent::setValue()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#method_purifyValue">__InputComponent::_purifyValue()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIContainer.html">__UIContainer</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodaddComponent">__UIContainer::addComponent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetChildComponents">__UIContainer::getChildComponents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetComponentsByClass">__UIContainer::getComponentsByClass()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetValueHolderComponents">__UIContainer::getValueHolderComponents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodremoveComponent">__UIContainer::removeComponent()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddBindingCode">__UIComponent::addBindingCode()</a><br>
+											Adds a binding code for a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddProperty">__UIComponent::addProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetAlias">__UIComponent::getAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetBindingCodes">__UIComponent::getBindingCodes()</a><br>
+											Gets all the binding codes associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetContainer">__UIComponent::getContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetDisabled">__UIComponent::getDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetEnabled">__UIComponent::getEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetHandledEvents">__UIComponent::getHandledEvents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetId">__UIComponent::getId()</a><br>
+											Read only property that returns an unique identifier for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetIndex">__UIComponent::getIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetName">__UIComponent::getName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetParentContainerByClass">__UIComponent::getParentContainerByClass()</a><br>
+											Gets the first parent container of the given class
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetPersist">__UIComponent::getPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProgress">__UIComponent::getProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperties">__UIComponent::getProperties()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperty">__UIComponent::getProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetViewCode">__UIComponent::getViewCode()</a><br>
+											Gets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetVisible">__UIComponent::getVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleCallback">__UIComponent::handleCallback()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleEvent">__UIComponent::handleEvent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasContainer">__UIComponent::hasContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasProperty">__UIComponent::hasProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodisEventHandled">__UIComponent::isEventHandled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodregisterValidator">__UIComponent::registerValidator()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodresetValidation">__UIComponent::resetValidation()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetAlias">__UIComponent::setAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetContainer">__UIComponent::setContainer()</a><br>
+											Sets a container for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetDisabled">__UIComponent::setDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetEnabled">__UIComponent::setEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetId">__UIComponent::setId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetIndex">__UIComponent::setIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetName">__UIComponent::setName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetPersist">__UIComponent::setPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProgress">__UIComponent::setProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProperty">__UIComponent::setProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetViewCode">__UIComponent::setViewCode()</a><br>
+											Sets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetVisible">__UIComponent::setVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodupdateClient">__UIComponent::updateClient()</a><br>
+											Forces an update for all client end-points associated with current component.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodvalidate">__UIComponent::validate()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toArray">__UIComponent::_toArray()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toBool">__UIComponent::_toBool()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__call">__UIComponent::__call()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__get">__UIComponent::__get()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__set">__UIComponent::__set()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__toString">__UIComponent::__toString()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-const-summary"></a>
+		<h2>Constant Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<span class="disabled">Constants Summary</span> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+			<div class="const-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr>
+					<td valign="top" class="var-title"><a href="#constAXIS_HORIZONTAL" title="details" class="const-name-summary">AXIS_HORIZONTAL</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="const-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr>
+					<td valign="top" class="var-title"><a href="#constAXIS_VERTICAL" title="details" class="const-name-summary">AXIS_VERTICAL</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="const-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_axis" title="details" class="var-name-summary">$_axis</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_decimals" title="details" class="var-name-summary">$_decimals</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_handle_height" title="details" class="var-name-summary">$_handle_height</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_handle_img" title="details" class="var-name-summary">$_handle_img</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_handle_width" title="details" class="var-name-summary">$_handle_width</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_height" title="details" class="var-name-summary">$_height</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_input_receiver" title="details" class="var-name-summary">$_input_receiver</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_left_track_cssclass" title="details" class="var-name-summary">$_left_track_cssclass</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_lower_limit" title="details" class="var-name-summary">$_lower_limit</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_right_track_cssclass" title="details" class="var-name-summary">$_right_track_cssclass</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_track_cssclass" title="details" class="var-name-summary">$_track_cssclass</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_upper_limit" title="details" class="var-name-summary">$_upper_limit</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_value" title="details" class="var-name-summary">$_value</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_width" title="details" class="var-name-summary">$_width</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getAxis" title="details" class="method-name">getAxis</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the axis in which the slider will be rendered in</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getDecimals" title="details" class="method-name">getDecimals</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the number of decimals to be shown within the input receiver</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getHandleHeight" title="details" class="method-name">getHandleHeight</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the height of the handle piece</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getHandleImg" title="details" class="method-name">getHandleImg</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the image of the handle piece</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getHandleWidth" title="details" class="method-name">getHandleWidth</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the width of the handle piece</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getHeight" title="details" class="method-name">getHeight</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the height for current component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__LabelComponent.html">__LabelComponent</a>|<a href="../ComponentModel/__InputBoxComponent.html">__InputBoxComponent</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getInputReceiver" title="details" class="method-name">&amp;getInputReceiver</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the component used to show the slider value</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getLeftTrackCssClass" title="details" class="method-name">getLeftTrackCssClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the css class applied to the left corner of the tracking line</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer|float</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getLowerLimit" title="details" class="method-name">getLowerLimit</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the lower limit within the numeric range handled by the slider</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getRightTrackCssClass" title="details" class="method-name">getRightTrackCssClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the css class applied to the right corner of the tracking line</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getTrackCssClass" title="details" class="method-name">getTrackCssClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the css class applied to the tracking line</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer|float</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getUpperLimit" title="details" class="method-name">getUpperLimit</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the upper limit within the numeric range handled by the slider</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getWidth" title="details" class="method-name">getWidth</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the width for current component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setAxis" title="details" class="method-name">setAxis</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the axis in which the slider will be rendered in.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setDecimals" title="details" class="method-name">setDecimals</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the number of decimals to be shown within the input receiver (if any).</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setHandleHeight" title="details" class="method-name">setHandleHeight</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set a height for the handle piece (the one the user moves)</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setHandleImg" title="details" class="method-name">setHandleImg</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set an image for the handle piece (the one the user moves)</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setHandleWidth" title="details" class="method-name">setHandleWidth</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set a width for the handle piece (the one the user moves)</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setHeight" title="details" class="method-name">setHeight</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set a height for current component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setInputReceiver" title="details" class="method-name">setInputReceiver</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the component id to be used to show the slider value  The component must be either a <a href="../ComponentModel/__LabelComponent.html">__LabelComponent</a> or a <a href="../ComponentModel/__InputBoxComponent.html">__InputBoxComponent</a>.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setLeftTrackCssClass" title="details" class="method-name">setLeftTrackCssClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set a css class to be applied to the left corner of the tracking line</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setLowerLimit" title="details" class="method-name">setLowerLimit</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the lower limit within the numeric range handled by the slider</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setRightTrackCssClass" title="details" class="method-name">setRightTrackCssClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set a css class to be applied to the right corner of the tracking line</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setTrackCssClass" title="details" class="method-name">setTrackCssClass</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set a css class to be applied to the tracking line</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setUpperLimit" title="details" class="method-name">setUpperLimit</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the upper limit within the numeric range handled by the slider</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setValue" title="details" class="method-name">setValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set the value of the slider</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setWidth" title="details" class="method-name">setWidth</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set a width for current component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#_updateInputReceiver" title="details" class="method-name">_updateInputReceiver</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<a name="var$_axis" id="$_axis"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_axis</span>
+             = <span class="var-default"> self::AXIS_HORIZONTAL</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_decimals" id="$_decimals"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_decimals</span>
+             = <span class="var-default"> 0</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_handle_height" id="$_handle_height"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_handle_height</span>
+             = <span class="var-default"> &quot;15px&quot;</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_handle_img" id="$_handle_img"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_handle_img</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_handle_width" id="$_handle_width"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_handle_width</span>
+             = <span class="var-default"> &quot;10px&quot;</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_height" id="$_height"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_height</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_input_receiver" id="$_input_receiver"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_input_receiver</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_left_track_cssclass" id="$_left_track_cssclass"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_left_track_cssclass</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_lower_limit" id="$_lower_limit"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_lower_limit</span>
+             = <span class="var-default"> 0</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_right_track_cssclass" id="$_right_track_cssclass"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_right_track_cssclass</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_track_cssclass" id="$_track_cssclass"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_track_cssclass</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_upper_limit" id="$_upper_limit"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_upper_limit</span>
+             = <span class="var-default"> 1</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_value" id="$_value"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_value</span>
+             = <span class="var-default"> 0</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__InputComponent.html#var$_value">__InputComponent::$_value</a></dt>
+                    </dl>
+    
+        <br />
+<a name="var$_width" id="$_width"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_width</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<a name='method_detail'></a>
+<a name="methodgetAxis" id="getAxis"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getAxis</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getAxis(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the axis in which the slider will be rendered in<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetDecimals" id="getDecimals"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getDecimals</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer getDecimals(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the number of decimals to be shown within the input receiver<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetHandleHeight" id="getHandleHeight"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getHandleHeight</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer getHandleHeight(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the height of the handle piece<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetHandleImg" id="getHandleImg"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getHandleImg</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getHandleImg(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the image of the handle piece<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetHandleWidth" id="getHandleWidth"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getHandleWidth</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer getHandleWidth(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the width of the handle piece<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetHeight" id="getHeight"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getHeight</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer getHeight(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the height for current component<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetInputReceiver" id="getInputReceiver"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getInputReceiver</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__LabelComponent.html">__LabelComponent</a>|<a href="../ComponentModel/__InputBoxComponent.html">__InputBoxComponent</a> &amp;getInputReceiver(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the component used to show the slider value<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetLeftTrackCssClass" id="getLeftTrackCssClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getLeftTrackCssClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getLeftTrackCssClass(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the css class applied to the left corner of the tracking line<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetLowerLimit" id="getLowerLimit"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getLowerLimit</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer|float getLowerLimit(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the lower limit within the numeric range handled by the slider<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetRightTrackCssClass" id="getRightTrackCssClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getRightTrackCssClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getRightTrackCssClass(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the css class applied to the right corner of the tracking line<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetTrackCssClass" id="getTrackCssClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getTrackCssClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getTrackCssClass(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the css class applied to the tracking line<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetUpperLimit" id="getUpperLimit"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getUpperLimit</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer|float getUpperLimit(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the upper limit within the numeric range handled by the slider<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetWidth" id="getWidth"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getWidth</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer getWidth(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the width for current component<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetAxis" id="setAxis"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setAxis</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setAxis(
+string
+$axis&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the axis in which the slider will be rendered in.<br /><br /><p>This property allow the following values: <ul><li>horizontal (<a href="../ComponentModel/__SliderComponent.html#constAXIS_HORIZONTAL">__SliderComponent::AXIS_HORIZONTAL</a>): to render the tracking line in the horizontal axis</li><li>vertical (<a href="../ComponentModel/__SliderComponent.html#constAXIS_VERTICAL">__SliderComponent::AXIS_VERTICAL</a>): to render the tracking line in the vertical axis</li></ul></p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $axis</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetDecimals" id="setDecimals"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setDecimals</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setDecimals(
+integer
+$decimals&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the number of decimals to be shown within the input receiver (if any).<br /><br /><p>By default, the input receiver will round the value without decimals.</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $decimals</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetHandleHeight" id="setHandleHeight"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setHandleHeight</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setHandleHeight(
+integer
+$handle_height&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set a height for the handle piece (the one the user moves)<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $handle_height</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetHandleImg" id="setHandleImg"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setHandleImg</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setHandleImg(
+string
+$handle_img&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set an image for the handle piece (the one the user moves)<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $handle_img</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetHandleWidth" id="setHandleWidth"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setHandleWidth</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setHandleWidth(
+integer
+$handle_width&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set a width for the handle piece (the one the user moves)<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $handle_width</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetHeight" id="setHeight"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setHeight</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setHeight(
+integer
+$height&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set a height for current component<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $height</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetInputReceiver" id="setInputReceiver"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setInputReceiver</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setInputReceiver(
+string
+$input_receiver&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the component id to be used to show the slider value  The component must be either a <a href="../ComponentModel/__LabelComponent.html">__LabelComponent</a> or a <a href="../ComponentModel/__InputBoxComponent.html">__InputBoxComponent</a>.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $input_receiver</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetLeftTrackCssClass" id="setLeftTrackCssClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setLeftTrackCssClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setLeftTrackCssClass(
+string
+$left_track_cssclass&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set a css class to be applied to the left corner of the tracking line<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $left_track_cssclass</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetLowerLimit" id="setLowerLimit"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setLowerLimit</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setLowerLimit(
+integer|float
+$lower_limit&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the lower limit within the numeric range handled by the slider<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer|float</td>
+                <td class="defaultTd">
+                $lower_limit</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetRightTrackCssClass" id="setRightTrackCssClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setRightTrackCssClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setRightTrackCssClass(
+string
+$right_track_cssclass&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set a css class to be applied to the right corner of the tracking line<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $right_track_cssclass</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetTrackCssClass" id="setTrackCssClass"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setTrackCssClass</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setTrackCssClass(
+string
+$track_cssclass&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set a css class to be applied to the tracking line<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $track_cssclass</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetUpperLimit" id="setUpperLimit"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setUpperLimit</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setUpperLimit(
+integer|float
+$upper_limit&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the upper limit within the numeric range handled by the slider<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer|float</td>
+                <td class="defaultTd">
+                $upper_limit</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetValue" id="setValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setValue(
+integer|float
+$value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set the value of the slider<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer|float</td>
+                <td class="defaultTd">
+                $value</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__InputComponent.html#methodsetValue">__InputComponent::setValue()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetWidth" id="setWidth"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setWidth</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setWidth(
+integer
+$width&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set a width for current component<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $width</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method_updateInputReceiver" id="_updateInputReceiver"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">_updateInputReceiver</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void _updateInputReceiver(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+	<a name="sec-consts"></a>
+		<h2>Constants</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <span class="disabled">Constants Detail</span>
+					    		</div>
+
+
+
+
+				<a name="constAXIS_HORIZONTAL"></a>
+	<p></p>
+	<h4>AXIS_HORIZONTAL = <span class="value">&nbsp;&quot;horizontal&quot;</span></h4>
+  
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="constAXIS_VERTICAL"></a>
+	<p></p>
+	<h4>AXIS_VERTICAL = <span class="value">&nbsp;&quot;vertical&quot;</span></h4>
+  
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+      </td></tr></table>

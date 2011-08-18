@@ -1,0 +1,26 @@
+<?xml version = "1.0" standalone="yes"?>
+
+<menu_pc>
+  <menuitem idMenu="configuration">
+    <menuitem idMenu="view_settings" ref="settings.lion"/>
+    <menuitem idMenu="view_model_services" ref="model_services.lion"/>
+  </menuitem>
+  <menuitem idMenu="cache">
+    <menuitem idMenu="view_cache" ref="cache.view.lion"/>
+    <menuitem idMenu="clear_cache" ref="cache.clear.lion"/>
+    <menuitem idMenu="config_cache" ref="cache.config.lion"/>
+  </menuitem>
+  <menuitem idMenu="security">
+    <menuitem idMenu="roles" ref="roles.lion"/>
+    <menuitem idMenu="permissions" ref="permissions.lion"/>
+    <menuitem idMenu="system_resources" ref="system_resources_permissions.lion"/>
+  </menuitem>
+  <menuitem idMenu="routes">
+    <menuitem idMenu="urls" ref="urls.lion"/>
+    <menuitem idMenu="filters" ref="filters.lion"/>
+  </menuitem>
+  <menuitem idMenu="languages">
+    <menuitem idMenu="manage_languages" ref="languages.lion"/>
+    <menuitem idMenu="manage_resources" ref="resources.lion"/>
+  </menuitem>
+</menu_pc>

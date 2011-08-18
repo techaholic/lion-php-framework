@@ -1,0 +1,1821 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ItemListComponent</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		Base class for list based components, as the combobox, the listbox, ...<br /><br /><p>list based components are item containers basically. They contains a collection of items.<br />  As <a href="../ComponentModel/__IValueHolder.html">__IValueHolder</a> component, the value of a list corresponds to the value of all the selected items.<br />  <br />  A list based component doesn't have any tag by default, but the subclasses.<br />  <br />  A list based component has 2 selection modes:<br /> <ul><li>single (__ItemListComponent::SELECTION_MODE_SINGLE), which allows the selection of one item at the same time.<br /></li><li>multiple (__ItemListComponent::SELECTION_MODE_MULTIPLE), which allows the selection of more than one item at the same time.<br />
+ <br /></li></ul> A list based component is able to sort his items by setting the <strong>sorted</strong> property to true. In that sense, items will be sorted by the text property.<br />  <br />  <br /></p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>See:</b>&nbsp;&nbsp;</td><td><a href="../ComponentModel/__ComboBoxComponent.html">__ComboBoxComponent</a>, <a href="../ComponentModel/__ListBoxComponent.html">__ListBoxComponent</a>, <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a></td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../ComponentModel/__UIComponent.html">__UIComponent</a>
+   |
+   --<a href="../ComponentModel/__UIContainer.html">__UIContainer</a>
+      |
+      --<a href="../ComponentModel/__InputComponent.html">__InputComponent</a>
+         |
+         --__ItemListComponent</pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#var$_items">$_items</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#var$_selection_mode">$_selection_mode</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#var$_sorted">$_sorted</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#var$_to_sort">$_to_sort</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodaddComponent">addComponent</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodaddItem">addItem</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodclear">clear</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodcmpItems">cmpItems</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetItem">getItem</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetItems">getItems</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetItemValues">getItemValues</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetOrdered">getOrdered</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetSelectedIndex">getSelectedIndex</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetSelectedIndexes">getSelectedIndexes</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetSelectedItem">getSelectedItem</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetSelectedItems">getSelectedItems</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetSelectionMode">getSelectionMode</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetSize">getSize</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetSorted">getSorted</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodgetValue">getValue</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodreset">reset</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetItems">setItems</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetItemValues">setItemValues</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetOrdered">setOrdered</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetSelectedIndex">setSelectedIndex</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetSelectedIndexes">setSelectedIndexes</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetSelectedItem">setSelectedItem</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetSelectionMode">setSelectionMode</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetSorted">setSorted</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#methodsetValue">setValue</a></li>
+		  		  <li><a href="../ComponentModel/__ItemListComponent.html#method_sortItems">_sortItems</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-descendents"></a>
+		<h2>Direct descendents</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<span class="disabled">Descendants</span>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../ComponentModel/__ComboBoxComponent.html">__ComboBoxComponent</a></td>
+					<td>
+											Combobox is a combination of a drop-down list or list box and a single-line textbox, allowing the user either to choose from the list of existing options.
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__InputComponent.html">__InputComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_context_help">__InputComponent::$_context_help</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_example">__InputComponent::$_example</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_mask">__InputComponent::$_mask</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_prevent_xss">__InputComponent::$_prevent_xss</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#var$_value">__InputComponent::$_value</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIContainer.html">__UIContainer</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#var$_components">__UIContainer::$_components</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_alias">__UIComponent::$_alias</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_binding_codes">__UIComponent::$_binding_codes</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_container">__UIComponent::$_container</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_disabled">__UIComponent::$_disabled</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_id">__UIComponent::$_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_index">__UIComponent::$_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_name">__UIComponent::$_name</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_persist">__UIComponent::$_persist</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_progress">__UIComponent::$_progress</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_properties">__UIComponent::$_properties</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_validator_ids">__UIComponent::$_validator_ids</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_view_code">__UIComponent::$_view_code</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_visible">__UIComponent::$_visible</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__InputComponent.html">__InputComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetContextHelp">__InputComponent::getContextHelp()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetExample">__InputComponent::getExample()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetMask">__InputComponent::getMask()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetPreventXss">__InputComponent::getPreventXss()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodgetValue">__InputComponent::getValue()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodreset">__InputComponent::reset()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetContextHelp">__InputComponent::setContextHelp()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetExample">__InputComponent::setExample()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetMask">__InputComponent::setMask()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetPreventXss">__InputComponent::setPreventXss()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#methodsetValue">__InputComponent::setValue()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__InputComponent.html#method_purifyValue">__InputComponent::_purifyValue()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIContainer.html">__UIContainer</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodaddComponent">__UIContainer::addComponent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetChildComponents">__UIContainer::getChildComponents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetComponentsByClass">__UIContainer::getComponentsByClass()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodgetValueHolderComponents">__UIContainer::getValueHolderComponents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIContainer.html#methodremoveComponent">__UIContainer::removeComponent()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddBindingCode">__UIComponent::addBindingCode()</a><br>
+											Adds a binding code for a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddProperty">__UIComponent::addProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetAlias">__UIComponent::getAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetBindingCodes">__UIComponent::getBindingCodes()</a><br>
+											Gets all the binding codes associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetContainer">__UIComponent::getContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetDisabled">__UIComponent::getDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetEnabled">__UIComponent::getEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetHandledEvents">__UIComponent::getHandledEvents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetId">__UIComponent::getId()</a><br>
+											Read only property that returns an unique identifier for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetIndex">__UIComponent::getIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetName">__UIComponent::getName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetParentContainerByClass">__UIComponent::getParentContainerByClass()</a><br>
+											Gets the first parent container of the given class
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetPersist">__UIComponent::getPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProgress">__UIComponent::getProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperties">__UIComponent::getProperties()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperty">__UIComponent::getProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetViewCode">__UIComponent::getViewCode()</a><br>
+											Gets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetVisible">__UIComponent::getVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleCallback">__UIComponent::handleCallback()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleEvent">__UIComponent::handleEvent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasContainer">__UIComponent::hasContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasProperty">__UIComponent::hasProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodisEventHandled">__UIComponent::isEventHandled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodregisterValidator">__UIComponent::registerValidator()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodresetValidation">__UIComponent::resetValidation()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetAlias">__UIComponent::setAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetContainer">__UIComponent::setContainer()</a><br>
+											Sets a container for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetDisabled">__UIComponent::setDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetEnabled">__UIComponent::setEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetId">__UIComponent::setId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetIndex">__UIComponent::setIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetName">__UIComponent::setName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetPersist">__UIComponent::setPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProgress">__UIComponent::setProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProperty">__UIComponent::setProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetViewCode">__UIComponent::setViewCode()</a><br>
+											Sets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetVisible">__UIComponent::setVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodupdateClient">__UIComponent::updateClient()</a><br>
+											Forces an update for all client end-points associated with current component.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodvalidate">__UIComponent::validate()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toArray">__UIComponent::_toArray()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toBool">__UIComponent::_toBool()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__call">__UIComponent::__call()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__get">__UIComponent::__get()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__set">__UIComponent::__set()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__toString">__UIComponent::__toString()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-const-summary"></a>
+		<h2>Constant Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<span class="disabled">Constants Summary</span> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+			<div class="const-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr>
+					<td valign="top" class="var-title"><a href="#constSELECTION_MODE_MULTIPLE" title="details" class="const-name-summary">SELECTION_MODE_MULTIPLE</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="const-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr>
+					<td valign="top" class="var-title"><a href="#constSELECTION_MODE_SINGLE" title="details" class="const-name-summary">SELECTION_MODE_SINGLE</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="const-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+							<a href="#sec-descendents">Descendants</a>
+			|							<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+						</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_items" title="details" class="var-name-summary">$_items</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_selection_mode" title="details" class="var-name-summary">$_selection_mode</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_sorted" title="details" class="var-name-summary">$_sorted</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_to_sort" title="details" class="var-name-summary">$_to_sort</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__ItemListComponent.html">__ItemListComponent</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addComponent" title="details" class="method-name">addComponent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Add a child component to current one.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#addItem" title="details" class="method-name">addItem</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Adds an <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a> instance to the current list.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#clear" title="details" class="method-name">clear</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Removes all the items from current list</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">numeric</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#cmpItems" title="details" class="method-name">cmpItems</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Compares two items and return a numeric value representing the comparison result</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getItem" title="details" class="method-name">getItem</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets an item by his index within a list</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getItems" title="details" class="method-name">&amp;getItems</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the items of current component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getItemValues" title="details" class="method-name">getItemValues</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get an array of pair key,values representing items contained within the current list component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">bool</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getOrdered" title="details" class="method-name">getOrdered</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Alias of getSorted</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getSelectedIndex" title="details" class="method-name">getSelectedIndex</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the index of the first selected item</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getSelectedIndexes" title="details" class="method-name">getSelectedIndexes</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the indexes of all selected items</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getSelectedItem" title="details" class="method-name">&amp;getSelectedItem</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the first selected item within the current list.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getSelectedItems" title="details" class="method-name">&amp;getSelectedItems</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets all selected items</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getSelectionMode" title="details" class="method-name">getSelectionMode</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get an string representing the selection mode set to the current list component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getSize" title="details" class="method-name">getSize</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the number of items contained within the current list component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">bool</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getSorted" title="details" class="method-name">getSorted</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets if the item list is sorted</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getValue" title="details" class="method-name">getValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets the value of the first selected item</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#reset" title="details" class="method-name">reset</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Overwrite the __InputComponent reset method to avoid</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setItems" title="details" class="method-name">setItems</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets the items for current component.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setItemValues" title="details" class="method-name">setItemValues</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set an array of pair key,values representing items to be contained within the current list component</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setOrdered" title="details" class="method-name">setOrdered</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Alias of setSorted</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setSelectedIndex" title="details" class="method-name">setSelectedIndex</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets the index for the first selected item</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setSelectedIndexes" title="details" class="method-name">setSelectedIndexes</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets indexes for selected items</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setSelectedItem" title="details" class="method-name">setSelectedItem</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets the first selected item within the current list.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setSelectionMode" title="details" class="method-name">setSelectionMode</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Set an string representing the selection mode, as one of the following:<br /> <ul><li>single (__ListBoxComponent::SELECTION_MODE_SINGLE)</li><li>multiple (__ListBoxComponent::SELECTION_MODE_MULTIPLE)</li></ul></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setSorted" title="details" class="method-name">setSorted</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets if the item list is sorted</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setValue" title="details" class="method-name">setValue</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Sets the value of the first selected item</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#_sortItems" title="details" class="method-name">_sortItems</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a> 
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<a name="var$_items" id="$_items"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_items</span>
+             = <span class="var-default">array()</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_selection_mode" id="$_selection_mode"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_selection_mode</span>
+             = <span class="var-default"> __ItemListComponent::SELECTION_MODE_SINGLE</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_sorted" id="$_sorted"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_sorted</span>
+             = <span class="var-default"> false</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+<a name="var$_to_sort" id="$_to_sort"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_to_sort</span>
+             = <span class="var-default"> false</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
+					    		</div>
+			<a name='method_detail'></a>
+<a name="methodaddComponent" id="addComponent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addComponent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__ItemListComponent.html">__ItemListComponent</a> addComponent(
+<a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Add a child component to current one.<br /><br /><p>If a <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a> instance is received, it will also be added to the item list</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                The component to add to            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>A reference to the current component</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__UIContainer.html#methodaddComponent">__UIContainer::addComponent()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodaddItem" id="addItem"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">addItem</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void addItem(
+<a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a>
+&$item&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Adds an <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a> instance to the current list.<br /><br /><p>This method calls internally to the <a href="../ComponentModel/__ItemListComponent.html#methodaddComponent">__ItemListComponent::addComponent()</a> method</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a></td>
+                <td class="defaultTd">
+                &$item</td>
+                <td class="defaultTd">
+                The item to add to            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodclear" id="clear"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">clear</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void clear(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Removes all the items from current list<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodcmpItems" id="cmpItems"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">cmpItems</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>numeric cmpItems(
+<a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a>
+$item1, <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a>
+$item2&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Compares two items and return a numeric value representing the comparison result<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a></td>
+                <td class="defaultTd">
+                $item1</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a></td>
+                <td class="defaultTd">
+                $item2</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>0: equals, -1: item1&amp;lt;item2, 1: item1&amp;gt;item2</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetItem" id="getItem"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getItem</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a> getItem(
+integer
+$index&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets an item by his index within a list<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $index</td>
+                <td class="defaultTd">
+                The item index            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetItems" id="getItems"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getItems</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array &amp;getItems(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the items of current component<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetItemValues" id="getItemValues"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getItemValues</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array getItemValues(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get an array of pair key,values representing items contained within the current list component<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetOrdered" id="getOrdered"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getOrdered</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>bool getOrdered(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Alias of getSorted<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetSelectedIndex" id="getSelectedIndex"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getSelectedIndex</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer getSelectedIndex(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the index of the first selected item<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetSelectedIndexes" id="getSelectedIndexes"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getSelectedIndexes</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array getSelectedIndexes(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the indexes of all selected items<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetSelectedItem" id="getSelectedItem"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getSelectedItem</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a> &amp;getSelectedItem(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the first selected item within the current list.<br /><br /><p>This method returns null if no selected items are found</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The first selected item</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetSelectedItems" id="getSelectedItems"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getSelectedItems</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array &amp;getSelectedItems(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets all selected items<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetSelectionMode" id="getSelectionMode"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getSelectionMode</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string getSelectionMode(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get an string representing the selection mode set to the current list component<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetSize" id="getSize"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getSize</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>integer getSize(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the number of items contained within the current list component<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetSorted" id="getSorted"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getSorted</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>bool getSorted(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets if the item list is sorted<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetValue" id="getValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>mixed getValue(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets the value of the first selected item<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>value</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__InputComponent.html#methodgetValue">__InputComponent::getValue()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodreset" id="reset"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">reset</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void reset(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Overwrite the __InputComponent reset method to avoid<br /><br /><p>change the value to the selected item (which is the  current behavior of setValue method)</p><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__InputComponent.html#methodreset">__InputComponent::reset()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetItems" id="setItems"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setItems</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setItems(
+
+&$items&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets the items for current component.<br /><br /><p>Note that this method will clear any existing item within the current instance</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                &$items</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetItemValues" id="setItemValues"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setItemValues</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setItemValues(
+
+$item_values&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set an array of pair key,values representing items to be contained within the current list component<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $item_values</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetOrdered" id="setOrdered"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setOrdered</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setOrdered(
+bool
+$ordered&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Alias of setSorted<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                bool</td>
+                <td class="defaultTd">
+                $ordered</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetSelectedIndex" id="setSelectedIndex"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setSelectedIndex</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setSelectedIndex(
+numeric
+$selected_index&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets the index for the first selected item<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                numeric</td>
+                <td class="defaultTd">
+                $selected_index</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetSelectedIndexes" id="setSelectedIndexes"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setSelectedIndexes</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setSelectedIndexes(
+
+$selected_indexes&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets indexes for selected items<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $selected_indexes</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetSelectedItem" id="setSelectedItem"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setSelectedItem</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setSelectedItem(
+<a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a>
+&$item&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets the first selected item within the current list.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__ItemComponent.html">__ItemComponent</a></td>
+                <td class="defaultTd">
+                &$item</td>
+                <td class="defaultTd">
+                The item to select to            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetSelectionMode" id="setSelectionMode"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setSelectionMode</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setSelectionMode(
+string
+$selection_mode&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Set an string representing the selection mode, as one of the following:<br /> <ul><li>single (__ListBoxComponent::SELECTION_MODE_SINGLE)</li><li>multiple (__ListBoxComponent::SELECTION_MODE_MULTIPLE)</li></ul><br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $selection_mode</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetSorted" id="setSorted"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setSorted</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setSorted(
+bool
+$sorted&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets if the item list is sorted<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                bool</td>
+                <td class="defaultTd">
+                $sorted</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetValue" id="setValue"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setValue</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setValue(
+mixed
+$value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Sets the value of the first selected item<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                mixed</td>
+                <td class="defaultTd">
+                $value</td>
+                <td class="defaultTd">
+                The value to set to            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__InputComponent.html#methodsetValue">__InputComponent::setValue()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method_sortItems" id="_sortItems"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">_sortItems</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void _sortItems(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+	<a name="sec-consts"></a>
+		<h2>Constants</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    			<a href="#sec-descendents">Descendants</a>
+			|		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-const-summary">Constants Summary</a> | <span class="disabled">Constants Detail</span>
+					    		</div>
+
+
+
+
+				<a name="constSELECTION_MODE_MULTIPLE"></a>
+	<p></p>
+	<h4>SELECTION_MODE_MULTIPLE = <span class="value">&nbsp;'multiple'</span></h4>
+  
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="constSELECTION_MODE_SINGLE"></a>
+	<p></p>
+	<h4>SELECTION_MODE_SINGLE = <span class="value">&nbsp;'single'</span></h4>
+  
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+      </td></tr></table>

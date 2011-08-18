@@ -1,0 +1,591 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Procedural File: Constants.inc</h1>
+<br />
+
+<br>
+<br>
+
+
+<h2>Page Details:</h2>
+This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+<br /><br />
+<br /><br />
+<br /><br />
+  <hr />
+	<a name="defineADMIN_DIR"></a>
+	<h3>ADMIN_DIR <span class="smalllinenumber">[line 48]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>ADMIN_DIR = LION_DIR.DIRECTORY_SEPARATOR.'admin'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineAPP_DIR"></a>
+	<h3>APP_DIR <span class="smalllinenumber">[line 41]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>APP_DIR = realpath(dirname($_SERVER['SCRIPT_FILENAME']))</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineAPP_URL_PATH"></a>
+	<h3>APP_URL_PATH <span class="smalllinenumber">[line 112]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>APP_URL_PATH = $app_url_path</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineCONFIGURATION_TYPE_INI"></a>
+	<h3>CONFIGURATION_TYPE_INI <span class="smalllinenumber">[line 143]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>CONFIGURATION_TYPE_INI = 'INI'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineCONFIGURATION_TYPE_XML"></a>
+	<h3>CONFIGURATION_TYPE_XML <span class="smalllinenumber">[line 142]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>CONFIGURATION_TYPE_XML = 'XML'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineDEFAULT_CONFIGURATION_DIR"></a>
+	<h3>DEFAULT_CONFIGURATION_DIR <span class="smalllinenumber">[line 57]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>DEFAULT_CONFIGURATION_DIR = LION_DIR.DIRECTORY_SEPARATOR.'libs'.DIRECTORY_SEPARATOR.'configuration'.DIRECTORY_SEPARATOR.'defaultvalues'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineDEFAULT_HTTPS_PORT"></a>
+	<h3>DEFAULT_HTTPS_PORT <span class="smalllinenumber">[line 86]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>DEFAULT_HTTPS_PORT = 443</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineDEFAULT_HTTP_PORT"></a>
+	<h3>DEFAULT_HTTP_PORT <span class="smalllinenumber">[line 85]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>DEFAULT_HTTP_PORT = 80</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_ANY_EVENT"></a>
+	<h3>EVENT_ON_ANY_EVENT <span class="smalllinenumber">[line 117]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_ANY_EVENT = -1</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_EXCEPTION"></a>
+	<h3>EVENT_ON_EXCEPTION <span class="smalllinenumber">[line 133]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_EXCEPTION = 10</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_LOCALE_CHANGE"></a>
+	<h3>EVENT_ON_LOCALE_CHANGE <span class="smalllinenumber">[line 119]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_LOCALE_CHANGE = 1</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_REQUEST_FINISH"></a>
+	<h3>EVENT_ON_REQUEST_FINISH <span class="smalllinenumber">[line 123]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_REQUEST_FINISH = 5</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_REQUEST_START"></a>
+	<h3>EVENT_ON_REQUEST_START <span class="smalllinenumber">[line 121]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_REQUEST_START = 4</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_REQUIRED_PERMISSION_ASSIGNMENT"></a>
+	<h3>EVENT_ON_REQUIRED_PERMISSION_ASSIGNMENT <span class="smalllinenumber">[line 135]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_REQUIRED_PERMISSION_ASSIGNMENT = 11</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_SESSION_START"></a>
+	<h3>EVENT_ON_SESSION_START <span class="smalllinenumber">[line 125]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_SESSION_START = 6</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_SYSTEM_RESOURCE_CREATE"></a>
+	<h3>EVENT_ON_SYSTEM_RESOURCE_CREATE <span class="smalllinenumber">[line 131]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_SYSTEM_RESOURCE_CREATE = 9</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_USER_LOGON"></a>
+	<h3>EVENT_ON_USER_LOGON <span class="smalllinenumber">[line 127]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_USER_LOGON = 7</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineEVENT_ON_USER_LOGOUT"></a>
+	<h3>EVENT_ON_USER_LOGOUT <span class="smalllinenumber">[line 129]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>EVENT_ON_USER_LOGOUT = 8</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineFW_LANGUAGE_DIR"></a>
+	<h3>FW_LANGUAGE_DIR <span class="smalllinenumber">[line 62]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>FW_LANGUAGE_DIR = LION_DIR.DIRECTORY_SEPARATOR.'libs'.DIRECTORY_SEPARATOR.'language'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineHTTP_PORT"></a>
+	<h3>HTTP_PORT <span class="smalllinenumber">[line 92]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>HTTP_PORT = ':'.$_SERVER['SERVER_PORT']</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineHTTP_PROTOCOL"></a>
+	<h3>HTTP_PROTOCOL <span class="smalllinenumber">[line 90]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>HTTP_PROTOCOL = 'https'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineLION_AUTODISPATCH_CLIENT_REQUEST"></a>
+	<h3>LION_AUTODISPATCH_CLIENT_REQUEST <span class="smalllinenumber">[line 36]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>LION_AUTODISPATCH_CLIENT_REQUEST = true</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineLION_CACHE_DIR"></a>
+	<h3>LION_CACHE_DIR <span class="smalllinenumber">[line 67]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>LION_CACHE_DIR = LION_LIBS_DIR.DIRECTORY_SEPARATOR.'cache'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineLION_CORE_DIR"></a>
+	<h3>LION_CORE_DIR <span class="smalllinenumber">[line 66]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>LION_CORE_DIR = LION_LIBS_DIR.DIRECTORY_SEPARATOR.'core'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineLION_DIR"></a>
+	<h3>LION_DIR <span class="smalllinenumber">[line 45]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>LION_DIR = realpath(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..')</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineLION_LIBS_DIR"></a>
+	<h3>LION_LIBS_DIR <span class="smalllinenumber">[line 65]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>LION_LIBS_DIR = LION_DIR.DIRECTORY_SEPARATOR.'libs'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineLION_VERSION_BUILD_DATE"></a>
+	<h3>LION_VERSION_BUILD_DATE <span class="smalllinenumber">[line 53]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>LION_VERSION_BUILD_DATE = '2011/01/27 02:27:49'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineLION_VERSION_CHANGE_LIST"></a>
+	<h3>LION_VERSION_CHANGE_LIST <span class="smalllinenumber">[line 54]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>LION_VERSION_CHANGE_LIST = '256'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineLION_VERSION_NUMBER"></a>
+	<h3>LION_VERSION_NUMBER <span class="smalllinenumber">[line 52]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>LION_VERSION_NUMBER = '1.4.29'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="definePERSISTENCE_LEVEL_ACTION"></a>
+	<h3>PERSISTENCE_LEVEL_ACTION <span class="smalllinenumber">[line 140]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>PERSISTENCE_LEVEL_ACTION = &quot;action&quot;</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="definePERSISTENCE_LEVEL_REQUEST"></a>
+	<h3>PERSISTENCE_LEVEL_REQUEST <span class="smalllinenumber">[line 139]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>PERSISTENCE_LEVEL_REQUEST = &quot;request&quot;</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="definePERSISTENCE_LEVEL_SESSION"></a>
+	<h3>PERSISTENCE_LEVEL_SESSION <span class="smalllinenumber">[line 138]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>PERSISTENCE_LEVEL_SESSION = &quot;session&quot;</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQMETHOD_ALL"></a>
+	<h3>REQMETHOD_ALL <span class="smalllinenumber">[line 77]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQMETHOD_ALL = 0x11111111</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQMETHOD_COMMAND_LINE"></a>
+	<h3>REQMETHOD_COMMAND_LINE <span class="smalllinenumber">[line 76]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQMETHOD_COMMAND_LINE = 0x00100000</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQMETHOD_DELETE"></a>
+	<h3>REQMETHOD_DELETE <span class="smalllinenumber">[line 74]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQMETHOD_DELETE = 0x00001000</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQMETHOD_GET"></a>
+	<h3>REQMETHOD_GET <span class="smalllinenumber">[line 71]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQMETHOD_GET = 0x00000001</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQMETHOD_HEAD"></a>
+	<h3>REQMETHOD_HEAD <span class="smalllinenumber">[line 75]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQMETHOD_HEAD = 0x00010000</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQMETHOD_NONE"></a>
+	<h3>REQMETHOD_NONE <span class="smalllinenumber">[line 70]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQMETHOD_NONE = 0x00000000</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQMETHOD_POST"></a>
+	<h3>REQMETHOD_POST <span class="smalllinenumber">[line 72]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQMETHOD_POST = 0x00000010</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQMETHOD_PUT"></a>
+	<h3>REQMETHOD_PUT <span class="smalllinenumber">[line 73]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQMETHOD_PUT = 0x00000100</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQUEST_TYPE_COMMAND_LINE"></a>
+	<h3>REQUEST_TYPE_COMMAND_LINE <span class="smalllinenumber">[line 81]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQUEST_TYPE_COMMAND_LINE = 2</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQUEST_TYPE_HTTP"></a>
+	<h3>REQUEST_TYPE_HTTP <span class="smalllinenumber">[line 80]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQUEST_TYPE_HTTP = 1</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineREQUEST_TYPE_XMLHTTP"></a>
+	<h3>REQUEST_TYPE_XMLHTTP <span class="smalllinenumber">[line 82]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>REQUEST_TYPE_XMLHTTP = 3</code>
+    </td></tr></table>
+    </td></tr></table>
+
+        <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+<br />
+
+      </td></tr></table>

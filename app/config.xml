@@ -1,0 +1,17 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+
+  <include>config/settings.ini</include>
+  <include>config/controllers.xml</include>
+  <include>config/errors.xml</include>
+  <include>config/i18n.xml</include>
+  <include>config/context.xml</include>
+  <include>config/model_services.xml</include>
+  <include>config/routes.xml</include>
+  <include>config/security.xml</include>
+  <include>config/views.xml</include>
+  <include>config/ui_components.xml</include>
+  <include>libs/components/.../config.xml</include>
+  <include>libs/plugins/.../config.xml</include>
+  
+</configuration>

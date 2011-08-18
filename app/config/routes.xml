@@ -1,0 +1,15 @@
+<?xml version = "1.0" standalone="yes"?>
+
+<configuration>
+
+  <routes>
+
+    <!-- Index route -->
+    <route id="index" uri-pattern="\/$">
+      <front-controller class="__HttpFrontController"/>
+      <action controller="index" code="default"/>
+    </route>    
+    
+  </routes>
+
+</configuration>

@@ -1,0 +1,51 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The View</h1>
+  <div class="ref-purpose">Rendering the client</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="View/tutorial_View.pkg.html#intro">What's the View?</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="View/tutorial_View.pkg.html#intro.component_based_view">What's a component based view</a><br />
+
+<a href="View/tutorial_View.pkg.html#executing_the_view">Calling the View</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>What's the View?</h2><p>The View is the <i>MVC</i> layer in charge of displaying the information to the client.</p> 
+  <div class="messagebox floatnote metadata plainlinks"><div class="floatnoteicon"><img alt="" src="images/note_icon.png" width="48" height="48" border="0" /></div><br><p>See the <a href="Lion/tutorial_Lion.MVC.pkg.html">Model-View-Controller</a> section in order to know more about MVC pattern and how it's implemented in Lion</p></div>
+  <p>The benefit of using the View is that we abstract how the information is presented to the client, being able to modify our application's look and feel without affecting to any other layer.</p>
+  <p>Unlike other traditional request-driven MVC web frameworks, Lion uses a component-based approach that eases the rich web clients development.<br />
+  This approach includes:</p>
+  <p><ul><li>A set of APIs for representing user interface components and managing their states, handling events and input validation, converting values and supporting internationalization.</li>
+    <li>A default set of GUI components.</li>
+    <li>An event management system.</li>
+    <li>A server to client component binding.</li></ul></p>
+  <p>Because doing a web 2.0 application  continues being a hard task nowadays, component based views eases this task by allowing the reuse of interface functionalities encapsulated in components.</p>
+   <a name="intro.component_based_view"></a><h3>What's a component based view</h3><p>Lion component model is similar to the AWT GUI component model. It has events and properties just like the Swing component model. It also has containers that contain components, and that also are components that can be contained by other containers.<br />
+    In that sense, the Lion component model is divorced from traditionals view layers. Lion view allows not just to define the interface look and feel but dyncamic behaviors.</p>
+    <p>Examples of Lion components include calendar and rich HTML input components. You may never have time to write such components, but what if they already exists?<br />
+    The component model lowers the barrier to entry to add more functionality to Web applications by making a commodity of common functionality.</p><br /></span>
+ <span><a name="executing_the_view"></a><h2>Calling the View</h2><p>A view is identified in Lion with an unique code. This code is declared within the <strong>/app/config/views.xml</strong> as well as information regarding the view such the template or the renderer to be used to.</p>
+  <p>The <strong>Action Controller</strong> usually returns information regarding the view code to be called to, otherwise the framework resolves it based on the Controller code (usually trying to execute a view with the same code).</p>
+  <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;view-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;view&nbsp;code=&quot;*&quot;&nbsp;class=&quot;__SmartyView&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;template&quot;&nbsp;value=&quot;*.tpl&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;eventHandlerClass&quot;&nbsp;value=&quot;*EventHandler&quot;/&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/view&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/view-definitions&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+  <p>This is a typical views configuration. In this file we are declaring the <a href="View/__SmartyView.html">__SmartyView</a> class for whatever view code (represented by the wildcard).<br />
+  At the same time, we are informing the framework that the template to be used will be a .tpl file with the same name as the code of the view. Same is applicable to the name of the event handler class associated to each view.</p>
+  <p>i.e., for a view with code <strong>foo</strong>, the framework will try to use the template <strong>foo</strong>.tpl, and will try to associate the <strong>fooEventHandler</strong> class as the event handler associated to.</p></span></div>
+      </td></tr></table>

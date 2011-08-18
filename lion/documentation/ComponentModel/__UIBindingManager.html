@@ -1,0 +1,453 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __UIBindingManager</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+																	<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This class manages client-server UI component bindings<br /><br /><p>It contains all the <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> instances created due to component rendering</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>See:</b>&nbsp;&nbsp;</td><td><a href="../ComponentModel/__UIBinding.html">__UIBinding</a></td>
+  </tr>
+</table>
+
+		
+		<pre></pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__UIBindingManager.html#methodbind">bind</a></li>
+		  		  <li><a href="../ComponentModel/__UIBindingManager.html#methodbindFromClientToServer">bindFromClientToServer</a></li>
+		  		  <li><a href="../ComponentModel/__UIBindingManager.html#methodbindFromServerToClient">bindFromServerToClient</a></li>
+		  		  <li><a href="../ComponentModel/__UIBindingManager.html#methodgetCurrentRequestUIBindings">getCurrentRequestUIBindings</a></li>
+		  		  <li><a href="../ComponentModel/__UIBindingManager.html#methodgetInstance">getInstance</a></li>
+		  		  <li><a href="../ComponentModel/__UIBindingManager.html#methodgetUIBinding">getUIBinding</a></li>
+		  		  <li><a href="../ComponentModel/__UIBindingManager.html#methodhasUIBinding">hasUIBinding</a></li>
+		  		  <li><a href="../ComponentModel/__UIBindingManager.html#methodregisterUIBinding">registerUIBinding</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#bind" title="details" class="method-name">bind</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Binds a server end-point to a client end-point</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#bindFromClientToServer" title="details" class="method-name">bindFromClientToServer</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Binds a server end-point to a client end-point (internally, it creates a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> instance), allowing the synchronization from client to server but not the oposite way  It also set the bound direction to __IEndPoing::BIND_DIRECTION_C2S to both end-points</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#bindFromServerToClient" title="details" class="method-name">bindFromServerToClient</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Binds a server end-point to a client end-point (internally, it creates a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> instance), allowing the synchronization from server to client but not the oposite way  It also set the bound direction to __IEndPoing::BIND_DIRECTION_S2C to both end-points</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getCurrentRequestUIBindings" title="details" class="method-name">getCurrentRequestUIBindings</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__UIBindingManager.html">__UIBindingManager</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getInstance" title="details" class="method-name">&amp;getInstance</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets a <a href="../ComponentModel/__UIBindingManager.html">__UIBindingManager</a> singleton instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__UIBinding.html">__UIBinding</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getUIBinding" title="details" class="method-name">getUIBinding</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> corresponding to a given identifier</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">bool</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#hasUIBinding" title="details" class="method-name">hasUIBinding</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Checks if a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> is already registered</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#registerUIBinding" title="details" class="method-name">registerUIBinding</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Register a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> instance</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodbind" id="bind"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">bind</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void bind(
+<a href="../ComponentModel/__IServerEndPoint.html">__IServerEndPoint</a>
+$sep, <a href="../ComponentModel/__IClientEndPoint.html">__IClientEndPoint</a>
+$cep&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Binds a server end-point to a client end-point<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IServerEndPoint.html">__IServerEndPoint</a></td>
+                <td class="defaultTd">
+                $sep</td>
+                <td class="defaultTd">
+                The server end-point            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IClientEndPoint.html">__IClientEndPoint</a></td>
+                <td class="defaultTd">
+                $cep</td>
+                <td class="defaultTd">
+                The client end-point            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodbindFromClientToServer" id="bindFromClientToServer"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">bindFromClientToServer</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void bindFromClientToServer(
+<a href="../ComponentModel/__IServerEndPoint.html">__IServerEndPoint</a>
+$sep, <a href="../ComponentModel/__IClientEndPoint.html">__IClientEndPoint</a>
+$cep&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Binds a server end-point to a client end-point (internally, it creates a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> instance), allowing the synchronization from client to server but not the oposite way  It also set the bound direction to __IEndPoing::BIND_DIRECTION_C2S to both end-points<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IServerEndPoint.html">__IServerEndPoint</a></td>
+                <td class="defaultTd">
+                $sep</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IClientEndPoint.html">__IClientEndPoint</a></td>
+                <td class="defaultTd">
+                $cep</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodbindFromServerToClient" id="bindFromServerToClient"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">bindFromServerToClient</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void bindFromServerToClient(
+<a href="../ComponentModel/__IServerEndPoint.html">__IServerEndPoint</a>
+$sep, <a href="../ComponentModel/__IClientEndPoint.html">__IClientEndPoint</a>
+$cep&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Binds a server end-point to a client end-point (internally, it creates a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> instance), allowing the synchronization from server to client but not the oposite way  It also set the bound direction to __IEndPoing::BIND_DIRECTION_S2C to both end-points<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IServerEndPoint.html">__IServerEndPoint</a></td>
+                <td class="defaultTd">
+                $sep</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IClientEndPoint.html">__IClientEndPoint</a></td>
+                <td class="defaultTd">
+                $cep</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetCurrentRequestUIBindings" id="getCurrentRequestUIBindings"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getCurrentRequestUIBindings</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void getCurrentRequestUIBindings(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getInstance</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__UIBindingManager.html">__UIBindingManager</a> &amp;getInstance(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets a <a href="../ComponentModel/__UIBindingManager.html">__UIBindingManager</a> singleton instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetUIBinding" id="getUIBinding"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getUIBinding</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__UIBinding.html">__UIBinding</a> getUIBinding(
+string
+$id&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> corresponding to a given identifier<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $id</td>
+                <td class="defaultTd">
+                The identifier            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodhasUIBinding" id="hasUIBinding"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">hasUIBinding</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>bool hasUIBinding(
+string
+$id&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Checks if a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> is already registered<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $id</td>
+                <td class="defaultTd">
+                The <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> identifier            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodregisterUIBinding" id="registerUIBinding"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">registerUIBinding</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void registerUIBinding(
+<a href="../ComponentModel/__UIBinding.html">__UIBinding</a>
+$ui_binding&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Register a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> instance<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__UIBinding.html">__UIBinding</a></td>
+                <td class="defaultTd">
+                $ui_binding</td>
+                <td class="defaultTd">
+                The __UIBinding to register to            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

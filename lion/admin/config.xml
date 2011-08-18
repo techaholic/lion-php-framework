@@ -1,0 +1,28 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+
+  <configuration-directives>
+    <configuration-basedir>config</configuration-basedir>
+  </configuration-directives>
+  
+  <!-- Include resource dictionaries: -->
+  <include>config/resource_dictionaries.xml</include>
+  <!-- Include admin area settings -->
+  <include>config/settings.ini</include>
+  <!-- Include instances definition file: -->
+  <include>config/instances.xml</include>
+  <!-- Include actions definitions: -->
+  <include>config/controllers.xml</include>
+  <!-- Include views definitions: -->
+  <include>config/views.xml</include>
+  <!-- Include security policies: -->
+  <include>config/security.xml</include>
+  <!-- Include model services: -->
+  <include>config/model_services.xml</include>
+  
+  <!-- Supported languages in the admin area: -->
+  <supported-languages>
+    <language>en</language>
+  </supported-languages>  
+  
+</configuration>

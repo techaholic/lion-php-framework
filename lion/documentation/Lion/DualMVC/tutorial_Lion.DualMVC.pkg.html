@@ -1,0 +1,21 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Dual MVC</h1>
+  <div class="ref-purpose">MVC plus MVP altogether</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../Lion/DualMVC/tutorial_Lion.DualMVC.pkg.html#intro">Introduction to the Dual MVC</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Introduction to the Dual MVC</h2><p>Lion is compound by 2 different MVC approaches together:</p>
+  <ul><li>The push-style MVC, aka <strong>Model View Controller or MVC</strong>, which is the classic design pattern which decouples data access and business logic (model) from presentation layer (view) by introducing an intermediate component: the controller.</li>
+    <li>The pull-style MVC, aka <strong>Model View Presenter or MVP</strong>, where the view is able to &quot;pull&quot; data from multiple controllers as needed. This approach eases the creation of rich web user interfaces.</li></ul>
+  <img src="../../images/MVC/dualmvc.png" border="0">
+  <p>For a better understanding of both patterns, let say that <strong>MVC</strong> is the piece in charge of executing the logic to show a page while <strong>MVP</strong> is the piece in charge of executing the logic associated to the page UI (i.e. the logic that is executed when the user click on a button or select an option from a drop-down list).</p>
+  <p>This does not mean that Lion executes the MVC before delegating in the MVP. i.e. When the user submit a form, the event associated to the submit is executed at the very beginning of the request, before giving the control to the MVC.</p>
+  <p>Lion allow the usage of the MVC, the MVP or both together on a per-request basis, which means that, for some request we may want to use just the MVC while for some other request we may prefer just the MVP or even both togethers.</p>
+  <p>For more information regarding the Model-View-Controller, please see the <a href="../../Lion/tutorial_Lion.MVC.pkg.html">Model-View-Controller</a> section.</p>
+  <p>For more information regarding the Model-View-Presenter, please see the <a href="../../Lion/DualMVC/tutorial_Lion.MVP.pkg.html">Model-View-Presenter</a> section.</p></span></div>
+      </td></tr></table>

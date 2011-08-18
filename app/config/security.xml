@@ -1,0 +1,17 @@
+<?xml version = "1.0" standalone="yes"?>
+
+<configuration>
+
+  <role-definitions>
+  
+  <!-- place here your role definitions -->
+  
+  </role-definitions>
+  
+  <permission-definitions>
+
+  <!-- place here your permission definitions -->
+
+  </permission-definitions>
+  
+</configuration>

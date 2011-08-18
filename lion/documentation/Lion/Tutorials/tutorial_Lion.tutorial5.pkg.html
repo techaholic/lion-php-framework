@@ -1,0 +1,160 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Hello World Enterprise Edition</h1>
+  <div class="ref-purpose">Validating user inputs</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial5.pkg.html#intro">Goal</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial5.pkg.html#creating_the_controller">Create a new controller</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial5.pkg.html#create_the_template">Create a new template</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial5.pkg.html#defining_validation_rules">Defining validation rules</a><br />
+
+<a href="../../Lion/Tutorials/tutorial_Lion.tutorial5.pkg.html#executing_the_hello_world">Executing the Hello World Enterprise Edition</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Goal</h2><p>The goal of this tutorial is to learn how to use <strong>validator components</strong>.<br />
+  The application that we are going to develop is a single page with a typical registration form. This page will contain some validator components in order to check user inputs before submitting.</p>
+  <p>What we are going to do in this tutorial is:
+  <ul><li>To create a page with a registration form.</li>
+    <li>To add validators associated to input components.</li>
+    <li>To create an event handler in order to perform some server-side validations as well.</li></ul></p>
+  <img src="../../images/Tutorials/tutorial3/directory_structure.png" border="0"></span>
+ <span><a name="creating_the_controller"></a><h2>Create a new controller</h2><p>Let's create a new controller as following:</p>
+  <div class="listing"><pre><ol></ol></pre></div>
+  <p>This controller just returns a <a href="../../Model/__ModelAndView.html">__ModelAndView</a> instance to execute the <i>registrationForm</i> view.</p></span>
+ <span><a name="create_the_template"></a><h2>Create a new template</h2><p>Now will create a template containing the registration form as following:</p>
+  <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">html</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">title</span>&gt;<span class="src-id">Registration&nbsp;form</span>&lt;/<span class="src-id">title</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">h1</span>&gt;<span class="src-id">Registration&nbsp;form</span>&lt;/<span class="src-id">h1</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">form&nbsp;name</span>=<span class="src-str">&quot;registration_form&quot;&nbsp;</span><span class="src-id">action</span>=<span class="src-str">&quot;register&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">First&nbsp;name</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;first_name&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Last&nbsp;name</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;last_name&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Birdth&nbsp;</span><a href="http://www.php.net/date">date</a>:&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">datebox&nbsp;name</span>=<span class="src-str">&quot;birdth_date&quot;</span>/&gt;&nbsp;<span class="src-sym">(</span><span class="src-id">YYYY</span>-<span class="src-id">mm</span>-<span class="src-id">dd</span><span class="src-sym">)</span>&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Sex</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">optionbox&nbsp;group</span>=<span class="src-str">&quot;sex&quot;&nbsp;</span><span class="src-id">name</span>=<span class="src-str">&quot;male&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Male&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">&amp;</span><span class="src-id">nbsp</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">optionbox&nbsp;group</span>=<span class="src-str">&quot;sex&quot;&nbsp;</span><span class="src-id">name</span>=<span class="src-str">&quot;female&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Female&quot;</span>&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Email&nbsp;address</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;email&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Password</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;type</span>=<span class="src-str">&quot;password&quot;&nbsp;</span><span class="src-id">name</span>=<span class="src-str">&quot;password&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Repeat&nbsp;password</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;type</span>=<span class="src-str">&quot;password&quot;&nbsp;</span><span class="src-id">name</span>=<span class="src-str">&quot;password_confirmation&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Question</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">combobox&nbsp;name</span>=<span class="src-str">&quot;question&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">item&nbsp;text</span>=<span class="src-str">&quot;Your&nbsp;favorite&nbsp;pet?&quot;&nbsp;</span><span class="src-id">value</span>=<span class="src-str">&quot;pet&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">item&nbsp;text</span>=<span class="src-str">&quot;Your&nbsp;first&nbsp;car?&quot;&nbsp;</span><span class="src-id">value</span>=<span class="src-str">&quot;car&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">comp</span>:<span class="src-id">combobox</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Answer</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;answer&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">commandbutton&nbsp;name</span>=<span class="src-str">&quot;send&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Send&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">comp</span>:<span class="src-id">form</span>&gt;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">html</span>&gt;</div></li>
+</ol></pre></div>
+  <p>As you can see, we have just defined a typical registration form asking for the following values: the first name, the last name, the birdth date, the sex, an email address, a password and also a reminder question plus the answer.</p>
+  <p>Now it's time to define validation rules for our input components</p></span>  
+ <span><a name="defining_validation_rules"></a><h2>Defining validation rules</h2><p>There is an special component to automate a great part of the validation process: The validation rule component</p>
+  <div class="messagebox floatnote metadata plainlinks"><div class="floatnoteicon"><img alt="" src="../../images/note_icon.png" width="48" height="48" border="0" /></div><br><p>To know more about LiveValidation, please visit <a href="http://http://www.livevalidation.com">LiveValidation homepage</a>.</p></div>
+  <p>This component uses a great javascript library to perform client-side validations: The <strong>LiveValidation</strong> library, by Alec Hill.<br />
+  This library is plenty mature and covers a great number of different validation cases, but may be one of the most notable feature the capability to validate as soon as values are written within the form.</p>
+  <p>Continuing with the validation rule component, it has 2 main tasks:
+  <ul><li>To generate optimized javascript code on client side</li>
+    <li>To intercept requests that require parameter validation in order to perform same validations on server-side</li></ul>
+  So, once we have defined a validation rule, by default it performs the same validations on both the client and server side (double validation)</p>
+  <p>Not let's define some validation rules for input components within our registration form:</p>
+  <div class="listing"><pre><ol><li><div class="src-line">&lt;<span class="src-id">html</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">title</span>&gt;<span class="src-id">Registration&nbsp;form</span>&lt;/<span class="src-id">title</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">head</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">h1</span>&gt;<span class="src-id">Registration&nbsp;form</span>&lt;/<span class="src-id">h1</span>&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">form&nbsp;name</span>=<span class="src-str">&quot;registration_form&quot;&nbsp;</span><span class="src-id">action</span>=<span class="src-str">&quot;register&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">First&nbsp;name</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;first_name&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Last&nbsp;name</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;last_name&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Birdth&nbsp;</span><a href="http://www.php.net/date">date</a>:&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">datebox&nbsp;name</span>=<span class="src-str">&quot;birdth_date&quot;</span>/&gt;&nbsp;<span class="src-sym">(</span><span class="src-id">YYYY</span>-<span class="src-id">mm</span>-<span class="src-id">dd</span><span class="src-sym">)</span>&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Sex</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">optionbox&nbsp;group</span>=<span class="src-str">&quot;sex&quot;&nbsp;</span><span class="src-id">name</span>=<span class="src-str">&quot;male&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Male&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">&amp;</span><span class="src-id">nbsp</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">optionbox&nbsp;group</span>=<span class="src-str">&quot;sex&quot;&nbsp;</span><span class="src-id">name</span>=<span class="src-str">&quot;female&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Female&quot;</span>&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Email&nbsp;address</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;email&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Password</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;type</span>=<span class="src-str">&quot;password&quot;&nbsp;</span><span class="src-id">name</span>=<span class="src-str">&quot;password&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Repeat&nbsp;password</span>:&lt;<span class="src-id">br</span>&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;type</span>=<span class="src-str">&quot;password&quot;&nbsp;</span><span class="src-id">name</span>=<span class="src-str">&quot;password_confirmation&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Question</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">combobox&nbsp;name</span>=<span class="src-str">&quot;question&quot;</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">item&nbsp;text</span>=<span class="src-str">&quot;Your&nbsp;favorite&nbsp;pet?&quot;&nbsp;</span><span class="src-id">value</span>=<span class="src-str">&quot;pet&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">item&nbsp;text</span>=<span class="src-str">&quot;Your&nbsp;first&nbsp;car?&quot;&nbsp;</span><span class="src-id">value</span>=<span class="src-str">&quot;car&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="src-id">comp</span>:<span class="src-id">combobox</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-id">Answer</span>:&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">inputbox&nbsp;name</span>=<span class="src-str">&quot;answer&quot;</span>/&gt;&lt;<span class="src-id">br</span>&gt;&lt;<span class="src-id">br</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">comp</span>:<span class="src-id">commandbutton&nbsp;name</span>=<span class="src-str">&quot;send&quot;&nbsp;</span><span class="src-id">caption</span>=<span class="src-str">&quot;Send&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">comp</span>:<span class="src-id">form</span>&gt;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-sym">!</span>--<span class="src-comm">/*&nbsp;-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-&nbsp;*/</span>--&gt;</div></li>
+<li><div class="src-line">&lt;<span class="src-sym">!</span>--<span class="src-comm">/*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Validation&nbsp;rules&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span>--&gt;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-sym">!</span>--<span class="src-comm">/*&nbsp;-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-&nbsp;*/</span>--&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">validationrule&nbsp;component</span>=<span class="src-str">&quot;first_name&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">mandatory</span>=<span class="src-str">&quot;true&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">maxLength</span>=<span class="src-str">&quot;100&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">pattern</span>=<span class="src-str">&quot;^[A-Za-z\s]+$&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">validationrule&nbsp;component</span>=<span class="src-str">&quot;last_name&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">maxLength</span>=<span class="src-str">&quot;100&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">pattern</span>=<span class="src-str">&quot;^[A-Za-z\s]+$&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">validationrule&nbsp;component</span>=<span class="src-str">&quot;birdth_date&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">mandatory</span>=<span class="src-str">&quot;true&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">pattern</span>=<span class="src-str">&quot;^\d\d\d\d\-\d\d-\d\d$&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">validationrule&nbsp;component</span>=<span class="src-str">&quot;email&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">mandatory</span>=<span class="src-str">&quot;true&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">maxLength</span>=<span class="src-str">&quot;150&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">format</span>=<span class="src-str">&quot;email&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">validationrule&nbsp;component</span>=<span class="src-str">&quot;password&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">mandatory</span>=<span class="src-str">&quot;true&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">minLength</span>=<span class="src-str">&quot;6&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">maxLength</span>=<span class="src-str">&quot;15&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">validationrule&nbsp;component</span>=<span class="src-str">&quot;password_confirmation&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">mandatory</span>=<span class="src-str">&quot;true&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">matchComponent</span>=<span class="src-str">&quot;password&quot;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;<span class="src-id">comp</span>:<span class="src-id">validationrule&nbsp;component</span>=<span class="src-str">&quot;answer&quot;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">maxLength</span>=<span class="src-str">&quot;100&quot;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">mandatory</span>=<span class="src-str">&quot;true&quot;</span>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">body</span>&gt;</div></li>
+<li><div class="src-line">&lt;/<span class="src-id">html</span>&gt;</div></li>
+</ol></pre></div>
+  <p>As you can see, we have just defined a typical registration form asking for the following values: the first name, the last name, the birdth date, the sex, an email address, a password and also a reminder question plus the answer.</p>
+  <p>Now it's time to define validation rules for our input components</p></span>  
+ <span><a name="executing_the_hello_world"></a><h2>Executing the Hello World Enterprise Edition</h2><p>Now it's time to execute our application. Just type the following url: <u>http://yourdomain/pathtoyourapplication/registration.html</u></p>
+  <p>The aspect of our application should be like the following figure once we have click on the button:</p>
+  <img src="../../images/Tutorials/tutorial4/execution_in_browser.png" border="0">
+  <p>And again: No need to refresh the entire page to show the hello message. Ajax + Json instead of, which is handled automagically by the framework.</p></span></div>
+      </td></tr></table>

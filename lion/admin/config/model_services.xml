@@ -1,0 +1,17 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+  <model-services>
+
+    <!-- Bootstrap services: -->
+    <class name="__BootstrapManager">
+      <service name="doBootstrap" class-method="doBootstrap"/>
+      <service name="prepareAndValidateBootstrapEnvironment" class-method="prepareAndValidateBootstrapEnvironment"/>
+    </class>
+
+    <!-- Cache services: -->
+    <class name="__CacheServices">
+      <service name="clearCache" class-method="clearCache"/>
+    </class>
+    
+  </model-services>
+</configuration>

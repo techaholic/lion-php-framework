@@ -1,0 +1,24 @@
+<?xml version = "1.0" standalone="yes"?>
+<configuration>
+
+  <!-- Lion admin area roles: -->
+  <role-definitions>
+    <!-- Note that admin role will be automatically added to active user -->
+    <!-- just if LION_ADMIN_AUTH_REQUIRED property is set to yes, which means -->
+    <!-- that the authentication won't be required to grant the access -->
+    <role id="ADMIN">
+      <permissions>
+        <permission id="ACCESS_TO_ADMIN_AREA"/>
+      </permissions>
+    </role>
+  </role-definitions>
+  
+  <!-- Lion admin area permissions -->
+  <permission-definitions>
+    <!-- permission to access to administration area -->
+    <permission id="ACCESS_TO_ADMIN_AREA"/>
+    <!-- special permission to avoid access to certain areas -->
+    <permission id="UNACCESSIBLE"/>
+  </permission-definitions>
+  
+</configuration>

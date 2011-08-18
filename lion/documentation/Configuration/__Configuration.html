@@ -1,0 +1,787 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __Configuration</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		Represents a configuration file applicable to a particular application.<br /><br /><p>This class cannot be inherited.</p><p>The __Configuration class represents the merged view of the configuration settings that are  applied to a logical entity, such as an application, or a Web site.</p><br />
+		
+		<pre><a href="../Configuration/__ConfigurationComponent.html">__ConfigurationComponent</a>
+   |
+   --<a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a>
+      |
+      --__Configuration</pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Configuration/__Configuration.html#method__construct">__construct</a></li>
+		  		  <li><a href="../Configuration/__Configuration.html#methodgetContext">getContext</a></li>
+		  		  <li><a href="../Configuration/__Configuration.html#methodgetProperty">getProperty</a></li>
+		  		  <li><a href="../Configuration/__Configuration.html#methodgetSettings">getSettings</a></li>
+		  		  <li><a href="../Configuration/__Configuration.html#methodhasProperty">hasProperty</a></li>
+		  		  <li><a href="../Configuration/__Configuration.html#methodmerge">merge</a></li>
+		  		  <li><a href="../Configuration/__Configuration.html#methodregisterProperty">registerProperty</a></li>
+		  		  <li><a href="../Configuration/__Configuration.html#methodtoArray">toArray</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-vars">Properties</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#var$_children">__ComplexConfigurationComponent::$_children</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#var$_section_handler">__ComplexConfigurationComponent::$_section_handler</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../Configuration/__ConfigurationComponent.html">__ConfigurationComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#var$_attributes">__ConfigurationComponent::$_attributes</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#var$_attribute_id">__ConfigurationComponent::$_attribute_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#var$_content">__ConfigurationComponent::$_content</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#var$_id">__ConfigurationComponent::$_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#var$_name">__ConfigurationComponent::$_name</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#var$_parent">__ConfigurationComponent::$_parent</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../Configuration/__ComplexConfigurationComponent.html">__ComplexConfigurationComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodaddComponent">__ComplexConfigurationComponent::addComponent()</a><br>
+											Adds an component to this component.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodcountChildren">__ComplexConfigurationComponent::countChildren()</a><br>
+											Returns how many _children this container has
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodcreateBlank">__ComplexConfigurationComponent::createBlank()</a><br>
+											Adds a blank line to this component.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodcreateComment">__ComplexConfigurationComponent::createComment()</a><br>
+											Adds a comment to this component.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodcreateComponent">__ComplexConfigurationComponent::createComponent()</a><br>
+											Create a child configuration component.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodcreateProperty">__ComplexConfigurationComponent::createProperty()</a><br>
+											Adds a property to this component.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodcreateSection">__ComplexConfigurationComponent::createSection()</a><br>
+											Adds a section to this component.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetChild">__ComplexConfigurationComponent::getChild()</a><br>
+											Returns the component parent object.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetChildrens">__ComplexConfigurationComponent::getChildrens()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetComponent">__ComplexConfigurationComponent::getComponent()</a><br>
+											Tries to find the specified component(s) and returns the objects.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetComponentEqualsTo">__ComplexConfigurationComponent::getComponentEqualsTo()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetComponentIndex">__ComplexConfigurationComponent::getComponentIndex()</a><br>
+											Returns the component index in its parent children array.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetComponentPosition">__ComplexConfigurationComponent::getComponentPosition()</a><br>
+											Returns the component rank in its parent children array  according to other components with same type and name.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetComponentsOfType">__ComplexConfigurationComponent::getComponentsOfType()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetProperties">__ComplexConfigurationComponent::getProperties()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetProperty">__ComplexConfigurationComponent::getProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetPropertyContent">__ComplexConfigurationComponent::getPropertyContent()</a><br>
+											Return a property's content.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetSection">__ComplexConfigurationComponent::getSection()</a><br>
+											Returns the requested section. If the section has associated a <a href="../Configuration/__ISectionHandler.html">__ISectionHandler</a> instance, them  returns the result of calling to the processSection method.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetSectionHandler">__ComplexConfigurationComponent::getSectionHandler()</a><br>
+											Return the <a href="../Configuration/__ISectionHandler.html">__ISectionHandler</a> instance associated to the current section. If it does not exist, returns null
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodgetSections">__ComplexConfigurationComponent::getSections()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodhasComponent">__ComplexConfigurationComponent::hasComponent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodhasSectionHandler">__ComplexConfigurationComponent::hasSectionHandler()</a><br>
+											Return true if the current section has a <a href="../Configuration/__ISectionHandler.html">__ISectionHandler</a> instance associated to, otherwise false.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodregisterSectionHandler">__ComplexConfigurationComponent::registerSectionHandler()</a><br>
+											Register a <a href="../Configuration/__ISectionHandler.html">__ISectionHandler</a> instance associated to the current section
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodremoveComponent">__ComplexConfigurationComponent::removeComponent()</a><br>
+											Deletes a component (section, property, comment...) from the current object
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodsearchPath">__ComplexConfigurationComponent::searchPath()</a><br>
+											Finds a node using XPATH like format.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodsetPropertyContent">__ComplexConfigurationComponent::setPropertyContent()</a><br>
+											Set a children property content.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodtoArray">__ComplexConfigurationComponent::toArray()</a><br>
+											Returns a key/value pair array of the container and its children.
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#methodtoSimpleXMLElement">__ComplexConfigurationComponent::toSimpleXMLElement()</a><br>
+											Returns the current section and descendants as SimpleXMLElement
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#method_filterComponent">__ComplexConfigurationComponent::_filterComponent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ComplexConfigurationComponent.html#method_mergeComponent">__ComplexConfigurationComponent::_mergeComponent()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../Configuration/__ConfigurationComponent.html">__ConfigurationComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#method__construct">__ConfigurationComponent::__construct()</a><br>
+											Constructor method
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodaddAttribute">__ConfigurationComponent::addAttribute()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodgetAttribute">__ConfigurationComponent::getAttribute()</a><br>
+											Get one attribute value of this component
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodgetAttributes">__ConfigurationComponent::getAttributes()</a><br>
+											Get the current configuration component's attributes.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodgetContent">__ConfigurationComponent::getContent()</a><br>
+											Get the current configuration component's content.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodgetContext">__ConfigurationComponent::getContext()</a><br>
+											Returns the __Context instance associated to the current configuration component.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodgetId">__ConfigurationComponent::getId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodgetName">__ConfigurationComponent::getName()</a><br>
+											Get this current configuration component's name.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodgetParent">__ConfigurationComponent::getParent()</a><br>
+											Returns the current configuration component's parent
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodgetRootConfigurationComponent">__ConfigurationComponent::getRootConfigurationComponent()</a><br>
+											Returns the root configuration component in the configuration hierarchy that current component is from.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodhasAttribute">__ConfigurationComponent::hasAttribute()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodisEqual">__ConfigurationComponent::isEqual()</a><br>
+											This method returns true if the parameter passed has the same type
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodisRoot">__ConfigurationComponent::isRoot()</a><br>
+											Returns if this component is a root component or not
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodsetAttributeId">__ConfigurationComponent::setAttributeId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodsetAttributes">__ConfigurationComponent::setAttributes()</a><br>
+											Set the current configuration component's attributes.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodsetContent">__ConfigurationComponent::setContent()</a><br>
+											Set the current configuration component's content.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodsetId">__ConfigurationComponent::setId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodsetName">__ConfigurationComponent::setName()</a><br>
+											Set this current configuration component's name.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodsetParent">__ConfigurationComponent::setParent()</a><br>
+											Set the current configuration component's parent
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodtoArray">__ConfigurationComponent::toArray()</a><br>
+											Returns a key/value pair array of the container and its children.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodtoString">__ConfigurationComponent::toString()</a><br>
+											Return an string in the specified format for current configuration component.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodupdateAttribute">__ConfigurationComponent::updateAttribute()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#methodupdateAttributes">__ConfigurationComponent::updateAttributes()</a><br>
+											Update the current configuration component's attributes.
+										</li>
+																			<li>
+											<a href="../Configuration/__ConfigurationComponent.html#method_parseValue">__ConfigurationComponent::_parseValue()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">__Configuration</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Context/__Context.html">__Context</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getContext" title="details" class="method-name">&amp;getContext</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method returns the __Context instance that contains the current __Configuration.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../Configuration/__ConfigurationProperty.html">__ConfigurationProperty</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getProperty" title="details" class="method-name">&amp;getProperty</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">This method search for a __ConfigurationProperty instance filtering by name, content, attributes and/or index.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getSettings" title="details" class="method-name">getSettings</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns all the registered properties (settings) within the current configuration instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">bool</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#hasProperty" title="details" class="method-name">hasProperty</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Checks if a property has been set within the current configuration settings</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#merge" title="details" class="method-name">merge</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Merge a __Configuration into the current one.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#registerProperty" title="details" class="method-name">registerProperty</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Register a __ConfigurationProperty in cache for quickly access without know the route/level where the property</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#toArray" title="details" class="method-name">toArray</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Returns a key/value pair array of the container and its children.</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<span class="disabled">Properties</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-vars">Properties</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="method__construct" id="__construct"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">Constructor __construct</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>__Configuration __construct(
+[
+$context_id = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $context_id</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../Configuration/__ConfigurationComponent.html#method__construct">__ConfigurationComponent::__construct()</a></dt>
+                        <dd>Constructor method</dd>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetContext" id="getContext"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getContext</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Context/__Context.html">__Context</a> &amp;getContext(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method returns the __Context instance that contains the current __Configuration.<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../Configuration/__ConfigurationComponent.html#methodgetContext">__ConfigurationComponent::getContext()</a></dt>
+                        <dd>Returns the __Context instance associated to the current configuration component.</dd>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetProperty" id="getProperty"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getProperty</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../Configuration/__ConfigurationProperty.html">__ConfigurationProperty</a> &amp;getProperty(
+[string
+$name = null], [string
+$content = null], [
+$attributes = null], [integer
+$index = -1]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        This method search for a __ConfigurationProperty instance filtering by name, content, attributes and/or index.<br /><br /><p>If this method matched more than one instance, it will return the first occurrence.</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $name</td>
+                <td class="defaultTd">
+                The name of the property            </td></tr>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $content</td>
+                <td class="defaultTd">
+                The content of the property            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $attributes</td>
+                <td class="defaultTd">
+                Property's attributes            </td></tr>
+                    <tr><td class="defaultTd">
+                integer</td>
+                <td class="defaultTd">
+                $index</td>
+                <td class="defaultTd">
+                The index of the property            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The requested property</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../Configuration/__ComplexConfigurationComponent.html#methodgetProperty">__ComplexConfigurationComponent::getProperty()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetSettings" id="getSettings"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getSettings</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array getSettings(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns all the registered properties (settings) within the current configuration instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodhasProperty" id="hasProperty"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">hasProperty</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>bool hasProperty(
+string
+$name&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Checks if a property has been set within the current configuration settings<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                string</td>
+                <td class="defaultTd">
+                $name</td>
+                <td class="defaultTd">
+                the property name            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>true if the property is part of the current configuration settings, otherwise false</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodmerge" id="merge"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">merge</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void merge(
+<a href="../Configuration/__Configuration.html">__Configuration</a>
+&$configuration, <a href="../Configuration/__Configuration.html">__Configuration</a>
+$configuration&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Merge a __Configuration into the current one.<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Configuration/__Configuration.html">__Configuration</a></td>
+                <td class="defaultTd">
+                &$configuration</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../Configuration/__Configuration.html">__Configuration</a></td>
+                <td class="defaultTd">
+                $configuration</td>
+                <td class="defaultTd">
+                A __Configuration to merge into.            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodregisterProperty" id="registerProperty"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">registerProperty</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void registerProperty(
+<a href="../Configuration/__ConfigurationProperty.html">__ConfigurationProperty</a>
+&$property, <a href="../Configuration/__ConfigurationProperty.html">__ConfigurationProperty</a>
+$property&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Register a __ConfigurationProperty in cache for quickly access without know the route/level where the property<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../Configuration/__ConfigurationProperty.html">__ConfigurationProperty</a></td>
+                <td class="defaultTd">
+                &$property</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                <a href="../Configuration/__ConfigurationProperty.html">__ConfigurationProperty</a></td>
+                <td class="defaultTd">
+                $property</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodtoArray" id="toArray"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">toArray</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>array toArray(
+[bool
+$use_attributes = true]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Returns a key/value pair array of the container and its children.<br /><br /><p>Format : section[property][index] = value  If the container has attributes, it will use '@' and '#'  index is here because multiple propertys can have the same name.</p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                bool</td>
+                <td class="defaultTd">
+                $use_attributes</td>
+                <td class="defaultTd">
+                Whether to return the attributes too            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+                    <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../Configuration/__ComplexConfigurationComponent.html#methodtoArray">__ComplexConfigurationComponent::toArray()</a></dt>
+                        <dd>Returns a key/value pair array of the container and its children.</dd>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

@@ -1,0 +1,14 @@
+<?xml version = "1.0" standalone="yes"?>
+
+<configuration>
+
+  <view-definitions>
+  
+    <view code="*" class="__SmartyView">
+      <property name="template" value="*.tpl"/>
+      <property name="eventHandlerClass" value="*EventHandler"/> 
+    </view>
+  
+  </view-definitions>
+  
+</configuration>

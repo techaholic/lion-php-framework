@@ -1,0 +1,85 @@
+<?xml version = "1.0" standalone="yes"?>
+<classes>
+
+  <autoload class="HTMLPurifier_Bootstrap" method="autoload"/>
+
+  <!-- Client classes -->
+  <cluster name="Client" path="/libs/requestdispatcher/...">
+    <class name="__*" file="*.class.php"/>
+    <interface name="__*" file="*.interface.php"/>
+  </cluster>
+  <cluster name="Regular expression reverse parser" path="/libs/requestdispatcher/urlroutingengine">
+    <class name="__ExpressionVariable" file="REInverseParser.class.php"/>
+    <class name="__ExpressionTemplate" file="REInverseParser.class.php"/>
+    <class name="__*" file="*.class.php"/>
+    <interface name="__*" file="*.interface.php"/>
+  </cluster>  
+  <!-- Configuration management classes -->
+  <cluster name="Configuration" path="/libs/configuration/...">
+    <class name="__*" file="*.class.php"/>
+    <interface name="__*" file="*.interface.php"/>
+  </cluster>  
+  <!-- Context classes: -->
+  <cluster name="Context" path="/libs/context">
+    <class name="__*" file="*.class.php"/>
+    <interface name="__*" file="*.interface.php"/>
+  </cluster>
+  <!-- History classes -->
+  <cluster name="History" path="/libs/history">
+    <class name="__*" file="*.class.php"/>
+  </cluster>  
+  <!-- Model classes -->
+  <cluster name="MVC" path="/libs/mvc/...">
+    <interface name="__*" file="*.interface.php"/>
+    <class name="__*"     file="*.class.php"/>
+  </cluster>  
+  <!-- WebFlow classes -->
+  <cluster name="WebFlow" path="/libs/webflow/...">
+    <interface name="__*" file="*.interface.php"/>
+    <class name="__*"     file="*.class.php"/>
+  </cluster>  
+  <!-- Internationalization (I18n) classes: -->
+  <cluster name="I18n" path="/libs/I18n/...">
+    <interface name="__*" file="*.interface.php"/>
+    <class name="__*"     file="*.class.php"/>
+  </cluster>
+  <cluster name="Session" path="/libs/session">
+    <interface name="__*" file="*.interface.php"/>
+    <class name="__*"     file="*.class.php"/>
+  </cluster>
+  <cluster name="Events" path="/libs/events">
+    <interface name="__*" file="*.interface.php"/>
+    <class name="__*"     file="*.class.php"/>
+  </cluster>
+  <cluster name="Helpers" path="/libs/helpers/...">
+    <class name="__*" file="*.class.php"/>
+    <interface name="__*" file="*.interface.php"/>
+  </cluster>
+  <cluster name="Annotations" path="/libs/annotations">
+    <class name="__*" file="*.class.php"/>
+  </cluster>
+  <cluster name="ExceptionHandling" path="/libs/exception/...">
+    <class name="__*" file="*.class.php"/>
+  </cluster>
+  <cluster name="LogManagement" path="/libs/log/...">
+    <interface name="__*" file="*.interface.php"/>
+    <class name="__*" file="*.class.php"/>
+  </cluster>
+  <cluster name="User" path="/libs/security/...">
+    <interface name="__*" file="*.interface.php"/>
+    <class name="__*" file="*.class.php"/>
+  </cluster>
+  <cluster name="Smarty" path="/libs/thrdparty/smarty/libs">
+    <class name="Smarty" file="Smarty.class.php"/>
+  </cluster>
+  <cluster name="log4php" path="/libs/thrdparty/log4php">
+    <class name="*" file="*.php"/>
+  </cluster>
+  <cluster name="secureimage" path="/libs/thrdparty/securimage">
+    <class name="Securimage" file="securimage.php"/>
+  </cluster>
+  <cluster name="HTMLPurifierLibrary" path="/libs/thrdparty/htmlpurifier/library/HTMLPurifier">
+    <class name="HTMLPurifier_Bootstrap" file="Bootstrap.php"/>
+  </cluster>
+    
+</classes>

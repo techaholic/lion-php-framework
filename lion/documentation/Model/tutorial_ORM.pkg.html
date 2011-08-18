@@ -1,0 +1,283 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Integrating an ORM</h1>
+  <div class="ref-purpose">Isolating the data access logic</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Model/tutorial_ORM.pkg.html#introduction">Introduction</a><br />
+
+<a href="../Model/tutorial_ORM.pkg.html#doctrine">Doctrine</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Model/tutorial_ORM.pkg.html#doctrine.including_doctrine">Including Doctrine</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Model/tutorial_ORM.pkg.html#doctrine.configuring_doctrine">Configuring Doctrine</a><br />
+
+<a href="../Model/tutorial_ORM.pkg.html#propel">Propel</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Model/tutorial_ORM.pkg.html#propel.including_propel">Including Propel</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="introduction"></a><h2>Introduction</h2><p>Nowadays, ORM is one of the best paradigms to manage the persistence vs. maintaining SQL and handling persistence via code directly.</p>
+  <p>ORMs make transparent the database as well as how instances are loaded and stored on it.<br />
+  In this section, we're going to show some practices to integrate an ORM within the model layer.</p>
+  <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td>In this section we're going to cover 2 ORMs: Doctrine and Propel. However, the idea is enough generic to be extendible to whatever ORM.</td></tr></table></div></center></span>
+ <span><a name="doctrine"></a><h2>Doctrine</h2><p>Doctrine is a PHP ORM (object relational mapper) for PHP 5.2.3+ that sits on top of a powerful PHP DBAL (database abstraction layer). One of its key features is the ability to optionally write database queries in an OO (object oriented) SQL-dialect called DQL inspired by Hibernates HQL. This provides developers with a powerful alternative to SQL that maintains a maximum of flexibility without requiring needless code duplication.</p>
+   <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td>We are assuming that you have some knowledge about Doctrine and you have already defined/generated your model according to Doctrine documentation.<br />
+   To learn how, take a look at <a href="http://www.phpdoctrine.org">Doctrine home</a></td></tr></table></div></center> 
+  <a name="doctrine.including_doctrine"></a><h3>Including Doctrine</h3><p>Doctrine has the following directory structure out of the box:</p>
+   <img src="../images/Model/DoctrineDirStructure.png" border="0">
+   <p>The only file that we're going to include is the Doctrine.php, placed within the doctrine <i>lib</i> directory. The Doctrine.php contains the main class Doctrine, which has an autoload method in charge of include the rest of files as soon as they are needed.</p>
+   <p>First of all, we need to place Doctrine inside our project. A good practice is to use a directory to place all the third-party libraries. We usually place our libraries within a directory <i>thrdparty</i> under the <i>libs</i> (<i>/libs/thrdparty/</i>) just to keep a placing convention, but it could be placed wherever</p>
+   <p>Second, we need to include the Doctrine.php file, so we can do that easily by adding an entry within the <i>app/config/includepath.xml</i> file:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name=&quot;Doctrine&nbsp;classes&quot;&nbsp;path=&quot;/libs/thrdparty/doctrine/lib&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;Doctrine&quot;&nbsp;file=&quot;Doctrine.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div>
+   So, the Doctrine.php file will be included just when needed, more like <i>on demand</i>, it is, just when the Doctrine class is used.</p>
+   <p>Now let's register the Doctrine autoload function that we have told about within our configuration file as following:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;configuration-directives&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;autoload&nbsp;class=&quot;Doctrine&quot;&nbsp;method=&quot;autoload&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/configuration-directives&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+   This will register the Doctrine autoload callback instead of ussing the <i>spl_autoload_register</i> function directly within our code.</p>
+   <p>Now we are able to consume doctrine API directly from our model.</p><br />
+  <a name="doctrine.configuring_doctrine"></a><h3>Configuring Doctrine</h3><p>We recommends to use Lion's dependency injection capabilities to configure Doctrine. It eases and centralizes the doctrine configuration. Let's see it with some examples:</p>
+   The following code has been extracted from doctrine documentation, explaining how to use PDO to create a connection:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$dsn&nbsp;</span>=&nbsp;<span class="src-str">'mysql:dbname=testdb;host=127.0.0.1'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-var">$user&nbsp;</span>=&nbsp;<span class="src-str">'dbuser'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-var">$password&nbsp;</span>=&nbsp;<span class="src-str">'dbpass'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">try&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$dbh&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">PDO</span><span class="src-sym">(</span><span class="src-var">$dsn</span><span class="src-sym">,&nbsp;</span><span class="src-var">$user</span><span class="src-sym">,&nbsp;</span><span class="src-var">$password</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$conn&nbsp;</span>=&nbsp;<span class="src-id">Doctrine_Manager</span><span class="src-sym">::</span><span class="src-id">connection</span><span class="src-sym">(</span><span class="src-var">$dbh</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-sym">}&nbsp;</span>catch&nbsp;<span class="src-sym">(</span><span class="src-id">PDOException&nbsp;</span><span class="src-var">$e</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<span class="src-str">'Connection&nbsp;failed:&nbsp;'&nbsp;</span>.&nbsp;<span class="src-var">$e</span><span class="src-sym">-&gt;</span><span class="src-id">getMessage</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-php">?&gt;</span></div></li>
+</ol></pre></div>
+   Well, we can use dependency injection to setup a connection, let's see it in terms of context instance definitions:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;Setup&nbsp;the&nbsp;dbh&nbsp;instance:&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id&nbsp;=&nbsp;&quot;dbh&quot;&nbsp;class&nbsp;=&nbsp;&quot;PDO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;mysql:dbname=testdb;host=127.0.0.1&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;&lt;value&gt;dbuser&lt;/value&gt;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;&lt;value&gt;dbpass&lt;/value&gt;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;define&nbsp;the&nbsp;doctrine&nbsp;connection&nbsp;instance&nbsp;as&nbsp;the&nbsp;result</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;calling&nbsp;the&nbsp;connection&nbsp;factory&nbsp;method&nbsp;within&nbsp;the</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Doctrine_Manager&nbsp;class:&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id&nbsp;=&nbsp;&quot;conn&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;=&nbsp;&quot;Doctrine_Manager&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-method&nbsp;=&nbsp;&quot;connection&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;&lt;ref&nbsp;id=&quot;dbh&quot;/&gt;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+   <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td>To learn more about dependency injection in lion, see the <a href="../Context/tutorial_Context.DependencyInjection.pkg.html">Dependency Injection</a> section</td></tr></table></div></center>
+   <p>Now it's as easy as get the <i>conn</i> instance by asking the application context:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//gets&nbsp;the&nbsp;conn&nbsp;instance&nbsp;from&nbsp;the&nbsp;application&nbsp;context:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$conn&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getContextInstance</span><span class="src-sym">(</span><span class="src-str">'conn'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div>
+   Take the followin benefits of configuring Doctrine with Lion's dependency injection:
+   <ul><li>Maintain a configuration file declarativelly (vs. maintain a PHP source code programatically)</li>
+     <li>Let Lion to discover and resolve dependency between instances (vs. keep a concrete order to create instances programatically)</li>
+     <li>The connection instance is managed by the application context: it can be retrieved from whatever part within our code (vs. implementing singleton mechanism to make available our connection instance)</li></ul></p>
+   <p>Let's try now with a more complex example:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$conn&nbsp;</span>=&nbsp;<span class="src-var">$manager</span><span class="src-sym">-&gt;</span><span class="src-id">openConnection</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><span class="src-str">'mysql://username:password@localhost/dbname'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'connection&nbsp;1'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$conn2&nbsp;</span>=&nbsp;<span class="src-var">$manager</span><span class="src-sym">-&gt;</span><span class="src-id">openConnection</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><span class="src-str">'mysql://username2:password2@localhost/dbname2'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'connection&nbsp;2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$manager</span><span class="src-sym">-&gt;</span><span class="src-id">bindComponent</span><span class="src-sym">(</span><span class="src-str">'User'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'connection&nbsp;1'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$manager</span><span class="src-sym">-&gt;</span><span class="src-id">bindComponent</span><span class="src-sym">(</span><span class="src-str">'Group'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'connection&nbsp;2'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$q&nbsp;</span>=&nbsp;<span class="src-id">Doctrine_Query</span><span class="src-sym">::</span><span class="src-id">create</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Doctrine&nbsp;uses&nbsp;'connection&nbsp;1'&nbsp;for&nbsp;fetching&nbsp;here</span></div></li>
+<li><div class="src-line"><span class="src-var">$users&nbsp;</span>=&nbsp;<span class="src-var">$q</span><span class="src-sym">-&gt;</span><span class="src-id">from</span><span class="src-sym">(</span><span class="src-str">'User&nbsp;u'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">where</span><span class="src-sym">(</span><span class="src-str">'u.id&nbsp;IN&nbsp;(1,2,3)'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">execute</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Doctrine&nbsp;uses&nbsp;'connection&nbsp;2'&nbsp;for&nbsp;fetching&nbsp;here</span></div></li>
+<li><div class="src-line"><span class="src-var">$groups&nbsp;</span>=&nbsp;<span class="src-var">$q</span><span class="src-sym">-&gt;</span><span class="src-id">from</span><span class="src-sym">(</span><span class="src-str">'Group&nbsp;g'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">where</span><span class="src-sym">(</span><span class="src-str">'g.id&nbsp;IN&nbsp;(1,2,3)'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">execute</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-php">?&gt;</span></div></li>
+</ol></pre></div>
+   In this example, we are going to setup 2 connections, each one associated to a model class: One to handle User's persistence and the other one to handle Group's persistence. Each one connects to a different data source.</p>
+   <p>First thing to do will be to setup connection by ussing dependency injection, as shown in the following code:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id&nbsp;=&nbsp;&quot;doctrine_manager&quot;&nbsp;class=&quot;Doctrine_Manager&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id&nbsp;=&nbsp;&quot;conn&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-instance&nbsp;=&nbsp;&quot;doctrine_manager&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-method&nbsp;=&nbsp;&quot;openConnection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;mysql://username:password@localhost/dbname&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;connection&nbsp;1&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id&nbsp;=&nbsp;&quot;conn2&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-instance&nbsp;=&nbsp;&quot;doctrine_manager&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-method&nbsp;=&nbsp;&quot;openConnection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;mysql://username2:password2@localhost/dbname2&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;connection&nbsp;2&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>   
+   <p>Next, we'll associate each connection to each model class.<br />
+   The way to do that could be by ussing the same context.xml file, the only thing to take into account is the fact that we should need a manager::bindComponent method to get an array of pairs class, connection ids. Unfortunatelly we don't have this method within the original Doctrine API, so we could solve it by subclassing the Doctrine_Manager in order to add this method. i.e.:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">class&nbsp;</span><span class="src-id">LionDoctrine_Manager&nbsp;</span><span class="src-key">extends&nbsp;</span><span class="src-id">Doctrine_Manager&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">bindComponents</span><span class="src-sym">(</span><span class="src-key">array&nbsp;</span><span class="src-var">$components</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">foreach</span><span class="src-sym">(</span><span class="src-var">$components&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-var">$component_class&nbsp;</span>=&gt;&nbsp;<span class="src-var">$component_connection_id</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">bindComponent</span><span class="src-sym">(</span><span class="src-var">$component_class</span><span class="src-sym">,&nbsp;</span><span class="src-var">$component_connection_id</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div>
+   Now that we have the bindComponents method allowing to set an array of pairs, we are able to associate connections declarativelly within our context.xml. i.e.:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;We&nbsp;have&nbsp;changed&nbsp;the&nbsp;doctrine_manager&nbsp;class&nbsp;to&nbsp;point&nbsp;to&nbsp;our&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;LionDoctrine_Manager&nbsp;class&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id&nbsp;=&nbsp;&quot;doctrine_manager&quot;&nbsp;class=&quot;LionDoctrine_Manager&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;bindComponents&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;list&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&nbsp;key=&quot;User&quot;&gt;&lt;value&gt;connection&nbsp;1&lt;/value&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&nbsp;key=&quot;Group&quot;&gt;&lt;value&gt;connection&nbsp;2&lt;/value&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/list&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id&nbsp;=&nbsp;&quot;conn&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-instance&nbsp;=&nbsp;&quot;doctrine_manager&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-method&nbsp;=&nbsp;&quot;openConnection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;mysql://username:password@localhost/dbname&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;connection&nbsp;1&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id&nbsp;=&nbsp;&quot;conn2&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-instance&nbsp;=&nbsp;&quot;doctrine_manager&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-method&nbsp;=&nbsp;&quot;openConnection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;mysql://username2:password2@localhost/dbname2&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;connection&nbsp;2&lt;/value&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+   <p>Now we have everything configure in order to use the Doctrine API:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$q&nbsp;</span>=&nbsp;<span class="src-id">Doctrine_Query</span><span class="src-sym">::</span><span class="src-id">create</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;Doctrine&nbsp;uses&nbsp;'connection&nbsp;1'&nbsp;for&nbsp;fetching&nbsp;here</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$users&nbsp;</span>=&nbsp;<span class="src-var">$q</span><span class="src-sym">-&gt;</span><span class="src-id">from</span><span class="src-sym">(</span><span class="src-str">'User&nbsp;u'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">where</span><span class="src-sym">(</span><span class="src-str">'u.id&nbsp;IN&nbsp;(1,2,3)'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">execute</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;Doctrine&nbsp;uses&nbsp;'connection&nbsp;2'&nbsp;for&nbsp;fetching&nbsp;here</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$groups&nbsp;</span>=&nbsp;<span class="src-var">$q</span><span class="src-sym">-&gt;</span><span class="src-id">from</span><span class="src-sym">(</span><span class="src-str">'Group&nbsp;g'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">where</span><span class="src-sym">(</span><span class="src-str">'g.id&nbsp;IN&nbsp;(1,2,3)'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">execute</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p>
+   <p>Again, the summary is to let the framework handle the configuration to just focus on code.</p><br /></span>
+ <span><a name="propel"></a><h2>Propel</h2><p>Propel is an Object-Relational Mapping (ORM) framework for PHP5. It allows you to access your database using a set of objects, providing a simple API for storing and retrieving data.</p>
+   <center><div class="messagebox note metadata plainlinks"><table style="width:100%; background:none"><tr><td width="60"><img alt="" src="../images/note_icon.png" width="48" height="48" border="0" /></td><td>We are assuming that you have some knowledge about Propel and you have already defined/generated your model according to Propel documentation.<br />
+   To learn how, take a look at <a href="http://propel.phpdb.org/trac/">Propel home</a></td></tr></table></div></center>
+  <a name="propel.including_propel"></a><h3>Including Propel</h3><p>Propel has the following directory structure out of the box:</p>
+   <img src="../images/Model/PropelDirStructure.png" border="0">
+   <p>The only file that we're going to include is the Propel.php, placed within the propel <i>runtime/classes/propel</i> directory. The Propel.php contains the main class Propel, which has an autoload method in charge of include the rest of files as soon as they are needed.</p>
+   <p>First of all, we need to place Propel inside our project. A good practice is to use a directory to place all the third-party libraries. We usually place our libraries within a directory <i>thrdparty</i> under the <i>libs</i> (<i>/libs/thrdparty/</i>) just to keep a placing convention, but it could be placed wherever</p>
+   <p>Second, we need to include the Propel.php file, so we can do that easily by adding an entry within the <i>app/config/includepath.xml</i> file:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;classes&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;cluster&nbsp;name&nbsp;=&nbsp;&quot;Propel&nbsp;classes&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path=&quot;/libs/thrdparty/Propel/runtime/classes/propel&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;name=&quot;Propel&quot;&nbsp;file=&quot;Propel.php&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/cluster&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/classes&gt;</div></li>
+</ol></pre></div>
+   So, the Propel.php file will be included just when needed, more like <i>on demand</i>, it is, just when the Propel class is used.</p>
+   <p>Now let's register the Propel autoload function that we have told about within our configuration file as following:
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;configuration-directives&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;autoload&nbsp;class=&quot;Propel&quot;&nbsp;method=&quot;autoload&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/configuration-directives&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+   This will register the Propel autoload callback instead of ussing the <i>spl_autoload_register</i> function directly within our code.</p>
+   <p>Now we are able to consume propel API directly from our model.</p><br /></span></div>
+      </td></tr></table>

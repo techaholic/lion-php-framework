@@ -1,0 +1,37 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Custom components</h1>
+  <div class="ref-purpose">Powering the reusability</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../View/Components/tutorial_View.CustomComponents.pkg.html#intro">Custom components</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Custom components</h2><p>In fact, component is more like a synonym of reusability: We don't want to develop again and again the same calendar widget.</p>
+   <p>Lion has been designed to make pretty easy the creation of new components, as this is a really common practice on application development.<br />
+   It has a clear separation between the component logic and the UI rendering, allowing several representations over the same components for several client types.</p>
+   <p>There are some pieces within Lion destined to ease the binding between component's properties and client representation:<br />
+   Lion understand the end-point concept associated to terminal pieces envolved on client-server synchronization. A client end-point is the piece on the client side, i.e. a javascript object property. Analog to the server end-point, i.e. a component property.</p>
+   <p>Lion exposes an API to establish bindings between client and server end-points. i.e. to bind the value property of a textbox component to the HTML input value representing it.</p>
+   <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">class&nbsp;</span><a href="../../ComponentModel/__InputBoxHtmlWriter.html">__InputBoxHtmlWriter</a>&nbsp;<span class="src-key">extends&nbsp;</span><a href="../../ComponentModel/__ComponentWriter.html">__ComponentWriter</a>&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;bind&nbsp;a&nbsp;given&nbsp;component's&nbsp;property&nbsp;(value)&nbsp;with&nbsp;an&nbsp;HTML</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;element&nbsp;property.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../../ComponentModel/__InputBoxHtmlWriter.html#methodbindComponentToClient">bindComponentToClient</a><span class="src-sym">(</span><span class="src-id">__IComponent&nbsp;</span><span class="src-sym">&amp;</span><span class="src-var">$component</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id"><a href="../../ComponentModel/__UIBindingManager.html">__UIBindingManager</a></span><span class="src-sym">::</span><a href="../../ComponentModel/__UIBindingManager.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">bind</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//server&nbsp;end-point:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../ComponentModel/__ComponentProperty.html">__ComponentProperty</a></span><span class="src-sym">(</span><span class="src-var">$component</span><span class="src-sym">,&nbsp;</span><span class="src-str">'value'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//client&nbsp;end-point:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../ComponentModel/__HtmlElementProperty.html">__HtmlElementProperty</a></span><span class="src-sym">(</span><span class="src-var">$component</span><span class="src-sym">-&gt;</span><span class="src-id">getId</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-str">'value'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+</ol></pre></div></span></div>
+      </td></tr></table>

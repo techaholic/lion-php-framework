@@ -1,0 +1,897 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __CaptchaValidatorComponent</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-consts">Constants</a>
+						</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		This file is part of lion framework.<br /><br /><p>Copyright (c) 2011 Antonio Parraga Navarro</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>Author:</b>&nbsp;&nbsp;</td><td>Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Version:</b>&nbsp;&nbsp;</td><td>1.4</td>
+  </tr>
+  <tr>
+    <td><b>Copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2011 Antonio Parraga Navarro</td>
+  </tr>
+  <tr>
+    <td><b>Link:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org">http://www.lionframework.org</a></td>
+  </tr>
+  <tr>
+    <td><b>License:</b>&nbsp;&nbsp;</td><td><a href="http://www.lionframework.org/license.html">http://www.lionframework.org/license.html</a></td>
+  </tr>
+</table>
+
+		
+		<pre><a href="../ComponentModel/__UIComponent.html">__UIComponent</a>
+   |
+   --<a href="../ComponentModel/__ValidationRuleComponent.html">__ValidationRuleComponent</a>
+      |
+      --__CaptchaValidatorComponent</pre>
+
+				</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__CaptchaValidatorComponent.html#var$_captcha_image_component">$_captcha_image_component</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__CaptchaValidatorComponent.html#methodgetCaptcha">getCaptcha</a></li>
+		  		  <li><a href="../ComponentModel/__CaptchaValidatorComponent.html#methodsetCaptcha">setCaptcha</a></li>
+		  		  <li><a href="../ComponentModel/__CaptchaValidatorComponent.html#method_doValidation">_doValidation</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-inherited"></a>
+		<h2>Inherited Properties, Constants, and Methods</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<span class="disabled">Inherited Properties, Constants, and Methods</span>
+			|											<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-consts">Constants</a>
+						</div>
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__ValidationRuleComponent.html">__ValidationRuleComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_acceptance">__ValidationRuleComponent::$_acceptance</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_allowed_extensions">__ValidationRuleComponent::$_allowed_extensions</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_component">__ValidationRuleComponent::$_component</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_component_index">__ValidationRuleComponent::$_component_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_error_message">__ValidationRuleComponent::$_error_message</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_format">__ValidationRuleComponent::$_format</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_mandatory">__ValidationRuleComponent::$_mandatory</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_match_component">__ValidationRuleComponent::$_match_component</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_match_component_index">__ValidationRuleComponent::$_match_component_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_maximum_number">__ValidationRuleComponent::$_maximum_number</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_max_file_size">__ValidationRuleComponent::$_max_file_size</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_max_length">__ValidationRuleComponent::$_max_length</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_minimum_number">__ValidationRuleComponent::$_minimum_number</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_min_length">__ValidationRuleComponent::$_min_length</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_only_integer">__ValidationRuleComponent::$_only_integer</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_on_invalid">__ValidationRuleComponent::$_on_invalid</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_pattern">__ValidationRuleComponent::$_pattern</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_report_after_component">__ValidationRuleComponent::$_report_after_component</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_report_after_component_index">__ValidationRuleComponent::$_report_after_component_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_report_after_element">__ValidationRuleComponent::$_report_after_element</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_specific_number">__ValidationRuleComponent::$_specific_number</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_validate_only_on_blur">__ValidationRuleComponent::$_validate_only_on_blur</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_validate_only_on_submit">__ValidationRuleComponent::$_validate_only_on_submit</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_validation_result">__ValidationRuleComponent::$_validation_result</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_valid_length">__ValidationRuleComponent::$_valid_length</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#var$_wait">__ValidationRuleComponent::$_wait</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="attribute-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_alias">__UIComponent::$_alias</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_binding_codes">__UIComponent::$_binding_codes</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_container">__UIComponent::$_container</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_disabled">__UIComponent::$_disabled</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_id">__UIComponent::$_id</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_index">__UIComponent::$_index</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_name">__UIComponent::$_name</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_persist">__UIComponent::$_persist</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_progress">__UIComponent::$_progress</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_properties">__UIComponent::$_properties</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_validator_ids">__UIComponent::$_validator_ids</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_view_code">__UIComponent::$_view_code</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#var$_visible">__UIComponent::$_visible</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="40%" valign = "top"> 
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__ValidationRuleComponent.html">__ValidationRuleComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetAcceptance">__ValidationRuleComponent::getAcceptance()</a><br>
+											Get if an associated checkbox (or boolean-domain component) must be checked to be valid.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetAllowedExtensions">__ValidationRuleComponent::getAllowedExtensions()</a><br>
+											Gets an array of allowed extensions for input files
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetComponent">__ValidationRuleComponent::getComponent()</a><br>
+											Retrieves the component name that current validation rule is regarding to
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetComponentForErrorReporting">__ValidationRuleComponent::getComponentForErrorReporting()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetComponentIndex">__ValidationRuleComponent::getComponentIndex()</a><br>
+											Get the index of the component to validate to (if applicable)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetComponentToMatch">__ValidationRuleComponent::getComponentToMatch()</a><br>
+											Get the component to validate if the associated component's value match with the given compoennt's value
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetComponentToValidate">__ValidationRuleComponent::getComponentToValidate()</a><br>
+											Get the component to be validated by the current validator
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetErrorMessage">__ValidationRuleComponent::getErrorMessage()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetFormat">__ValidationRuleComponent::getFormat()</a><br>
+											Gets the identifier representing the valid format to validate as
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetMandatory">__ValidationRuleComponent::getMandatory()</a><br>
+											Get if the related component's value is mandatory
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetMatchComponent">__ValidationRuleComponent::getMatchComponent()</a><br>
+											Get the name of a component to validate if the associated component's value match with the given compoennt's value
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetMatchComponentIndex">__ValidationRuleComponent::getMatchComponentIndex()</a><br>
+											Get the index of the component to validate if associated component's value match with (if applicable)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetMaxFileSize">__ValidationRuleComponent::getMaxFileSize()</a><br>
+											Get the maximum size to allow in __IUploader component (in bytes)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetMaximumNumber">__ValidationRuleComponent::getMaximumNumber()</a><br>
+											Get the maximum number allowed within the associated component to validate to.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetMaxLength">__ValidationRuleComponent::getMaxLength()</a><br>
+											Get the maximum length allowed to the related component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetMinimumNumber">__ValidationRuleComponent::getMinimumNumber()</a><br>
+											Get the minimum number allowed within the associated component to validate to.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetMinLength">__ValidationRuleComponent::getMinLength()</a><br>
+											Get the minimum length allowed to the related component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetOnInvalid">__ValidationRuleComponent::getOnInvalid()</a><br>
+											Gets the method to be execute if the validation fails (null is by default)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetOnlyInteger">__ValidationRuleComponent::getOnlyInteger()</a><br>
+											Get if the assocaited component must allow just numeric values
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetPattern">__ValidationRuleComponent::getPattern()</a><br>
+											Gets the regular expression to match for valid values
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetReportAfterComponent">__ValidationRuleComponent::getReportAfterComponent()</a><br>
+											Get the name of the component to show validation messages after
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetReportAfterComponentIndex">__ValidationRuleComponent::getReportAfterComponentIndex()</a><br>
+											Get the index of the component to report errors after (if applicable)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetReportAfterElement">__ValidationRuleComponent::getReportAfterElement()</a><br>
+											Get the name of an HTML element ot show validation message after
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetSpecificNumber">__ValidationRuleComponent::getSpecificNumber()</a><br>
+											Get an specific nubmer to validate if the associated component match to
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetValidateOnlyOnBlur">__ValidationRuleComponent::getValidateOnlyOnBlur()</a><br>
+											Get if the associated component must be validated as soon as it lose the focus
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetValidateOnlyOnSubmit">__ValidationRuleComponent::getValidateOnlyOnSubmit()</a><br>
+											Get if the associated component must be validated just when the contained form is submitted.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetValidationResult">__ValidationRuleComponent::getValidationResult()</a><br>
+											Get the last validation result (a boolean indicating if the component was validated successfully or if any error was raised)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetValidFormat">__ValidationRuleComponent::getValidFormat()</a><br>
+											Get the valid format allowed to the related component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetValidLength">__ValidationRuleComponent::getValidLength()</a><br>
+											Get the valid length allowed to the related component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodgetWait">__ValidationRuleComponent::getWait()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodresetValidation">__ValidationRuleComponent::resetValidation()</a><br>
+											Reset the last validation result, as if the component was never validated.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetAcceptance">__ValidationRuleComponent::setAcceptance()</a><br>
+											Set if an associated checkbox (or boolean component) must be checked to be valid.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetAllowedExtensions">__ValidationRuleComponent::setAllowedExtensions()</a><br>
+											Sets allowed extensions for input files
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetComponent">__ValidationRuleComponent::setComponent()</a><br>
+											Set the component name that current validation rule is regarding to
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetComponentIndex">__ValidationRuleComponent::setComponentIndex()</a><br>
+											Set the index of the component to validate to (if applicable)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetErrorMessage">__ValidationRuleComponent::setErrorMessage()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetFormat">__ValidationRuleComponent::setFormat()</a><br>
+											Sets an identifier representing the valid format to validate as  i.e. 'email' to validate emails values
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetMandatory">__ValidationRuleComponent::setMandatory()</a><br>
+											Set if the related component's value is mandatory
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetMatchComponent">__ValidationRuleComponent::setMatchComponent()</a><br>
+											Set the name of a component to validate if the associated component's value match with the given component's value
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetMatchComponentIndex">__ValidationRuleComponent::setMatchComponentIndex()</a><br>
+											Set the index of the component to validate if associated component's value match with (if applicable)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetMaxFileSize">__ValidationRuleComponent::setMaxFileSize()</a><br>
+											Set the maximum size to allow in __IUploader components (in bytes)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetMaximumNumber">__ValidationRuleComponent::setMaximumNumber()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetMaxLength">__ValidationRuleComponent::setMaxLength()</a><br>
+											Set the maximum length allowed to the related component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetMinimumNumber">__ValidationRuleComponent::setMinimumNumber()</a><br>
+											Set the minimum number allowed within the associated component to validate to.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetMinLength">__ValidationRuleComponent::setMinLength()</a><br>
+											Set the minimum length allowed to the related component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetOnInvalid">__ValidationRuleComponent::setOnInvalid()</a><br>
+											Set the method to execute if the validation fails
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetOnlyInteger">__ValidationRuleComponent::setOnlyInteger()</a><br>
+											Set if the associated component must allow just numeric values
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetPattern">__ValidationRuleComponent::setPattern()</a><br>
+											Set a regular expression to match for valid values
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetReportAfterComponent">__ValidationRuleComponent::setReportAfterComponent()</a><br>
+											Set the name of a component to show validation messages after
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetReportAfterComponentIndex">__ValidationRuleComponent::setReportAfterComponentIndex()</a><br>
+											Set the index of the component to report errors after (if applicable)
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetReportAfterElement">__ValidationRuleComponent::setReportAfterElement()</a><br>
+											Set the mame of an HTML element to show validation messages after
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetSpecificNumber">__ValidationRuleComponent::setSpecificNumber()</a><br>
+											Set an specific number to validate if the associated component match to
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetValidateOnlyOnBlur">__ValidationRuleComponent::setValidateOnlyOnBlur()</a><br>
+											Set if the associated component must be validated as soon as it lose the focus
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetValidateOnlyOnSubmit">__ValidationRuleComponent::setValidateOnlyOnSubmit()</a><br>
+											Set if the associated component must be validated just when the contained form is submitted.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetValidFormat">__ValidationRuleComponent::setValidFormat()</a><br>
+											Set the valid format allowed to the related component by specifying a regular expression
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetValidLength">__ValidationRuleComponent::setValidLength()</a><br>
+											Set the valid length allowed to the related component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodsetWait">__ValidationRuleComponent::setWait()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#methodvalidate">__ValidationRuleComponent::validate()</a><br>
+											Perform the component to perform the validation
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#method_doValidation">__ValidationRuleComponent::_doValidation()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#method_getPrintableSize">__ValidationRuleComponent::_getPrintableSize()</a><br>
+											
+										</li>
+																	</ul>
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__UIComponent.html">__UIComponent</a></span></p>
+									<ul class="method-list">
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddBindingCode">__UIComponent::addBindingCode()</a><br>
+											Adds a binding code for a <a href="../ComponentModel/__UIBinding.html">__UIBinding</a> associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodaddProperty">__UIComponent::addProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetAlias">__UIComponent::getAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetBindingCodes">__UIComponent::getBindingCodes()</a><br>
+											Gets all the binding codes associated to current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetContainer">__UIComponent::getContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetDisabled">__UIComponent::getDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetEnabled">__UIComponent::getEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetHandledEvents">__UIComponent::getHandledEvents()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetId">__UIComponent::getId()</a><br>
+											Read only property that returns an unique identifier for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetIndex">__UIComponent::getIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetName">__UIComponent::getName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetParentContainerByClass">__UIComponent::getParentContainerByClass()</a><br>
+											Gets the first parent container of the given class
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetPersist">__UIComponent::getPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProgress">__UIComponent::getProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperties">__UIComponent::getProperties()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetProperty">__UIComponent::getProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetViewCode">__UIComponent::getViewCode()</a><br>
+											Gets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodgetVisible">__UIComponent::getVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleCallback">__UIComponent::handleCallback()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhandleEvent">__UIComponent::handleEvent()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasContainer">__UIComponent::hasContainer()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodhasProperty">__UIComponent::hasProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodisEventHandled">__UIComponent::isEventHandled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodregisterValidator">__UIComponent::registerValidator()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodresetValidation">__UIComponent::resetValidation()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetAlias">__UIComponent::setAlias()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetContainer">__UIComponent::setContainer()</a><br>
+											Sets a container for current component
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetDisabled">__UIComponent::setDisabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetEnabled">__UIComponent::setEnabled()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetId">__UIComponent::setId()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetIndex">__UIComponent::setIndex()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetName">__UIComponent::setName()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetPersist">__UIComponent::setPersist()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProgress">__UIComponent::setProgress()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetProperty">__UIComponent::setProperty()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetViewCode">__UIComponent::setViewCode()</a><br>
+											Sets the code of container view
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodsetVisible">__UIComponent::setVisible()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodupdateClient">__UIComponent::updateClient()</a><br>
+											Forces an update for all client end-points associated with current component.
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#methodvalidate">__UIComponent::validate()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toArray">__UIComponent::_toArray()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method_toBool">__UIComponent::_toBool()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__call">__UIComponent::__call()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__get">__UIComponent::__get()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__set">__UIComponent::__set()</a><br>
+											
+										</li>
+																			<li>
+											<a href="../ComponentModel/__UIComponent.html#method__toString">__UIComponent::__toString()</a><br>
+											
+										</li>
+																	</ul>
+											</td>
+					<td width="30%" valign = "top">
+													<p>Inherited From <span class="classname"><a href="../ComponentModel/__ValidationRuleComponent.html">__ValidationRuleComponent</a></span></p>
+							<ul class="constant-list">
+																			<li>
+											<a href="../ComponentModel/__ValidationRuleComponent.html#constFORMAT_EMAIL">__ValidationRuleComponent::FORMAT_EMAIL</a><br>
+											
+										</li>
+																</ul>
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-var-summary"></a>
+		<h2>Properties Summary</h2>
+	<div class="nav-bar">
+					<a href="#sec-description">Class Overview</a> |
+									<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|											<span class="disabled">Properties Summary</span> | <a href="#sec-vars">Properties Detail</a>
+						|											<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|											<a href="#sec-consts">Constants</a>
+						</div>
+
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+							<div class="var-title">
+					<tr><td valign="top" class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-title"><a href="#$_captcha_image_component" title="details" class="var-name-summary">$_captcha_image_component</a>&nbsp;&nbsp;</td>
+					<td valign="top" class="var-summary-description"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-consts">Constants</a>
+					    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__IComponent.html">__IComponent</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getCaptcha" title="details" class="method-name">getCaptcha</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Get the component to be validated by the current validator</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#setCaptcha" title="details" class="method-name">setCaptcha</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#_doValidation" title="details" class="method-name">_doValidation</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition"></td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+	<a name="sec-vars"></a>
+		<h2>Properties</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <span class="disabled">Properties Detail</span>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						|		    		    							<a href="#sec-consts">Constants</a>
+					    		</div>
+			<a name="var$_captcha_image_component" id="$_captcha_image_component"><!-- --></A>
+
+    <div class="var-header">
+        <span class="var-title">
+            <span class="var-type">mixed</span>&nbsp;&nbsp;
+            <span class="var-name">$_captcha_image_component</span>
+             = <span class="var-default"> null</span>        </span>
+    </div>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+    
+        <br />
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    			<a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+			|		    		    							<a href="#sec-var-summary">Properties Summary</a> | <a href="#sec-vars">Properties Detail</a>
+						|		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+						|		    		    							<a href="#sec-consts">Constants</a>
+					    		</div>
+			<a name='method_detail'></a>
+<a name="methodgetCaptcha" id="getCaptcha"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getCaptcha</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__IComponent.html">__IComponent</a> getCaptcha(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Get the component to be validated by the current validator<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodsetCaptcha" id="setCaptcha"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">setCaptcha</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void setCaptcha(
+
+$captcha_image_component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $captcha_image_component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method_doValidation" id="_doValidation"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">_doValidation</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>void _doValidation(
+<a href="../ComponentModel/__IComponent.html">__IComponent</a>
+&$component&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__IComponent.html">__IComponent</a></td>
+                <td class="defaultTd">
+                &$component</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+            <hr class="separator" />
+        <div class="notes">Redefinition of:</div>
+        <dl>
+            <dt><a href="../ComponentModel/__ValidationRuleComponent.html#method_doValidation">__ValidationRuleComponent::_doValidation()</a></dt>
+                    </dl>
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

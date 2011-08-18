@@ -1,0 +1,32 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="classes" type="classesType"/>
+  
+  <xsd:complexType name="classesType">
+    <xsd:sequence>
+      <xsd:element name="cluster" type="clusterType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="clusterType">
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="class"     type="classType" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element name="interface" type="interfaceType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="path" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  
+  <xsd:complexType name="classType">
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="file" type="xsd:string" use="required"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="interfaceType">
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="file" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  
+</xsd:schema>

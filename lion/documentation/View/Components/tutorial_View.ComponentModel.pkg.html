@@ -1,0 +1,46 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>The Component Model</h1>
+  <div class="ref-purpose">A component based framework</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../../View/Components/tutorial_View.ComponentModel.pkg.html#whats_a_component">What's a component?</a><br />
+
+<a href="../../View/Components/tutorial_View.ComponentModel.pkg.html#component_model">The component model</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../View/Components/tutorial_View.ComponentModel.pkg.html#component_model.comp_render_model">Component Tag Language</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../View/Components/tutorial_View.ComponentModel.pkg.html#component_model.event_mgmnt_system">Component Execution Model</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../../View/Components/tutorial_View.ComponentModel.pkg.html#component_model.set_of_ui_components">Default set of user interface components</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="whats_a_component"></a><h2>What's a component?</h2><p>User interface (UI) components, also known as controls or just components, are elements in charge of the interaction with the end user. It's done in several ways: by rendering the interface, sending client events to the server side, showing pieces of the model to the client, ...</p>
+   <p>Creating UI elements as components (like a calendar or a rich HTML input component) makes development easier because the core functions are encapsulated within a reusable piece of code.<br />
+   You just need to care on where to place the components as well as which logic will be executed for each event. If you have experience on classic desktop application development, you'll probably understand what we are talking about.</p>
+   <p><ul><li>A well defined, familiar idiom for UI design</li>
+     <li>Are configurable, reusable elements that compose the user interfaces of Lion application</li>
+     <li>Can be simple, like a button, or compound, like a table, which can be composed of multiple components</li>
+     <li>Extensible through composition, adding new components</li>
+     <li>Accessible via tags in template pages</li></ul></p></span>
+ <span><a name="component_model"></a><h2>The component model</h2><p>The Lion component model is compounded by the following parts:</p>
+  <p><ul><li>A component tag language to easily define components within our templates.</li>
+    <li>A component execution model which includes an event management system in charge of dispatch events fired from client side as well as synchronize component values between client and server.</li>
+    <li>A default set of user interface components out of the box.</li></ul></p>
+ <a name="component_model.comp_render_model"></a><h3>Component Tag Language</h3><p>The component tag language eases the definition of user interface components within our templates.</p>
+  <p>Component tag language offers an extendible XML-based syntax that is interpreted by the framework and replaced by client-side specific code in run-time (i.e. XHTML + javascript code).<br />
+  Note that Lion does not parse our templates once and again. Instead of that, it moves some information regarding the components to the cache in order to optimize the rendering process.</p> 
+  <p>See the <a href="../../View/Components/tutorial_View.ComponentTagLanguage.pkg.html">The Component Tag Language</a> section for more information</p><br />
+ <a name="component_model.event_mgmnt_system"></a><h3>Component Execution Model</h3><p>The component execution model is the piece in charge of:
+  <ul><li>Synchronize status between components and their client representation.</li>
+    <li>Execute the appropriate code in response to events, by delegating to the event management system.</li></ul></p>
+  <p>Component events (such a click in a button) are intercepted by Lion and sent to the correspondent <strong>Event Handler</strong>.<br />
+  All the views have an event handler associated to. The event handler usually contains specific logic to be executed in order to handle each event.</p>
+  <p>See the <a href="../../View/Components/tutorial_View.EventManagementSystem.pkg.html">Event Handlers</a> section for more information about event handlers.</p> 
+  <p>See the <a href="../../View/Components/tutorial_View.ComponentExecutionModel.pkg.html">The Component Execution Model</a> section for more information about how the Component Execution Model works internally in Lion.</p><br />  
+ <a name="component_model.set_of_ui_components"></a><h3>Default set of user interface components</h3><p>There are several user interface components out of the box within the Lion distribution</p>
+  <p>See the <a href="../../View/Components/tutorial_View.DefaultSetOfComponents.pkg.html">The Default Set of Components</a> section for more information about those components</p>
+  <p>See the <a href="../../View/Components/tutorial_View.WorkingWithComponents.pkg.html">Component types</a> section for more information about component classification</p><br /></span></div>
+      </td></tr></table>

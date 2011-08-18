@@ -1,0 +1,16 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Ussing DAOs</h1>
+  <div class="ref-purpose">Isolating data access layer</div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Model/tutorial_UssingDaos.pkg.html#whats_a_dao">What's a DAO</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="whats_a_dao"></a><h2>What's a DAO</h2><p>a Data Access Object (DAO) is an object that provides an abstract interface to some type of database or persistence mechanism, providing some specific operations without exposing details of the database. This isolation separates the concerns of what data accesses the application needs, in terms of domain-specific objects and data types (the public interface of the DAO), and how these needs can be satisfied with a specific DBMS, database schema, etc. (the implementation of the DAO).</p>
+  <p>The advantage of using data access objects is the relatively simple and rigorous separation between two important parts of an application which can and should know almost nothing of each other, and which can be expected to evolve frequently and independently.<br />
+  Changing business logic can rely on the same DAO interface, while changes to persistence logic do not affect DAO clients as long as the interface remains correctly implemented.</p></span>
+ <span><a name="@id configuring_daos}"></a><h2>Configuring DAOs</h2></span></div>
+      </td></tr></table>

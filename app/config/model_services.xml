@@ -1,0 +1,11 @@
+<?xml version = "1.0" standalone="yes"?>
+
+<configuration>
+
+  <model-services>
+
+  <!-- place here your model service definitions -->
+  
+  </model-services>
+  
+</configuration>

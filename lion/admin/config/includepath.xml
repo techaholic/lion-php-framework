@@ -1,0 +1,25 @@
+<?xml version = "1.0" standalone="yes"?>
+<classes>
+
+  <!-- Controllers -->
+  <cluster name="Controllers" path="/libs/controllers/...">
+    <class name="__*" file="*.class.php"/>
+  </cluster>
+
+  <!-- Event handlers -->
+  <cluster name="Event handlers" path="/libs/eventhandlers/...">
+    <class name="__*" file="*.class.php"/>
+  </cluster>
+  
+  <!-- Helpers -->
+  <cluster name="Helpers" path="/libs/helpers/...">
+    <class name="__*" file="*.class.php"/>
+  </cluster>
+  
+  <!-- Model classes -->
+  <cluster name="Model Service Classes" path="/libs/model/...">
+    <class name="__*" file="*.class.php"/>
+  </cluster>  
+  
+</classes>
+

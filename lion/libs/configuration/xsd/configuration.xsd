@@ -1,0 +1,413 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.lionframework.org"
+           xmlns="http://www.lionframework.org"
+           elementFormDefault="unqualified">
+<xs:annotation> 
+  <xs:documentation>
+Lion configuration schema (v.1.0)
+
+  </xs:documentation> 
+</xs:annotation> 
+
+  <xs:element name="configuration" type="configuration-type">
+<xs:annotation> 
+  <xs:documentation>
+    <p>Lion configuration is enclosed by configuration tags.</p>
+  </xs:documentation>
+</xs:annotation>   
+  </xs:element>
+
+  <xs:complexType name="configuration-type">
+    <xs:sequence>
+      <xs:element name="configuration-directives" type="configuration-directives-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="include" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="supported-languages" type="supported-languages-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="role-definitions" type="role-definitions-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="permission-definitions" type="permission-definitions-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="controller-definitions" type="controller-definitions-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="view-definitions" type="view-definitions-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="instances" type="instances-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="model-services" type="model-services-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="filters" type="filters-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="errors" type="errors-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="resource-providers" type="resource-providers-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="routes" type="routes-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ui-components" type="ui-components-type" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>  
+  
+  <!-- CONFIGURATION DIRECTIVES -->  
+  <xs:complexType name="configuration-directives-type">
+<xs:annotation> 
+  <xs:documentation>
+  <p>Configuration directives are the first nodes that are 
+  processed by the __ConfigurationLoader class.<br/>
+  It contains information regarding how Lion should parse the
+  rest of the configuration file.</p>
+  <p>Configuration directives are allowed just in the main 
+  configuration file (the config.xml file located in the root 
+  directory)<br/>
+  It doesn't mean that if you use configuration directives
+  in an included files it will result in an error. It will 
+  just be ignored.
+  </p>
+  </xs:documentation>
+</xs:annotation>   
+    <xs:sequence>
+      <xs:element name="configuration-basedir" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+
+  <!-- SUPPORTED LANGUAGES -->
+  <xs:complexType name="supported-languages-type">
+<xs:annotation> 
+  <xs:documentation>
+  <p>The supported-languages node is used to specify all the
+  languages that your application will support.</p>
+  <p>All supported languages are enclosed by language tags 
+  by ussing the language iso code for each one (ISO 639)</p>
+  </xs:documentation> 
+</xs:annotation>
+    <xs:sequence>
+      <xs:element name="language" type="language-iso-code-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <!-- ROLE DEFINITIONS -->
+  <xs:complexType name="role-definitions-type">
+    <xs:sequence>
+      <xs:element name="role" type="role-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="role-type">
+    <xs:sequence>
+      <xs:element name="permissions"  type="role-permissions-type"  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="junior-roles" type="junior-roles-type" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="role-permissions-type">
+    <xs:sequence>
+      <xs:element name="permission"  type="permission-reference-type"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="junior-roles-type">
+    <xs:sequence>
+      <xs:element name="role"  type="junior-role-type"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="junior-role-type">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+
+
+  <!-- PERMISSION DEFINITIONS -->
+  <xs:complexType name="permission-definitions-type">
+    <xs:sequence>
+      <xs:element name="permission" type="permission-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="permission-type">
+    <xs:sequence>
+      <xs:element name="junior-permissions" type="junior-permissions-type" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="description" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="junior-permissions-type">
+    <xs:sequence>
+      <xs:element name="permission"  type="permission-type"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <!-- VIEW DEFINITIONS -->
+  <xs:complexType name="view-definitions-type">
+    <xs:sequence>
+      <xs:element name="view"  type="view-type"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="view-type">
+    <xs:sequence>
+      <xs:element name="property" type="property-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="code" type="xs:string" use="required"/>
+    <xs:attribute name="class" type="xs:string"/>
+  </xs:complexType>
+
+
+
+  <!-- INSTANCE DEFINITIONS -->
+  <xs:complexType name="instances-type">
+    <xs:sequence>
+      <xs:element name="instance"  type="instance-type"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="instance-type">
+    <xs:sequence>
+      <xs:element name="property"  type="instance-property-type"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="class" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="instance-property-type">
+    <xs:choice>
+      <xs:element name="instance" type="instance-type"/>
+      <xs:element name="ref" type="instance-reference-type"/>
+      <xs:element name="list" type="instance-list-type"/>
+    </xs:choice>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="instance-reference-type">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="instance-list-type">
+    <xs:sequence>
+      <xs:element name="ref" type="instance-reference-type" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="list" type="instance-list-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <!-- MODEL SERVICES -->
+  <xs:complexType name="model-services-type">
+    <xs:sequence>
+      <xs:element name="class"  type="model-service-class-type"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="model-service-class-type">
+    <xs:sequence>
+      <xs:element name="service"  type="model-service-type"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="model-service-type">
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="class-method" type="xs:string" use="required"/>
+  </xs:complexType>
+
+
+
+  <!-- CONTROLLER DEFINITIONS -->
+  <xs:complexType name="controller-definitions-type">
+    <xs:sequence>
+      <xs:element name="controller" type="controller-type"/>
+    </xs:sequence>
+  </xs:complexType>
+ 
+  <xs:complexType name="controller-type">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="property"   type="property-type" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="permission" type="permission-reference-type" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="code" type="xs:string" use="required"/>
+    <xs:attribute name="class" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="property-type">
+    <xs:attribute name="name"  type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+
+
+
+  <!-- FILTERS -->
+  <xs:complexType name="filters-type">
+    <xs:sequence>
+      <xs:element name="filter" type="filter-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="filter-type">
+    <xs:sequence>
+      <xs:element name="apply-to" type="filter-apply-to-type"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="class" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="filter-apply-to-type">
+    <xs:sequence>
+      <xs:element name="route" type="route-reference-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <!-- ERRORS -->
+  <xs:complexType name="errors-type">
+    <xs:sequence>
+      <xs:element name="error-group" type="error-group-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="error-group-type">
+    <xs:sequence>
+      <xs:element name="error" type="error-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="exception-class" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="error-type">
+    <xs:attribute name="code" type="xs:positiveInteger" use="required"/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+
+
+  <!-- RESOURCE PROVIDERS: -->
+  <xs:complexType name="resource-providers-type">
+    <xs:sequence>
+      <xs:element name="resource-provider" type="resource-provider-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="resource-provider-type">
+    <xs:sequence>
+      <xs:element name="resource-class" type="resource-class-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="resource-storage" type="resource-storage-type" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="class" type="xs:string" use="required"/>
+    <xs:attribute name="description" type="xs:string"/>
+    <xs:attribute name="persistence-level" type="persistence-level-type"/>
+  </xs:complexType>
+
+  <xs:complexType name="resource-class-type">
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="resource-storage-type">
+    <xs:sequence>
+      <xs:element name="property" type="property-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <!-- ROUTES: -->
+  <xs:complexType name="routes-type">
+    <xs:sequence>
+      <xs:element name="route" type="route-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="route-type">
+    <xs:sequence>
+      <xs:element name="front-controller" type="route-front-controller-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="action" type="route-action-type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="if-equals" type="route-if-equals-type" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="if-isset" type="route-if-isset-type" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="variable" type="route-variable-type" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="paramter" type="parameter-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="uri-pattern" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="route-front-controller-type">
+    <xs:attribute name="class" type="xs:string" use="required"/>
+  </xs:complexType>
+  
+  <xs:complexType name="route-action-type">
+    <xs:attribute name="controller" type="xs:string" use="required"/>
+    <xs:attribute name="code" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="route-if-equals-type">
+    <xs:sequence>
+      <xs:element name="parameter" type="parameter-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="variable" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="route-if-isset-type">
+    <xs:sequence>
+      <xs:element name="parameter" type="parameter-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="variable" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="route-variable-type">
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="var-pattern" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="parameter-type">
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+
+
+
+
+  <!-- UI COMPONENTS: -->
+  <xs:complexType name="ui-components-type">
+    <xs:sequence>
+      <xs:element name="ui-component" type="ui-component-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ui-component-type">
+    <xs:attribute name="tag-name" type="xs:string" use="required"/>
+    <xs:attribute name="class" type="xs:string" use="required"/>
+  </xs:complexType>
+
+
+
+  <!-- REFERENCE TYPES: -->
+  <xs:complexType name="permission-reference-type">
+    <xs:attribute name="id"  type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="route-reference-type">
+    <xs:attribute name="id"  type="xs:string" use="required"/>
+  </xs:complexType>
+
+
+
+  <!-- SIMPLE TYPES: -->
+  <xs:simpleType name="language-iso-code-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="persistence-level-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="session"/>
+      <xs:enumeration value="action"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="yes-or-not-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+</xs:schema>

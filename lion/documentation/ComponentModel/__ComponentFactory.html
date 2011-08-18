@@ -1,0 +1,216 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h1>Class: __ComponentFactory</h1>
+<br />
+
+<a name="sec-description"></a>
+	<h2>Class Overview</h2>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span> |
+																	<a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+											</div>
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+		Factory for instances implementing the <a href="../ComponentModel/__IComponent.html">__IComponent</a> interface<br /><br /><table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>See:</b>&nbsp;&nbsp;</td><td><a href="../ComponentModel/__IComponent.html">__IComponent</a>, <a href="../ComponentModel/__UIComponent.html">__UIComponent</a>, <a href="../ComponentModel/__ComponentSpec.html">__ComponentSpec</a>, <a href="../ComponentModel/__ICompositeComponent.html">__ICompositeComponent</a></td>
+  </tr>
+</table>
+
+		
+		<pre></pre>
+
+				</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec-methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../ComponentModel/__ComponentFactory.html#methodcreateComponent">createComponent</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentFactory.html#methodgetInstance">getInstance</a></li>
+		  		  <li><a href="../ComponentModel/__ComponentFactory.html#method_resolveComponentId">_resolveComponentId</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+
+
+
+	<a name="sec-method-summary"></a>
+		<h2>Method Summary</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    		    							<span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+								    		    		</div>
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__IComponent.html">__IComponent</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#createComponent" title="details" class="method-name">&amp;createComponent</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Factory method for component creation according to the given parameters.</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result"><a href="../ComponentModel/__ComponentFactory.html">__ComponentFactory</a></span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#getInstance" title="details" class="method-name">&amp;getInstance</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Gets a <a href="../ComponentModel/__ComponentFactory.html">__ComponentFactory</a> singleton instance</td></tr>
+				</div>
+								<div class="method-definition">
+											<tr><td valign="top" class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td valign="top" class="method-definition"><a href="#_resolveComponentId" title="details" class="method-name">_resolveComponentId</a>()&nbsp;&nbsp;</td>
+					<td valign="top" class="method-definition">Resolve an unique identifier for a component (using the component spec identifier and the component index (if applicable) as seed)</td></tr>
+				</div>
+								</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+
+
+	<a name="sec-methods"></a>
+		<h2>Methods</h2>
+		<div class="nav-bar">
+  		    			<a href="#sec-description">Class Overview</a> |
+		    		    		    		    		    							<a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+								    		    		</div>
+			<a name='method_detail'></a>
+<a name="methodcreateComponent" id="createComponent"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">createComponent</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__IComponent.html">__IComponent</a> &amp;createComponent(
+mixed
+$component_spec_or_tag, [
+$component_index = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Factory method for component creation according to the given parameters.<br /><br /><p>example of usage  <div class="listing"><pre><ol><li><div class="src-line">&nbsp;<span class="src-comm">//create&nbsp;a&nbsp;component&nbsp;by&nbsp;giving&nbsp;a&nbsp;tag&nbsp;name</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$commandlink&nbsp;</span>=&nbsp;<span class="src-id"><a href="../ComponentModel/__ComponentFactory.html">__ComponentFactory</a></span><span class="src-sym">::</span><a href="../ComponentModel/__ComponentFactory.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../ComponentModel/__ComponentFactory.html#methodcreateComponent">createComponent</a><span class="src-sym">(</span><span class="src-str">&quot;commandlink&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-comm">//create&nbsp;a&nbsp;component&nbsp;by&nbsp;giving&nbsp;a&nbsp;component&nbsp;spec:</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$commandlink_spec&nbsp;</span>=&nbsp;<span class="src-id"><a href="../ComponentModel/__ComponentSpecFactory.html">__ComponentSpecFactory</a></span><span class="src-sym">::</span><a href="../ComponentModel/__ComponentSpecFactory.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">createComponentSpec</span><span class="src-sym">(</span><span class="src-str">&quot;commandlink&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$commandlink&nbsp;</span>=&nbsp;<span class="src-id"><a href="../ComponentModel/__ComponentFactory.html">__ComponentFactory</a></span><span class="src-sym">::</span><a href="../ComponentModel/__ComponentFactory.html#methodcreateComponent">createComponent</a><span class="src-sym">(</span><span class="src-var">$commandlink_spec</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                mixed</td>
+                <td class="defaultTd">
+                $component_spec_or_tag</td>
+                <td class="defaultTd">
+                A <a href="../ComponentModel/__ComponentSpec.html">__ComponentSpec</a> instance or a tag name            </td></tr>
+                    <tr><td class="defaultTd">
+                </td>
+                <td class="defaultTd">
+                $component_index</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">getInstance</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code><a href="../ComponentModel/__ComponentFactory.html">__ComponentFactory</a> &amp;getInstance(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Gets a <a href="../ComponentModel/__ComponentFactory.html">__ComponentFactory</a> singleton instance<br /><br />                <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+<a name="method_resolveComponentId" id="_resolveComponentId"><!-- --></a>
+
+<div class="method-header">
+    <h3 class="method-title">_resolveComponentId</h3>
+</div>
+<br />
+
+    <div class="function">
+    <!--  <strong>Prototype:</strong> -->
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+        <code>string _resolveComponentId(
+<a href="../ComponentModel/__ComponentSpec.html">__ComponentSpec</a>
+$component_spec, [$component_index
+$component_index = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+                <!--  <strong>Description:</strong><br /> -->
+        Resolve an unique identifier for a component (using the component spec identifier and the component index (if applicable) as seed)<br /><br />                            <br />
+        <strong>Parameters:</strong><br />
+            <table width="90%" class="defaultTable">
+                        <thead class="defaultThead">
+            <tr><td class="defaultTd"><strong>Type</strong></td><td class="defaultTd"><strong>Name</strong></td><td class="defaultTd"><strong>Description</strong></td></tr>
+                        </thead>
+                        <tbody>
+                    <tr><td class="defaultTd">
+                <a href="../ComponentModel/__ComponentSpec.html">__ComponentSpec</a></td>
+                <td class="defaultTd">
+                $component_spec</td>
+                <td class="defaultTd">
+                            </td></tr>
+                    <tr><td class="defaultTd">
+                $component_index</td>
+                <td class="defaultTd">
+                $component_index</td>
+                <td class="defaultTd">
+                            </td></tr>
+                                 </tbody>
+        </table>
+                <br />
+        <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+    
+            </div>
+    <br />
+    <br>
+
+
+
+      </td></tr></table>

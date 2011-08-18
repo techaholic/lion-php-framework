@@ -1,0 +1,40 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Troubleshooting</h1>
+  <div class="ref-purpose"></div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Lion/tutorial_Lion.CommonTroubles.pkg.html#q1">1. I get an error 55601: Unknown Url format</a><br />
+
+<a href="../Lion/tutorial_Lion.CommonTroubles.pkg.html#q2">2. A Forbidden error is shown when I try to execute an application from the browser</a><br />
+
+<a href="../Lion/tutorial_Lion.CommonTroubles.pkg.html#q3">3. A 404 error is shown when I try to execute the index.html page</a><br />
+
+<a href="../Lion/tutorial_Lion.CommonTroubles.pkg.html#q4">4. I get a Javascript error on some tutorials, such as the &quot;Hello World Deluxe&quot;.</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="q1"></a><h2>1. I get an error 55601: Unknown Url format</h2><p>Ensure that your web server url rewrite engine is working (i.e. for Apache users: ensure that the <strong>mod rewrite</strong> module is enabled as well as the Apache <strong>AllowOverride</strong> directive).</p>
+  <p>Also check the .htaccess file located in the root directory of your application. Sometimes, depending on your server configuration, you may need to fix the directory where your application is located within your web server:
+  <div class="listing"><pre><ol><li><div class="src-line">...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;<span class="src-id">IfModule&nbsp;mod_rewrite</span>.<span class="src-id">c</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">RewriteEngine&nbsp;On</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">#fix&nbsp;the&nbsp;following&nbsp;directive&nbsp;if&nbsp;you&nbsp;experience&nbsp;problems&nbsp;with&nbsp;url&nbsp;redirections:</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">your_application</span>/<span class="src-id">directory</span>/<span class="src-id">here&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;...</div></li>
+</ol></pre></div></p>
+  <p><strong>Note:</strong> Lion has its own Url rewrite engine. A common mistake is to try and make a call directly to the &quot;index.php&quot; file from the browser (i.e. http://yourdomain/index.php).<br />
+  Instead, try using an URL ending with the <i>.html</i> extension (i.e. http://yourdomain/index.html). This is the default url format out of the box for Lion. Don't worry though, you can change this behavior by customizing and defining your own routes. Take a look at <a href="../Request/tutorial_Request.UrlRouting.pkg.html">URLs and Routes</a> for more information on how to do this.</p>
+  <p>Also take a look at <a href="../Lion/Installation/tutorial_Lion.SystemRequirements.pkg.html">System requirements</a> and <a href="../Lion/tutorial_Lion.Install.pkg.html">Installation</a> section.</p></span>
+ <span><a name="q2"></a><h2>2. A Forbidden error is shown when I try to execute an application from the browser</h2><p>This is commonly due to a permissions issue.<br />
+  Just check that the web server user has enough permissions to access to both the Lion framework and to your application files.</p></span>
+ <span><a name="q3"></a><h2>3. A 404 error is shown when I try to execute the index.html page</h2><p>Your web server is not redirecting requests properly to the index.php file.</p>
+  <p>For Apache users, the most common causes include:
+  <ul><li>The <strong>mod rewrite</strong> module is disable.</li>
+    <li>The AllowOverride directive is disabled.</li></ul></p>
+  <p>Take a look at <a href="../Lion/Installation/tutorial_Lion.SystemRequirements.pkg.html">System requirements</a> section.</p></span>
+ <span><a name="q4"></a><h2>4. I get a Javascript error on some tutorials, such as the &quot;Hello World Deluxe&quot;.</h2><p>There is a directive in your &quot;settings.ini&quot; file of your Application directory. Just make sure it is set to point to Lion's &quot;forms&quot; location.</p></span></div>
+      </td></tr></table>

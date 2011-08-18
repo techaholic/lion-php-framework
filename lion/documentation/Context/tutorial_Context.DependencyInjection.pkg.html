@@ -1,0 +1,532 @@
+<table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<div><a name=""></a><h1>Dependency Injection</h1>
+  <div class="ref-purpose"></div>
+ <div class="ref-synopsis"></div>
+<h2>Table of Contents</h2>
+<ul>
+
+<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#intro">Introduction</a><br />
+
+<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_container">The context container</a><br />
+
+<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_instances">Context instances</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_instances.context_instance_creation">Context instance creation</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_instances.context_instance_creation.via_constructor">Via constructor</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_instances.context_instance_creation.via_factory_method">Via factory method</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_instances.context_instance_creation.context_instance_factory">Via factory</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_instances.instance_identifiers">Instance identifiers</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_instances.instance_scopes">Instance scopes</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#context_instances.singleton_instances">Singleton instances</a><br />
+
+<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies">Dependencies</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.setter_injection">Setter based injection</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.setter_injection.via_setting_a_single_value">Via setting a single value</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.setter_injection.via_the_value_attribute">Via the value attribute</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.setter_injection.via_assigning_an_array">Via assigning an array</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.setter_injection.via_referencing_another_context_instance">Via assigning a hash</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.setter_injection.via_declaring_the_instance">Via declaring an instance</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.setter_injection.via_referencing_another_context_instance">Via referencing another context instance</a><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.setter_injection.via_ref_attribute">Via the ref attribute</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.constructor_injection">Constructor based injection</a><br />
+
+&nbsp;&nbsp;&nbsp;<a href="../Context/tutorial_Context.DependencyInjection.pkg.html#dependencies.null">The null value</a><br />
+</ul>
+
+ <p></p>
+ <span><a name="intro"></a><h2>Introduction</h2><p>One of the biggest issues in software systems nowadays is the management of dependencies between components. In many scenarios, software components need to know &quot;which&quot; components to communicate with, &quot;where&quot; to locate them, and &quot;how&quot; to communicate with them.</p> 
+   <p>It becomes a problem when the way such services can be accessed is changed, such changes can potentially require the source of lot of clients to be changed.<br />
+   i.e. if you have ever changed a constructor signature and realized that there are more like 20 different places where the constructor is called.</p>
+   <p>One way of structuring the code is to have the clients declare their dependency on services, and have some &quot;external&quot; piece of code assume the responsibility of locating and/or instantiating the services and simply supplying the relevant service references to the clients when needed. With this method, client code typically is not required to be changed when the way to locate an external dependency changes.<br />
+   This type of implementation is what's known as <strong>dependency injection</strong>, being one of the today's latest development craze.</p>
+   <p>This pattern is commonly associated to Java lightweight containers, enterprise programming and similar stuffs, but it's weird to think about PHP. However, the concept goes behind the technology.</p>
+   <p>Lion framework opens an efficient PHP implementation which is more like a port of one of the most notable implementations in top of Java: the Spring framework. The reason is really simple: It's a fact that Spring approach has been strongly accepted by the community due to several reasons, so, why do we have to reinvent the wheel?</p></span>
+ <span><a name="context_container"></a><h2>The context container</h2><p>Lion framework is organized by context containers, where each one represents a concrete application. At the very high level, a context is just a space where instances collaborate together without interfering with other contexts. i.e., a context manages his own session and cache, avoiding conflicts with other contexts running at the same time.</p>
+  <p>The context container is also the responsible of orchestrate the dependency injection process, being able to read the specification from a configuration file, delegating the instance's creation and dependency injection to other classes to finally managing instance life-cycles.</p>
+  <p>The easiest way to define instances and dependences is by declaring them into a XML configuration file, described shortly.</p></span>
+ <span><a name="context_instances"></a><h2>Context instances</h2><p><i>Context instance</i> is the name that receives an instance managed by a context container in Lion framework. If you are familiar with Spring framework, <i>context instance</i> is more like the <i>bean</i> concept.</p>
+  <p>Anyway, context instances are created by an special factory designed just for that purpose: The <a href="../Context/__InstanceFactory.html">__InstanceFactory</a>. The way to define instances and dependences is by ussing instance definition objects (<a href="../Context/__InstanceDefinition.html">__InstanceDefinition</a>). In fact, the context-instances configuration file is just translated in terms of instance definition objects by the context container.</p>
+  <p>Instance definitions provide the following information to the instance factory:</p>
+  <p><ul><li><strong>A class name</strong>: Commonly the class implementation of the context instance. However, it's allowed to define a factory method instead of using the constructor. In that case it will be the factory class name.</li>
+    <li><strong>Behavioral properties</strong>: How the context instance should behave in the context container (i.e. if it will be a prototype or a singleton, initialization and destruction methods, ...)</li>
+    <li><strong>Properties</strong>: A set of properties to setup the context instance once it's created. i.e. the database connection parameters such the host and port for a DAL instance.</li>
+    <li><strong>Dependences</strong>: Which others context instances need to be set to the actual instance.</li></ul></p>
+  <a name="context_instances.context_instance_creation"></a><h3>Context instance creation</h3><p>We have 3 ways to specify how to create a context instance:</p>
+    <a name="context_instances.context_instance_creation.via_constructor"></a><h4>Via constructor</h4><p>This is the most simple and common way to declare instances: by just providing the class name which we want to use to create the instance.</p>
+      <p>i.e.
+        <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;exampleInstance&quot;&nbsp;class=&quot;ExampleClass&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;anotherExample&quot;&nbsp;&nbsp;class=&quot;ExampleClassTwo&quot;/&gt;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+      <p>The context factory will create the instance by just calling the constructor, without delegating to other components for that purpose.</p>
+      <p>We are also able to specify which arguments to use when calling the constructor, as described later.</p><br />
+    <a name="context_instances.context_instance_creation.via_factory_method"></a><h4>Via factory method</h4><p>Less common but likewise usefull in certain scenaries: by providing not just the class name but an static method (a factory method) within the class.<br />
+      The instance factory will call the static method to obtain a new instance instead of calling directly to the constructor.</p>
+      <p>i.e.
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;exampleInstance&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class=&quot;ExampleClass&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-method=&quot;createInstance&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+      <p>Again, we are also able to specify which arguments to use when calling the factory method, as described later.</p><br />
+    <a name="context_instances.context_instance_creation.context_instance_factory"></a><h4>Via factory</h4><p>By ussing this way, we do not provide the class name but the factory class. Of course, a factory method is required for this scenary.</p>
+      <p>The instance factory will call the static method within the factory to obtain a new instance. Also note that there is an implicit dependence between the instance and the factory.</p>
+      <p>i.e.
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;The&nbsp;factory&nbsp;instance,&nbsp;which&nbsp;contains&nbsp;a&nbsp;method&nbsp;called</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;createInstance&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myFactoryInstance&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class=&quot;...&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;The&nbsp;instance&nbsp;to&nbsp;be&nbsp;created&nbsp;via&nbsp;the&nbsp;factory&nbsp;instance&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;exampleInstance&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-instance=&quot;myFactoryInstance&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory-method=&quot;createInstance&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+      <p>Again, we are also able to specify which arguments to use when calling the factory method, as described later.</p><br /><br />
+  <a name="context_instances.instance_identifiers"></a><h3>Instance identifiers</h3><p>Context instances are usually identified by an unique id within the context container the instance belong to. The id is commonly defined as a context-instance level attribute within the XML configuration.</p>
+    <p>This id will be usefull later to retrieve a concrete instance from the context container. For that purpose, the container exposes a method (getContextInstance).</p>
+    <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//retrieve&nbsp;an&nbsp;instance&nbsp;from&nbsp;the&nbsp;context&nbsp;container:</span></div></li>
+<li><div class="src-line"><span class="src-var">$my_instance&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Context/__ApplicationContext.html">__ApplicationContext</a></span><span class="src-sym">::</span><a href="../Context/__ApplicationContext.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">getContextInstance</span><span class="src-sym">(</span><span class="src-str">'exampleInstance'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></pre></div></p><br />
+  <a name="context_instances.instance_scopes"></a><h3>Instance scopes</h3><p>Defining instances is like creating recipes for creating instances of a class defined by that instance definition. The fact that an instance definition is a recipe means that we can have many objects created from a single recipe.</p>
+  <p>However, we can manage not just dependencies and setup configurations to be plugged in objects to be created from a concrete instance definition, but the scope of the objects that we're going to create. This is a very powerfull approach, giving us the flexibility to define an scope of the objects from the configuration versus having to develop it within our PHP code.<br />
+  Instances can be declared in one single scope: Lion Framework support four scopes:</p>
+  <p><ul><li><strong>singleton</strong> - Scopes a single instance definition to a single object instance per Context Container.</li>
+    <li><strong>prototype</strong> - Scopes a single instance definition to any number of object instances.</li>
+    <li><strong>request</strong> - Scopes a single instance definition to the lifecycle of a single HTTP request; that is each and every HTTP request will have its own instance of a instance created off the back of a single instance definition.</li>
+    <li><strong>session</strong> - Scopes a single instance definition to the lifecycle of a HTTP Session.</li></ul></p>
+  <p>i.e., if we have a resource (i.e. a PDO connection) which is not serializable into the session, we may want to declare it with scope=request.<br />
+  By default, instances have scope=session, which means that once they are created, they are stored into the session.</p><br />
+  <a name="context_instances.singleton_instances"></a><h3>Singleton instances</h3><p>The singleton pattern is extrapolated to context instances in the sense that we can declare if we want to get always the same instance (singleton) from the context container or a new one (prototype) every time we call the getContextInstance method.</p>
+    <p>By default, context instances are created in singleton mode, unless we specify otherwise.<br />
+    A non-singleton instance means that the context container will return a clone of the requested instance. Lion will manage the instance life-cycle in a different manner depending on that mode.</p>
+    <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;Prototype&nbsp;instance&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;exampleInstance&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class=&quot;ExampleInstance&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;singleton=&quot;false&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;Singleton&nbsp;instance&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;yetAnotherExample&quot;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class=&quot;ExampleInstanceTwo&quot;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;singleton=&quot;true&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+    In this example, a new prototype instance of ExampleInstance will be returned every time we call to get it, while the same ExampleInstanceTwo instance will be returned since it's defined as singleton. Again, by omiting this attribute, Lion will treat an instance in singleton mode.</p><br /></span>
+  <span><a name="dependencies"></a><h2>Dependencies</h2><p>As the basis of dependency injection, context instances just expose methods and properties waiting to be setted by the context container.<br />
+   In that sense, instances delegate the responsability of locating and/or instantiating the services they depend on to the context container.</p>
+   <p>The way to do that is by defining which constructor arguments, arguments to a factory method or properties need to be called in order to set to.<br />
+   The context container will <i>inject</i> those dependencies once it is able to do that. One of the context container big jobs is to resolve all the dependencies for all the instances before setting up them. This is how the inversion of control works</p>
+   <p>In lion, we have 2 ways to set dependencies: by passing them as constructor arguments or by calling setters</p>
+  <a name="dependencies.setter_injection"></a><h3>Setter based injection</h3><p>This way allow the context container to send all the collaborators to an instance by calling the setters of the dependant instance<br />
+    i.e., if we need to set a database connection to a DAO, we can define a setter based injection by exposing a setter to receive the connection as argument</p>
+    <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">class&nbsp;</span><span class="src-id">InvoiceDAO&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;variable&nbsp;represents&nbsp;our&nbsp;database&nbsp;connection.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_connection&nbsp;</span>=&nbsp;<span class="src-id">null</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Setter&nbsp;for&nbsp;connection:&nbsp;It&nbsp;will&nbsp;set&nbsp;the&nbsp;connection&nbsp;instance</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">setConnection</span><span class="src-sym">(</span><span class="src-id">DbConnection&nbsp;</span><span class="src-var">$connection</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_connection&nbsp;</span>=&nbsp;<span class="src-var">$connection</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div></p>
+    <p>Once we have define the way to inject dependencies via setter, we can declare dependencies in the XML format as following:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;connection&quot;&gt;&lt;ref&nbsp;id=&quot;localDbConnection&quot;/&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;localDbConnection&quot;&nbsp;class=&quot;DbConnection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbName&quot;&gt;&lt;value&gt;myDb&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbEngine&quot;&gt;&lt;value&gt;mysql&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbHost&quot;&gt;&lt;value&gt;localhost&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbUser&quot;&gt;&lt;value&gt;myUser&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbPassword&quot;&gt;&lt;value&gt;secret&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+    <p>In this example, we are setting our Dao connection property by setting the connection instance defined as localDbConnection.<br />
+    In the other hand, we are setting concrete values for the localDbConnection, to be concrete all the parameters to connect to our local database. Note the diference between setting a reference to another instance and defining values directly. In both cases, the context container will call to each setter once resolve dependencies of each one</p>
+    <p>Take a look at the following example to see different ways to establish dependencies via setters:</p>
+    <a name="dependencies.setter_injection.via_setting_a_single_value"></a><h4>Via setting a single value</h4><p>We're able to declare values directly to be set to properties:
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;via&nbsp;a&nbsp;single&nbsp;value&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;id&quot;&gt;&lt;value&gt;invoiceDao&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+      You can set whatever literal value to whatever public setter in a class. This allow us to configure values to setup our instances declarativelly.<br />
+      i.e., in our example, we have configured our connection instance with values to connect to our database.</p><br />
+    <a name="dependencies.setter_injection.via_the_value_attribute"></a><h4>Via the value attribute</h4><p>It's a short-cut of the previous case, by ussing the value attribute within the property.
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;via&nbsp;the&nbsp;value&nbsp;attribute&nbsp;(shortcut&nbsp;of&nbsp;value&nbsp;node)&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;id&quot;&nbsp;value=&quot;invoiceDao&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p><br />
+    <a name="dependencies.setter_injection.via_assigning_an_array"></a><h4>Via assigning an array</h4><p>Sometime, the way to set a property is by passing an array. So, Lion allow to declare arrays as properties as shown in the following example:
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;via&nbsp;an&nbsp;array&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;managedClasses&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;list&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&gt;&lt;value&gt;Invoice&lt;/value&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&gt;&lt;value&gt;InvoiceCollection&lt;/value&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&gt;&lt;value&gt;Customer&lt;/value&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/list&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p><br />
+    <a name="dependencies.setter_injection.via_referencing_another_context_instance"></a><h4>Via assigning a hash</h4><p>Similar to the previous case, but we can also set a key to each item by ussing the key attribute
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;errorHandler&quot;&nbsp;class=&quot;ErrorHandler&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;via&nbsp;a&nbsp;hash&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;exceptionClasses&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;list&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&nbsp;key=&quot;Model&quot;&gt;&lt;value&gt;ModelException&lt;/value&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&nbsp;key=&quot;Database&quot;&gt;&lt;value&gt;DatabaseException&lt;/value&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&nbsp;key=&quot;ORM&quot;&gt;&lt;value&gt;ORMException&lt;/value&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/list&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p><br />
+    <a name="dependencies.setter_injection.via_declaring_the_instance"></a><h4>Via declaring an instance</h4><p>We're able to declare a context instance as a property of another one as shown in the following example:
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;via&nbsp;defining&nbsp;the&nbsp;reference&nbsp;directly:&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;connection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;class=&quot;DbConnection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbName&quot;&gt;&lt;value&gt;myDb&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbEngine&quot;&gt;&lt;value&gt;mysql&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbHost&quot;&gt;&lt;value&gt;localhost&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbUser&quot;&gt;&lt;value&gt;myUser&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbPassword&quot;&gt;&lt;value&gt;secret&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+      In fact, this feature allow to be used recursivelly, meaning that you can establish whatever number of levels of instances contained inside other instances.</p><br />
+    <a name="dependencies.setter_injection.via_referencing_another_context_instance"></a><h4>Via referencing another context instance</h4><p>Continuing with the previous case, sometime we need to set the same context instance to more than one instance, i.e., an instance representing the connection to a database could be set to more than one DAO instance.<br />
+      For that purpose, there is a way to reference instances declared in our context as shown in the following example: 
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;via&nbsp;ref&nbsp;node&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;connection&quot;&gt;&lt;ref&nbsp;id=&quot;localDbConnection&quot;/&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;localDbConnection&quot;&nbsp;class=&quot;DbConnection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbName&quot;&gt;&lt;value&gt;myDb&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbEngine&quot;&gt;&lt;value&gt;mysql&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbHost&quot;&gt;&lt;value&gt;localhost&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbUser&quot;&gt;&lt;value&gt;myUser&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbPassword&quot;&gt;&lt;value&gt;secret&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+      In this example we have reference the <i>localDbConnection</i> instance to be set in the connection property of the <i>myContractorDao</i> instance.</p>
+      <p>In general, the usage of references is the most common and best way to declare dependencies between instances, because open the configuration to reference instances in more than one place while let the configuration more clear and readable.</p>
+      <p>In the other hand, you can reference instances as part of an array or a hash, let see in the following example:
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myDaoManager&quot;&nbsp;class=&quot;DaoManager&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;via&nbsp;a&nbsp;hash&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;daos&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;list&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&nbsp;key=&quot;Invoice&quot;&gt;&lt;ref&nbsp;id=&quot;invoiceDao&quot;/&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&nbsp;key=&quot;Company&quot;&gt;&lt;ref&nbsp;id=&quot;companyDao&quot;/&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entry&nbsp;key=&quot;Customer&quot;&gt;&lt;ref&nbsp;id=&quot;customerDao&quot;/&gt;&lt;/entry&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/list&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p><br />
+    <a name="dependencies.setter_injection.via_ref_attribute"></a><h4>Via the ref attribute</h4><p>It's a short-cut of the previous case, by ussing the ref attribute within the property:
+      <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;via&nbsp;ref&nbsp;attribute&nbsp;(shortcut&nbsp;of&nbsp;ref&nbsp;node)&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;connection&quot;&nbsp;ref=&quot;localDbConnection&quot;/&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p><br />
+    <p>As you can see, the are too many ways to define dependencies between instances.</p><br />
+  <a name="dependencies.constructor_injection"></a><h3>Constructor based injection</h3><p>This way allow the context container to send all the collaborators to an instance as constructor arguments<br />
+    i.e., if we need to set a database connection to a DAO, we can define a constructor based injection by exposing the connection as a constructor argument</p>
+    <p>i.e.
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">class&nbsp;</span><span class="src-id">InvoiceDAO&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;variable&nbsp;represents&nbsp;our&nbsp;database&nbsp;connection.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_connection&nbsp;</span>=&nbsp;<span class="src-id">null</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor&nbsp;method:&nbsp;It&nbsp;will&nbsp;require&nbsp;a&nbsp;connection&nbsp;instance</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">__construct</span><span class="src-sym">(</span><span class="src-id">DbConnection&nbsp;</span><span class="src-var">$connection</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_connection&nbsp;</span>=&nbsp;<span class="src-var">$connection</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div></p>
+    <p>Once we have define the way to inject dependencies via constructor, we can declare dependencies in the XML format as following:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&gt;&lt;ref&nbsp;id=&quot;localDbConnection&quot;/&gt;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;localDbConnection&quot;&nbsp;class=&quot;DbConnection&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbName&quot;&gt;&lt;value&gt;myDb&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbEngine&quot;&gt;&lt;value&gt;mysql&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbHost&quot;&gt;&lt;value&gt;localhost&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbUser&quot;&gt;&lt;value&gt;myUser&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;dbPassword&quot;&gt;&lt;value&gt;secret&lt;/value&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+    <p>In this example, we are defining which concrete DbConnection instance will be sent as parameter when building our ContractorDAO instance (identified as myContractorDao).</p>
+    <p>We can define dependencies as constructor argument in the same way as setters, being able the <i>constructor-arg</i> node to accept same formats as the property node.<br />
+    Maybe a different is that we are able to establish the order in which arguments are passed when calling the constructor. i.e.:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">class&nbsp;</span><span class="src-id">InvoiceDAO&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;variable&nbsp;represents&nbsp;our&nbsp;database&nbsp;connection.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_connection&nbsp;</span>=&nbsp;<span class="src-id">null</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_persistence_engine&nbsp;</span>=&nbsp;<span class="src-id">null</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor&nbsp;method:&nbsp;It&nbsp;will&nbsp;require&nbsp;a&nbsp;connection&nbsp;instance</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">__construct</span><span class="src-sym">(</span><span class="src-id">DbConnection&nbsp;</span><span class="src-var">$connection</span><span class="src-sym">,&nbsp;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$persistence_engine</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_connection&nbsp;</span>=&nbsp;<span class="src-var">$connection</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_persistence_engine&nbsp;</span>=&nbsp;<span class="src-var">$persistence_engine</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+</ol></pre></div>
+    In this example, we are expossing 2 arguments for the constructor: The connection instance and the persistence engine as the second one.<br />
+    Our configuration file could be like the following one:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&nbsp;index=&quot;0&quot;&gt;&lt;ref&nbsp;id=&quot;localDbConnection&quot;/&gt;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg&nbsp;index=&quot;1&quot;&gt;&lt;ref&nbsp;id=&quot;doctrine&quot;/&gt;&lt;/constructor-arg&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div></p>
+    <p>However, the order the constructor arguments are defined is the one they'll be sent to the constructor in case the index attribute is not present</p><br />
+  <a name="dependencies.null"></a><h3>The null value</h3><p>Sometime, we need to initialize properties by passing null. To do that, we can use the <strong>null</strong> node as shown in the following example:
+    <div class="listing"><pre><ol><li><div class="src-line"><span class="src-php">&lt;?</span><span class="src-id">xml&nbsp;version&nbsp;</span>=&nbsp;<span class="src-str">&quot;1.0&quot;&nbsp;</span><span class="src-id">standalone</span>=<span class="src-str">&quot;yes&quot;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;configuration&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;context-instance&nbsp;id=&quot;myInvoiceDao&quot;&nbsp;class=&quot;InvoiceDAO&quot;&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;do&nbsp;not&nbsp;use&nbsp;any&nbsp;database&nbsp;engine&nbsp;by&nbsp;default&nbsp;--&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name=&quot;defaultDbEngine&quot;&gt;&lt;null/&gt;&lt;/property&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/context-instance&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&lt;/context-instances&gt;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line">&lt;/configuration&gt;</div></li>
+</ol></pre></div>
+    In this example, a new prototype instance of ExampleInstance will be returned every time we call to get it, while the same ExampleInstanceTwo instance will be returned since it's defined as singleton. Again, by omiting this attribute, Lion will treat an instance in singleton mode.</p><br /></span></div>
+      </td></tr></table>
