@@ -1,15 +1,23 @@
 <?xml version = "1.0" standalone="yes"?>
 
 <configuration>
-
-  <routes>
-
-    <!-- Index route -->
-    <route id="index" uri-pattern="\/$">
-      <front-controller class="__HttpFrontController"/>
-      <action controller="index" code="default"/>
-    </route>    
-    
-  </routes>
-
+	<routes>
+		<!-- main route -->
+		<route id="main" uri-pattern="^\/$controller\/$action(\/)?$">
+			<front-controller class="__HttpFrontController" />
+			<action controller="$controller" code="$action" />
+			<variable name="$controller" var-pattern="^[_a-zA-Z0-9]+$" />
+			<variable name="$action" var-pattern="^[_a-zA-Z0-9]+$" />
+		</route>
+		<route id="main" uri-pattern="^\/$controller(\/)?$">
+			<front-controller class="__HttpFrontController" />
+			<action controller="$controller" code="default" />
+			<variable name="$controller" var-pattern="^[_a-zA-Z0-9]+$" />
+		</route>
+		<!-- index route -->
+		<route id="index" uri-pattern="\/$">
+			<front-controller class="__HttpFrontController"/>
+			<action controller="index" code="default"/>
+		</route>
+	</routes>
 </configuration>
