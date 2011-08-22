@@ -138,5 +138,5 @@ abstract class __LionException extends Exception
     public function getErrorMessageParameters() {
         return $this->_error_message_parameters;
     }
-    
+
 }
