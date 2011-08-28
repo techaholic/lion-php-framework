@@ -36,18 +36,15 @@ abstract class __StreamWrapper {
 
     protected $_stream_storage = null;
         
-    public function stream_open($path, $mode, $options, $opened_dir )
-    {
-        $return_value = true; //by default
+    public function stream_open($path, $mode, $options, $opened_dir) {
         $this->_stream_storage =& $this->_createStreamStorage($path);
-        if( $this->_stream_storage instanceof __StreamStorage ) {
+        if ($this->_stream_storage instanceof __StreamStorage) {
             $this->_stream_storage->open($mode);
         }
         else {
-            $return_value = false;
             throw new __StreamException("Unable to create an stream storage for path: '" . $path . "'");
         }
-        return $return_value;
+        return TRUE;
     }
 
     public function stream_read($length)
@@ -106,3 +103,4 @@ abstract class __StreamWrapper {
     abstract protected function &_createStreamStorage($path);
 
 }
+?>
