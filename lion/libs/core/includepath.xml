@@ -27,7 +27,12 @@
   <!-- History classes -->
   <cluster name="History" path="/libs/history">
     <class name="__*" file="*.class.php"/>
-  </cluster>  
+  </cluster>
+  <!-- Database classes -->
+  <cluster name="Database" path="/libs/database/...">
+    <interface name="__*" file="*.interface.php"/>
+    <class name="__*"     file="*.class.php"/>
+  </cluster>
   <!-- Model classes -->
   <cluster name="MVC" path="/libs/mvc/...">
     <interface name="__*" file="*.interface.php"/>
