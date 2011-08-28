@@ -46,20 +46,19 @@ class __FileResolver {
      * @param string $expression
      * @return array Files matching the expression
      */
-    static public function resolveFiles($expression) {
-        $return_value = array();
-        $filepattern = basename($expression);
+    public static function resolveFiles($expression) {
+        $file_pattern = basename($expression);
         $ellipse_position = strpos($expression, '...');
         if($ellipse_position !== false) {
             $basedir = substr($expression, 0, $ellipse_position);
             $basedir = rtrim($basedir, DIRECTORY_SEPARATOR);
-            $return_value = self::getFilesMatchingPattern($filepattern, $basedir, true);
+            $return_value = self::getFilesMatchingPattern($file_pattern, $basedir, true);
         }
         else {
             $basedir = dirname($expression);
             $wildcard_position = strpos($expression, '*');
             if($wildcard_position !== false) {
-                $return_value = self::getFilesMatchingPattern($filepattern, $basedir, false);
+                $return_value = self::getFilesMatchingPattern($file_pattern, $basedir, false);
             }
             else {
                 $return_value = array($expression);
@@ -76,7 +75,7 @@ class __FileResolver {
      * @param boolean $recursively
      * @return array An array of files matching the given pattern
      */
-    static public function getFilesMatchingPattern($file_pattern, $current_dir, $recursively = true) {
+    public static function getFilesMatchingPattern($file_pattern, $current_dir, $recursively = true) {
         $return_value = array();
         if(is_readable($current_dir) && is_dir($current_dir)) {
             $dir = dir($current_dir);
@@ -99,7 +98,8 @@ class __FileResolver {
         else {
             throw new Exception('The directory ' . $current_dir . ' specified in the includepath does not exists or is not readable.');
         }
-        return $return_value;        
-    }    
+        return $return_value;
+    }
+
 }
-    
+?>
