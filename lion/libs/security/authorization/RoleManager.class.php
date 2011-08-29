@@ -86,7 +86,7 @@ final class __RoleManager {
      * Get if a role with the specified role id exists or not
      *
      * @param string $role_id The role id
-     * @return bool true if there is any role with the specified roile id
+     * @return bool true if there is any role with the specified role id
      */
     public function hasRole($role_id) {
         $role_id = strtoupper($role_id);

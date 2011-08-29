@@ -93,9 +93,9 @@ class __EventDispatcher {
     }
     
     /**
-     * This method unregister a observer. Nexts events won't be notified to unregister observer
+     * This method unregister a observer. Next events won't be notified to unregister observer
      *
-     * @param __EventListener $event_listener The {@link __EventListener} to be unregisstered
+     * @param __EventListener $event_listener The {@link __EventListener} to be unregistered
      */
     static public function unregisterEventListener(__EventListener &$event_listener) {
         $event_type = $event_listener->getEventToListen();

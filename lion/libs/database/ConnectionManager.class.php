@@ -48,10 +48,10 @@ class __ConnectionManager {
 	}
 
     /**
-     * This function returns a list of sources.
+     * This function returns a list of data sources.
      *
      * @access public
-     * @return array                            a list of sources
+     * @return array                            a list of data sources
      */
 	public function get_data_source_list() {
 		$xpath = "/configuration/connections/connection/@id";
