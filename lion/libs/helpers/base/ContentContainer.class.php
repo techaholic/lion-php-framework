@@ -103,7 +103,12 @@ class __ContentContainer {
             }
         }
     }    
-    
+
+	public function setContent($content, $id = null) {
+		$this->clearContent($id);
+		$this->addContent($content, $id);
+	}
+
     protected function _getStringRepresentation($content) {
         if(is_string($content)) {
             return $content;
@@ -191,3 +196,4 @@ class __ContentContainer {
     }    
     
 }
+?>
