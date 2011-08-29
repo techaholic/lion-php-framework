@@ -43,9 +43,12 @@ interface __IContentContainer {
     public function dockContentAtBottom($content, $id = null);
     
     public function addContent($content, $id = null, $after_content_id = null);
-    
+
+	public function setContent($content, $id = null);
+
     public function clearContent($id = null);
     
     public function getContent();
     
 }
+?>

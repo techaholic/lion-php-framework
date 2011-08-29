@@ -91,7 +91,7 @@ class __EventListener {
     }
 
     /**
-     * This method returns the list of events that current __EventListener is suscribed for.
+     * This method returns the list of events that current __EventListener is subscribed for.
      *
      * @return array
      */
